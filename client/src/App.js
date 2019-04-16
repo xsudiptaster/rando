@@ -60,7 +60,7 @@ class App extends Component {
 
       </td>
       <td>
-        <input type="button" value="Login"></input>
+        <input type="button" value="Login" onClick={this.handlelogin()}></input>
       </td>
     </tr>
     </table>    
