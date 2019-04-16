@@ -37,8 +37,8 @@ app.post('/api/logintosalesforce', function (req, res) {
   res.json(sessionreceived);
   
   console.log(`Sent ${count} passwords`);*/ 
-  res.set('Content-Type', 'text/plain')
-  res.send('You sent:  to Express'+reqobj.username)
+  res.set('Content-Type', 'text/json')
+  res.send(reqobj)
 })
 
 // The "catchall" handler: for any request that doesn't
