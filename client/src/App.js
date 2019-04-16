@@ -36,6 +36,22 @@ class App extends Component {
         </select>
       </td>
     </tr>
+    <tr>
+      <td>
+        Username
+      </td>
+      <td>
+        <input type="text" />
+        </td>
+    </tr>
+    <tr>
+      <td>
+        Password
+      </td>
+      <td>
+        <input type="text" />
+        </td>
+    </tr>
     </table>    
     </div>
     );
