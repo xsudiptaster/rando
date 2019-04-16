@@ -29,9 +29,8 @@ app.get('/api/passwords', (req, res) => {
 //app.use(express.json());
 // Put all API endpoints under '/api'
 app.post('/api/logintosalesforce', (req, res) => {
-  console.log('Login POst called');
-  console.log('Thereqbody',req.body);
- /* var reqobj=req.body.json();
+  console.log('Login POst called', req);
+/* var reqobj=req.body.json();
   var jsobj= jsforce.Connection();
   jsobj.loginUrl= req.loginUrl;
   sessionreceived= jsobj.login(req.username,req.password);
