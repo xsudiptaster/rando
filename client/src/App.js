@@ -19,9 +19,25 @@ class App extends Component {
   passwordrender(){
     const { passwords } = this.state;
     return (
-    <div >
-        Hello I am here
-      </div>
+    <div className="App">
+    <table>
+    <tr>
+      <td>
+        Please Select the Org.
+      </td>
+      <td>
+        <select >
+          <option value="sandbox">
+            Sandbox
+          </option>
+          <option value="production">
+            Production
+          </option>
+        </select>
+      </td>
+    </tr>
+    </table>    
+    </div>
     );
   }
   render() {
