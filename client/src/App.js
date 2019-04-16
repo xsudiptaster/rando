@@ -57,7 +57,7 @@ class App extends Component {
 
       </td>
       <td>
-        <input type="button" >Login</input>
+        <input type="button" value="Login"></input>
       </td>
     </tr>
     </table>    
