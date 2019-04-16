@@ -38,18 +38,18 @@ class App extends Component {
     </tr>
     <tr>
       <td>
-        Username
+        Username: 
       </td>
       <td>
-        <input type="text" />
+        <input type="text" ></input>
         </td>
     </tr>
     <tr>
       <td>
-        Password
+        Password : 
       </td>
       <td>
-        <input type="text" />
+        <input type="text" ></input>
         </td>
     </tr>
     </table>    
