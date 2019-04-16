@@ -19,7 +19,7 @@ class App extends Component {
   passwordrender(){
     const { passwords } = this.state;
     return (
-    <div className="App">
+    <div >
         Hello I am here
       </div>
     );
