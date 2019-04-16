@@ -49,6 +49,7 @@ class App extends Component {
               onClick={this.getPasswords}>
               Get More
             </button>
+            hello
           </div>
         ) : (
           // Render a helpful message otherwise
@@ -59,9 +60,6 @@ class App extends Component {
               onClick={this.getPasswords}>
               Try Again?
             </button>
-            <div>
-               Hello Account  
-            </div>
           </div>
         )}
       </div>
