@@ -3,7 +3,7 @@ import './App.css';
 
 class App extends Component {
   // Initialize state
-  state = { passwords: [] }
+  state = { passwords: [], username : '', password : '' }
 
   // Fetch passwords after first mount
   componentDidMount() {
@@ -15,6 +15,9 @@ class App extends Component {
     fetch('/api/passwords')
       .then(res => res.json())
       .then(passwords => this.setState({ passwords }));
+  }
+  handlelogin = () => {
+      console.log('The username',this.state);
   }
   loginpagerender(){
     const { passwords } = this.state;
@@ -41,7 +44,7 @@ class App extends Component {
         Username: 
       </td>
       <td>
-        <input type="text" ></input>
+        <input type="text" value={this.state.username} ></input>
         </td>
     </tr>
     <tr>
@@ -49,7 +52,7 @@ class App extends Component {
         Password : 
       </td>
       <td>
-        <input type="text" ></input>
+        <input type="text" value={this.state.password} ></input>
         </td>
     </tr>
     <tr>
