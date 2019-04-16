@@ -28,9 +28,9 @@ app.get('/api/passwords', (req, res) => {
 // Parse JSON bodies (as sent by API clients)
 //app.use(express.json());
 // Put all API endpoints under '/api'
-app.post('/api/logintosalesforce', (req, res) => {
-  console.log('Login POst called', req);
-/* var reqobj=req.body.json();
+app.post('/api/logintosalesforce', function (req, res) {
+  const body = req.body
+  /* var reqobj=req.body.json();
   var jsobj= jsforce.Connection();
   jsobj.loginUrl= req.loginUrl;
   sessionreceived= jsobj.login(req.username,req.password);
@@ -38,9 +38,9 @@ app.post('/api/logintosalesforce', (req, res) => {
   res.json(sessionreceived);
   
   console.log(`Sent ${count} passwords`);*/ 
-
-  res.json({bye:'bye'});
-});
+  res.set('Content-Type', 'text/plain')
+  res.send(`You sent: ${body} to Express`)
+})
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
