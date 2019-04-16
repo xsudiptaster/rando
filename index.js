@@ -28,7 +28,7 @@ app.get('/api/passwords', (req, res) => {
 // Parse JSON bodies (as sent by API clients)
 //app.use(express.json());
 // Put all API endpoints under '/api'
-app.post('/api/logintosalesforce', (req, res) => {
+app.get('/api/logintosalesforce', (req, res) => {
   console.log('Login POst called');
   console.log('Thereqbody',req.body);
   var reqobj=req.body.json();
