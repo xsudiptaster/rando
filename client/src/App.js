@@ -31,9 +31,11 @@ class App extends Component {
     this.setState({loginurl: event.target.value})
   }
   handlelogin = () => {
-    console.log('Called on load');
+    console.log('Called on load',this.state);
     // Get the session and store them in state
-    axios.post('/api/logintosalesforce', {hello: 'Hello'})
+    axios.post('/api/logintosalesforce', {username: this.state.username ,
+      password : this.state.password ,
+      loginUrl : this.state.loginurl})
     .then(function (response) {
         console.log("success!");
         console.log(response);
