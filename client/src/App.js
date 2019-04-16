@@ -32,8 +32,14 @@ class App extends Component {
   }
   handlelogin = () => {
     console.log('Called on load');
+    fetch('/api/logintosalesforce', {
+      method: 'post',
+      headers: {'Content-Type':'application/json'},
+      body:this.state
+    }).then(res => res.json())
+    .then(console.log(res));;
     // Get the session and store them in state
-    axios.post('/api/logintosalesforce', 
+   /* axios.post('/api/logintosalesforce', 
         this.state
     )
     .then(function (response) {
@@ -42,7 +48,7 @@ class App extends Component {
     })
     .catch(function (error) {
         console.log(error);
-    });
+    });*/
   }
   loginpagerender(){
     const { passwords } = this.state;
