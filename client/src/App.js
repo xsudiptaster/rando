@@ -16,6 +16,12 @@ class App extends Component {
       .then(res => res.json())
       .then(passwords => this.setState({ passwords }));
   }
+  handleUsernameChange(event) {
+    this.setState({username: event.target.value})
+  }
+  handlePasswordChange(event) {
+    this.setState({password: event.target.value})
+  }
   handlelogin = () => {
       console.log('The username',this.state);
   }
@@ -44,7 +50,7 @@ class App extends Component {
         Username: 
       </td>
       <td>
-        <input type="text" ></input>
+        <input type="text" value={this.state.username} onChange={this.handleUsernameChange(this)} ></input>
         </td>
     </tr>
     <tr>
@@ -52,7 +58,7 @@ class App extends Component {
         Password : 
       </td>
       <td>
-        <input type="text"  ></input>
+        <input type="text" value={this.state.password} onChange={this.handlePasswordChange(this)}></input>
         </td>
     </tr>
     <tr>
