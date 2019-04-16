@@ -60,7 +60,7 @@ class App extends Component {
   }
   loginscreen(){
     return(
-    <div>
+    <div className="App">
       <table>
         <tr>
           <td>
