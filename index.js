@@ -29,8 +29,8 @@ app.get('/api/passwords', (req, res) => {
 //app.use(express.json());
 // Put all API endpoints under '/api'
 app.post('/api/logintosalesforce', function (req, res) {
-  /* var reqobj=req.body.json();
-  var jsobj= jsforce.Connection();
+   var reqobj=req.json();
+ /* var jsobj= jsforce.Connection();
   jsobj.loginUrl= req.loginUrl;
   sessionreceived= jsobj.login(req.username,req.password);
   // Return them as json
@@ -38,7 +38,7 @@ app.post('/api/logintosalesforce', function (req, res) {
   
   console.log(`Sent ${count} passwords`);*/ 
   res.set('Content-Type', 'text/plain')
-  res.send('You sent:  to Express'+req)
+  res.send('You sent:  to Express'+reqobj.username)
 })
 
 // The "catchall" handler: for any request that doesn't
