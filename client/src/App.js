@@ -21,7 +21,12 @@ class App extends Component {
     const { passwords } = this.state;
 
     return (
-      <div className="App">
+      this.passwordrender()
+      );
+  }
+
+  passwordrender(){
+    <div className="App">
         {/* Render the passwords if we have them */}
         {passwords.length ? (
           <div>
@@ -60,7 +65,7 @@ class App extends Component {
           </div>
         )}
       </div>
-    );
+    
   }
 }
 
