@@ -7,7 +7,7 @@ class App extends Component {
 
   // Fetch passwords after first mount
   componentDidMount() {
-    this.getPasswords();
+    //this.getPasswords();
   }
 
   getPasswords = () => {
@@ -58,48 +58,7 @@ class App extends Component {
       </div>
     );
   }
-  loginpagescreen(){
-    return(
-    <div className="App">
-      <table>
-        <tr>
-          <td>
-            Please Select the Org
-          </td>
-          <td>
-            <select>
-              <option value="sandbox">Sandbox</option>
-              <option value="production">Production</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Username
-          </td>
-          <td>
-            <input type="text" ></input>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Password
-          </td>
-          <td>
-            <input type="text" ></input>
-          </td>
-        </tr>
-        <tr>
-          <td>
-
-          </td>
-          <td>
-            <input type="button">Login</input>
-          </td>
-        </tr>
-      </table>
-    </div>);
-  }
+  
   render() {
     return (
       this.passwordrender()
