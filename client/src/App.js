@@ -58,7 +58,7 @@ class App extends Component {
       </div>
     );
   }
-  loginscreen(){
+  loginpagescreen(){
     return(
     <div className="App">
       <table>
@@ -102,7 +102,7 @@ class App extends Component {
   }
   render() {
     return (
-      this.loginscreen()
+      this.loginpagescreen()
       );
   }
 
