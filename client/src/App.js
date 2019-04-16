@@ -3,7 +3,7 @@ import './App.css';
 
 class App extends Component {
   // Initialize state
-  state = { passwords: [], username : '', password : '' }
+  state = { passwords: [], username : '', password : '',sessiontok :'' }
 
   // Fetch passwords after first mount
   componentDidMount() {
@@ -23,6 +23,10 @@ class App extends Component {
     this.setState({password: event.target.value})
   }
   handlelogin = () => {
+    // Get the passwords and store them in state
+    fetch('/api/logintosalesforce')
+      .then(res => this.state.json())
+      .then(passwords => this.setState({ sessiontok }));
       console.log('The username',this.state);
   }
   loginpagerender(){

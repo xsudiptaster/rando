@@ -23,6 +23,16 @@ app.get('/api/passwords', (req, res) => {
   console.log(`Sent ${count} passwords`);
 });
 
+// Put all API endpoints under '/api'
+app.get('/api/logintosalesforce', (req, res) => {
+  var sessionreceived= jsforce.Connection(req.username,req.password);
+
+  // Return them as json
+  res.json(sessionreceived);
+
+  console.log(`Sent ${count} passwords`);
+});
+
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
