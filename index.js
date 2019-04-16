@@ -38,7 +38,7 @@ app.post('/api/logintosalesforce', function (req, res) {
   res.json(sessionreceived);
   
   console.log(`Sent ${count} passwords`);*/ 
-  res.set('Content-Type', 'text/json')
+  //res.set('Content-Type', 'text/json')
   res.json(reqobj)
 })
 
