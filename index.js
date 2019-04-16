@@ -23,10 +23,10 @@ app.get('/api/passwords', (req, res) => {
   console.log(`Sent ${count} passwords`);
 });
 // Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded());
+//app.use(express.urlencoded());
 
 // Parse JSON bodies (as sent by API clients)
-app.use(express.json());
+//app.use(express.json());
 // Put all API endpoints under '/api'
 app.post('/api/logintosalesforce', (req, res) => {
   console.log('Login POst called');
