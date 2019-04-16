@@ -44,7 +44,7 @@ class App extends Component {
         Username: 
       </td>
       <td>
-        <input type="text" value={this.state.username} ></input>
+        <input type="text" ></input>
         </td>
     </tr>
     <tr>
@@ -52,7 +52,7 @@ class App extends Component {
         Password : 
       </td>
       <td>
-        <input type="text" value={this.state.password} ></input>
+        <input type="text"  ></input>
         </td>
     </tr>
     <tr>
