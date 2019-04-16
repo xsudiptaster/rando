@@ -18,14 +18,13 @@ class App extends Component {
   }
 
   render() {
-    const { passwords } = this.state;
-
     return (
       this.passwordrender()
       );
   }
 
   passwordrender(){
+    const { passwords } = this.state;
     return (
     <div className="App">
         {/* Render the passwords if we have them */}
