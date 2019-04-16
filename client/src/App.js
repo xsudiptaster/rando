@@ -3,7 +3,11 @@ import './App.css';
 
 class App extends Component {
   // Initialize state
-  state = { passwords: [], username : '', password : '',sessiontok :'' }
+  state = { passwords: [],
+          username : '',
+          password : '',
+          sessiontok :'',
+          loginurl:'' }
 
   // Fetch passwords after first mount
   componentDidMount() {
@@ -22,6 +26,9 @@ class App extends Component {
   handlePasswordChange(event) {
     this.setState({password: event.target.value})
   }
+  handleSelectChange(event) {
+    this.setState({loginurl: event.target.value})
+  }
   handlelogin = () => {
     // Get the passwords and store them in state
     fetch('/api/logintosalesforce')
@@ -39,11 +46,11 @@ class App extends Component {
         Please Select the Org.
       </td>
       <td>
-        <select >
-          <option value="sandbox">
+        <select selectedvalue={this.state.loginurl} onChange={this.handleSelectChange.bind(this)} >
+          <option value="https://test.salesforce.com">
             Sandbox
           </option>
-          <option value="production">
+          <option value="https://login.salesforce.com">
             Production
           </option>
         </select>
