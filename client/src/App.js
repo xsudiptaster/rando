@@ -37,7 +37,7 @@ class App extends Component {
       headers: {'Content-Type':'application/json'},
       body:this.state
     }).then(res => res.json())
-    .then(console.log(res));;
+    .then();;
     // Get the session and store them in state
    /* axios.post('/api/logintosalesforce', 
         this.state
