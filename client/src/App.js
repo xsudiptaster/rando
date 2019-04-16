@@ -16,13 +16,6 @@ class App extends Component {
       .then(res => res.json())
       .then(passwords => this.setState({ passwords }));
   }
-
-  render() {
-    return (
-      this.passwordrender()
-      );
-  }
-
   passwordrender(){
     const { passwords } = this.state;
     return (
@@ -65,6 +58,13 @@ class App extends Component {
       </div>
     );
   }
+  render() {
+    return (
+      this.passwordrender()
+      );
+  }
+
+  
 }
 
 export default App;
