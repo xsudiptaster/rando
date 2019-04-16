@@ -28,17 +28,19 @@ app.get('/api/passwords', (req, res) => {
 // Parse JSON bodies (as sent by API clients)
 //app.use(express.json());
 // Put all API endpoints under '/api'
-app.get('/api/logintosalesforce', (req, res) => {
+app.post('/api/logintosalesforce', (req, res) => {
   console.log('Login POst called');
   console.log('Thereqbody',req.body);
-  var reqobj=req.body.json();
+ /* var reqobj=req.body.json();
   var jsobj= jsforce.Connection();
   jsobj.loginUrl= req.loginUrl;
   sessionreceived= jsobj.login(req.username,req.password);
   // Return them as json
   res.json(sessionreceived);
+  
+  console.log(`Sent ${count} passwords`);*/ 
 
-  console.log(`Sent ${count} passwords`);
+  res.json({bye:'bye'});
 });
 
 // The "catchall" handler: for any request that doesn't
