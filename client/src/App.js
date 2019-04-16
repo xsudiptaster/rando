@@ -50,7 +50,7 @@ class App extends Component {
         Username: 
       </td>
       <td>
-        <input type="text" value={this.state.username} onChange={this.handleUsernameChange(this)} ></input>
+        <input type="text" value={this.state.username} onChange={this.handleUsernameChange.bind(this)} ></input>
         </td>
     </tr>
     <tr>
@@ -58,7 +58,7 @@ class App extends Component {
         Password : 
       </td>
       <td>
-        <input type="text" value={this.state.password} onChange={this.handlePasswordChange(this)}></input>
+        <input type="text" value={this.state.password} onChange={this.handlePasswordChange.bind(this)}></input>
         </td>
     </tr>
     <tr>
