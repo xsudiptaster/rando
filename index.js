@@ -5,11 +5,9 @@ const generatePassword = require('password-generator');
 
 const app = express();
 
-// Parse URL-encoded bodies (as sent by HTML forms)
-app.use(express.urlencoded());
 
-// Parse JSON bodies (as sent by API clients)
-app.use(express.json());
+
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
