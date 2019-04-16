@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios'
 
 class App extends Component {
   // Initialize state
@@ -31,10 +32,16 @@ class App extends Component {
   }
   handlelogin = () => {
     // Get the passwords and store them in state
-    fetch('/api/logintosalesforce')
-      .then(res => this.state.json())
-      .then(passwords => this.setState({ sessiontok }));
-      console.log('The username',this.state);
+    axios.post('/api/logintosalesforce', 
+        this.state
+    )
+    .then(function (response) {
+        console.log("success!");
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
   }
   loginpagerender(){
     const { passwords } = this.state;
