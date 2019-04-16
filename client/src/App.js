@@ -16,7 +16,7 @@ class App extends Component {
       .then(res => res.json())
       .then(passwords => this.setState({ passwords }));
   }
-  passwordrender(){
+  loginpagerender(){
     const { passwords } = this.state;
     return (
     <div className="App">
@@ -66,7 +66,7 @@ class App extends Component {
   }
   render() {
     return (
-      this.passwordrender()
+      this.loginpagerender()
       );
   }  
 }
