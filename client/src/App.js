@@ -26,6 +26,7 @@ class App extends Component {
   }
 
   passwordrender(){
+    return (
     <div className="App">
         {/* Render the passwords if we have them */}
         {passwords.length ? (
@@ -63,7 +64,7 @@ class App extends Component {
           </div>
         )}
       </div>
-    
+    );
   }
 }
 
