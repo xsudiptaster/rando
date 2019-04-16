@@ -34,7 +34,7 @@ app.post('/api/logintosalesforce', function (req, res) {
   // Return them as json
   res.json(sessionreceived);
   console.log(`Sent ${count} passwords`);*/ 
-  res.json('Hello this is response'+req);
+  res.json('Hello this is response'+req.username);
 })
 
 // The "catchall" handler: for any request that doesn't
