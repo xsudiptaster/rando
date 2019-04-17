@@ -114,6 +114,7 @@ class App extends Component {
           </span>
         </div>
         <div class="slds-col" />
+        <span>asd</span>
       </div>
     );
   }
@@ -165,8 +166,8 @@ class App extends Component {
   }
   render() {
     return (
-      this.pageheader(),
-      this.loginpagerender()
+      {this.pageheader()},
+      {this.loginpagerender()}
       );
   }
 }
