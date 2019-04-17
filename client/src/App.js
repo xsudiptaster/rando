@@ -15,7 +15,7 @@ class App extends Component {
 
   // Fetch passwords after first mount
   componentDidMount() {
-  this.state.loginurl="https://test.salesforce.com"  
+    this.state.loginurl = "https://test.salesforce.com";
   }
   handleUsernameChange(event) {
     this.setState({ username: event.target.value });
@@ -46,8 +46,9 @@ class App extends Component {
   loginpagerender() {
     const { passwords } = this.state;
     return (
-      <div class="slds-grid slds-gutters">
-        <div class="slds-col">
+      
+      <div className="slds-grid slds-gutters">
+        <div className="slds-col">
           <span />
         </div>
         <div class="slds-col">
@@ -57,7 +58,7 @@ class App extends Component {
                 <tr>
                   <td>
                     <div className="slds-text-heading_large">
-                      Please Select the Org: 
+                      Please Select the Org:
                     </div>
                   </td>
                   <td>
@@ -112,14 +113,61 @@ class App extends Component {
             </div>
           </span>
         </div>
-        <div class="slds-col">
-          <span>Bye</span>
+        <div class="slds-col" />
+      </div>
+    );
+  }
+  pageheader() {
+    return (
+      <div class="slds-page-header">
+        <div class="slds-page-header__row">
+          <div class="slds-page-header__col-title">
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <span
+                  class="slds-icon_container slds-icon-standard-opportunity"
+                  title="opportunity"
+                >
+                  <svg
+                    class="slds-icon slds-page-header__icon"
+                    aria-hidden="true"
+                  >
+                    <use
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"
+                    />
+                  </svg>
+                  <span class="slds-assistive-text">opportunity</span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <div class="slds-page-header__name">
+                  <div class="slds-page-header__name-title">
+                    <h1>
+                      <span
+                        class="slds-page-header__title slds-truncate"
+                        title="Rohde Corp - 80,000 Widgets"
+                      >
+                        Rohde Corp - 80,000 Widgets
+                      </span>
+                    </h1>
+                  </div>
+                </div>
+                <p class="slds-page-header__name-meta">
+                  Mark Jaeckal • Unlimited Customer • 11/13/15
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
   render() {
-    return this.loginpagerender();
+    return (
+      this.pageheader(),
+      this.loginpagerender()
+      );
   }
 }
 export default App;
