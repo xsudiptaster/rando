@@ -53,7 +53,7 @@ class App extends Component {
   loginpagerender() {
     const { passwords } = this.state;
     console.log('the Session AVl',this.state.sessiontok);
-    if (this.state.sessiontok!='')
+    if (this.state.sessiontok=='' )
     {
       return(
       <div className="slds-grid slds-gutters">
