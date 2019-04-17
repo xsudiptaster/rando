@@ -44,7 +44,6 @@ class App extends Component {
       });
   };
   loginpagerender() {
-   
     return (
       <div classname="slds-grid slds-gutters">
         <div classname="slds-col">
