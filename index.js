@@ -32,9 +32,12 @@ app.get('/api/passwords', (req, res) => {
 app.post('/api/logintosalesforce', function (req, res) {
   var jsobj= jsforce.Connection({loginUrl: req.body.loginUrl});
   console.log('Jsforce object',jsobj);
-  sessionreceived= jsobj.login(req.body.username,req.body.password);
+  jsobj.login(req.body.username,req.body.password,function(err,userinfo){
+    if (err) { return console.error(err); }
+    res.json(jsobj);
+  } );
   // Return them as json
-  res.json(sessionreceived);
+  
 })
 
 // The "catchall" handler: for any request that doesn't
