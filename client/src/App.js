@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
 
+
 class App extends Component {
+  super(props);
   // Initialize state
   state = { passwords: [],
           username : '',
@@ -47,7 +49,7 @@ class App extends Component {
   loginpagerender(){
     const { passwords } = this.state;
     return (
-    <div className="App">
+    <div className="slds-notify_container">
     <table>
     <tr>
       <td>
