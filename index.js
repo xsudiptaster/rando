@@ -32,10 +32,11 @@ app.get('/api/passwords', (req, res) => {
 app.post('/api/logintosalesforce', function (req, res) {
   var jsobj= new jsforce.Connection();
   jsobj.loginUrl=req.body.loginUrl;
-  console.log('Jsforce object',jsobj);
+  
   jsobj.login(req.body.username,req.body.password,function(err,userinfo){
     if (err) { return console.error(err); }
-    res.json(jsobj);
+    console.log('Jsforce object',jsobj);
+    res.send(jsobj);
   } );
   // Return them as json
   
