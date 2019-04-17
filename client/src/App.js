@@ -3,6 +3,13 @@ import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 
+class HeaderComp extends Component {
+  render() {
+    const greeting = 'Welcome to React';
+
+    return <h1>{greeting}</h1>;
+  }
+}
 class App extends Component {
   // Initialize state
   state = {
@@ -121,11 +128,5 @@ class App extends Component {
     return this.loginpagerender();
   }
 }
-class HeaderComp extends Component {
-  render() {
-    const greeting = 'Welcome to React';
 
-    return <h1>{greeting}</h1>;
-  }
-}
 export default App;
