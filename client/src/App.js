@@ -15,15 +15,8 @@ class App extends Component {
 
   // Fetch passwords after first mount
   componentDidMount() {
-    this.getPasswords();
+  this.state.loginurl="https://test.salesforce.com"  
   }
-
-  getPasswords = () => {
-    // Get the passwords and store them in state
-    fetch("/api/passwords")
-      .then(res => res.json())
-      .then(passwords => this.setState({ passwords }));
-  };
   handleUsernameChange(event) {
     this.setState({ username: event.target.value });
   }
@@ -64,7 +57,7 @@ class App extends Component {
                 <tr>
                   <td>
                     <div className="slds-text-heading_large">
-                      Please Select the Org.
+                      Please Select the Org: 
                     </div>
                   </td>
                   <td>
