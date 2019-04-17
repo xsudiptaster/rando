@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
+import './lightning-design/styles/salesforce-lightning-design-system.css';
 
 class App extends Component {
   
@@ -48,12 +49,13 @@ class App extends Component {
   loginpagerender(){
     const { passwords } = this.state;
     return (
-      <BrandBand
-				id="brand-band-lightning-blue"
-				className="slds-p-around_small"
-				theme="lightning-blue"
-			>
-    <div className="App">
+      <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <span>1</span>
+      </div>
+      <div class="slds-col">
+        <span>
+        <div className="App">
     <table>
     <tr>
       <td>
@@ -96,7 +98,13 @@ class App extends Component {
     </tr>
     </table>    
     </div>
-    </BrandBand>
+    </span>
+      </div>
+      <div class="slds-col">
+        <span>3</span>
+      </div>
+    </div>  
+    
     );
   }
   render() {
