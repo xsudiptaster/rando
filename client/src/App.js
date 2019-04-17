@@ -61,7 +61,7 @@ class App extends Component {
                       </div>
                     </td>
                     <td>
-                      <select selectedvalue="{this.state.loginurl}" onchange="{this.handleSelectChange.bind(this)}">
+                      <select selectedvalue={this.state.loginurl} onchange={this.handleSelectChange.bind(this)}>
                         <option value="https://test.salesforce.com">
                           Sandbox
                         </option>
@@ -76,7 +76,7 @@ class App extends Component {
                       <div classname="slds-text-heading_large">Username :</div>
                     </td>
                     <td>
-                      <input type="text" Value="{this.state.username}" onchange="{this.handleUsernameChange.bind(this)}" />
+                      <input type="text" Value={this.state.username} onchange={this.handleUsernameChange.bind(this)} />
                     </td>
                   </tr>
                   <tr>
@@ -84,14 +84,14 @@ class App extends Component {
                       <div classname="slds-text-heading_large">Password :</div>
                     </td>
                     <td>
-                      <input type="text" Value="{this.state.password}" onchange="{this.handlePasswordChange.bind(this)}" />
+                      <input type="text" Value={this.state.password} onchange={this.handlePasswordChange.bind(this)} />
                     </td>
                   </tr>
                   <tr>
                     <td>
                     </td>
                     <td>
-                      <input type="button" Value="Login" onclick="{() = /> this.handlelogin()}" ></input>
+                      <input type="button" Value="Login" onclick="{() = /> this.handlelogin()} "></input>
                     </td>
                   </tr>
                 </tbody></table>
