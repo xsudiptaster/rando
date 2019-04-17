@@ -10,8 +10,6 @@ app.use(express.urlencoded());
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
-
-
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -19,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/api/passwords', (req, res) => {
   const count = 5;
 
-  // Generate some passwords
+  // Generate some passwordss
   const passwords = Array.from(Array(count).keys()).map(i =>
     generatePassword(12, false)
   )
