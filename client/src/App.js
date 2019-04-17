@@ -46,14 +46,14 @@ class App extends Component {
   loginpagerender() {
    
     return (
-      <header className="slds-global-header_container">
-        <div className="slds-global-header">
-          <div className="slds-global-header__item"/>
-            <div className="slds-global-header__item slds-global-header__item_search"/>
-              <div className="slds-global-header__item">
-              </div>
-        </div>
-      </header>  
+      
+      <div className="slds-global-header_container slds-global-header">
+        <div className="slds-global-header__item"/>
+          <div className="slds-global-header__item slds-global-header__item_search"/>
+            <div className="slds-global-header__item">
+            </div>
+      </div>
+        
 
 
       <div className="slds-grid slds-gutters">
