@@ -1,7 +1,7 @@
-const express = require('express');
-const path = require('path');
-const jsforce = require('jsforce');
-const generatePassword = require('password-generator');
+const express = require("express");
+const path = require("path");
+const jsforce = require("jsforce");
+const generatePassword = require("password-generator");
 
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -11,16 +11,16 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // Put all API endpoints under '/api'
-app.get('/api/passwords', (req, res) => {
+app.get("/api/passwords", (req, res) => {
   const count = 5;
 
   // Generate some passwordss
   const passwords = Array.from(Array(count).keys()).map(i =>
     generatePassword(12, false)
-  )
+  );
 
   // Return them as json
   res.json(passwords);
@@ -29,23 +29,24 @@ app.get('/api/passwords', (req, res) => {
 });
 
 // Put all API endpoints under '/api'
-app.post('/api/logintosalesforce', function (req, res) {
-  var jsobj= new jsforce.Connection();
-  jsobj.loginUrl=req.body.loginUrl;
-  
-  jsobj.login(req.body.username,req.body.password,function(err,userinfo){
-    if (err) { return console.error(err); }
-    console.log('Jsforce object',jsobj);
+app.post("/api/logintosalesforce", function(req, res) {
+  var jsobj = new jsforce.Connection();
+  jsobj.loginUrl = req.body.loginUrl;
+
+  jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
+    if (err) {
+      return console.error(err);
+    }
+    console.log("Jsforce object", jsobj);
     res.send(jsobj.accessToken);
-  } );
+  });
   // Return them as json
-  
-})
+});
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 const port = process.env.PORT || 5000;
