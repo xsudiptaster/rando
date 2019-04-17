@@ -46,13 +46,12 @@ class App extends Component {
   loginpagerender() {
     const { passwords } = this.state;
     return (
-      <header class="slds-global-header_container">
-      <div class="slds-global-header">
-        <div class="slds-global-header__item">Hello App</div>
-        <div class="slds-global-header__item slds-global-header__item_search">...</div>
-        <div class="slds-global-header__item">...</div>
+      <div className="slds-global-header_container slds-global-header">
+        <div className="slds-global-header__item">Hello App</div>
+        <div className="slds-global-header__item slds-global-header__item_search">...</div>
+        <div className="slds-global-header__item">...</div>
       </div>
-    </header>
+    
 
       <div className="slds-grid slds-gutters">
         <div className="slds-col">
