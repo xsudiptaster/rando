@@ -44,66 +44,79 @@ class App extends Component {
       });
   };
   loginpagerender() {
+    const { passwords } = this.state;
     return (
-      <div classname="slds-grid slds-gutters">
-        <div classname="slds-col">
-          <span>
-          </span></div>
+      
+      <div className="slds-grid slds-gutters">
         <div className="slds-col">
+          <span />
+        </div>
+        <div class="slds-col">
           <span>
-            <div classname="App">
+            <div className="App">
               <table>
-                <tbody><tr>
-                    <td>
-                      <div classname="slds-text-heading_large">
-                        Please Select the Org:
-                      </div>
-                    </td>
-                    <td>
-                      <select selectedvalue={this.state.loginurl} onchange={this.handleSelectChange.bind(this)}>
-                        <option value="https://test.salesforce.com">
-                          Sandbox
-                        </option>
-                        <option value="https://login.salesforce.com">
-                          Production
-                        </option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div classname="slds-text-heading_large">Username :</div>
-                    </td>
-                    <td>
-                      <input type="text" Value={this.state.username} onchange={this.handleUsernameChange.bind(this)} />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div classname="slds-text-heading_large">Password :</div>
-                    </td>
-                    <td>
-                      <input type="text" Value={this.state.password} onchange={this.handlePasswordChange.bind(this)} />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                    </td>
-                    <td>
-                      <input type="button" Value="Login" onclick="{() = /> this.handlelogin()} "></input>
-                    </td>
-                  </tr>
-                </tbody></table>
+                <tr>
+                  <td>
+                    <div className="slds-text-heading_large">
+                      Please Select the Org:
+                    </div>
+                  </td>
+                  <td>
+                    <select
+                      selectedvalue={this.state.loginurl}
+                      onChange={this.handleSelectChange.bind(this)}
+                    >
+                      <option value="https://test.salesforce.com">
+                        Sandbox
+                      </option>
+                      <option value="https://login.salesforce.com">
+                        Production
+                      </option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div className="slds-text-heading_large">Username :</div>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      value={this.state.username}
+                      onChange={this.handleUsernameChange.bind(this)}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div className="slds-text-heading_large">Password :</div>
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      value={this.state.password}
+                      onChange={this.handlePasswordChange.bind(this)}
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td />
+                  <td>
+                    <input
+                      type="button"
+                      value="Login"
+                      onClick={() => this.handlelogin()}
+                    />
+                  </td>
+                </tr>
+              </table>
             </div>
           </span>
         </div>
-        <div className="slds-col">
-          <span>asd</span>
-        </div>
+        <div class="slds-col" />
       </div>
     );
   }
-
   render() {
     return this.loginpagerender();
   }
