@@ -11,14 +11,18 @@ class HeaderComp extends Component {
   }
 }
 class App extends Component {
-  // Initialize state
-  state = {
+  constructor(props) {
+    super(props);
+    // Initialize state
+  this.state = {
     passwords: [],
     username: "",
     password: "",
     sessiontok: "",
     loginurl: ""
   };
+  }
+  
 
   // Fetch passwords after first mount
   componentDidMount() {
