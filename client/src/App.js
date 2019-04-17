@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div class="slds-grid slds-gutters">
       <div class="slds-col">
-        <span>Hello</span>
+        <span></span>
       </div>
       <div class="slds-col">
         <span>
@@ -59,7 +59,10 @@ class App extends Component {
     <table>
     <tr>
       <td>
+        <div className="slds-text-heading_large">
         Please Select the Org.
+        </div>
+        
       </td>
       <td>
         <select selectedvalue={this.state.loginurl} onChange={this.handleSelectChange.bind(this)} >
@@ -74,7 +77,10 @@ class App extends Component {
     </tr>
     <tr>
       <td>
-        Username: 
+      <div className="slds-text-heading_large">
+      Username : 
+        </div>
+        
       </td>
       <td>
         <input type="text" value={this.state.username} onChange={this.handleUsernameChange.bind(this)} ></input>
@@ -82,7 +88,10 @@ class App extends Component {
     </tr>
     <tr>
       <td>
-        Password : 
+      <div className="slds-text-heading_large">
+      Password :
+        </div>
+         
       </td>
       <td>
         <input type="text" value={this.state.password} onChange={this.handlePasswordChange.bind(this)}></input>
