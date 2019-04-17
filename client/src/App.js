@@ -46,7 +46,14 @@ class App extends Component {
   loginpagerender() {
     const { passwords } = this.state;
     return (
-      this.pageheader(),
+      <header class="slds-global-header_container">
+      <div class="slds-global-header">
+        <div class="slds-global-header__item">Hello App</div>
+        <div class="slds-global-header__item slds-global-header__item_search">...</div>
+        <div class="slds-global-header__item">...</div>
+      </div>
+    </header>
+
       <div className="slds-grid slds-gutters">
         <div className="slds-col">
           <span />
@@ -118,56 +125,9 @@ class App extends Component {
       </div>
     );
   }
-  pageheader() {
-    return (
-      <div class="slds-page-header">
-        <div class="slds-page-header__row">
-          <div class="slds-page-header__col-title">
-            <div class="slds-media">
-              <div class="slds-media__figure">
-                <span
-                  class="slds-icon_container slds-icon-standard-opportunity"
-                  title="opportunity"
-                >
-                  <svg
-                    class="slds-icon slds-page-header__icon"
-                    aria-hidden="true"
-                  >
-                    <use
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      xlinkHref="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"
-                    />
-                  </svg>
-                  <span class="slds-assistive-text">opportunity</span>
-                </span>
-              </div>
-              <div class="slds-media__body">
-                <div class="slds-page-header__name">
-                  <div class="slds-page-header__name-title">
-                    <h1>
-                      <span
-                        class="slds-page-header__title slds-truncate"
-                        title="Rohde Corp - 80,000 Widgets"
-                      >
-                        Rohde Corp - 80,000 Widgets
-                      </span>
-                    </h1>
-                  </div>
-                </div>
-                <p class="slds-page-header__name-meta">
-                  Mark Jaeckal • Unlimited Customer • 11/13/15
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+
   render() {
-    return (
-      this.loginpagerender()
-      );
+    return this.loginpagerender();
   }
 }
 export default App;
