@@ -36,7 +36,7 @@ app.post('/api/logintosalesforce', function (req, res) {
   jsobj.login(req.body.username,req.body.password,function(err,userinfo){
     if (err) { return console.error(err); }
     console.log('Jsforce object',jsobj);
-    res.send(jsobj);
+    res.send(jsobj.accessToken);
   } );
   // Return them as json
   
