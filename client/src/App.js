@@ -46,7 +46,7 @@ class App extends Component {
   loginpagerender() {
     const { passwords } = this.state;
     return (
-      
+      <HeaderComp/>
       <div className="slds-grid slds-gutters">
         <div className="slds-col">
           <span />
@@ -119,6 +119,13 @@ class App extends Component {
   }
   render() {
     return this.loginpagerender();
+  }
+}
+class HeaderComp extends Component {
+  render() {
+    const greeting = 'Welcome to React';
+
+    return <h1>{greeting}</h1>;
   }
 }
 export default App;
