@@ -52,8 +52,6 @@ class App extends Component {
             <div className="slds-global-header__item slds-global-header__item_search"/>
               <div className="slds-global-header__item">
               </div>
-            
-          
         </div>
       </header>  
 
