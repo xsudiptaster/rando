@@ -89,9 +89,9 @@ class App extends Component {
                   </tr>
                   <tr>
                     <td>
-                    </td><td>
-                      <input type="button" defaultValue="Login" onclick="{()" = /> this.handlelogin(){'}'}
-                      /&gt;
+                    </td>
+                    <td>
+                      <input type="button" defaultValue="Login" onclick="{() = /> this.handlelogin()}" ></input>
                     </td>
                   </tr>
                 </tbody></table>
