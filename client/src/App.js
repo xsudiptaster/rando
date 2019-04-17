@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
-
+import BrandBand from '@salesforce/design-system-react/components/brand-band';
 
 class App extends Component {
   super(props);
@@ -49,6 +49,11 @@ class App extends Component {
   loginpagerender(){
     const { passwords } = this.state;
     return (
+      <BrandBand
+				id="brand-band-lightning-blue"
+				className="slds-p-around_small"
+				theme="lightning-blue"
+			>
     <div className="slds-notify_container">
     <table>
     <tr>
@@ -92,6 +97,7 @@ class App extends Component {
     </tr>
     </table>    
     </div>
+    </BrandBand>
     );
   }
   render() {
