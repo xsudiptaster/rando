@@ -102,7 +102,6 @@ class App extends Component {
           <span>asd</span>
         </div>
       </div>
-      
     );
   }
 
