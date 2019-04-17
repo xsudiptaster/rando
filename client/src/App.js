@@ -48,6 +48,7 @@ class App extends Component {
       })
       .then(function(response) {
         console.log("success!");
+        this.state.sessiontok=response.data;
         console.log(response);
       })
       .catch(function(error) {
