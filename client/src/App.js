@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div class="slds-grid slds-gutters">
       <div class="slds-col">
-        <span>1</span>
+        <span>Hello</span>
       </div>
       <div class="slds-col">
         <span>
@@ -101,7 +101,7 @@ class App extends Component {
     </span>
       </div>
       <div class="slds-col">
-        <span>3</span>
+        <span>Bye</span>
       </div>
     </div>  
     
