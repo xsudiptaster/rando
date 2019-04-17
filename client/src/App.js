@@ -54,7 +54,7 @@ class App extends Component {
 				className="slds-p-around_small"
 				theme="lightning-blue"
 			>
-    <div className="slds-notify_container">
+    <div className="App">
     <table>
     <tr>
       <td>
