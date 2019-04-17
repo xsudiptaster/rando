@@ -4,7 +4,7 @@ import axios from 'axios'
 import BrandBand from '@salesforce/design-system-react/components/brand-band';
 
 class App extends Component {
-  super(props);
+  
   // Initialize state
   state = { passwords: [],
           username : '',
