@@ -53,7 +53,8 @@ class App extends Component {
   loginpagerender() {
     const { passwords } = this.state;
     return (
-      <HeaderComp/>
+      <div><HeaderComp/></div>
+      
       <div className="slds-grid slds-gutters">
         <div className="slds-col">
           <span />
