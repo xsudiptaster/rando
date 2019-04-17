@@ -10,7 +10,6 @@ class HeaderComp extends Component {
     return <h1>{greeting}</h1>;
   }
 }
-class 
 class App extends Component {
   // Initialize state
   state = {
