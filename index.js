@@ -32,7 +32,7 @@ app.get('/api/passwords', (req, res) => {
 
 // Put all API endpoints under '/api'
 app.post('/api/logintosalesforce', function (req, res) {
-console.log('the req',req);
+console.log('the req',JSON.parse(req.body));
 /* var jsobj= jsforce.Connection();
   jsobj.loginUrl= req.loginUrl;
   sessionreceived= jsobj.login(req.username,req.password);
