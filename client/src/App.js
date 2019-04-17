@@ -133,8 +133,8 @@ class App extends Component {
                     aria-hidden="true"
                   >
                     <use
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      xlinkHref="/assets/icons/standard-sprite/svg/symbols.svg#opportunity"
                     />
                   </svg>
                   <span class="slds-assistive-text">opportunity</span>
