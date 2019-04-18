@@ -9,8 +9,7 @@ export default class Headerdisplay extends Component {
         super(props);
     }
     componentDidMount() {
-        
-      }
+    }
     render(){
         return(
             <div> Hello Imported DOne</div>
