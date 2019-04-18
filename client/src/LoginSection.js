@@ -73,7 +73,7 @@ export default class LoginSection extends Component {
                           className="slds-form-element__label"
                           htmlFor="select-01"
                         >
-                          Select Label
+                          Select the org
                         </label>
                         <div className="slds-form-element__control">
                           <div className="slds-select_container">
@@ -103,6 +103,7 @@ export default class LoginSection extends Component {
                       <input
                         type="text"
                         value={this.state.username}
+                        className="slds-input"
                         onChange={this.handleUsernameChange.bind(this)}
                       />
                     </td>
@@ -115,6 +116,7 @@ export default class LoginSection extends Component {
                       <input
                         type="text"
                         value={this.state.password}
+                        className="slds-input"
                         onChange={this.handlePasswordChange.bind(this)}
                       />
                     </td>
