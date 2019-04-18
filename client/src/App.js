@@ -27,6 +27,7 @@ class App extends Component {
 
   // Fetch passwords after first mount
   componentDidMount() {
+    let currentComponent = this;
     this.state.loginurl = "https://test.salesforce.com";
   }
   handleUsernameChange(event) {
@@ -50,7 +51,7 @@ class App extends Component {
       .then(function(response) {
         console.log('The Response',response.data);
         console.log("success!");
-        this.setState({sessiontok: response.data});
+        currentComponent.setState({sessiontok: response.data});
       })
       .catch(function(error) {
         console.log(error);
