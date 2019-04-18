@@ -38,7 +38,7 @@ class App extends Component {
   handleSelectChange(event) {
     this.setState({ loginurl: event.target.value });
   }
-  handlelogin = () => {
+  handlelogin() {
     console.log("Called on load", this.state);
     // Get the session and store them in state
     axios
