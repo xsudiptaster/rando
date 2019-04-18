@@ -3,7 +3,7 @@ import "./App.css"
 import axios from "axios"
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 
-class headerdisplay extends Component {
+export default class headerdisplay extends Component {
     
     constructor(props) {
         super(props);
@@ -17,4 +17,3 @@ class headerdisplay extends Component {
         )
     }    
 }
-export default headerdisplay; 
