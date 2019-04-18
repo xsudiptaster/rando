@@ -154,7 +154,7 @@ class App extends Component {
     else{
       return (
         <div><HeaderComp sessiontok={this.state.sessiontok} />
-        <div> <headerdisplay/> </div>
+        <div> <headerdisplay.headerdisplay/> </div>
         </div>
       
       );
