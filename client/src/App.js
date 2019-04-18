@@ -52,7 +52,7 @@ class App extends Component {
         console.log("success!");
         currentComponent.setState({sessiontok: response.data});
       })
-      .catch((error) =>{
+      .catch((error) => {
         console.log(error);
       });
   };
