@@ -7,8 +7,9 @@ class HeaderComp extends Component {
   constructor(props)
   {
     super(props);
-    this.setState({session: this.props.session});
-    console.log('The STate',this.state);
+    console.log('The STate',this.props.sessiontok);
+    this.setState({session: this.props.sessiontok});
+    
   }
   render() {
     return (
@@ -151,7 +152,7 @@ class App extends Component {
     }
     else{
       return (
-        <div><HeaderComp session={this.state.sessiontok} /></div>
+        <div><HeaderComp sessiontok={this.state.sessiontok} /></div>
         );
     }
     
