@@ -31,11 +31,12 @@ export default class Headerdisplay extends Component {
         </h2>
       </div>
     </header>
+    <br /><br />
+      <br /><br />
+      <br /><br />
   </div>
 </article>
-<br></br>
-<br></br>
-<br></br>
+
         )
     }    
 }
