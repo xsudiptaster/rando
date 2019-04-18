@@ -20,7 +20,8 @@ class App extends Component {
     password: "",
     sessiontok: "",
     loginurl: ""
-  };
+  }
+  this.handlelogin= this.handlelogin.bind(this);
   }
   
 
