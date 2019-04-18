@@ -47,6 +47,7 @@ class App extends Component {
         loginUrl: this.state.loginurl
       })
       .then(function(response) {
+        console.log('The Response',response.data);
         console.log("success!",this.state);
         this.state.sessiontok=response.data;
         console.log(response);
