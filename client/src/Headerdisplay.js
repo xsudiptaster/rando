@@ -9,7 +9,7 @@ export default class Headerdisplay extends Component {
         super(props);
     }
     componentDidMount() {
-        this.state.loginurl = "https://test.salesforce.com";
+        
       }
     render(){
         return(
