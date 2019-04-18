@@ -17,3 +17,5 @@ class headerdisplay extends Component {
         )
     }    
 }
+
+export default headerdisplay;
