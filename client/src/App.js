@@ -4,10 +4,26 @@ import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 
 class HeaderComp extends Component {
+  constructor(props)
+  {
+    this.setState({session: this.props.session});
+    console.log('The STate',this.state);
+  }
   render() {
-    const greeting = 'Welcome to React';
-
-    return <h1>{greeting}</h1>;
+    return (
+      <div>
+        <table>
+          <tr>
+            <td>
+            <input type="file" ></input>
+            </td>
+            <td>
+              <input type="button" value="Upload" ></input>
+            </td>
+          </tr>
+        </table>
+      </div>
+    );
   }
 }
 class App extends Component {
@@ -134,7 +150,7 @@ class App extends Component {
     }
     else{
       return (
-        <div><HeaderComp/></div>
+        <div><HeaderComp session={this.state.sessiontok} /></div>
         );
     }
     
