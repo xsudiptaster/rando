@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import {headerdisplay} from "./headerdisplay.js"
+import Headerdisplay from "./headerdisplay.js"
 
 class HeaderComp extends Component {
   constructor(props)
@@ -153,8 +153,8 @@ class App extends Component {
     }
     else{
       return (
-        <div><HeaderComp sessiontok={this.state.sessiontok} />
-        <div> <headerdisplay.headerdisplay/> </div>
+        <div>
+        <div> <Headerdisplay/> </div>
         </div>
       
       );
