@@ -127,6 +127,7 @@ export default class LoginSection extends Component {
                       <input
                         type="button"
                         value="Login"
+                        className="slds-button slds-button_neutral"
                         onClick={() => this.handlelogin()}
                       />
                     </td>
