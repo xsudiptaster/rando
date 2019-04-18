@@ -47,7 +47,7 @@ class App extends Component {
         password: this.state.password,
         loginUrl: this.state.loginurl
       })
-      .then((response) =>{
+      .then((response) => {
         console.log('The Response',response.data);
         console.log("success!");
         this.setState({sessiontok: response.data});
