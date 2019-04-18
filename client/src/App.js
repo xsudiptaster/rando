@@ -14,7 +14,7 @@ class App extends Component {
     
   }
   render() {
-    return (<div className="slds-brand-band slds-brand-band_medium" />);
+    return (<div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group"></div>);
   }
 }
 export default App;
