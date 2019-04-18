@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import "./headerdisplay.js"
+var headerdisplay =require( "./headerdisplay.js")
 
 class HeaderComp extends Component {
   constructor(props)
