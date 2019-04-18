@@ -17,6 +17,8 @@ class App extends Component {
     return (<div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
       <Headerdisplay/>
       <div>
+      <br /><br />
+      <br /><br />
       <LoginSection/>
       </div>
     

@@ -25,15 +25,13 @@ export default class Headerdisplay extends Component {
       </div>
       <div className="slds-media__body">
         <h2 className="slds-card__header-title">
-          <a href="javascript:void(0);" className="slds-card__header-link slds-truncate" title="Accounts">
-            <span>Accounts</span>
+          <a href="javascript:void(0);" className="slds-card__header-link slds-truncate" title="First Heroku App">
+            <span>First Heroku App</span>
           </a>
         </h2>
       </div>
     </header>
-    <br /><br />
-      <br /><br />
-      <br /><br />
+    <br />     
   </div>
 </article>
 
