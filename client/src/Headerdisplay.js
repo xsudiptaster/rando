@@ -20,7 +20,7 @@ export default class Headerdisplay extends Component {
           <svg className="slds-icon slds-icon_small" aria-hidden="true">
             <use xlinkHref="/assets/icons/standard-sprite/svg/symbols.svg#account" />
           </svg>
-          <span className="slds-assistive-text">account</span>
+          <span className="slds-assistive-text">First Heroku App</span>
         </span>
       </div>
       <div className="slds-media__body">
@@ -33,7 +33,9 @@ export default class Headerdisplay extends Component {
     </header>
   </div>
 </article>
-
+<br></br>
+<br></br>
+<br></br>
         )
     }    
 }
