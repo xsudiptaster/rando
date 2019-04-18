@@ -15,7 +15,11 @@ class App extends Component {
   }
   render() {
     return (<div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
-    <LoginSection/>
+      <Headerdisplay/>
+      <div>
+      <LoginSection/>
+      </div>
+    
     </div>);
   }
 }
