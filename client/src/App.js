@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import Headerdisplay from "./headerdisplay.js"
+import Headerdisplay from "./Headerdisplay"
 
 class HeaderComp extends Component {
   constructor(props)
@@ -154,7 +154,7 @@ class App extends Component {
     else{
       return (
         <div>
-        <div> <Headerdisplay/> </div>
+        <div><Headerdisplay/></div>
         </div>
       
       );
