@@ -8,17 +8,11 @@ var ContentReviewerStore = Reflux.createStore({
 
  // Load a review when the store is initialized
  init: function() {
-    this.firstdata.trys= "Hello sud";
     this.trigger(this.firstdata);
  },
- updateUserName : function(data){
-
- },
- updatePassword: function(data){
-
- },
- updateComponentDisplay: function(data){
-
+ stateupdates : function(state){
+    this.firstdata=state;
+    this.trigger(this.firstdata);
  },
  // Clear out the current review and any errors while we load the next review
  loginInSalesforce: function() {

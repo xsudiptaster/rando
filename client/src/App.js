@@ -11,8 +11,9 @@ var ContentReviewerActions = require('./ContentReviewerActions.js');
 
 class App extends Component {
   constructor(props) {
+    mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore')],
     super(props);
-    
+    this.state= ContentReviewStore.firstdata;
   }
   // Fetch passwords after first mount
   componentDidMount() {
