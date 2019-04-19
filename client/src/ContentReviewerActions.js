@@ -9,10 +9,7 @@ var ContentReviewerActions = Reflux.createActions({
 
 // Reflux actions can trigger server calls, which we use to load the content to review
 ContentReviewerActions.loadReview.listenAndPromise( function() {
- return $.ajax({
-   type: "GET",
-   url: Routes.content_reviews_path({ format: 'json' })
- });
+ 
 });
 
 module.exports = ContentReviewerActions;
