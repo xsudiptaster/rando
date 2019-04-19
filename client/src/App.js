@@ -4,7 +4,7 @@ import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import Headerdisplay from "./Headerdisplay.js"
 import LoginSection from "./LoginSection.js"
-var ContentReviewerStore = require('./ContentReviewStore.js');
+var ContentReviewStore = require('./ContentReviewStore.js');
 var ContentReviewerActions = require('./ContentReviewerActions.js');
 
 

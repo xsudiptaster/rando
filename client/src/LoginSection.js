@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 var Reflux = require('reflux');
-var ContentReviewerStore = require('./ContentReviewStore.js');
+var ContentReviewStore = require('./ContentReviewStore.js');
 var ContentReviewerActions = require('./ContentReviewerActions.js');
 
 export default class LoginSection extends Component {
