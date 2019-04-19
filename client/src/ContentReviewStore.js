@@ -9,7 +9,7 @@ var ContentReviewerStore = Reflux.createStore({
 
  // Load a review when the store is initialized
  init: function() {
-   ContentReviewerActions.loadReview();
+   
  },
 
  // Clear out the current review and any errors while we load the next review
