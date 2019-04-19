@@ -19,10 +19,11 @@ export default class LoginSection extends Component {
       sessiontok: "",
       loginurl: ""
     };
-    console.log('The First Datat',this.state);
     this.handlelogin = this.handlelogin.bind(this);
   }
-
+  getInitialState(){
+      console.log('The First Data ',ContentReviewStore.firstdata);
+  }
   // Fetch passwords after first mount
   componentDidMount() {
     this.state.loginurl = "https://test.salesforce.com";
