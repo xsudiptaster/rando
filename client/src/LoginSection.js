@@ -19,6 +19,7 @@ export default class LoginSection extends Component {
       sessiontok: "",
       loginurl: ""
     };
+    console.log('The First Data Again',ContentReviewStore.firstdata);
     this.handlelogin = this.handlelogin.bind(this);
   }
   getInitialState(){
