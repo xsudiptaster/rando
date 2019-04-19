@@ -9,7 +9,7 @@ var ContentReviewerStore = Reflux.createStore({
 
  // Load a review when the store is initialized
  init: function() {
-    data: {firstdata: "Hello sud"},
+    data.firstdata= "Hello sud",
     this.trigger(this.data);
  },
 
