@@ -28,6 +28,7 @@ export default class LoginSection extends Component {
   }
   handleUsernameChange(event) {
     this.setState({ username: event.target.value });
+    ContentReviewStore.handleUsernameChange(this.state.username)
   }
   handlePasswordChange(event) {
     this.setState({ password: event.target.value });
