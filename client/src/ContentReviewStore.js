@@ -4,13 +4,12 @@ var ContentReviewerActions = require('./ContentReviewerActions.js');
 var ContentReviewerStore = Reflux.createStore({
  // Shorthand for listening to all ContentReviewerActions
  listenables: ContentReviewerActions,
-
- data: {},
+ firstdata :{} ,
 
  // Load a review when the store is initialized
  init: function() {
-    data.firstdata= "Hello sud",
-    this.trigger(this.data);
+    firstdata.trys= "Hello sud",
+    this.trigger(this.firstdata);
  },
 
  // Clear out the current review and any errors while we load the next review
