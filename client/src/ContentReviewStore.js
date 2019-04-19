@@ -51,15 +51,8 @@ var ContentReviewerStore = Reflux.createStore({
  // When we need to reference store data in our server requests, it's easier
  // to handle the communication in the store instead of the actions.
  submitReview: function() {
-   $.ajax({
-     type: "PUT",
-     url: Routes.review_path(this.data.review.review_id, { operation: this.data.review.status })
-   }).done(function(res) {
-     // Success notification
-   }).fail(function(xhr) {
-     // Error notification
-   });
- }
+   
+ },
 });
 
 module.exports = ContentReviewerStore;
