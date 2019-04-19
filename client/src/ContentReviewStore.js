@@ -5,7 +5,7 @@ var ContentReviewerStore = Reflux.createStore({
  // Shorthand for listening to all ContentReviewerActions
  listenables: ContentReviewerActions,
 
- data: {},
+ data: {firstdata: "Hello sud"},
 
  // Load a review when the store is initialized
  init: function() {
