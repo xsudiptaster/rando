@@ -11,7 +11,15 @@ var ContentReviewerStore = Reflux.createStore({
     this.firstdata.trys= "Hello sud";
     this.trigger(this.firstdata);
  },
+ updateUserName : function(data){
 
+ },
+ updatePassword: function(data){
+
+ },
+ updateComponentDisplay: function(data){
+
+ },
  // Clear out the current review and any errors while we load the next review
  loginInSalesforce: function() {
    
