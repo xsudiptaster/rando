@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+var ContentReviewerStore = require('./ContentReviewStore.js');
+var ContentReviewerActions = require('./ContentReviewerActions.js');
 
 export default class LoginSection extends Component {
+    
   constructor(props) {
+    mixins: [Reflux.connect(ContentReviewStore, 'imagestore')]
     super(props);
     // Initialize state
     this.state = {
