@@ -6,7 +6,7 @@ var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
-export default class LoginSection extends Component {
+export default class LoginSection extends Reflux.Component {
   constructor(props) {
     mixins: [Reflux.listenTo(ContentReviewStore, "stateupdates")];
     super(props);

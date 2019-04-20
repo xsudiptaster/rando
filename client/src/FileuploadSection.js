@@ -6,7 +6,7 @@ var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
-export default class FileuploadSection extends Component {
+export default class FileuploadSection extends Reflux.Component {
     constructor(props) {
         mixins: [Reflux.connect(ContentReviewStore, "ContentReviewStore")];
         super(props);

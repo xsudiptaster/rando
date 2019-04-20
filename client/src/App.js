@@ -9,7 +9,7 @@ var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewerStore = require("./ContentReviewStore.jsx");
 
-class App extends Component {
+class App extends Reflux.Component {
   constructor(props) {
     super();
     mixins: [Reflux.listenTo(ContentReviewerStore, "onChange")],
@@ -25,6 +25,7 @@ class App extends Component {
           visibility: "hidden"
         }
       });
+      this.store = ContentReviewerStore;
   }
   onChange(firstdata) {
     console.log("Hello Data");
