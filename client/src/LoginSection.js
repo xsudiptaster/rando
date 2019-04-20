@@ -44,14 +44,17 @@ export default class LoginSection extends Component {
       })
       .then(response => {
         this.setState({ sessiontok: response.data });
-        this.setState({ logindisplay: {
-            visibility : "hidden",
-        }} );
-        this.setState({ uploadfiledisplay: {
+        this.setState({
+          logindisplay: {
+            visibility: "hidden"
+          }
+        });
+        this.setState({
+          uploadfiledisplay: {
             visibility: "show"
-        } });
+          }
+        });
         ContentReviewerActions.stateupdates(this.state);
-        
       })
       .catch(error => {
         console.log(error);
