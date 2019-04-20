@@ -13,12 +13,10 @@ class App extends Component {
   constructor(props) {
     mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
     super(props);
-    
-    this.setState( {hel :"hello"});
-    
-    console.log("The App State Initialized", this.state);
+    console.log("The App State Initialized 1", this.state);
   }
   updatestatenow(event, firstdata) {
+    console.log("The App State Initialized", firstdata);
     this.state = firstdata;
   }
   // Fetch passwords after first mount
