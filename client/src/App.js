@@ -13,21 +13,24 @@ class App extends Component {
   constructor(props) {
     mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
       super(props);
-      state:{};
-      this.setState({logindisplay :{
+    state: {
+    }
+    this.setState({
+      logindisplay: {
         visibility: "show"
-      } , uploadfiledisplay :{
+      },
+      uploadfiledisplay: {
         visibility: "hidden"
-      }})
+      }
+    });
   }
   updatestatenow(event, firstdata) {
     this.state = firstdata;
   }
   // Fetch passwords after first mount
-  componentDidMount() {
-  }
+  componentDidMount() {}
   render() {
-    console.log('The App State',this.state);
+    console.log("The App State", this.state);
     return (
       <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
         <Headerdisplay />
