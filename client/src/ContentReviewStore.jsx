@@ -4,7 +4,9 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewerStore = Reflux.createStore({
   // Shorthand for listening to all ContentReviewerActions
   listenables: [ContentReviewerActions],
-  firstdata: {},
+  firstdata: {logindisplay:{
+      visibility: "hidden"
+  }},
   constructor() {
     
   },
