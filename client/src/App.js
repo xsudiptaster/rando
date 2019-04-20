@@ -12,7 +12,7 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 class App extends Component {
   constructor(props) {
     mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
-      super(props);
+    super(props);
     this.state={}
     this.setState({
       logindisplay: {
