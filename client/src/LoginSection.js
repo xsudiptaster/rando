@@ -8,7 +8,7 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class LoginSection extends Component {
   constructor(props) {
-    mixins: [Reflux.connect(ContentReviewStore, "ContentReviewStore")];
+    mixins: [Reflux.listenTo(ContentReviewStore, "updatestate")];
     super(props);
     // Initialize state
     this.state = {
@@ -17,8 +17,10 @@ export default class LoginSection extends Component {
       sessiontok: "",
       loginurl: ""
     };
-    console.log("The First Data Again", ContentReviewStore.firstdata);
     this.handlelogin = this.handlelogin.bind(this);
+  }
+  updatestate(event,firstdata){
+    this.state = firstdata;
   }
   // Fetch passwords after first mount
   componentDidMount() {
