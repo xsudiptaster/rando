@@ -54,7 +54,7 @@ export default class LoginSection extends Component {
             visibility: "show"
           }
         });
-        ContentReviewerActions.stateupdates(this.state);
+        ContentReviewStore.onstateupdates(this.state);
       })
       .catch(error => {
         console.log(error);
