@@ -19,7 +19,7 @@ class App extends Reflux.Component {
         sessiontok: "",
         loginurl: "",
         logindisplay: {
-          visibility: "show"
+          visibility: "visible"
         },
         uploadfiledisplay: {
           visibility: "hidden"

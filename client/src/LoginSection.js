@@ -53,7 +53,7 @@ export default class LoginSection extends Reflux.Component {
         });
         this.setState({
           uploadfiledisplay: {
-            visibility: "show"
+            visibility: "visible"
           }
         });
         ContentReviewerActions.stateupdates(this.state);
