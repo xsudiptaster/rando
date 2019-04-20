@@ -17,6 +17,7 @@ class App extends Component {
   }
   updatestatenow()
   {
+    console.log('get the data',ContentReviewStore.firstdata);
     this.state= ContentReviewStore.firstdata;
   }
   // Fetch passwords after first mount
