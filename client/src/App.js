@@ -35,6 +35,7 @@ class App extends Reflux.Component {
   // Fetch passwords after first mount
   componentDidMount() {}
   render() {
+    console.log('The State Data',this.state);
     return (
       <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
         <Headerdisplay />
