@@ -3,7 +3,7 @@ var ContentReviewerActions = require('./ContentReviewerActions.js');
 
 var ContentReviewerStore = Reflux.createStore({
  // Shorthand for listening to all ContentReviewerActions
- listenables: ContentReviewerActions,
+ listenables: [ContentReviewerActions],
  listeners: ContentReviewerActions,
  firstdata :{} ,
  constructor()
