@@ -8,7 +8,7 @@ var ContentReviewerStore = Reflux.createStore({
  firstdata :{} ,
  constructor()
 {
-    this.listenTo(stateupdates, this.onstateupdates);
+    
 },
  // Load a review when the store is initialized
  init: function() {
