@@ -25,7 +25,7 @@ class App extends Component {
       <div>
       <br /><br />
       <br /><br />
-      <div style={this.state.logindisplay} >
+      <div  >
       <LoginSection />
       </div>
       <div style={this.state.uploadfiledisplay} >
