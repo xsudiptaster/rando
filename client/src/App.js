@@ -27,7 +27,6 @@ class App extends Component {
     };
   }
   updatestatenow(event, firstdata) {
-    
     this.state = firstdata;
   }
   // Fetch passwords after first mount
