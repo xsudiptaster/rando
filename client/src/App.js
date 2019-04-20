@@ -11,7 +11,7 @@ var ContentReviewerActions = require('./ContentReviewerActions.js');
 
 class App extends Component {
   constructor(props) {
-    mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore'), Reflux.listenTo(ContentReviewStore,"stateupdates"),],
+    mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore'), Reflux.listenTo(ContentReviewStore,"onstateupdates"),],
     super(props);
     this.state= ContentReviewStore.firstdata;
   }

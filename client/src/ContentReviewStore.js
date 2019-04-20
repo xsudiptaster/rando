@@ -8,7 +8,6 @@ var ContentReviewerStore = Reflux.createStore({
  firstdata :{} ,
  constructor()
 {
-    super();
     this.listenTo(stateupdates, this.onstateupdates);
 },
  // Load a review when the store is initialized
@@ -23,7 +22,6 @@ var ContentReviewerStore = Reflux.createStore({
  },
  onstateupdates : function(state){
     this.firstdata=state;
-    console.log('Updated State',this.firstdata);
     this.trigger(this.firstdata);
  },
  // Clear out the current review and any errors while we load the next review
