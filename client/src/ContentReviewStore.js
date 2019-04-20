@@ -1,5 +1,5 @@
 var Reflux = require('reflux');
-var ContentReviewerActions = require('./ContentReviewerActions.js');
+var ContentReviewerActions = require('./ContentReviewerActions.jsx');
 
 var ContentReviewerStore = Reflux.createStore({
  // Shorthand for listening to all ContentReviewerActions

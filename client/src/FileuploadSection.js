@@ -4,7 +4,7 @@ import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.js");
-var ContentReviewerActions = require("./ContentReviewerActions.js");
+var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class FileuploadSection extends Component {
     constructor(props) {
