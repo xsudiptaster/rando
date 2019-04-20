@@ -11,7 +11,7 @@ var ContentReviewerActions = require('./ContentReviewerActions.js');
 
 class App extends Component {
   constructor(props) {
-    mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore')],
+    mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore'), Reflux.listenTo(ContentReviewStore,"stateupdates"),],
     super(props);
     this.state= ContentReviewStore.firstdata;
   }
@@ -25,7 +25,7 @@ class App extends Component {
       <div>
       <br /><br />
       <br /><br />
-      <div id='identify' style= {this.state.logindisplay} >
+      <div  style= {this.state.logindisplay} >
       <LoginSection  />
       </div>
       <div style={this.state.uploadfiledisplay} >
