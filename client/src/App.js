@@ -27,6 +27,7 @@ class App extends Component {
     };
   }
   updatestatenow(event, firstdata) {
+    console.log('Hello Data');
     console.log('Store Update',firstdata);
     this.state = firstdata;
   }
