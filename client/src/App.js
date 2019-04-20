@@ -7,12 +7,12 @@ import LoginSection from "./LoginSection.js";
 import FileuploadSection from "./FileuploadSection.js";
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
-var ContentReviewStore = require("./ContentReviewStore.jsx");
+var ContentReviewerStore = require("./ContentReviewStore.jsx");
 
 class App extends Component {
   constructor(props) {
     super();
-    mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
+    mixins: [Reflux.listenTo(ContentReviewerStore, "onChange")],
     this.state = {
       username: "",
       password: "",
@@ -26,7 +26,7 @@ class App extends Component {
       }
     };
   }
-  updatestatenow(event, firstdata) {
+  onChange(event, firstdata) {
     console.log('Hello Data');
     console.log('Store Update',firstdata);
     this.state = firstdata;
