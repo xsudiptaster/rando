@@ -8,8 +8,6 @@ var Reflux = require('reflux');
 var ContentReviewStore = require('./ContentReviewStore.js');
 var ContentReviewerActions = require('./ContentReviewerActions.js');
 
-
-
 class App extends Component {
   constructor(props) {
     mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore')],
@@ -26,7 +24,7 @@ class App extends Component {
       <div>
       <br /><br />
       <br /><br />
-      <LoginSection/>
+      <LoginSection style ="visibility:hidden"/>
       </div>
     
     </div>);

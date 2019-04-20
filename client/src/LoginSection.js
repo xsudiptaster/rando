@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-var Reflux = require('reflux');
-var ContentReviewStore = require('./ContentReviewStore.js');
-var ContentReviewerActions = require('./ContentReviewerActions.js');
+var Reflux = require("reflux");
+var ContentReviewStore = require("./ContentReviewStore.js");
+var ContentReviewerActions = require("./ContentReviewerActions.js");
 
 export default class LoginSection extends Component {
-    
   constructor(props) {
-    mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore')]
+    mixins: [Reflux.connect(ContentReviewStore, "ContentReviewStore")];
     super(props);
     // Initialize state
     this.state = {
@@ -19,7 +18,7 @@ export default class LoginSection extends Component {
       sessiontok: "",
       loginurl: ""
     };
-    console.log('The First Data Again',ContentReviewStore.firstdata);
+    console.log("The First Data Again", ContentReviewStore.firstdata);
     this.handlelogin = this.handlelogin.bind(this);
   }
   // Fetch passwords after first mount
@@ -28,7 +27,7 @@ export default class LoginSection extends Component {
   }
   handleUsernameChange(event) {
     this.setState({ username: event.target.value });
-    ContentReviewStore.handleUsernameChange(this.state.username)
+    ContentReviewStore.handleUsernameChange(this.state.username);
   }
   handlePasswordChange(event) {
     this.setState({ password: event.target.value });
