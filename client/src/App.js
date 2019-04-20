@@ -11,14 +11,13 @@ var ContentReviewerActions = require('./ContentReviewerActions.jsx');
 
 class App extends Component {
   constructor(props) {
-    mixins: [Reflux.connect(ContentReviewStore, 'ContentReviewStore'), Reflux.listenTo(ContentReviewStore,"updatestatenow")],
+    mixins: [Reflux.listenTo(ContentReviewStore,"updatestatenow")],
     super(props);
-    updatestatenow();
   }
-  updatestatenow()
+  updatestatenow(event,firstdata)
   {
-    console.log('get the data',ContentReviewStore.firstdata);
-    this.state= ContentReviewStore.firstdata;
+    console.log('get the data',firstdata);
+    this.state= firstdata;
   }
   // Fetch passwords after first mount
   componentDidMount() {
