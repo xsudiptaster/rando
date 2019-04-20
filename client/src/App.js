@@ -19,6 +19,7 @@ class App extends Component {
     this.state.uploadfiledisplay={
       visibility: "hidden"
     }
+    this.setState( {hel :"hello"});
     console.log("The App State Initialized", this.state);
   }
   updatestatenow(event, firstdata) {
