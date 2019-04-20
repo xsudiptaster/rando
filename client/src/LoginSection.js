@@ -12,7 +12,6 @@ export default class LoginSection extends Component {
     super(props);
     // Initialize state
     this.state = {
-      passwords: [],
       username: "",
       password: "",
       sessiontok: "",
@@ -46,6 +45,8 @@ export default class LoginSection extends Component {
       })
       .then(response => {
         this.setState({ sessiontok: response.data });
+        this.setState({logindisplay:"visibility:hidden"});
+        this.setState({uploadfiledisplay: "visibility:show"});
         ContentReviewStore.stateupdates(this.state);    
       })
       .catch(error => {
@@ -53,9 +54,6 @@ export default class LoginSection extends Component {
       });
   }
   loginpagerender() {
-    const { passwords } = this.state;
-    console.log("the Session AVl", this.state.sessiontok);
-    if (this.state.sessiontok == "") {
       return (
         <div className="slds-grid slds-gutters">
           <div className="slds-col">
@@ -143,9 +141,6 @@ export default class LoginSection extends Component {
           <div class="slds-col" />
         </div>
       );
-    } else {
-      return <div>Hello </div>;
-    }
   }
   render() {
     return this.loginpagerender();
