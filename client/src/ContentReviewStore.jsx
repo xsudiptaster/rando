@@ -24,7 +24,7 @@ var ContentReviewerStore = Reflux.createStore({
   loginInSalesforce: function() {},
   fireUpdate:function ()
   {
-    this.trigger('change',this.firstdata);
+    this.trigger(this.firstdata);
   }
 
 });

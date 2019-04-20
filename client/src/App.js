@@ -26,7 +26,7 @@ class App extends Component {
         }
       });
   }
-  onChange(event, firstdata) {
+  onChange(firstdata) {
     console.log("Hello Data");
     console.log("Store Update", firstdata);
     this.state = firstdata;
