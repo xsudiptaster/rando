@@ -17,7 +17,13 @@ class App extends Component {
       username: "",
       password: "",
       sessiontok: "",
-      loginurl: ""
+      loginurl: "",
+      logindisplay:{
+        visibility: "show"
+      },
+      fileuploaddisplay :{
+        visibility : "hidden"
+      }
     };
     console.log("The App State Initialized 1", this.state);
   }
@@ -39,11 +45,11 @@ class App extends Component {
           <br />
           <br />
           <br />
-          <div >
-            <LoginSection />
+          <div style={this.state.logindisplay} >
+            <LoginSection  />
           </div>
-          <div >
-            <FileuploadSection />
+          <div style={this.state.fileuploaddisplay} >
+            <FileuploadSection  />
           </div>
         </div>
       </div>
