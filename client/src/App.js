@@ -13,30 +13,27 @@ class App extends Component {
   constructor(props) {
     super();
     mixins: [Reflux.listenTo(ContentReviewerStore, "onChange")],
-    this.state = {
-      username: "",
-      password: "",
-      sessiontok: "",
-      loginurl: "",
-      logindisplay:{
-        visibility: "show"
-      },
-      fileuploaddisplay :{
-        visibility : "hidden"
-      }
-    };
+      (this.state = {
+        username: "",
+        password: "",
+        sessiontok: "",
+        loginurl: "",
+        logindisplay: {
+          visibility: "show"
+        },
+        fileuploaddisplay: {
+          visibility: "hidden"
+        }
+      });
   }
   onChange(event, firstdata) {
-    console.log('Hello Data');
-    console.log('Store Update',firstdata);
+    console.log("Hello Data");
+    console.log("Store Update", firstdata);
     this.state = firstdata;
   }
   // Fetch passwords after first mount
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
   render() {
-    
     return (
       <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
         <Headerdisplay />
@@ -45,11 +42,11 @@ class App extends Component {
           <br />
           <br />
           <br />
-          <div style={this.state.logindisplay} >
-            <LoginSection  />
+          <div style={this.state.logindisplay}>
+            <LoginSection />
           </div>
-          <div style={this.state.fileuploaddisplay} >
-            <FileuploadSection  />
+          <div style={this.state.fileuploaddisplay}>
+            <FileuploadSection />
           </div>
         </div>
       </div>
