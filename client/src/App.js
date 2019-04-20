@@ -24,7 +24,6 @@ class App extends Component {
       <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
         <Headerdisplay />
         <div>
-          {this.state.sessiontok}
           <br />
           <br />
           <br />
