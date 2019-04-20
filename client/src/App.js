@@ -18,7 +18,14 @@ class App extends Component {
     this.state = firstdata;
   }
   // Fetch passwords after first mount
-  componentDidMount() {}
+  componentDidMount() {
+    this.state.logindisplay = {
+      visibility: "show"
+    };
+    this.state.uploadfiledisplay = {
+      visibility: "hidden"
+    };
+  }
   render() {
     return (
       <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
