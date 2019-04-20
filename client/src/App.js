@@ -6,8 +6,8 @@ import Headerdisplay from "./Headerdisplay.js"
 import LoginSection from "./LoginSection.js"
 import FileuploadSection from "./FileuploadSection.js"
 var Reflux = require('reflux');
-var ContentReviewStore = require('./ContentReviewStore.js');
-var ContentReviewerActions = require('./ContentReviewerActions.js');
+var ContentReviewStore = require('./ContentReviewStore.jsx');
+var ContentReviewerActions = require('./ContentReviewerActions.jsx');
 
 class App extends Component {
   constructor(props) {
