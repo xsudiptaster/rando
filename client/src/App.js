@@ -13,8 +13,7 @@ class App extends Component {
   constructor(props) {
     mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
       super(props);
-    state: {
-    }
+    
     this.setState({
       logindisplay: {
         visibility: "show"
@@ -23,6 +22,7 @@ class App extends Component {
         visibility: "hidden"
       }
     });
+    console.log("The App State Initialized", this.state);
   }
   updatestatenow(event, firstdata) {
     this.state = firstdata;
