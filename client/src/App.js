@@ -34,10 +34,10 @@ class App extends Component {
           <br />
           <br />
           <br />
-          <div style={this.state.logindisplay}>
+          <div >
             <LoginSection />
           </div>
-          <div style={this.state.uploadfiledisplay}>
+          <div >
             <FileuploadSection />
           </div>
         </div>
