@@ -27,7 +27,7 @@ export default class LoginSection extends Component {
   }
   handleUsernameChange(event) {
     this.setState({ username: event.target.value });
-    ContentReviewStore.handleUsernameChange(this.state.username);
+    
   }
   handlePasswordChange(event) {
     this.setState({ password: event.target.value });
@@ -45,9 +45,8 @@ export default class LoginSection extends Component {
         loginUrl: this.state.loginurl
       })
       .then(response => {
-        console.log("The Response", response.data);
-        console.log("success!");
         this.setState({ sessiontok: response.data });
+        ContentReviewStore.stateupdates(this.state);    
       })
       .catch(error => {
         console.log(error);

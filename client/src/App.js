@@ -24,8 +24,8 @@ class App extends Component {
       <div>
       <br /><br />
       <br /><br />
-      <div style="visibility:hidden" >
-      <LoginSection style ="visibility:hidden"/>
+      <div >
+      <LoginSection />
       </div>
       
       </div>
