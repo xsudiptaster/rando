@@ -27,14 +27,15 @@ class App extends Component {
     };
   }
   updatestatenow(event, firstdata) {
+    console.log('Store Update',firstdata);
     this.state = firstdata;
   }
   // Fetch passwords after first mount
   componentDidMount() {
-    console.log("The App State Initialized", this.state);
+    
   }
   render() {
-    console.log("The App State", this.state);
+    
     return (
       <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
         <Headerdisplay />
