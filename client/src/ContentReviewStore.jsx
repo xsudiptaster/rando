@@ -4,18 +4,17 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewerStore = Reflux.createStore({
   // Shorthand for listening to all ContentReviewerActions
   listenables: [ContentReviewerActions],
-  firstdata: {logindisplay:{
-      visibility: "hidden"
-  }},
   constructor() {
     
   },
   // Load a review when the store is initialized
   init: function() {
-    
   },
   stateupdates: function(state) {
-    console.log('App data',state);  
+    if(!this.firstdata)
+    {
+        this.firstdata={};
+    }  
     this.firstdata = state;
     this.fireUpdate();
   },
