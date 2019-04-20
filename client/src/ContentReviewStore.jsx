@@ -14,7 +14,6 @@ var ContentReviewerStore = Reflux.createStore({
   },
   stateupdates: function(state) {
     this.firstdata = state;
-    console.log("The Store DAta", this.firstdata);
     this.fireUpdate();
   },
 
