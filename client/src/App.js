@@ -13,18 +13,17 @@ class App extends Component {
   constructor(props) {
     mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
       super(props);
+      this.setState({logindisplay :{
+        visibility: "show"
+      } , uploadfiledisplay :{
+        visibility: "hidden"
+      }})
   }
   updatestatenow(event, firstdata) {
     this.state = firstdata;
   }
   // Fetch passwords after first mount
   componentDidMount() {
-    this.state.logindisplay = {
-      visibility: "show"
-    };
-    this.state.uploadfiledisplay = {
-      visibility: "hidden"
-    };
   }
   render() {
     return (
