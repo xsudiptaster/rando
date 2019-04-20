@@ -8,8 +8,8 @@ var ContentReviewerStore = Reflux.createStore({
 
  // Load a review when the store is initialized
  init: function() {
-    this.firstdata.logindisplay="visibility:show";
-    this.firstdata.uploadfiledisplay="visibility:hidden";
+    this.firstdata.logindisplay="show";
+    this.firstdata.uploadfiledisplay="hidden";
     this.trigger(this.firstdata);
  },
  stateupdates : function(state){
