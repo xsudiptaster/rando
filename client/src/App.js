@@ -4,6 +4,7 @@ import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import Headerdisplay from "./Headerdisplay.js"
 import LoginSection from "./LoginSection.js"
+import FileuploadSection from "./FileuploadSection.js"
 var Reflux = require('reflux');
 var ContentReviewStore = require('./ContentReviewStore.js');
 var ContentReviewerActions = require('./ContentReviewerActions.js');
@@ -24,10 +25,12 @@ class App extends Component {
       <div>
       <br /><br />
       <br /><br />
-      <div >
+      <div style={this.state.logindisplay} >
       <LoginSection />
       </div>
-      
+      <div style={this.state.uploadfiledisplay} >
+      <FileuploadSection />
+      </div>
       </div>
     
     </div>);
