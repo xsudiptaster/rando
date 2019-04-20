@@ -50,8 +50,8 @@ export default class LoginSection extends Component {
         this.setState({ uploadfiledisplay: {
             visibility: "show"
         } });
-        ContentReviewStore.stateupdates(this.state);
-        this.trigger(this.state);
+        ContentReviewStore.onstateupdates(this.state);
+        
       })
       .catch(error => {
         console.log(error);
