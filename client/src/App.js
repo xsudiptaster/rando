@@ -13,7 +13,12 @@ class App extends Component {
   constructor(props) {
     super();
     //mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
-    this.setState({logindisplay : "asd" });
+    this.state = {
+      username: "",
+      password: "",
+      sessiontok: "",
+      loginurl: ""
+    };
     console.log("The App State Initialized 1", this.state);
   }
   updatestatenow(event, firstdata) {
