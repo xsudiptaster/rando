@@ -11,6 +11,7 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 class App extends Component {
   constructor(props) {
+    super();
     //mixins: [Reflux.listenTo(ContentReviewStore, "updatestatenow")],
     this.setState({logindisplay : "asd" });
     console.log("The App State Initialized 1", this.state);
