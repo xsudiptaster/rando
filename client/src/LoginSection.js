@@ -34,7 +34,7 @@ export default class LoginSection extends Component {
     this.setState({ loginurl: event.target.value });
   }
   handlelogin() {
-    console.log("Called on load", this.state);
+    
     // Get the session and store them in state
     axios
       .post("/api/logintosalesforce", {
@@ -54,7 +54,7 @@ export default class LoginSection extends Component {
             visibility: "show"
           }
         });
-        ContentReviewStore.onstateupdates(this.state);
+        ContentReviewStore.stateupdates(this.state);
       })
       .catch(error => {
         console.log(error);

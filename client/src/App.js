@@ -23,6 +23,7 @@ class App extends Component {
     return (<div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
       <Headerdisplay/>
       <div>
+        {this.state.sessiontok}
       <br /><br />
       <br /><br />
       <div  style= {this.state.logindisplay} >

@@ -20,7 +20,7 @@ var ContentReviewerStore = Reflux.createStore({
     };
     this.trigger(this.firstdata);
  },
- onstateupdates : function(state){
+ stateupdates : function(state){
     this.firstdata=state;
     this.trigger(this.firstdata);
  },
