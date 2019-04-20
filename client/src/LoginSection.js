@@ -8,7 +8,7 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class LoginSection extends Component {
   constructor(props) {
-    mixins: [Reflux.listenTo(ContentReviewStore, "updatestate")];
+    mixins: [Reflux.listenTo(ContentReviewStore, "stateupdates")];
     super(props);
     // Initialize state
     this.state = {
@@ -56,7 +56,7 @@ export default class LoginSection extends Component {
             visibility: "show"
           }
         });
-        ContentReviewStore.stateupdates(this.state);
+        ContentReviewerActions.stateupdates(this.state);
       })
       .catch(error => {
         console.log(error);
