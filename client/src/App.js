@@ -21,7 +21,7 @@ class App extends Reflux.Component {
         logindisplay: {
           visibility: "show"
         },
-        fileuploaddisplay: {
+        uploadfiledisplay: {
           visibility: "hidden"
         }
       });
@@ -46,7 +46,7 @@ class App extends Reflux.Component {
           <div style={this.state.logindisplay}>
             <LoginSection />
           </div>
-          <div style={this.state.fileuploaddisplay}>
+          <div style={this.state.uploadfiledisplay}>
             <FileuploadSection />
           </div>
         </div>
