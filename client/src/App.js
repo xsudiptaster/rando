@@ -25,10 +25,10 @@ class App extends Component {
       <div>
       <br /><br />
       <br /><br />
-      <div  >
+      <div style={ { visibility: `${ this.state.logindisplay }%` } }>
       <LoginSection  />
       </div>
-      <div style={this.state.uploadfiledisplay} >
+      <div style={ { visibility: `${ this.state.uploadfiledisplay }%` } } >
       <FileuploadSection />
       </div>
       </div>
