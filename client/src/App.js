@@ -26,6 +26,7 @@ class App extends Component {
   componentDidMount() {
   }
   render() {
+    console.log('The App State',this.state);
     return (
       <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
         <Headerdisplay />
