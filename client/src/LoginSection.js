@@ -67,7 +67,7 @@ export default class LoginSection extends Reflux.Component {
         <table>
           <tr>
             <td>
-              <div className="slds-text-heading_large">
+              <div className="slds-text-heading_medium">
                 Please Select the Org:
               </div>
             </td>
@@ -98,7 +98,7 @@ export default class LoginSection extends Reflux.Component {
           </tr>
           <tr>
             <td>
-              <div className="slds-text-heading_large">Username :</div>
+              <div className="slds-text-heading_medium">Username :</div>
             </td>
             <td>
               <input
@@ -111,7 +111,7 @@ export default class LoginSection extends Reflux.Component {
           </tr>
           <tr>
             <td>
-              <div className="slds-text-heading_large">Password :</div>
+              <div className="slds-text-heading_medium">Password :</div>
             </td>
             <td>
               <input
