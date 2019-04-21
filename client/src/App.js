@@ -27,15 +27,12 @@ class App extends Reflux.Component {
       });
     this.store = ContentReviewerStore;
   }
-  onChange(firstdata) {
-    console.log("Hello Data");
-    console.log("Store Update", firstdata);
+  /*onChange(firstdata) {
     this.state = firstdata;
-  }
+  }*/
   // Fetch passwords after first mount
   componentDidMount() {}
   render() {
-    console.log("The State Data", this.state);
     return (
       <div className="slds-grid slds-wrap">
         <div className="slds-col slds-size_12-of-12">
