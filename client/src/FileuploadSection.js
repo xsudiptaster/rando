@@ -9,12 +9,11 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class FileuploadSection extends Reflux.Component {
   constructor(props) {
-    mixins: [Reflux.connect(ContentReviewStore, "ContentReviewStore")];
     super(props);
     this.store = ContentReviewStore;
-    this.setState({
+    this.state={
       fileName : ""
-    })
+    }
   }
   readthefile(event) {
       this.setState({
