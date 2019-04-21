@@ -11,9 +11,6 @@ export default class FileuploadSection extends Reflux.Component {
   constructor(props) {
     super(props);
     this.store = ContentReviewStore;
-    this.state={
-      fileName : " "
-    }
   }
   readthefile(event) {
       this.setState({
@@ -70,7 +67,7 @@ export default class FileuploadSection extends Reflux.Component {
               </label>
             </div>
             <div style="{text-align:center}">
-               {this.state.fileName}
+               {(this.state)?this.state.fileName:""}
             </div>
           </div>
         </div>
