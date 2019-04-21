@@ -21,6 +21,7 @@ export default class FileuploadSection extends Reflux.Component {
          this.setState({
             sheetNames: data
          });
+         ContentReviewerActions.stateupdates(this.state);
       });
   }
 
