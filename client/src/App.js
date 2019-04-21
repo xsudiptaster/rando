@@ -25,7 +25,7 @@ class App extends Reflux.Component {
           visibility: "hidden"
         }
       });
-      this.store = ContentReviewerStore;
+    this.store = ContentReviewerStore;
   }
   onChange(firstdata) {
     console.log("Hello Data");
@@ -35,20 +35,26 @@ class App extends Reflux.Component {
   // Fetch passwords after first mount
   componentDidMount() {}
   render() {
-    console.log('The State Data',this.state);
+    console.log("The State Data", this.state);
     return (
-      <div classclassName="slds-brand-band slds-brand-band_large slds-brand-band_group">
-        <Headerdisplay />
-        <div>
-          <br />
-          <br />
-          <br />
-          <br />
-          <div style={this.state.logindisplay}>
-            <LoginSection />
+      <div className="slds-grid slds-wrap">
+        <div className="slds-col slds-size_10-of-12">
+          <Headerdisplay />
+        </div>
+        <div className="slds-col slds-grid slds-size_1-of-2">
+          <div className="slds-col slds-size_1-of-2">
+            <span>Nested: 1</span>
           </div>
-          <div style={this.state.uploadfiledisplay}>
-            <FileuploadSection />
+          <div className="slds-col slds-size_1-of-2">
+            <div style={this.state.logindisplay}>
+              <LoginSection />
+            </div>
+            <div style={this.state.uploadfiledisplay}>
+              <FileuploadSection />
+            </div>
+          </div>
+          <div className="slds-col slds-size_1-of-2">
+            <span>Nested: 2</span>
           </div>
         </div>
       </div>
