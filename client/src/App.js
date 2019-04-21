@@ -38,7 +38,7 @@ class App extends Reflux.Component {
     console.log("The State Data", this.state);
     return (
       <div className="slds-grid slds-wrap">
-        <div className="slds-col slds-size_10-of-12">
+        <div className="slds-col slds-size_12-of-12">
           <Headerdisplay />
         </div>
         <div className="slds-col slds-grid slds-size_1-of-2">
