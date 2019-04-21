@@ -67,7 +67,7 @@ export default class FileuploadSection extends Reflux.Component {
               </label>
             </div>
             <div >
-            
+            {(this.state)?this.state.fileName:""}
             </div>
           </div>
         </div>
