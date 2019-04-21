@@ -13,16 +13,16 @@ export default class FileuploadSection extends Reflux.Component {
     this.store = ContentReviewStore;
   }
   readthefile(event) {
+    this.setState({
+      fileBlob: event.target.files[0],
+      fileName: event.target.files[0].name
+    });
+    readXlsxFile(event.target.files[0], { getSheets: true }).then(data => {
       this.setState({
-         fileBlob : event.target.files[0],
-         fileName : event.target.files[0].name
+        sheetNames: data
       });
-      readXlsxFile(event.target.files[0],{ getSheets: true }).then((data) => {
-         this.setState({
-            sheetNames: data
-         });
-         ContentReviewerActions.stateupdates(this.state);
-      });
+      ContentReviewerActions.stateupdates(this.state);
+    });
   }
   render() {
     return (
@@ -62,18 +62,15 @@ export default class FileuploadSection extends Reflux.Component {
                   Upload Files
                 </span>
                 <span className="slds-file-selector__text slds-medium-show">
-                  or Drop Files
-                  &nbsp; <div className="slds-text-align_center" >
-            {(this.state)?this.state.fileName:""}
-         </div>
+                  <div className="slds-text-align_center">
+                    {this.state ? this.state.fileName : ""}
+                  </div>
                 </span>
               </label>
             </div>
-           </div>
+          </div>
         </div>
-        
       </div>
-      
     );
   }
 }
