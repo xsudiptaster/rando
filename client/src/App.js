@@ -13,10 +13,6 @@ class App extends Reflux.Component {
   constructor(props) {
     super();
       (this.state = {
-        username: "sudiptalb@gmail.com",
-        password: "rockcity1234",
-        sessiontok: "",
-        loginurl: "",
         logindisplay: {
           visibility: "visible"
         },

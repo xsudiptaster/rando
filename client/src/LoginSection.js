@@ -11,12 +11,12 @@ export default class LoginSection extends Reflux.Component {
     super(props);
     // Initialize state
     this.state = {
-      username: "",
-      password: "",
+      username: "sudiptalb@gmail.com",
+      password: "rockcity1234",
       sessiontok: "",
       loginurl: ""
     };
-    this.handlelogin = this.handlelogin.bind(this);
+    //this.handlelogin = this.handlelogin.bind(this);
   }
   /*updatestate(event, firstdata) {
     this.state = firstdata;
