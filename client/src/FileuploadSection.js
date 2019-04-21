@@ -24,6 +24,13 @@ export default class FileuploadSection extends Reflux.Component {
       ContentReviewerActions.stateupdates(this.state);
     });
   }
+  startProcessing(event)
+  {
+     this.state.uploadfiledisplay={
+      visibility: "hidden"
+    };
+    ContentReviewerActions.stateupdates(this.state);
+  }
   render() {
     return (
       <div className="slds-form-element">
@@ -68,7 +75,7 @@ export default class FileuploadSection extends Reflux.Component {
                 </span>
               </label>
             </div>
-            <input type="button" value="Upload" className="slds-button slds-button_neutral" ></input> 
+            <input type="button" value="Upload" className="slds-button slds-button_neutral" onClick={this.startProcessing.bind(this)} ></input> 
           </div>
         </div>
       </div>
