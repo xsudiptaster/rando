@@ -5,12 +5,17 @@ import "./lightning-design/styles/salesforce-lightning-design-system.css";
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
+import readXlsxFile from 'read-excel-file'
 
 export default class FileuploadSection extends Reflux.Component {
   constructor(props) {
     mixins: [Reflux.connect(ContentReviewStore, "ContentReviewStore")];
     super(props);
     this.store = ContentReviewStore;
+  }
+  readthefile(ele){
+      console.log('teh element',ele);
+      console.log(ele.files[0]);
   }
 
   render() {
@@ -30,6 +35,7 @@ export default class FileuploadSection extends Reflux.Component {
                 accept="image/png"
                 type="file"
                 id="file-upload-input-01"
+                onChange={this.readthefile.bind(this)}
                 aria-labelledby="file-selector-primary-label file-selector-secondary-label"
               />
               <label
