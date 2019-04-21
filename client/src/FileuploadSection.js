@@ -14,7 +14,7 @@ export default class FileuploadSection extends Reflux.Component {
     this.store = ContentReviewStore;
   }
   readthefile(ele) {
-   console.log("teh element",readXlsxFile(ele.file) );
+      console.log("the element",readXlsxFile(ele.files) );
     
   }
 
