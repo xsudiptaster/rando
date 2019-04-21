@@ -24,7 +24,6 @@ export default class FileuploadSection extends Reflux.Component {
          ContentReviewerActions.stateupdates(this.state);
       });
   }
-
   render() {
     return (
       <div className="slds-form-element">
@@ -67,6 +66,7 @@ export default class FileuploadSection extends Reflux.Component {
                 </span>
               </label>
             </div>
+            Name is 
           </div>
         </div>
       </div>
