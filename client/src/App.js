@@ -41,21 +41,20 @@ class App extends Reflux.Component {
         <div className="slds-col slds-size_12-of-12">
           <Headerdisplay />
         </div>
-          <div className="slds-col slds-size_1-of-3">
-            <span>Nested: 1</span>
+        <div className="slds-col slds-size_1-of-3">
+          <span>Nested: 1</span>
+        </div>
+        <div className="slds-col slds-size_1-of-3">
+          <div style={this.state.logindisplay}>
+            <LoginSection />
           </div>
-          <div className="slds-col slds-size_1-of-3">
-            <div style={this.state.logindisplay}>
-              <LoginSection />
-            </div>
-            <div style={this.state.uploadfiledisplay}>
-              <FileuploadSection />
-            </div>
+          <div style={this.state.uploadfiledisplay}>
+            <FileuploadSection />
           </div>
-          <div className="slds-col slds-size_1-of-3">
-            <span>Nested: 2</span>
-          </div>
-        
+        </div>
+        <div className="slds-col slds-size_1-of-3">
+          <span>Nested: 2</span>
+        </div>
       </div>
     );
   }
