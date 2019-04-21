@@ -15,7 +15,8 @@ export default class FileuploadSection extends Reflux.Component {
   }
   readthefile(event) {
       this.setState({
-         fileBlob : event.target.files[0]
+         fileBlob : event.target.files[0],
+         fileName : event.target.files[0].name
       });
       readXlsxFile(event.target.files[0],{ getSheets: true }).then((data) => {
          this.setState({
@@ -66,7 +67,9 @@ export default class FileuploadSection extends Reflux.Component {
                 </span>
               </label>
             </div>
-            Name is 
+            <div style="text-align:center">
+               {this.state.fileName}
+            </div>
           </div>
         </div>
       </div>
