@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import readXlsxFile from 'read-excel-file'
+import readXlsxFile from "read-excel-file";
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
-
 
 export default class FileuploadSection extends Reflux.Component {
   constructor(props) {
@@ -15,8 +14,8 @@ export default class FileuploadSection extends Reflux.Component {
     this.store = ContentReviewStore;
   }
   readthefile(ele) {
-    console.log("teh element", ele);
-    console.log(ele.files[0]);
+   console.log("teh element",readXlsxFile(ele.file) );
+    
   }
 
   render() {
