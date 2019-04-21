@@ -41,7 +41,6 @@ class App extends Reflux.Component {
         <div className="slds-col slds-size_12-of-12">
           <Headerdisplay />
         </div>
-        
           <div className="slds-col slds-size_1-of-3">
             <span>Nested: 1</span>
           </div>
