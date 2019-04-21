@@ -33,7 +33,7 @@ export default class FileuploadSection extends Reflux.Component {
             <div className="slds-file-selector__dropzone">
               <input
                 className="slds-file-selector__input slds-assistive-text"
-                accept="image/png"
+                accept="xls/xlsx"
                 type="file"
                 id="file-upload-input-01"
                 onChange={this.readthefile.bind(this)}
