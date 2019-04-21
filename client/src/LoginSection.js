@@ -8,7 +8,6 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class LoginSection extends Reflux.Component {
   constructor(props) {
-    mixins: [Reflux.listenTo(ContentReviewStore, "stateupdates")];
     super(props);
     // Initialize state
     this.state = {
@@ -19,9 +18,9 @@ export default class LoginSection extends Reflux.Component {
     };
     this.handlelogin = this.handlelogin.bind(this);
   }
-  updatestate(event, firstdata) {
+  /*updatestate(event, firstdata) {
     this.state = firstdata;
-  }
+  }*/
   // Fetch passwords after first mount
   componentDidMount() {
     this.state.loginurl = "https://test.salesforce.com";

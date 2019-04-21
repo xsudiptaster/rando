@@ -12,10 +12,9 @@ var ContentReviewerStore = require("./ContentReviewStore.jsx");
 class App extends Reflux.Component {
   constructor(props) {
     super();
-    mixins: [Reflux.listenTo(ContentReviewerStore, "onChange")],
       (this.state = {
-        username: "",
-        password: "",
+        username: "sudiptalb@gmail.com",
+        password: "rockcity1234",
         sessiontok: "",
         loginurl: "",
         logindisplay: {
@@ -27,9 +26,6 @@ class App extends Reflux.Component {
       });
     this.store = ContentReviewerStore;
   }
-  /*onChange(firstdata) {
-    this.state = firstdata;
-  }*/
   // Fetch passwords after first mount
   componentDidMount() {}
   render() {
