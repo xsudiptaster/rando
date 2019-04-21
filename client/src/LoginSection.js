@@ -16,7 +16,6 @@ export default class LoginSection extends Reflux.Component {
       sessiontok: "",
       loginurl: ""
     };
-    //this.handlelogin = this.handlelogin.bind(this);
   }
   /*updatestate(event, firstdata) {
     this.state = firstdata;

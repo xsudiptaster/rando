@@ -14,11 +14,14 @@ export default class FileuploadSection extends Reflux.Component {
     this.store = ContentReviewStore;
   }
   readthefile(event) {
-      
+      this.setState({
+         fileBlob : event.target.files[0]
+      });
       readXlsxFile(event.target.files[0],{ getSheets: true }).then((data) => {
-         console.log('The state value ',this.state);
-         console.log("the element",data );
-       })
+         this.setState({
+            sheetNames: data
+         });
+      });
   }
 
   render() {
@@ -66,6 +69,7 @@ export default class FileuploadSection extends Reflux.Component {
           </div>
         </div>
       </div>
+      
     );
   }
 }
