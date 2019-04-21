@@ -68,7 +68,7 @@ export default class FileuploadSection extends Reflux.Component {
                 </span>
               </label>
             </div>
-            <input type="button" value="Upload" ></input> 
+            <input type="button" value="Upload" className="slds-button slds-button_neutral" ></input> 
           </div>
         </div>
       </div>
