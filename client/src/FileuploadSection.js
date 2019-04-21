@@ -69,7 +69,7 @@ export default class FileuploadSection extends Reflux.Component {
                 </span>
               </label>
             </div>
-            <div style="text-align:center">
+            <div style="{text-align:center}">
                {this.state.fileName}
             </div>
           </div>
