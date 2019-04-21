@@ -15,7 +15,7 @@ export default class FileuploadSection extends Reflux.Component {
   }
   readthefile(ele) {
       
-      readXlsxFile(file, { sheet: 2 }).then((data) => {
+      readXlsxFile(ele.target.files[0], { sheet: 2 }).then((data) => {
          console.log("the element",data );
        })
   }
