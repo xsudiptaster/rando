@@ -12,6 +12,9 @@ export default class FileuploadSection extends Reflux.Component {
     mixins: [Reflux.connect(ContentReviewStore, "ContentReviewStore")];
     super(props);
     this.store = ContentReviewStore;
+    this.setState({
+      fileName : ""
+    })
   }
   readthefile(event) {
       this.setState({
