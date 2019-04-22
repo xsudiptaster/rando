@@ -70,7 +70,7 @@ export default class FileuploadSection extends Reflux.Component {
                       </h2>
                     </div>
                     <div>Sheet A</div>
-                    <div>Sheet</div>
+                    <div>Sheet B</div>
                   </td>
                 </tr>
               </table>
