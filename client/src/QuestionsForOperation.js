@@ -69,9 +69,9 @@ export default class FileuploadSection extends Reflux.Component {
                     </h2>
                   </div>
                   
-                  {this.state?this.state.sheetNames.map((value, index) => {
+                  {this.state.sheetNames?this.state.sheetNames.map((value, index) => {
                     return <div key={index}>{value}</div>;
-                  }):""}
+                  }): " "}
                 </td>
               </tr>
             </table>
