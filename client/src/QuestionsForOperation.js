@@ -31,7 +31,7 @@ export default class FileuploadSection extends Reflux.Component {
             <div className="slds-media__body">
               <h2 className="slds-card__header-title">
                 <a href="javascript:void(0);" className="slds-card__header-link slds-truncate" title="Accounts">
-                  <span>Accounts</span>
+                  <span>Are the Sheets Related </span>
                 </a>
               </h2>
             </div>
