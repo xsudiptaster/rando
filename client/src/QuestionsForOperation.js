@@ -30,7 +30,11 @@ export default class FileuploadSection extends Reflux.Component {
         
       <article className="slds-card">
         <div className="slds-card__header slds-grid">
-          <div className="slds-media__body">
+        <table>
+                <tr>
+                    <td>
+                    <div className="slds-media__body">
+            
             <h2 className="slds-card__header-title">
               <input type="checkbox" className="slds-checkbox" /> &nbsp;&nbsp;
               <a
@@ -42,9 +46,12 @@ export default class FileuploadSection extends Reflux.Component {
               </a>
             </h2>
           </div>
-          <br/>
-          <br/>
-          <div className="slds-media__body">
+          
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <div className="slds-media__body">
             <h2 className="slds-card__header-title">
               <input type="checkbox" className="slds-checkbox" /> &nbsp;&nbsp;
               <a
@@ -56,6 +63,12 @@ export default class FileuploadSection extends Reflux.Component {
               </a>
             </h2>
           </div>
+        
+                    </td>
+                </tr>
+            </table>
+          <br/>
+          <br/>
         </div>
       </article>
       </div>
