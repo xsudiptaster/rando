@@ -35,9 +35,6 @@ export default class FileuploadSection extends Reflux.Component {
                 </a>
               </h2>
             </div>
-            <div className="slds-no-flex">
-              <button className="slds-button slds-button_neutral">New</button>
-            </div>
         </div>
       </article>
       
