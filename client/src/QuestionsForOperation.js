@@ -29,6 +29,6 @@ export default class FileuploadSection extends Reflux.Component {
     this.state.isRelated = event.target.value;
   }
   render() {
-    
+    return (<div />);
   }
 }
