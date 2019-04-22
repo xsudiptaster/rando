@@ -5,6 +5,7 @@ import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import Headerdisplay from "./Headerdisplay.js";
 import LoginSection from "./LoginSection.js";
 import FileuploadSection from "./FileuploadSection.js";
+import QuestionsForOperation from "./QuestionsForOperation";
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewerStore = require("./ContentReviewStore.jsx");
@@ -43,6 +44,9 @@ class App extends Reflux.Component {
           </div>
           <div style={this.state.uploadfiledisplay}>
             <FileuploadSection />
+          </div>
+          <div >
+            <QuestionsForOperation />
           </div>
         </div>
         <div className="slds-col slds-size_1-of-3">
