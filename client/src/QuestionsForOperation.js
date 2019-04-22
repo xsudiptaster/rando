@@ -11,6 +11,9 @@ export default class FileuploadSection extends Reflux.Component {
   constructor(props) {
     super(props);
     this.store = ContentReviewStore;
+    this.setState({
+      isRelated: false
+    });
   }
   readthefile(event) {
     this.setState({
@@ -22,7 +25,9 @@ export default class FileuploadSection extends Reflux.Component {
       });
     });
   }
-
+  isRealtedCheck(event) {
+    this.state.isRelated = event.target.value;
+  }
   render() {
     return (
       <div>
@@ -33,7 +38,11 @@ export default class FileuploadSection extends Reflux.Component {
                 <td>
                   <div className="slds-media__body">
                     <h2 className="slds-card__header-title">
-                      <input type="checkbox" className="slds-checkbox" />{" "}
+                      <input
+                        type="checkbox"
+                        className="slds-checkbox"
+                        onChange={this.isRealtedCheck.bind(this)}
+                      />
                       &nbsp;&nbsp;
                       <a
                         href="javascript:void(0);"
@@ -50,17 +59,17 @@ export default class FileuploadSection extends Reflux.Component {
                 <td>
                   <div className="slds-media__body">
                     <h2 className="slds-card__header-title">
-                      <input type="checkbox" className="slds-checkbox" />{" "}
-                      &nbsp;&nbsp;
                       <a
                         href="javascript:void(0);"
                         className="slds-card__header-link slds-truncate"
                         title="Accounts"
                       >
-                        <span>Are the Sheets Again ?</span>
+                        <span>Sheets to Insert ?</span>
                       </a>
                     </h2>
                   </div>
+                  <div>Sheet A</div>
+                  <div>Sheet B</div>
                 </td>
               </tr>
             </table>
