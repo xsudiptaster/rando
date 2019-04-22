@@ -30,7 +30,7 @@ export default class FileuploadSection extends Reflux.Component {
   }
   render() {
     var sheetNames = [];
-    if (this.state)
+    if (this.state && this.state.sheetNames)
     {
         sheetNames = this.state.sheetNames;
     }
