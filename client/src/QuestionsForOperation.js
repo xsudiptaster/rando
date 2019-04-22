@@ -25,22 +25,38 @@ export default class FileuploadSection extends Reflux.Component {
 
   render() {
     return (
+        <div>
+
+        
       <article className="slds-card">
         <div className="slds-card__header slds-grid">
           <div className="slds-media__body">
             <h2 className="slds-card__header-title">
-              <input type="checkbox" className="slds-checkbox" />
+              <input type="checkbox" className="slds-checkbox" /> &nbsp;&nbsp;
               <a
                 href="javascript:void(0);"
                 className="slds-card__header-link slds-truncate"
                 title="Accounts"
               >
-                <span>Are the Sheets Related </span>
+                <span>Are the Sheets Related ?</span>
+              </a>
+            </h2>
+          </div>
+          <div className="slds-media__body">
+            <h2 className="slds-card__header-title">
+              <input type="checkbox" className="slds-checkbox" /> &nbsp;&nbsp;
+              <a
+                href="javascript:void(0);"
+                className="slds-card__header-link slds-truncate"
+                title="Accounts"
+              >
+                <span>Are the Sheets Related Again ?</span>
               </a>
             </h2>
           </div>
         </div>
       </article>
+      </div>
     );
   }
 }
