@@ -19,6 +19,9 @@ class App extends Reflux.Component {
         },
         uploadfiledisplay: {
           visibility: "hidden"
+        },
+        questionfordisplay: {
+          visibility: "hidden"
         }
       });
     this.store = ContentReviewerStore;
@@ -36,7 +39,11 @@ class App extends Reflux.Component {
         <br/>
         <br/>
         <div className="slds-col slds-size_1-of-3">
-          <span></span>
+          <span>
+          <div style={this.state.questionfordisplay} >
+            <QuestionsForOperation />
+          </div>
+          </span>
         </div>
         <div className="slds-col slds-size_1-of-3">
           <div style={this.state.logindisplay}>
@@ -45,9 +52,7 @@ class App extends Reflux.Component {
           <div style={this.state.uploadfiledisplay}>
             <FileuploadSection />
           </div>
-          <div >
-            <QuestionsForOperation />
-          </div>
+          
         </div>
         <div className="slds-col slds-size_1-of-3">
           <span></span>
