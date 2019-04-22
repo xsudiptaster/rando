@@ -56,7 +56,7 @@ export default class LoginSection extends Reflux.Component {
         ContentReviewerActions.stateupdates(this.state);
       })
       .catch(error => {
-        console.log(error);
+        alert(error);
       });
   }
   loginpagerender() {
