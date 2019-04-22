@@ -42,6 +42,7 @@ export default class FileuploadSection extends Reflux.Component {
               </a>
             </h2>
           </div>
+          <br/>
           <div className="slds-media__body">
             <h2 className="slds-card__header-title">
               <input type="checkbox" className="slds-checkbox" /> &nbsp;&nbsp;
