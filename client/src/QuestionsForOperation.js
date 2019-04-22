@@ -29,15 +29,13 @@ export default class FileuploadSection extends Reflux.Component {
     this.state.isRelated = event.target.value;
   }
   render() {
-    var rowsdv=[];
-    var details='';
-    if (this.state && this.state.sheetNames!=undefined)
-    {
-      for (var i=0;i<this.state.sheetNames.length;i++)
-      {
-        rowsdv.push(<div key={i} text={this.state.sheetNames[i]} ></div>);
-      }
-      console.log('Sheetdiv nothing ?',rowsdv);
+    var rowsdv = [];
+    var details = "";
+    if (this.state && this.state.sheetNames != undefined) {
+      rowsdv = this.state.sheetNames.map((item, key) => (
+        <li key={key}>{item}</li>
+      ));
+      console.log("Sheetdiv nothing ?", rowsdv);
     }
     return (
       <div>
