@@ -30,10 +30,13 @@ export default class FileuploadSection extends Reflux.Component {
   }
   render() {
     var sheetNames = [];
-    if (this.state && this.state.sheetNames)
+    if (this.state!=null && this.state.sheetNames.length>0)
     {
-        sheetNames = this.state.sheetNames;
+        for (var i=0;i<this.state.sheetNames.length;i++) {
+            sheetNames.push(<div>{this.state.sheetNames[i]}</div>);
+          }
     }
+    
     return (
       <div>
         <article className="slds-card">
@@ -73,10 +76,8 @@ export default class FileuploadSection extends Reflux.Component {
                       </a>
                     </h2>
                   </div>
-
-                  {sheetNames.map((value, index) => {
-                    return <li key={index}>{value}</li>;
-                  })}
+                    {sheetNames}
+                  
                 </td>
               </tr>
             </table>
