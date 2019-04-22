@@ -32,10 +32,8 @@ export default class FileuploadSection extends Reflux.Component {
     var rowsdv = [];
     var details = "";
     if (this.state && this.state.sheetNames != undefined) {
-      rowsdv = this.state.sheetNames.map((item, key) => (
-        <li key={key}>{item}</li>
-      ));
-      console.log("Sheetdiv nothing ?", rowsdv);
+      
+      console.log("Sheetdiv nothing ?", this.state.sheetNames[1]);
     }
     return (
       <div>
