@@ -29,7 +29,7 @@ export default class FileuploadSection extends Reflux.Component {
     this.state.isRelated = event.target.value;
   }
   render() {
-      const sheetNames= [];
+      var sheetNames= [];
       sheetNames=this.state.sheetNames;
     return (
       <div>
