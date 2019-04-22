@@ -30,6 +30,7 @@ export default class FileuploadSection extends Reflux.Component {
           
             <div className="slds-media__body">
               <h2 className="slds-card__header-title">
+              <input type="checkbox" className="slds-checkbox" ></input>
                 <a href="javascript:void(0);" className="slds-card__header-link slds-truncate" title="Accounts">
                   <span>Are the Sheets Related </span>
                 </a>
