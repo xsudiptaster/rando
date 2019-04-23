@@ -34,8 +34,10 @@ export default class FileuploadSection extends Reflux.Component {
     render() {
         var rowsdv = [];
     if (this.state && this.state.sheetNames != undefined) {
+        for (const [index, value] of this.state.sheetNames.entries()) {
+            rowsdv.push(<li key={index}>{value}</li>)
+        }
         console.log('this.state', this.state);
-        rowsdv = this.state.sheetNames;
     }
         console.log('Rows', rowsdv);
     return (
@@ -80,9 +82,7 @@ export default class FileuploadSection extends Reflux.Component {
                                     </div>
                                     <div>Sheet A</div>
                                     <div>Sheet B</div>
-                                    {rowsdv.map((data) => {
-                                        <div>{data}</div>
-                                    })}
+                                    {rowsdv}
                                 </td>
                             </tr>
                         </table>
