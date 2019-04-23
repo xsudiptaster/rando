@@ -80,8 +80,8 @@ export default class FileuploadSection extends Reflux.Component {
                                     </div>
                                     <div>Sheet A</div>
                                     <div>Sheet B</div>
-                                    {rowsdv.map(function (i) {
-                                        return <div key={i}/>;
+                                    {rowsdv.map((data) => {
+                                        return <div>{data}</div>
                                     })}
                                 </td>
                             </tr>
