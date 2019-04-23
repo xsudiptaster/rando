@@ -78,7 +78,7 @@ export default class FileuploadSection extends Reflux.Component {
                     <div>Sheet A</div>
                     <div>Sheet B</div>
                     {rowsdv.map((todo)=>
-                      <div>{todo}</div>
+                      <input type="checkbox" className="slds-checkbox" name={todo} value={todo}>{todo}<br> 
                     )}
                   </td>
                 </tr>
