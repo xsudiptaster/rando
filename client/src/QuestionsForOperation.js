@@ -85,7 +85,6 @@ export default class FileuploadSection extends Reflux.Component {
                           name={todo}
                           value={todo}
                         >
-                          {" "}
                         </input>
                         <div>{todo}</div>
                       </div>
