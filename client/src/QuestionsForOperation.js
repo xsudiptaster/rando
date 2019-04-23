@@ -82,9 +82,8 @@ export default class FileuploadSection extends Reflux.Component {
                         <input
                           type="checkbox"
                           className="slds-checkbox"
-                          name={todo}
                           value={todo}
-                        >
+                        > 
                         </input>
                         <div >{todo}</div>
                         
