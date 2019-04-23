@@ -31,7 +31,7 @@ export default class FileuploadSection extends Reflux.Component {
   render() {
     var rowsdv = [];
     if (this.state && this.state.sheetNames != undefined) {
-      for (var i=0;i<this.state.sheetNames.length;i++){
+      for (var i = 0; i < this.state.sheetNames.length; i++) {
         rowsdv.push(this.state.sheetNames[i]);
       }
     }
@@ -77,12 +77,19 @@ export default class FileuploadSection extends Reflux.Component {
                     </div>
                     <div>Sheet A</div>
                     <div>Sheet B</div>
-                    {rowsdv.map((todo)=>
+                    {rowsdv.map(todo => (
                       <div>
-                      <input type="checkbox" className="slds-checkbox" name={todo} value={todo}> </input> 
-                      <div>{todo}</div> 
+                        <input
+                          type="checkbox"
+                          className="slds-checkbox"
+                          name={todo}
+                          value={todo}
+                        >
+                          {" "}
+                        </input>
+                        <div>{todo}</div>
                       </div>
-                    )}
+                    ))}
                   </td>
                 </tr>
               </table>
