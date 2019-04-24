@@ -66,7 +66,7 @@ export default class FileuploadSection extends Reflux.Component {
                 <div>
                     <article className="slds-card">
                         <div className="slds-card__header slds-grid">
-                            <table className="slds-table">
+                            <table>
                                 <tr>
                                     <td>
                                         <div className="slds-media__body">
@@ -77,13 +77,17 @@ export default class FileuploadSection extends Reflux.Component {
                                                     title="Accounts"
                                                 >
                                                     <span>Are the Sheets Related ?</span>
-                                                </a>&nbsp;&nbsp;
-                                                <input
-                                                    type="checkbox"
-                                                    className="slds-checkbox"
-                                                    onChange={this.isRealtedCheck.bind(this)}
-                                                />
-                                            </h2>
+                                                </a></h2>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input
+                                                type="checkbox"
+                                                className="slds-checkbox"
+                                                onChange={this.isRealtedCheck.bind(this)}
+                                            />
+
                                         </div>
                                     </td>
                                 </tr>
@@ -100,27 +104,30 @@ export default class FileuploadSection extends Reflux.Component {
                                                 </a>
                                             </h2>
                                         </div>
-                                        <table>
-
-                                            {rowsdv.map(value => <tr>
-                                                <td>
-                                                    <label className="slds-text-body_small">{value}</label></td>
-                                                <td>
-                                                    <input type="checkbox" value={value}
-                                                               onChange={this.sheetsToInsert.bind(this)}></input>
-                                                </td>
-                                            </tr>)}
-                                        </table>
                                     </td>
                                 </tr>
+
+
+                                {rowsdv.map(value => <tr>
+                                    <td>
+                                        <label className="slds-text-body_small">{value}</label></td>
+                                    <td>
+                                        <input type="checkbox" value={value}
+                                               onChange={this.sheetsToInsert.bind(this)}></input>
+                                    </td>
+                                </tr>)}
+
+
                             </table>
-                            <br/>
-                            <br/>
+
                         </div>
+                        <input type="button" value="Proceed to Object Mapping"
+                               className="slds-button slds-button_neutral"
+                               onClick={this.gotoObjectMapping.bind(this)}/>
                     </article>
+
                 </div>
-                <input type="button" value="Proceed to Object Mapping" className="slds-button"
-                       onClick={this.gotoObjectMapping.bind(this)}/>
+
             </div>
         );
     }
