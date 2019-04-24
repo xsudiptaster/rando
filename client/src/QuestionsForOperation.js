@@ -36,6 +36,7 @@ export default class FileuploadSection extends Reflux.Component {
         if (this.state && this.state.sheetNames != undefined) {
             var temp = []
             for (var i = 0; i < this.state.length; i++) {
+                console.log('the current sheet ', this.state.sheetNames[i]);
                 temp.push(this.state.sheetNames[i])
             }
             console.log('This sheet name ', temp);
