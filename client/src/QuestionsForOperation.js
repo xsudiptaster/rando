@@ -20,7 +20,7 @@ export default class FileuploadSection extends Reflux.Component {
         this.state.isRelated = event.target.value;
     }
 
-    sheetsToInsert(event) {
+    sheetsToInsertfn(event) {
         if (event.target.checked) {
             console.log('the State', this.state);
             if (this.state.sheetsToInsert && this.state.sheetsToInsert.indexOf(event.target.value) == -1) {
@@ -118,7 +118,7 @@ export default class FileuploadSection extends Reflux.Component {
                                         <label className="slds-text-body_small">{value}</label></td>
                                     <td>
                                         <input type="checkbox" value={value}
-                                               onChange={this.sheetsToInsert.bind()}></input>
+                                               onChange={this.sheetsToInsertfn.bind(this)}></input>
                                     </td>
                                 </tr>)}
 
