@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import readXlsxFile from "read-excel-file";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -12,9 +13,13 @@ export default class ObjectMapping extends Reflux.Component {
         this.store = ContentReviewStore;
     }
 
+    columnnOptions(shtname) {
+        readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
+            console.log('The Data Retrieved', data);
+        });
+    }
     render() {
         var rowsdv = [];
-
         if (this.state && this.state.objectMapping != undefined) {
             console.log('The State', this.state);
             for (var i = 0; i < this.state.objectMapping.length; i++) {
@@ -45,7 +50,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 <label className="slds-text-body_small">{value.SheetName}</label>
                             </td>
                             <td>
-                                <label className="slds-text-body_small">{value.ObjectName}</label>
+                                <select value={value.ObjectName}>{this.columnnOptions(value.ObjectName)}</select>
                             </td>
                             <td>
                                 <label className="slds-text-body_small">{value.ExtFromSheet}</label>
@@ -59,6 +64,10 @@ export default class ObjectMapping extends Reflux.Component {
     }
 }
 
-class OptionsSelector extends Reflux.Component {
+class OptionsColumnSelector extends Reflux.Component {
+    constructor(props) {
+        super(props)
+    }
+
 
 }
