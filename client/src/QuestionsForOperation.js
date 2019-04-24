@@ -49,7 +49,7 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     gotoObjectMapping(e) {
-        this.state.questionfordisplay = {visibility: "hidden"}
+        this.state.questionfordisplay = {display: "none"}
     }
 
     render() {

@@ -27,10 +27,10 @@ export default class FileuploadSection extends Reflux.Component {
   startProcessing(event)
   {
      this.state.uploadfiledisplay={
-      visibility: "hidden"
+       display: "none"
     };
     this.state.questionfordisplay={
-      visibility: "visible"
+      display: "block"
     };
     ContentReviewerActions.stateupdates(this.state);
   }

@@ -17,9 +17,7 @@ export default class LoginSection extends Reflux.Component {
       loginurl: ""
     };
   }
-  /*updatestate(event, firstdata) {
-    this.state = firstdata;
-  }*/
+
   // Fetch passwords after first mount
   componentDidMount() {
     this.state.loginurl = "https://test.salesforce.com";
@@ -45,12 +43,12 @@ export default class LoginSection extends Reflux.Component {
         this.setState({ sessiontok: response.data });
         this.setState({
           logindisplay: {
-            visibility: "hidden"
+            display: "none"
           }
         });
         this.setState({
           uploadfiledisplay: {
-            visibility: "visible"
+            display: "block"
           }
         });
         ContentReviewerActions.stateupdates(this.state);

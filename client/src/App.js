@@ -15,16 +15,16 @@ class App extends Reflux.Component {
         super();
         (this.state = {
             logindisplay: {
-                visibility: "visible"
+                display: "block"
             },
             uploadfiledisplay: {
-                visibility: "hidden"
+                display: "none"
             },
             questionfordisplay: {
-                visibility: "hidden"
+                display: "none"
             },
             objectmappingdisplay: {
-                visibility: "hidden"
+                display: "none"
             }
         });
         this.store = ContentReviewerStore;
