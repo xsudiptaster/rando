@@ -45,11 +45,8 @@ export default class FileuploadSection extends Reflux.Component {
             }
 
         }
+        console.log('The State', this.state);
         ContentReviewerActions.stateupdates(this.state);
-    }
-
-    gotoObjectMapping(e) {
-        this.state.questionfordisplay = {visibility: "hidden"}
     }
 
     render() {
@@ -114,7 +111,7 @@ export default class FileuploadSection extends Reflux.Component {
                         </div>
                     </article>
                 </div>
-                <input type="button" value="Proceed to Object Mapping" onClick={this.gotoObjectMapping.bind(this)}/>
+                <input type="button" value="Proceed to Object Mapping"/>
             </div>
         );
     }

@@ -22,7 +22,10 @@ class App extends Reflux.Component {
         },
         questionfordisplay: {
           visibility: "hidden"
-        }
+        },
+          objectmappingdisplay: {
+              visibility: "hidden"
+          }
       });
     this.store = ContentReviewerStore;
   }
@@ -38,23 +41,22 @@ class App extends Reflux.Component {
         <br/>
         <br/>
         <br/>
-        <div className="slds-col slds-size_1-of-3">
+          <div className="slds-col slds-size_1-of-5">
           <span>
-          <div style={this.state.questionfordisplay} >
-            <QuestionsForOperation />
-          </div>
           </span>
         </div>
-        <div className="slds-col slds-size_1-of-3">
+          <div className="slds-col slds-size_3-of-3">
           <div style={this.state.logindisplay}>
             <LoginSection />
           </div>
           <div style={this.state.uploadfiledisplay}>
             <FileuploadSection />
           </div>
-          
+              <div style={this.state.questionfordisplay}>
+                  <QuestionsForOperation/>
+              </div>
         </div>
-        <div className="slds-col slds-size_1-of-3">
+          <div className="slds-col slds-size_1-of-5">
           <span></span>
         </div>
       </div>
