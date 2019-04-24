@@ -32,9 +32,10 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     render() {
-        let rowsdv = [];
+        var rowsdv = [];
         if (this.state && this.state.sheetNames != undefined) {
             for (var i in Object.keys(this.state.sheetNames)) {
+                console.log('The Keys', i);
                 rowsdv.push(this.state.sheetNames[i])
             }
         }
