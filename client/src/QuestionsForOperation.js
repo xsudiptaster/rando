@@ -32,12 +32,20 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     sheetsToInsert(event) {
-        if (this.state.sheetsToInsert) {
-            this.state.sheetsToInsert.push(event.target.value);
+        if (event.target.checked) {
+            if (this.state.sheetsToInsert && this.state.sheetsToInsert.indexOf(event.target.value) == -1) {
+                this.state.sheetsToInsert.push(event.target.value);
+            } else {
+                this.state.sheetsToInsert = [];
+                this.state.sheetsToInsert.push(event.target.value);
+            }
         } else {
-            this.state.sheetsToInsert = [];
-            this.state.sheetsToInsert.push(event.target.value);
+            if (this.state.sheetsToInsert && this.state.sheetsToInsert.indexOf(event.target.value) != -1) {
+                this.state.sheetsToInsert.splice(this.state.sheetsToInsert.indexOf(event.target.value), 1);
+            }
+
         }
+
         console.log('The State', this.state);
         ContentReviewerActions.stateupdates(this.state);
     }
