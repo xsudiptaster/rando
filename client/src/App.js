@@ -5,6 +5,7 @@ import Headerdisplay from "./Headerdisplay.js";
 import LoginSection from "./LoginSection.js";
 import FileuploadSection from "./FileuploadSection.js";
 import QuestionsForOperation from "./QuestionsForOperation";
+import ObjectMapping from "./ObjectMapping";
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -57,6 +58,9 @@ class App extends Reflux.Component {
                     </div>
                     <div style={this.state.questionfordisplay}>
                         <QuestionsForOperation/>
+                    </div>
+                    <div style={this.state.objectmappingdisplay}>
+                        <ObjectMapping/>
                     </div>
                 </div>
                 <div className="slds-col slds-size_1-of-5">

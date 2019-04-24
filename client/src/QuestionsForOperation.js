@@ -45,11 +45,12 @@ export default class FileuploadSection extends Reflux.Component {
             }
 
         }
-        ContentReviewerActions.stateupdates(this.state);
     }
 
-    gotoObjectMapping(e) {
+    gotoObjectMapping() {
         this.state.questionfordisplay = {display: "none"}
+        this.state.objectmappingdisplay = {display: "block"}
+        ContentReviewerActions.stateupdates(this.state);
     }
 
     render() {
@@ -113,7 +114,7 @@ export default class FileuploadSection extends Reflux.Component {
                                         <label className="slds-text-body_small">{value}</label></td>
                                     <td>
                                         <input type="checkbox" value={value}
-                                               onChange={this.sheetsToInsert.bind(this)}></input>
+                                               onChange={this.sheetsToInsert.bind()}></input>
                                     </td>
                                 </tr>)}
 
@@ -123,7 +124,8 @@ export default class FileuploadSection extends Reflux.Component {
                         </div>
                         <input type="button" value="Proceed to Object Mapping"
                                className="slds-button slds-button_neutral"
-                               onClick={this.gotoObjectMapping.bind(this)}/>
+                               onclick={() => this.gotoObjectMapping()}
+                        />
                     </article>
 
                 </div>
