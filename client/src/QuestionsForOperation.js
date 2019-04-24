@@ -100,12 +100,17 @@ export default class FileuploadSection extends Reflux.Component {
                                                 </a>
                                             </h2>
                                         </div>
-                                        {rowsdv.map(value => <div>
-                                            <label className="slds-text-body_small">{value}</label>
-                                            &nbsp;&nbsp;<input type="checkbox" value={value}
-                                                               onChange={this.sheetsToInsert.bind(this)}></input>
-                                        </div>)}
+                                        <table>
 
+                                            {rowsdv.map(value => <tr>
+                                                <td>
+                                                    <label className="slds-text-body_small">{value}</label></td>
+                                                <td>
+                                                    <input type="checkbox" value={value}
+                                                               onChange={this.sheetsToInsert.bind(this)}></input>
+                                                </td>
+                                            </tr>)}
+                                        </table>
                                     </td>
                                 </tr>
                             </table>
@@ -114,7 +119,8 @@ export default class FileuploadSection extends Reflux.Component {
                         </div>
                     </article>
                 </div>
-                <input type="button" value="Proceed to Object Mapping" onClick={this.gotoObjectMapping.bind(this)}/>
+                <input type="button" value="Proceed to Object Mapping" className="slds-button"
+                       onClick={this.gotoObjectMapping.bind(this)}/>
             </div>
         );
     }
