@@ -63,7 +63,7 @@ export default class FileuploadSection extends Reflux.Component {
                 <div>
                     <article className="slds-card">
                         <div className="slds-card__header slds-grid">
-                            <table className="slds-table">
+                            <table>
                                 <tr>
                                     <td>
                                         <div className="slds-media__body">
@@ -75,12 +75,17 @@ export default class FileuploadSection extends Reflux.Component {
                                                 >
                                                     <span>Are the Sheets Related ?</span>
                                                 </a>&nbsp;&nbsp;
-                                                <input
-                                                    type="checkbox"
-                                                    className="slds-checkbox"
-                                                    onChange={this.isRealtedCheck.bind(this)}
-                                                />
                                             </h2>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div className="slds-media__body">
+                                            <input
+                                                type="checkbox"
+                                                className="slds-checkbox"
+                                                onChange={this.isRealtedCheck.bind(this)}
+                                            />
+
                                         </div>
                                     </td>
                                 </tr>
