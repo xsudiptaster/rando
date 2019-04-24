@@ -13,6 +13,14 @@ export default class ObjectMapping extends Reflux.Component {
         this.store = ContentReviewStore;
     }
     render() {
+        var rowsdv = [];
+
+        if (this.state && this.state.objectMapping != undefined) {
+            for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
+                rowsdv.push(this.state.objectMapping[Object.keys(this.state.sheetNames)[i]])
+            }
+        }
+        console.log('Rows', rowsdv);
         return (
             <div className="slds-card">
                 <table>
@@ -30,9 +38,20 @@ export default class ObjectMapping extends Reflux.Component {
                             <label>External Id in Object</label>
                         </th>
                     </tr>
+                    {rowsdv.map(value => <tr>
+                        <td>
+                            <label className="slds-text-body_small">{value.SheetName}</label></td>
+                        <td>
+
+                        </td>
+                    </tr>)}
 
                 </table>
             </div>
         );
     }
+}
+
+class OptionsSelector extends Reflux.Component {
+
 }
