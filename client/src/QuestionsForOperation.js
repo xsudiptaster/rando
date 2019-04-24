@@ -34,8 +34,12 @@ export default class FileuploadSection extends Reflux.Component {
     render() {
         let rowsdv = [];
         if (this.state && this.state.sheetNames != undefined) {
+            var temp = []
+            for (var i = 0; i < this.state.length; i++) {
+                temp.push(this.state.sheetNames[i])
+            }
             console.log('This sheet name ', this.state.sheetNames[1]);
-            //rowsdv = this.state.sheetNames.map(sn => <li>{sn}</li>);
+            rowsdv = temp.map(sn => <li>{sn}</li>);
             console.log('this.state', this.state);
         }
         console.log('Rows', rowsdv);
