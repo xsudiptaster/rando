@@ -45,7 +45,7 @@ class App extends Reflux.Component {
           <span>
           </span>
         </div>
-          <div className="slds-col slds-size_3-of-3">
+          <div className="slds-col slds-size_3-of-5">
           <div style={this.state.logindisplay}>
             <LoginSection />
           </div>
