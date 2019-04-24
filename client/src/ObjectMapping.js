@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import readXlsxFile from "read-excel-file";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -12,6 +11,7 @@ export default class ObjectMapping extends Reflux.Component {
         super(props);
         this.store = ContentReviewStore;
     }
+
     render() {
         var rowsdv = [];
 
@@ -39,19 +39,19 @@ export default class ObjectMapping extends Reflux.Component {
                             <label>External Id in Object</label>
                         </th>
                     </tr>
-                    {rowsdv.map(function (value, indx) {
+                    {rowsdv.map(value =>
                         <tr>
-                        <td>
-                            <label className="slds-text-body_small">{value.SheetName}</label>
-                        </td>
-                        <td>
-                            <label className="slds-text-body_small">{value.ObjectName}</label>
-                        </td>
+                            <td>
+                                <label className="slds-text-body_small">{value.SheetName}</label>
+                            </td>
+                            <td>
+                                <label className="slds-text-body_small">{value.ObjectName}</label>
+                            </td>
                             <td>
                                 <label className="slds-text-body_small">{value.ExtFromSheet}</label>
                             </td>
                         </tr>
-                    })}
+                    )}
 
                 </table>
             </div>
