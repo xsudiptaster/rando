@@ -39,7 +39,7 @@ export default class FileuploadSection extends Reflux.Component {
             console.log('The Keys', Object.keys(this.state.sheetNames));
             for (var i = 0; i < Object.keys(this.state.sheetNames).length; i++) {
                 console.log('The Keys', i);
-                rowsdv.push(this.state.sheetNames[i])
+                rowsdv.push(this.state.sheetNames[Object.keys(this.state.sheetNames)[i]])
             }
         }
         console.log('Rows', rowsdv);
