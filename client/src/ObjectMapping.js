@@ -23,6 +23,7 @@ export default class ObjectMapping extends Reflux.Component {
             return optns;
         });
     }
+
     render() {
         var rowsdv = [];
         if (this.state && this.state.objectMapping != undefined) {
@@ -73,7 +74,9 @@ class OptionsColumnSelector extends Reflux.Component {
     constructor(props) {
         super(props)
         this.store = ContentReviewStore;
-        render(
+    }
+
+    render() {
         var optns = [];
         readXlsxFile(this.state.fileBlob, {sheet: this.props.shtname}).then(data => {
             for (var i = 0; i < data[0].length; i++) {
@@ -86,7 +89,6 @@ class OptionsColumnSelector extends Reflux.Component {
                 {optns.map(val => <option value={val}>{val}</option>)}
             </select>
         )
-    )
     }
 
 
