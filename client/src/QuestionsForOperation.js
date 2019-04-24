@@ -21,7 +21,6 @@ export default class FileuploadSection extends Reflux.Component {
 
     sheetsToInsertfn(event) {
         if (event.target.checked) {
-            console.log('the State', this.state);
             if (this.state.sheetsToInsert && this.state.sheetsToInsert.indexOf(event.target.value) == -1) {
                 this.state.sheetsToInsert.push(event.target.value);
             } else {
@@ -65,7 +64,6 @@ export default class FileuploadSection extends Reflux.Component {
                 rowsdv.push(this.state.sheetNames[Object.keys(this.state.sheetNames)[i]])
             }
         }
-        console.log('Rows', rowsdv);
         return (
             <div>
                 <div>

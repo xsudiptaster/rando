@@ -16,8 +16,9 @@ export default class ObjectMapping extends Reflux.Component {
         var rowsdv = [];
 
         if (this.state && this.state.objectMapping != undefined) {
-            for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
-                rowsdv.push(this.state.objectMapping[Object.keys(this.state.sheetNames)[i]])
+            console.log('The State', this.state);
+            for (var i = 0; i < this.state.objectMapping.length; i++) {
+                rowsdv.push(this.state.objectMapping[i]);
             }
         }
         console.log('Rows', rowsdv);
