@@ -41,11 +41,14 @@ export default class ObjectMapping extends Reflux.Component {
                     {rowsdv.map(function (value, indx) {
                         <tr>
                         <td>
-                            <label className="slds-text-body_small">value.SheetName</label>
+                            <label className="slds-text-body_small">{value.SheetName}</label>
                         </td>
                         <td>
-
+                            <label className="slds-text-body_small">{value.ObjectName}</label>
                         </td>
+                            <td>
+                                <label className="slds-text-body_small">{value.ExtFromSheet}</label>
+                            </td>
                         </tr>
                     })}
 
