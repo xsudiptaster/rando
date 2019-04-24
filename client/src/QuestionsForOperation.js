@@ -48,16 +48,22 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     gotoObjectMapping() {
+        if (this.state.sheetsToInsert != undefined) {
+            for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
+                var maptemp = new Object();
+                maptemp.SheetName = this.state.sheetsToInsert[i];
+                maptemp.ObjectName = "";
+                maptemp.ExtFromSheet = "";
+                maptemp.ExtFromObject = "";
+                this.state.objectMapping.push(maptemp);
+            }
+
+        } else {
+            alert("Select a Sheet at least");
+            return;
+        }
         this.state.questionfordisplay = {display: "none"}
         this.state.objectmappingdisplay = {display: "block"}
-        for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
-            var maptemp = new Object();
-            maptemp.SheetName = this.state.sheetsToInsert[i];
-            maptemp.ObjectName = "";
-            maptemp.ExtFromSheet = "";
-            maptemp.ExtFromObject = "";
-            this.state.objectMapping.push(maptemp);
-        }
         ContentReviewerActions.stateupdates(this.state);
     }
 
