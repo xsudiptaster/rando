@@ -40,7 +40,7 @@ export default class ObjectMapping extends Reflux.Component {
                     </tr>
                     {rowsdv.map(value => <tr>
                         <td>
-                            <label className="slds-text-body_small">{value.SheetName}</label></td>
+                            <label className="slds-text-body_small"></label></td>
                         <td>
 
                         </td>
