@@ -124,7 +124,7 @@ export default class FileuploadSection extends Reflux.Component {
                         </div>
                         <input type="button" value="Proceed to Object Mapping"
                                className="slds-button slds-button_neutral"
-                               onclick={() => this.gotoObjectMapping()}
+                               onClick={() => this.gotoObjectMapping()}
                         />
                     </article>
 
