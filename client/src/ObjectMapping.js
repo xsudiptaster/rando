@@ -38,13 +38,16 @@ export default class ObjectMapping extends Reflux.Component {
                             <label>External Id in Object</label>
                         </th>
                     </tr>
-                    {rowsdv.map(value => <tr>
+                    {rowsdv.map(function (value, indx) {
+                        <tr>
                         <td>
-                            <label className="slds-text-body_small"></label></td>
+                            <label className="slds-text-body_small">value.SheetName</label>
+                        </td>
                         <td>
 
                         </td>
-                    </tr>)}
+                        </tr>
+                    })}
 
                 </table>
             </div>
