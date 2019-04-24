@@ -15,7 +15,11 @@ export default class ObjectMapping extends Reflux.Component {
 
     columnnOptions(shtname) {
         readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
-            console.log('The Data Retrieved', data);
+            var optns = []
+            for (var i = 0; i < data[0].length; i++) {
+                optns.push(<option value={data[0][i]}>{data[0][i]}</option>);
+            }
+            return optns;
         });
     }
     render() {
