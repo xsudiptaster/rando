@@ -16,23 +16,13 @@ export default class FileuploadSection extends Reflux.Component {
         });
     }
 
-    readthefile(event) {
-        this.setState({
-            fileBlob: event.target.files[0]
-        });
-        readXlsxFile(event.target.files[0], {getSheets: true}).then(data => {
-            this.setState({
-                sheetNames: data
-            });
-        });
-    }
-
     isRealtedCheck(event) {
         this.state.isRelated = event.target.value;
     }
 
     sheetsToInsert(event) {
         if (event.target.checked) {
+            console.log('the State', this.state);
             if (this.state.sheetsToInsert && this.state.sheetsToInsert.indexOf(event.target.value) == -1) {
                 this.state.sheetsToInsert.push(event.target.value);
             } else {
