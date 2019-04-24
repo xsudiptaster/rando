@@ -31,14 +31,22 @@ export default class FileuploadSection extends Reflux.Component {
         this.state.isRelated = event.target.value;
     }
 
+    sheetsToInsert(event) {
+        if (this.state.sheetsToInsert) {
+            this.state.sheetsToInsert.push(event.target.value);
+        } else {
+            this.state.sheetsToInsert = [];
+            this.state.sheetsToInsert.push(event.target.value);
+        }
+        console.log('The State', this.state);
+        ContentReviewerActions.stateupdates(this.state);
+    }
+
     render() {
         var rowsdv = [];
 
         if (this.state && this.state.sheetNames != undefined) {
-            console.log('The vals', this.state.sheetNames);
-            console.log('The Keys', Object.keys(this.state.sheetNames));
             for (var i = 0; i < Object.keys(this.state.sheetNames).length; i++) {
-                console.log('The Keys', i);
                 rowsdv.push(this.state.sheetNames[Object.keys(this.state.sheetNames)[i]])
             }
         }
@@ -53,19 +61,18 @@ export default class FileuploadSection extends Reflux.Component {
                                     <td>
                                         <div className="slds-media__body">
                                             <h2 className="slds-card__header-title">
-                                                <input
-                                                    type="checkbox"
-                                                    className="slds-checkbox"
-                                                    onChange={this.isRealtedCheck.bind(this)}
-                                                />
-                                                &nbsp;&nbsp;
                                                 <a
                                                     href="javascript:void(0);"
                                                     className="slds-card__header-link slds-truncate"
                                                     title="Accounts"
                                                 >
                                                     <span>Are the Sheets Related ?</span>
-                                                </a>
+                                                </a>&nbsp;&nbsp;
+                                                <input
+                                                    type="checkbox"
+                                                    className="slds-checkbox"
+                                                    onChange={this.isRealtedCheck.bind(this)}
+                                                />
                                             </h2>
                                         </div>
                                     </td>
@@ -83,11 +90,10 @@ export default class FileuploadSection extends Reflux.Component {
                                                 </a>
                                             </h2>
                                         </div>
-                                        <div>Sheet A</div>
-                                        <div>Sheet B</div>
-
                                         {rowsdv.map(value => <div>
-                                            <input type="checkbox" value={value}></input>{value}
+                                            <label className="slds-text-body_small">{value}</label>
+                                            &nbsp;&nbsp;<input type="checkbox" value={value}
+                                                               onChange={this.sheetsToInsert.bind(this)}></input>
                                         </div>)}
 
                                     </td>
