@@ -55,7 +55,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 <label className="slds-text-body_small">{value.SheetName}</label>
                             </td>
                             <td>
-                                <select value={value.ObjectName}>{this.columnnOptions(value.ObjectName)}</select>
+                                <OptionsColumnSelector shtname={value.SheetName}/>
                             </td>
                             <td>
                                 <label className="slds-text-body_small">{value.ExtFromSheet}</label>
@@ -72,6 +72,21 @@ export default class ObjectMapping extends Reflux.Component {
 class OptionsColumnSelector extends Reflux.Component {
     constructor(props) {
         super(props)
+        this.store = ContentReviewStore;
+        render(
+        var optns = [];
+        readXlsxFile(this.state.fileBlob, {sheet: this.props.shtname}).then(data => {
+            for (var i = 0; i < data[0].length; i++) {
+                console.log('The Dtata', data[0][i]);
+                optns.push(data[0][i]);
+            }
+        });
+        return (
+            <select>
+                {optns.map(val => <option value={val}>{val}</option>)}
+            </select>
+        )
+    )
     }
 
 
