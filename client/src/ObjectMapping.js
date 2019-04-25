@@ -11,7 +11,8 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
-    }
+        for ()
+            }
 
     columnnOptions(shtname) {
         readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
@@ -56,7 +57,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 <label className="slds-text-body_small">{value.SheetName}</label>
                             </td>
                             <td>
-                                <OptionsColumnSelector shtname={value.SheetName}/>
+
                             </td>
                             <td>
                                 <label className="slds-text-body_small">{value.ExtFromSheet}</label>
