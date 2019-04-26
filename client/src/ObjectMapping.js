@@ -78,8 +78,9 @@ class OptionsColumnSelector extends Reflux.Component {
     }
 
     render() {
+        var optns = [];
         if (this.state) {
-            var optns = [];
+
             readXlsxFile(this.state.fileBlob, {sheet: this.props.shtname}).then(data => {
                 for (var i = 0; i < data[0].length; i++) {
                     optns.push(data[0][i]);
