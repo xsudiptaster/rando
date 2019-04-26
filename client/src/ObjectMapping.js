@@ -11,8 +11,6 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
-
-
     }
 
     columnnOptions(shtname) {
@@ -74,7 +72,8 @@ export default class ObjectMapping extends Reflux.Component {
 
 class OptionsColumnSelector extends Reflux.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        console.log('The props is ', this.props.shtname);
         this.store = ContentReviewStore;
     }
 
