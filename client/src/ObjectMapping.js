@@ -74,11 +74,10 @@ class OptionsColumnSelector extends Reflux.Component {
 
 
     }
-
     updateHeaders() {
         if (this.state && this.state.objectMapping != undefined) {
-            for (var i = 0; i < this.state.objectMapping.length; i++) {
-                readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
+            for (var i = 0; i < Object.Keys(this.state.objectMapping).length; i++) {
+                readXlsxFile(this.state.fileBlob, {sheet: Object.Keys(this.state.objectMapping)[i]}).then(data => {
                     var optns = []
                     for (var j = 0; j < data[0].length; j++) {
                         optns.push(data[0][i]);
@@ -91,6 +90,7 @@ class OptionsColumnSelector extends Reflux.Component {
 
         }
     }
+
     render() {
         var optns = [];
 
