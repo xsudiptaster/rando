@@ -11,6 +11,7 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
+        puttheMapTogether();
     }
 
     puttheMapTogether() {
