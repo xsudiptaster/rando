@@ -15,16 +15,20 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     componentDidMount() {
-        for (var i = 0; i < this.state.objectMapping.length; i++) {
-            readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
-                var optns = []
-                for (var i = 0; i < data[0].length; i++) {
-                    console.log('The Dtata', data[0][i]);
-                    optns.push(data[0][i]);
-                }
-                console.log('The Headers', optns);
-            });
+        if (this.state.objectMapping != undefined) {
+            for (var i = 0; i < this.state.objectMapping.length; i++) {
+                readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
+                    var optns = []
+                    for (var i = 0; i < data[0].length; i++) {
+                        console.log('The Dtata', data[0][i]);
+                        optns.push(data[0][i]);
+                    }
+                    console.log('The Headers', optns);
+                });
+            }
+
         }
+
     }
     columnnOptions(shtname) {
         readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
