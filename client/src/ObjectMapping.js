@@ -75,7 +75,7 @@ class OptionsColumnSelector extends Reflux.Component {
 
     }
     updateHeaders() {
-        console.log('The Update Headwer Called');
+        console.log('The Update Headwer Called', this.state);
         if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
                 console.log('The keys', Object.keys(this.state.objectMapping));
