@@ -72,31 +72,32 @@ class OptionsColumnSelector extends Reflux.Component {
         super(props);
         console.log('The props is ', this.props.shtname);
         this.store = ContentReviewStore;
-
+        this.updateHeaders();
 
     }
-
     updateHeaders() {
         if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
-                readXlsxFile(this.state.fileBlob, {sheet: Object.Keys(this.state.objectMapping)[i]}).then(data => {
+                console.log('The keys', Object.keys(this.state.objectMapping));
+                readXlsxFile(this.state.fileBlob, {sheet: Object.keys(this.state.objectMapping)[i]}).then(data => {
                     var optns = []
                     for (var j = 0; j < data[0].length; j++) {
                         optns.push(data[0][i]);
                     }
                     this.state.objectMapping[this.props.shtname].sheetHeaders = optns;
                     console.log('The Headers', this.state.objectMapping[this.props.shtname].sheetHeaders);
+                    ContentReviewerActions.stateupdates(this.state);
                 });
             }
 
         }
     }
-
     render() {
         this.updateHeaders();
         var optns = [];
         if (this.state && this.state.objectMapping != undefined) {
             optns = this.state.objectMapping[this.props.shtname].sheetHeaders;
+            console.log('The Sheets', optns);
         }
         return (
             <select>
