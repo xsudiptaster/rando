@@ -16,9 +16,9 @@ export default class ObjectMapping extends Reflux.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log('Method has been called', nextState);
-        if (this.state && this.state.objectMapping != undefined) {
-            for (var i = 0; i < this.state.objectMapping.length; i++) {
-                readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
+        if (nextState && nextState.objectMapping != undefined) {
+            for (var i = 0; i < nextState.objectMapping.length; i++) {
+                readXlsxFile(nextState.fileBlob, {sheet: nextState.objectMapping[i].SheetName}).then(data => {
                     var optns = []
                     for (var i = 0; i < data[0].length; i++) {
                         console.log('The Dtata', data[0][i]);
