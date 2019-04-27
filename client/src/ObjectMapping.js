@@ -14,23 +14,7 @@ export default class ObjectMapping extends Reflux.Component {
 
     }
 
-    updateHeaders() {
-        if (this.state && this.state.objectMapping != undefined) {
-            for (var i = 0; i < this.state.objectMapping.length; i++) {
-                readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
-                    var optns = []
-                    for (var j = 0; j < data[0].length; j++) {
-                        optns.push(data[0][i]);
-                    }
-                    console.log('The State Value is here', this.state);
-                    this.state.objectMapping[i].sheetHeaders = optns;
-                    console.log('The Headers', this.state.objectMapping[i].sheetHeaders);
-                });
-            }
 
-        }
-
-    }
     columnnOptions(shtname) {
         readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
             var optns = []
@@ -43,8 +27,8 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     render() {
-        this.updateHeaders();
         var rowsdv = [];
+        console.log('The State Now is', this.state);
         return (
             <div className="slds-card">
                 <table>
@@ -91,6 +75,22 @@ class OptionsColumnSelector extends Reflux.Component {
 
     }
 
+    updateHeaders() {
+        if (this.state && this.state.objectMapping != undefined) {
+            for (var i = 0; i < this.state.objectMapping.length; i++) {
+                readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
+                    var optns = []
+                    for (var j = 0; j < data[0].length; j++) {
+                        optns.push(data[0][i]);
+                    }
+                    console.log('The State Value is here', this.state);
+                    this.state.objectMapping[i].sheetHeaders = optns;
+                    console.log('The Headers', this.state.objectMapping[i].sheetHeaders);
+                });
+            }
+
+        }
+    }
     render() {
         var optns = [];
 

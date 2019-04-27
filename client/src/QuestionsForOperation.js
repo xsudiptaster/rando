@@ -40,12 +40,11 @@ export default class FileuploadSection extends Reflux.Component {
             this.state.objectMapping = [];
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var maptemp = {};
-                maptemp.SheetName = this.state.sheetsToInsert[i];
-                maptemp.ObjectName = "";
-                maptemp.ExtFromSheet = "";
-                maptemp.ExtFromObject = "";
-                maptemp.sheetHeaders = [];
-                maptemp.sheetObjectFields = [];
+                maptemp[this.state.sheetsToInsert[i]].ObjectName = "";
+                maptemp[this.state.sheetsToInsert[i]].ExtFromSheet = "";
+                maptemp[this.state.sheetsToInsert[i]].ExtFromObject = "";
+                maptemp[this.state.sheetsToInsert[i]].sheetHeaders = [];
+                maptemp[this.state.sheetsToInsert[i]].sheetObjectFields = [];
                 this.state.objectMapping.push(maptemp);
             }
 
