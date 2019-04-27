@@ -11,9 +11,12 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
-        puttheMapTogether();
+
     }
 
+    componentDidMount() {
+        puttheMapTogether();
+    }
     puttheMapTogether() {
         for (var i = 0; i < this.state.objectMapping.length; i++) {
             readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
