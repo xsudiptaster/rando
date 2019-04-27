@@ -20,11 +20,12 @@ export default class ObjectMapping extends Reflux.Component {
             for (var i = 0; i < nextState.objectMapping.length; i++) {
                 readXlsxFile(nextState.fileBlob, {sheet: nextState.objectMapping[i].SheetName}).then(data => {
                     var optns = []
-                    for (var i = 0; i < data[0].length; i++) {
-                        console.log('The Dtata', data[0][i]);
+                    for (var j = 0; j < data[0].length; j++) {
+                        console.log('The Dtata', data[0][j]);
                         optns.push(data[0][i]);
                     }
-                    console.log('The Headers', optns);
+                    this.state.objectMapping[i].sheetHeaders = optns;
+                    console.log('The Headers', this.state.objectMapping[i].sheetHeaders);
                 });
             }
 
