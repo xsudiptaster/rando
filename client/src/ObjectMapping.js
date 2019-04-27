@@ -75,8 +75,8 @@ class OptionsColumnSelector extends Reflux.Component {
 
     }
     updateHeaders() {
+        console.log('The Update Headwer Called');
         if (this.state && this.state.objectMapping != undefined) {
-            console.log('The Update Headwer Called');
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
                 console.log('The keys', Object.keys(this.state.objectMapping));
                 readXlsxFile(this.state.fileBlob, {sheet: Object.keys(this.state.objectMapping)[i]}).then(data => {
