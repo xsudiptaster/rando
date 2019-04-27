@@ -44,6 +44,8 @@ export default class FileuploadSection extends Reflux.Component {
                 maptemp.ObjectName = "";
                 maptemp.ExtFromSheet = "";
                 maptemp.ExtFromObject = "";
+                maptemp.sheetHeaders = [];
+                maptemp.sheetObjectFields = [];
                 this.state.objectMapping.push(maptemp);
             }
 
