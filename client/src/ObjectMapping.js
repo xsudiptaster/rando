@@ -14,7 +14,7 @@ export default class ObjectMapping extends Reflux.Component {
 
     }
 
-    componentDidMount() {
+    shouldComponentUpdate(nextProps, nextState) {
         if (this.state && this.state.objectMapping != undefined) {
             console.log('Method has been called', this.state.objectMapping);
             for (var i = 0; i < this.state.objectMapping.length; i++) {
