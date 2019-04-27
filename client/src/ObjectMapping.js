@@ -80,7 +80,7 @@ class OptionsColumnSelector extends Reflux.Component {
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
                 console.log('The keys', Object.keys(this.state.objectMapping));
                 readXlsxFile(this.state.fileBlob, {sheet: Object.keys(this.state.objectMapping)[i]}).then(data => {
-                    console.log('the options are', options.sheet);
+                    console.log('the options are', this.options.sheet);
                     var optns = []
                     for (var j = 0; j < data[0].length; j++) {
                         optns.push(data[0][i]);
