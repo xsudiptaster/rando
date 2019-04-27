@@ -15,9 +15,6 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     componentDidMount() {
-        puttheMapTogether();
-    }
-    puttheMapTogether() {
         for (var i = 0; i < this.state.objectMapping.length; i++) {
             readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
                 var optns = []
@@ -28,7 +25,6 @@ export default class ObjectMapping extends Reflux.Component {
                 console.log('The Headers', optns);
             });
         }
-
     }
     columnnOptions(shtname) {
         readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
