@@ -18,7 +18,6 @@ export default class ObjectMapping extends Reflux.Component {
         readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
             var optns = []
             for (var i = 0; i < data[0].length; i++) {
-                console.log('The Dtata', data[0][i]);
                 optns.push(data[0][i]);
             }
             return optns;
@@ -77,9 +76,11 @@ class OptionsColumnSelector extends Reflux.Component {
     }
     updateHeaders() {
         if (this.state && this.state.objectMapping != undefined) {
+            console.log('The Update Headwer Called');
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
                 console.log('The keys', Object.keys(this.state.objectMapping));
                 readXlsxFile(this.state.fileBlob, {sheet: Object.keys(this.state.objectMapping)[i]}).then(data => {
+                    console.log('the options are', options.sheet);
                     var optns = []
                     for (var j = 0; j < data[0].length; j++) {
                         optns.push(data[0][i]);
