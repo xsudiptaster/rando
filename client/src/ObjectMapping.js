@@ -15,7 +15,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     componentDidMount() {
-        if (this.state.objectMapping != undefined) {
+        if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < this.state.objectMapping.length; i++) {
                 readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
                     var optns = []
