@@ -28,7 +28,7 @@ export default class ObjectMapping extends Reflux.Component {
     render() {
         var rowsdv = [];
         if (this.state && this.state.objectMapping != undefined) {
-            rowsdv = Object.Keys(this.state.objectMapping);
+            rowsdv = Object.keys(this.state.objectMapping);
         }
         return (
             <div className="slds-card">
@@ -78,7 +78,7 @@ class OptionsColumnSelector extends Reflux.Component {
 
     updateHeaders() {
         if (this.state && this.state.objectMapping != undefined) {
-            for (var i = 0; i < Object.Keys(this.state.objectMapping).length; i++) {
+            for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
                 readXlsxFile(this.state.fileBlob, {sheet: Object.Keys(this.state.objectMapping)[i]}).then(data => {
                     var optns = []
                     for (var j = 0; j < data[0].length; j++) {
