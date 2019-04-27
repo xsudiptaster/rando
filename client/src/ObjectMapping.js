@@ -17,7 +17,7 @@ export default class ObjectMapping extends Reflux.Component {
     updateHeaders() {
         if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < this.state.objectMapping.length; i++) {
-                readXlsxFile(nextState.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
+                readXlsxFile(this.state.fileBlob, {sheet: this.state.objectMapping[i].SheetName}).then(data => {
                     var optns = []
                     for (var j = 0; j < data[0].length; j++) {
                         optns.push(data[0][i]);
