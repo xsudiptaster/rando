@@ -14,7 +14,6 @@ export default class ObjectMapping extends Reflux.Component {
 
     }
 
-
     columnnOptions(shtname) {
         readXlsxFile(this.state.fileBlob, {sheet: shtname}).then(data => {
             var optns = []
@@ -28,7 +27,9 @@ export default class ObjectMapping extends Reflux.Component {
 
     render() {
         var rowsdv = [];
-        console.log('The State Now is', this.state);
+        if (this.state && this.state.objectMapping != undefined) {
+            rowsdv = Object.Keys(this.state.objectMapping);
+        }
         return (
             <div className="slds-card">
                 <table>
@@ -49,13 +50,13 @@ export default class ObjectMapping extends Reflux.Component {
                     {rowsdv.map(value =>
                         <tr>
                             <td>
-                                <label className="slds-text-body_small">{value.SheetName}</label>
+                                <label className="slds-text-body_small">{value}</label>
                             </td>
                             <td>
-
+                                <OptionsColumnSelector shtname={value}/>
                             </td>
                             <td>
-                                <label className="slds-text-body_small">{value.ExtFromSheet}</label>
+                                <label className="slds-text-body_small">{value}</label>
                             </td>
                         </tr>
                     )}
@@ -74,6 +75,7 @@ class OptionsColumnSelector extends Reflux.Component {
 
 
     }
+
     updateHeaders() {
         if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < Object.Keys(this.state.objectMapping).length; i++) {
@@ -82,9 +84,8 @@ class OptionsColumnSelector extends Reflux.Component {
                     for (var j = 0; j < data[0].length; j++) {
                         optns.push(data[0][i]);
                     }
-                    console.log('The State Value is here', this.state);
-                    this.state.objectMapping[i].sheetHeaders = optns;
-                    console.log('The Headers', this.state.objectMapping[i].sheetHeaders);
+                    this.state.objectMapping[this.props.shtname].sheetHeaders = optns;
+                    console.log('The Headers', this.state.objectMapping[this.props.shtname].sheetHeaders);
                 });
             }
 
@@ -92,8 +93,11 @@ class OptionsColumnSelector extends Reflux.Component {
     }
 
     render() {
+        this.updateHeaders();
         var optns = [];
-
+        if (this.state && this.state.objectMapping != undefined) {
+            optns = this.state.objectMapping[this.props.shtname].sheetHeaders;
+        }
         return (
             <select>
                 {optns.map(val => <option value={val}>{val}</option>)}
