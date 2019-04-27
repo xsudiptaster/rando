@@ -24,8 +24,8 @@ export default class ObjectMapping extends Reflux.Component {
                         console.log('The Dtata', data[0][j]);
                         optns.push(data[0][i]);
                     }
-                    this.state.objectMapping[i].sheetHeaders = optns;
-                    console.log('The Headers', this.state.objectMapping[i].sheetHeaders);
+                    nextState.objectMapping[i].sheetHeaders = optns;
+                    console.log('The Headers', nextState.objectMapping[i].sheetHeaders);
                 });
             }
 
