@@ -42,7 +42,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     render() {
-        updateHeaders();
+        this.updateHeaders();
         var rowsdv = [];
         return (
             <div className="slds-card">
