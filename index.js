@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const jsforce = require("jsforce");
 const generatePassword = require("password-generator");
+const CircularJSON =require("circular-json");
 
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -56,7 +57,7 @@ app.post("/api/objectList", function(req, res) {
       return console.error(err);
     }
     console.log("List object", jsobj);
-    res.send(this.stringyfyJson(jsobj));
+    res.send(CircularJSON.stringify(jsobj));
   });
   // Return them as json
 });
@@ -71,26 +72,4 @@ const port = process.env.PORT || 5000;
 app.listen(port);
 
 console.log(`Password generator listening on ${port}`);
- function stringyfyJson(o)
-{
-  var cache = [];
-JSON.stringify(obj, function(key, value) {
-    if (typeof value === 'object' && value !== null) {
-        if (cache.indexOf(value) !== -1) {
-            // Duplicate reference found
-            try {
-                // If this value does not reference a parent it can be deduped
-                return JSON.parse(JSON.stringify(value));
-            } catch (error) {
-                // discard key if value cannot be deduped
-                return;
-            }
-        }
-        // Store value in our collection
-        cache.push(value);
-    }
-    return value;
-});
-cache = null;
-}
 
