@@ -56,7 +56,7 @@ export default class ObjectMapping extends Reflux.Component {
                 <label className="slds-text-body_small">{value}</label>
               </td>
               <td>
-                <OptionsHeaderColumnSelector shtname={value} />
+                <OptionsHeaderColumnSelector shtname={value} fileblb={this.state.fileBlob}/>
               </td>
               <td>
                 <label className="slds-text-body_small">{value}</label>
