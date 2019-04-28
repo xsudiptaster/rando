@@ -12,18 +12,21 @@ export default class ObjectMapping extends Reflux.Component {
   constructor(props) {
     super(props);
     this.store = ContentReviewStore;
+    this.columnnOptions();
   }
 
   columnnOptions(shtname) {
-    readXlsxFile(this.state.fileBlob, { sheet: shtname }).then(data => {
-      var optns = [];
-      for (var i = 0; i < data[0].length; i++) {
-        optns.push(data[0][i]);
-      }
-      return optns;
-    });
+    if (this.state && this.state.objectMapping != undefined) {
+        for (var i=0;i<Object.keys(this.state.objectMapping).length;i++)
+        {
+            var first_sheet_name = workbook.SheetNames[0];
+            var address_of_cell = 'A1';
+            /* Get worksheet */
+            var worksheet = workbook.Sheets[first_sheet_name];
+            console.log('The Sheets ',worksheet);
+        }
+    }
   }
-
   render() {
     var rowsdv = [];
     if (this.state && this.state.objectMapping != undefined) {
