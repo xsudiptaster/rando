@@ -30,8 +30,8 @@ export default class ObjectMapping extends Reflux.Component {
     }
   }
   getobjectlist(){
-    
-        // Get the session and store them in state
+    if (this.state && this.state.objectMapping != undefined) {
+        
         axios
           .post("/api/objectList", {
             sessiontok: this.state.sessiontok,
@@ -44,6 +44,8 @@ export default class ObjectMapping extends Reflux.Component {
           .catch(error => {
             alert(error);
           });
+    }
+        
       
   }
   render() {
