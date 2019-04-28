@@ -12,7 +12,8 @@
     "npm": "^6.9.0",
     "password-generator": "^2.1.0",
     "read-excel-file": "^2.0.10",
-    "reflux": "^6.4.1"
+    "reflux": "^6.4.1",
+    "xlsjs": "^1.0.1"
   },
   "scripts": {
     "start": "node index.js",

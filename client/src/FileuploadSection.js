@@ -3,6 +3,10 @@ import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import readXlsxFile from "read-excel-file";
+import { writeFile, readFile } from 'react-native-fs';
+import XLSX from 'xlsx';
+import console = require("console");
+
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -23,6 +27,10 @@ export default class FileuploadSection extends Reflux.Component {
       });
       ContentReviewerActions.stateupdates(this.state);
     });
+    readFile(file, 'ascii').then((res) => {
+      const workbook = XLSX.read(res, {type:'binary'});
+      console.log('The WorkBook is',workbook);
+    })
   }
   startProcessing(event)
   {
