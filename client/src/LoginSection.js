@@ -40,7 +40,7 @@ export default class LoginSection extends Reflux.Component {
         loginUrl: this.state.loginurl
       })
       .then(response => {
-        this.setState({ sessiontok: response.data });
+        this.setState({ sessiontok: response.data.sesionTkn, instanceUrl: response.data.loginUrl });
         this.setState({
           logindisplay: {
             display: "none"

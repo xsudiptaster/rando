@@ -38,6 +38,24 @@ app.post("/api/logintosalesforce", function(req, res) {
       return console.error(err);
     }
     console.log("Jsforce object", jsobj);
+    var respt={}
+    respt.sesionTkn=jsobj.accessToken;
+    respt.loginUrl=jsobj.instanceUrl
+    res.send(respt);
+  });
+  // Return them as json
+});
+
+// Put all API endpoints under '/api'
+app.post("/api/objectList", function(req, res) {
+  var jsobj = new jsforce.Connection();
+  jsobj.loginUrl = req.body.loginUrl;
+
+  jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
+    if (err) {
+      return console.error(err);
+    }
+    console.log("Jsforce object", jsobj);
     res.send(jsobj.accessToken);
   });
   // Return them as json
