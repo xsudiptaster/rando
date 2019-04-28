@@ -19,19 +19,18 @@ export default class FileuploadSection extends Reflux.Component {
       fileBlob: event.target.files[0],
       fileName: event.target.files[0].name
     });
-    readXlsxFile(event.target.files[0], { getSheets: true }).then(data => {
-      this.setState({
-        sheetNames: data
-      });
-      ContentReviewerActions.stateupdates(this.state);
-    });
+    
     var files = event.target.files, f = files[0];
     var reader = new FileReader();
     reader.onload = function(e) {
       var data = new Uint8Array(e.target.result);
       var workbook = XLSX.read(data, {type: 'array'});
       console.log('The workbook os ',workbook);
-      
+      this.setState({
+        workbook: workbook,
+        sheetNames: workbook.SheetNames
+      });
+      ContentReviewerActions.stateupdates(this.state);
     };
     reader.readAsArrayBuffer(f);
   }
