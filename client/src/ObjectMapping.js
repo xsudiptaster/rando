@@ -31,7 +31,6 @@ export default class ObjectMapping extends Reflux.Component {
   render() {
     var rowsdv = [];
     if (this.state && this.state.objectMapping != undefined) {
-        this.columnnOptions();
       rowsdv = Object.keys(this.state.objectMapping);
     }
     return (
@@ -61,7 +60,13 @@ export default class ObjectMapping extends Reflux.Component {
                 <label className="slds-text-body_small">{value}</label>
               </td>
               <td>
-                <OptionsHeaderColumnSelector shtname={value} fileblb={this.state.fileBlob}/>
+                <select>
+                {this.state.objectMapping[value].sheetHeaders.map(val => (
+                <option value={val}>
+                     {val}   
+                </option>    
+                ))}
+                </select>
               </td>
               <td>
                 <label className="slds-text-body_small">{value}</label>
