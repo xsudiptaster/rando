@@ -12,10 +12,11 @@ export default class ObjectMapping extends Reflux.Component {
   constructor(props) {
     super(props);
     this.store = ContentReviewStore;
-    this.columnnOptions();
+    
   }
 
-  columnnOptions(shtname) {
+  columnnOptions() {
+      console.log('The column',this.state);
     if (this.state && this.state.objectMapping != undefined) {
         for (var i=0;i<Object.keys(this.state.objectMapping).length;i++)
         {
@@ -30,6 +31,7 @@ export default class ObjectMapping extends Reflux.Component {
   render() {
     var rowsdv = [];
     if (this.state && this.state.objectMapping != undefined) {
+        this.columnnOptions();
       rowsdv = Object.keys(this.state.objectMapping);
     }
     return (
