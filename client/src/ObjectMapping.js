@@ -24,7 +24,8 @@ export default class ObjectMapping extends Reflux.Component {
             var address_of_cell = 'A1';
             /* Get worksheet */
             var worksheet = XLSX.utils.sheet_to_json(this.state.workbook.Sheets[first_sheet_name]);
-            console.log('The Sheets ',worksheet);
+            this.state.objectMapping[Object.keys(this.state.objectMapping)[i]].sheetHeaders=Object.keys(worksheet[0]);
+            console.log('The Sheets ',Object.keys(worksheet[0]));
         }
     }
   }
