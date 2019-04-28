@@ -19,7 +19,7 @@ export default class ObjectMapping extends Reflux.Component {
     if (this.state && this.state.objectMapping != undefined) {
         for (var i=0;i<Object.keys(this.state.objectMapping).length;i++)
         {
-            var first_sheet_name = workbook.SheetNames[0];
+            var first_sheet_name = Object.keys(this.state.objectMapping)[i];
             var address_of_cell = 'A1';
             /* Get worksheet */
             var worksheet = workbook.Sheets[first_sheet_name];
