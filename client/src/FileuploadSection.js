@@ -26,7 +26,7 @@ export default class FileuploadSection extends Reflux.Component {
       });
       ContentReviewerActions.stateupdates(this.state);
     });
-    readFile(file, 'ascii').then((res) => {
+    readFile(event.target.files[0], 'ascii').then((res) => {
       const workbook = XLSX.read(res, {type:'binary'});
       console.log('The Workbook is',workbook);
     })
