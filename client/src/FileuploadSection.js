@@ -25,7 +25,7 @@ export default class FileuploadSection extends Reflux.Component {
       });
       ContentReviewerActions.stateupdates(this.state);
     });
-    var files = e.target.files, f = files[0];
+    var files = event.target.files, f = files[0];
     var reader = new FileReader();
     reader.onload = function(e) {
       var data = new Uint8Array(e.target.result);
