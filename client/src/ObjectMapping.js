@@ -29,7 +29,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
   }
   getobjectlist(){
-    handlelogin() {
+    
         // Get the session and store them in state
         axios
           .post("/api/objectList", {
@@ -52,7 +52,7 @@ export default class ObjectMapping extends Reflux.Component {
           .catch(error => {
             alert(error);
           });
-      }
+      
   }
   render() {
     var rowsdv = [];
