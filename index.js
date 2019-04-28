@@ -71,7 +71,7 @@ const port = process.env.PORT || 5000;
 app.listen(port);
 
 console.log(`Password generator listening on ${port}`);
-stringyfyJson: function(obj)
+ function stringyfyJson(o)
 {
   var cache = [];
 JSON.stringify(obj, function(key, value) {
