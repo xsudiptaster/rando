@@ -28,6 +28,7 @@ export default class ObjectMapping extends Reflux.Component {
         }
     }
   }
+
   render() {
     var rowsdv = [];
     this.columnnOptions();
@@ -40,18 +41,18 @@ export default class ObjectMapping extends Reflux.Component {
         <table>
           <tr>
             <th>
-              <label className="slds-text-body_medium">SheetName</label>
+              <label className="slds-text-body_large">SheetName</label>
             </th>
             <th>
-              <label className="slds-text-body_medium">Object Name</label>
+              <label className="slds-text-body_large">Object Name</label>
             </th>
             <th>
-              <label className="slds-text-body_medium">
+              <label className="slds-text-body_large">
                 External Id From Sheet
               </label>
             </th>
             <th>
-              <label className="slds-text-body_medium">
+              <label className="slds-text-body_large">
                 External Id in Object
               </label>
             </th>
@@ -62,16 +63,17 @@ export default class ObjectMapping extends Reflux.Component {
                 <label className="slds-text-body_small">{value}</label>
               </td>
               <td>
-                <select>
+              <label className="slds-text-body_small">{value}</label>
+              </td>
+              <td>
+              <select className="slds-select">
                 {this.state.objectMapping[value].sheetHeaders.map(val => (
                 <option value={val}>
                      {val}   
                 </option>    
                 ))}
                 </select>
-              </td>
-              <td>
-                <label className="slds-text-body_small">{value}</label>
+                
               </td>
             </tr>
           ))}
