@@ -34,20 +34,11 @@ export default class ObjectMapping extends Reflux.Component {
         // Get the session and store them in state
         axios
           .post("/api/objectList", {
-            sessiontok: this.state.username
+            sessiontok: this.state.sessiontok,
+            oUrl: this.state.instanceUrl
           })
           .then(response => {
-            this.setState({ sessiontok: response.data });
-            this.setState({
-              logindisplay: {
-                display: "none"
-              }
-            });
-            this.setState({
-              uploadfiledisplay: {
-                display: "block"
-              }
-            });
+            console.log('The response',response);
             ContentReviewerActions.stateupdates(this.state);
           })
           .catch(error => {
@@ -58,6 +49,7 @@ export default class ObjectMapping extends Reflux.Component {
   render() {
     var rowsdv = [];
     this.columnnOptions();
+    this.getobjectlist();
     if (this.state && this.state.objectMapping != undefined) {
         
       rowsdv = Object.keys(this.state.objectMapping);

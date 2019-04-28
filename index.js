@@ -37,7 +37,6 @@ app.post("/api/logintosalesforce", function(req, res) {
     if (err) {
       return console.error(err);
     }
-    console.log("Jsforce object", jsobj);
     var respt={}
     respt.sesionTkn=jsobj.accessToken;
     respt.loginUrl=jsobj.instanceUrl
@@ -49,14 +48,14 @@ app.post("/api/logintosalesforce", function(req, res) {
 // Put all API endpoints under '/api'
 app.post("/api/objectList", function(req, res) {
   var jsobj = new jsforce.Connection();
-  jsobj.loginUrl = req.body.loginUrl;
-
-  jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
+  jsobj.instanceUrl = req.body.oUrl;
+  jsobj.accessToken = req.body.sessiontok;
+  jsobj.describeGlobal(function(err, userinfo) {
     if (err) {
       return console.error(err);
     }
-    console.log("Jsforce object", jsobj);
-    res.send(jsobj.accessToken);
+    console.log("List object", jsobj);
+    res.send(jsobj);
   });
   // Return them as json
 });
