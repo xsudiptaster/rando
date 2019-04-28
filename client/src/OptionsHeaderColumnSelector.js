@@ -15,10 +15,8 @@ export default class OptionsHeaderColumnSelector extends Reflux.Component {
       this.store = ContentReviewStore;
     }
     updateHeaders() {
-      console.log("The Update Headwer Called", this.state);
       if (this.state && this.state.objectMapping != undefined) {
         for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
-          console.log("The keys", Object.keys(this.state.objectMapping));
           readXlsxFile(this.state.fileBlob, {
             sheet: Object.keys(this.state.objectMapping)[i]
           }).then(data => {
@@ -28,10 +26,6 @@ export default class OptionsHeaderColumnSelector extends Reflux.Component {
               optns.push(data[0][i]);
             }
             this.state.objectMapping[this.props.shtname].sheetHeaders = optns;
-            console.log(
-              "The Headers",
-              this.state.objectMapping[this.props.shtname].sheetHeaders
-            );
             ContentReviewerActions.stateupdates(this.state);
           });
         }
