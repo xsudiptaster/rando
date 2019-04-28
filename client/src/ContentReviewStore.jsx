@@ -18,6 +18,16 @@ var ContentReviewerStore = Reflux.createStore({
     this.firstdata = state;
     this.fireUpdate();
   },
+  setvalparam: function(param,val)
+  {
+    if(!this.firstdata)
+    {
+        this.firstdata={};
+    }
+    this.firstdata[param]={};
+    this.firstdata[param]=val;
+    this.fireUpdate();
+  },
 
   // Clear out the current review and any errors while we load the next review
   loginInSalesforce: function() {},

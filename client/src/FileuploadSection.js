@@ -28,7 +28,9 @@ export default class FileuploadSection extends Reflux.Component {
       console.log('The workbook os ',workbook);
       this.state.workbook=workbook;
       this.state.sheetNames=workbook.SheetNames;
-      ContentReviewerActions.stateupdates(this.state);
+      ContentReviewerActions.setvalparam('workbook',workbook);
+      ContentReviewerActions.setvalparam('sheetNames',workbook.SheetNames);
+      
     };
     reader.readAsArrayBuffer(f);
   }
