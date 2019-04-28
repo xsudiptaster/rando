@@ -48,6 +48,7 @@ app.post("/api/logintosalesforce", function(req, res) {
 // Put all API endpoints under '/api'
 app.post("/api/objectList", function(req, res) {
   var jsobj = new jsforce.Connection();
+  console.log('The datatoken',req.body);
   jsobj.instanceUrl = req.body.oUrl;
   jsobj.accessToken = req.body.sessiontok;
   jsobj.describeGlobal(function(err, userinfo) {
@@ -55,7 +56,7 @@ app.post("/api/objectList", function(req, res) {
       return console.error(err);
     }
     console.log("List object", jsobj);
-    res.send(jsobj);
+    res.json(jsobj);
   });
   // Return them as json
 });
