@@ -3,7 +3,7 @@ import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import readXlsxFile from "read-excel-file";
 import OptionsHeaderColumnSelector from "./OptionsHeaderColumnSelector";
-
+import XLSX from 'xlsx';
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
