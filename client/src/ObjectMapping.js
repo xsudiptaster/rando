@@ -16,7 +16,6 @@ export default class ObjectMapping extends Reflux.Component {
   }
 
   columnnOptions() {
-      console.log('The column',this.state);
     if (this.state && this.state.objectMapping != undefined) {
         for (var i=0;i<Object.keys(this.state.objectMapping).length;i++)
         {
