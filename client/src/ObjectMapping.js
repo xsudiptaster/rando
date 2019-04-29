@@ -13,7 +13,7 @@ export default class ObjectMapping extends Reflux.Component {
   constructor(props) {
     super(props);
     this.store = ContentReviewStore;
-    
+    this.getobjectlist();   
   }
 
   columnnOptions() {
@@ -37,8 +37,18 @@ export default class ObjectMapping extends Reflux.Component {
             oUrl: this.state.instanceUrl
           })
           .then(response => {
-            console.log('The response',response);
-            ContentReviewerActions.stateupdates(this.state);
+            var ListObjects=[]
+            var objectsList=response.data.sobjects;
+            for (i=0;i<objectsList.length;i++)
+            {
+                var obj={}
+                if (objectsList[i].createable){
+                    obj.name=objectsList[i].name;
+                    obj.label=objectsList[i].label;    
+                }
+                ListObjects.push(obj);
+            }
+            console.log('Object Listed',ListObjects);
           })
           .catch(error => {
             alert(error);
@@ -50,7 +60,7 @@ export default class ObjectMapping extends Reflux.Component {
   render() {
     var rowsdv = [];
     this.columnnOptions();
-    this.getobjectlist();
+    
     if (this.state && this.state.objectMapping != undefined) {
         
       rowsdv = Object.keys(this.state.objectMapping);
