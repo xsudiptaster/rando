@@ -59,12 +59,12 @@ app.post("/api/objectList", function(req, res) {
   // Return them as json
 });
 
-/ Put all API endpoints under '/api'
+//Put all API endpoints under '/api'
 app.post("/api/objectDescribe", function(req, res) {
   var jsobj = new jsforce.Connection();
   jsobj.instanceUrl = req.body.oUrl;
   jsobj.accessToken = req.body.sessiontok;
-
+  console.log('The ObjectName',req.body.objName);
   jsobj.describe(req.body.objName,function(err, response) {
     if (err) {
       return console.error(err);
