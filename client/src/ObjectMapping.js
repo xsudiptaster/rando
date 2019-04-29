@@ -30,18 +30,35 @@ export default class ObjectMapping extends Reflux.Component {
   }
   getObjectDescribe(objName)
   {
-    axios
-    .post("/api/objectDescribe", {
-      sessiontok: this.state.sessiontok,
-      oUrl: this.state.instanceUrl,
-      objName : objName
-    })
-    .then(response => {
-      console.log('The Response',response);
-    })
-    .catch(error => {
-      alert(error);
-    });
+      if (this.state && this.state.ObjectDesb!=undefined)
+      {
+          if (this.state.ObjectDesb[objName].fields!=undefined)
+          {
+              return this.state.ObjectDesb[objName].fields; 
+          }
+          else{
+           axios
+            .post("/api/objectDescribe", {
+            sessiontok: this.state.sessiontok,
+            oUrl: this.state.instanceUrl,
+            objName : objName
+            })
+            .then(response => {
+            console.log('The Response',response);
+            if (this.state.ObjectDesb==undefined)
+            {
+                this.state.ObjectDesb={};
+            }
+            this.state.ObjectDesb[response.data.name]=response.data;
+            ContentReviewerActions.stateupdates(this.state);
+            })
+            .catch(error => {
+            alert(error);
+            });
+            return [];
+        } 
+      }
+    
   }
   render() {
     var rowsdv = [];
@@ -78,6 +95,7 @@ export default class ObjectMapping extends Reflux.Component {
               </td>
               <td>
                   <select className="slds-select">
+                  <option value="none">Please Select</option>
               {this.state.objectList.map(valob => (
                   <option value={valob.name}>{valob.label}</option>
               ))}
@@ -85,6 +103,7 @@ export default class ObjectMapping extends Reflux.Component {
               </td>
               <td>
               <select className="slds-select">
+              <option value="none">Please Select</option>
                 {this.state.objectMapping[value].sheetHeaders.map(val => (
                 <option value={val}>
                      {val}   
