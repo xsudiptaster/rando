@@ -30,8 +30,8 @@ export default class ObjectMapping extends Reflux.Component {
       }
     }
   }
-  onchangeObjectSelection(event,val){
-    console.log('This is ',this,'The avlue is',val);
+  onchangeObjectSelection(event, val) {
+    console.log("This is ", this, "The avlue is", val);
   }
   getObjectDescribe(objName) {
     console.log("Called With obj", objName);
@@ -94,7 +94,10 @@ export default class ObjectMapping extends Reflux.Component {
                 <label className="slds-text-body_small">{value}</label>
               </td>
               <td>
-                <select className="slds-select" onchange={this.onchangeObjectSelection.bind(this,value)} >
+                <select
+                  className="slds-select"
+                  onchange={this.onchangeObjectSelection.bind(this, value)}
+                >
                   <option value="none">Please Select</option>
                   {this.state.objectList.map(valob => (
                     <option value={valob.name}>{valob.label}</option>
