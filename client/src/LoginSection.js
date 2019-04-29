@@ -40,7 +40,10 @@ export default class LoginSection extends Reflux.Component {
         loginUrl: this.state.loginurl
       })
       .then(response => {
-        this.setState({ sessiontok: response.data.sesionTkn, instanceUrl: response.data.loginUrl });
+        this.setState({
+          sessiontok: response.data.sesionTkn,
+          instanceUrl: response.data.loginUrl
+        });
         this.getobjectlist();
         this.setState({
           logindisplay: {
@@ -58,33 +61,31 @@ export default class LoginSection extends Reflux.Component {
         alert(error);
       });
   }
-  getobjectlist(){
-    if (this.state ) {
-        
-        axios
-          .post("/api/objectList", {
-            sessiontok: this.state.sessiontok,
-            oUrl: this.state.instanceUrl
-          })
-          .then(response => {
-            var ListObjects=[]
-            var objectsList=response.data.sobjects;
-            for (var i=0;i<objectsList.length;i++)
-            {
-                
-                if (objectsList[i].createable){
-                  var obj={}
-                    obj.name=objectsList[i].name;
-                    obj.label=objectsList[i].label;
-                    ListObjects.push(obj);    
-                }
-                
+  getobjectlist() {
+    if (this.state) {
+      axios
+        .post("/api/objectList", {
+          sessiontok: this.state.sessiontok,
+          oUrl: this.state.instanceUrl
+        })
+        .then(response => {
+          var ListObjects = [];
+          var objectsList = response.data.sobjects;
+          for (var i = 0; i < objectsList.length; i++) {
+            if (objectsList[i].createable) {
+              var obj = {};
+              obj.name = objectsList[i].name;
+              obj.label = objectsList[i].label;
+              ListObjects.push(obj);
             }
-            console.log('Object Listed',ListObjects);
-          })
-          .catch(error => {
-            alert(error);
-          });
+          }
+          this.setState({objectList: ListObjects })
+          ContentReviewerActions.stateupdates(this.state);
+          console.log("Object Listed", ListObjects);
+        })
+        .catch(error => {
+          alert(error);
+        });
     }
   }
   loginpagerender() {
