@@ -56,21 +56,8 @@ app.post("/api/objectList", function(req, res) {
     if (err) {
       return console.error(err);
     }
-    var listObjects=[]
-    var listallObjects=parse(jsobj,function(key,val){
-      key=='sobjects'?value:' ' 
-    }).sobjects;
-    for (var i=0;i<listallObjects.length;i++)
-    {
-      if(listallObjects[i].createable){
-        var Obj={};
-        Obj.Name=listallObjects[i].name;
-        Obj.Label=listallObjects[i].label;
-      }
-      listObjects.push(Obj);
-    }
-    //console.log("List object", (listObjects));
-    //res.send(stringify(listObjects));
+    console.log('Resoponse is ',jsobj);
+    res.send((jsobj.sobjects));
   });
   // Return them as json
 });
