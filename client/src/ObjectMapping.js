@@ -13,6 +13,7 @@ export default class ObjectMapping extends Reflux.Component {
   constructor(props) {
     super(props);
     this.store = ContentReviewStore;
+    this.state.ObjectDesb = {};
   }
 
   columnnOptions() {
@@ -32,34 +33,27 @@ export default class ObjectMapping extends Reflux.Component {
   }
   onchangeObjectSelection(event, val) {
     console.log("This is ", this, "The avlue is", val);
+    if (this.state.ObjectDesb[val] == undefined) {
+      this.getObjectDescribe(val);
+    }
   }
   getObjectDescribe(objName) {
-    console.log("Called With obj", objName);
-    if (this.state && this.state.ObjectDesb != undefined) {
-      if (this.state.ObjectDesb[objName].fields != undefined) {
-        return this.state.ObjectDesb[objName].fields;
-      } else {
-        axios
-          .post("/api/objectDescribe", {
-            sessiontok: this.state.sessiontok,
-            oUrl: this.state.instanceUrl,
-            objName: objName
-          })
-          .then(response => {
-            console.log("The Response", response);
-            if (this.state.ObjectDesb == undefined) {
-              this.state.ObjectDesb = {};
-            }
-            this.state.ObjectDesb[response.data.name] = response.data;
-            ContentReviewerActions.stateupdates(this.state);
-          })
-          .catch(error => {
-            alert(error);
-          });
-        return [];
-      }
-    }
-    return [];
+    axios
+      .post("/api/objectDescribe", {
+        sessiontok: this.state.sessiontok,
+        oUrl: this.state.instanceUrl,
+        objName: objName
+      })
+      .then(response => {
+        if (this.state.ObjectDesb == undefined) {
+          this.state.ObjectDesb = {};
+        }
+        this.state.ObjectDesb[response.data.name] = response.data;
+        ContentReviewerActions.stateupdates(this.state);
+      })
+      .catch(error => {
+        alert(error);
+      });
   }
   render() {
     var rowsdv = [];
