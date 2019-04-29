@@ -33,7 +33,6 @@ app.get("/api/passwords", (req, res) => {
 app.post("/api/logintosalesforce", function(req, res) {
   var jsobj = new jsforce.Connection();
   jsobj.loginUrl = req.body.loginUrl;
-
   jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
     if (err) {
       return console.error(err);
@@ -49,14 +48,27 @@ app.post("/api/logintosalesforce", function(req, res) {
 // Put all API endpoints under '/api'
 app.post("/api/objectList", function(req, res) {
   var jsobj = new jsforce.Connection();
-  console.log('The datatoken',req.body);
   jsobj.instanceUrl = req.body.oUrl;
   jsobj.accessToken = req.body.sessiontok;
   jsobj.describeGlobal(function(err, response) {
     if (err) {
       return console.error(err);
     }
-    console.log('Resoponse is ',response);
+    res.send((JSON.stringify(response)));
+  });
+  // Return them as json
+});
+
+/ Put all API endpoints under '/api'
+app.post("/api/objectDescribe", function(req, res) {
+  var jsobj = new jsforce.Connection();
+  jsobj.instanceUrl = req.body.oUrl;
+  jsobj.accessToken = req.body.sessiontok;
+
+  jsobj.describe(req.body.objName,function(err, response) {
+    if (err) {
+      return console.error(err);
+    }
     res.send((JSON.stringify(response)));
   });
   // Return them as json

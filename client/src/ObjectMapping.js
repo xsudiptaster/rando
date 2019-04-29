@@ -28,13 +28,26 @@ export default class ObjectMapping extends Reflux.Component {
         }
     }
   }
-  
+  getObjectDescribe(objName)
+  {
+    axios
+    .post("/api/objectDescribe", {
+      sessiontok: this.state.sessiontok,
+      oUrl: this.state.instanceUrl,
+      objName : objName
+    })
+    .then(response => {
+      console.log('The Response',response);
+    })
+    .catch(error => {
+      alert(error);
+    });
+  }
   render() {
     var rowsdv = [];
     this.columnnOptions();
     
     if (this.state && this.state.objectMapping != undefined) {
-        
       rowsdv = Object.keys(this.state.objectMapping);
     }
     return (
@@ -64,7 +77,7 @@ export default class ObjectMapping extends Reflux.Component {
                 <label className="slds-text-body_small">{value}</label>
               </td>
               <td>
-                  <select>
+                  <select className="slds-select">
               {this.state.objectList.map(valob => (
                   <option value={valob.name}>{valob.label}</option>
               ))}
@@ -79,6 +92,11 @@ export default class ObjectMapping extends Reflux.Component {
                 ))}
                 </select>
                 
+              </td>
+              <td>
+                  <select className="slds-select" >
+                  
+                  </select>
               </td>
             </tr>
           ))}
