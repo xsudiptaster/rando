@@ -41,6 +41,7 @@ export default class LoginSection extends Reflux.Component {
       })
       .then(response => {
         this.setState({ sessiontok: response.data.sesionTkn, instanceUrl: response.data.loginUrl });
+        this.getobjectlist();
         this.setState({
           logindisplay: {
             display: "none"
@@ -56,6 +57,33 @@ export default class LoginSection extends Reflux.Component {
       .catch(error => {
         alert(error);
       });
+  }
+  getobjectlist(){
+    if (this.state ) {
+        
+        axios
+          .post("/api/objectList", {
+            sessiontok: this.state.sessiontok,
+            oUrl: this.state.instanceUrl
+          })
+          .then(response => {
+            var ListObjects=[]
+            var objectsList=response.data.sobjects;
+            for (var i=0;i<objectsList.length;i++)
+            {
+                var obj={}
+                if (objectsList[i].createable){
+                    obj.name=objectsList[i].name;
+                    obj.label=objectsList[i].label;    
+                }
+                ListObjects.push(obj);
+            }
+            console.log('Object Listed',ListObjects);
+          })
+          .catch(error => {
+            alert(error);
+          });
+    }
   }
   loginpagerender() {
     return (
