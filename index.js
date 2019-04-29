@@ -56,7 +56,7 @@ app.post("/api/objectList", function(req, res) {
     if (err) {
       return console.error(err);
     }
-    console.log("List object", jsobj);
+    console.log("List object", CircularJSON.stringify(jsobj));
     res.send(CircularJSON.stringify(jsobj));
   });
   // Return them as json
