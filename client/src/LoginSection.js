@@ -71,12 +71,14 @@ export default class LoginSection extends Reflux.Component {
             var objectsList=response.data.sobjects;
             for (var i=0;i<objectsList.length;i++)
             {
-                var obj={}
+                
                 if (objectsList[i].createable){
+                  var obj={}
                     obj.name=objectsList[i].name;
-                    obj.label=objectsList[i].label;    
+                    obj.label=objectsList[i].label;
+                    ListObjects.push(obj);    
                 }
-                ListObjects.push(obj);
+                
             }
             console.log('Object Listed',ListObjects);
           })
