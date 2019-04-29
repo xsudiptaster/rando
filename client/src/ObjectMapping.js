@@ -4,7 +4,7 @@ import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import readXlsxFile from "read-excel-file";
 import axios from "axios";
 import OptionsHeaderColumnSelector from "./OptionsHeaderColumnSelector";
-import XLSX from 'xlsx';
+import XLSX from "xlsx";
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -13,57 +13,55 @@ export default class ObjectMapping extends Reflux.Component {
   constructor(props) {
     super(props);
     this.store = ContentReviewStore;
-       
   }
 
   columnnOptions() {
     if (this.state && this.state.objectMapping != undefined) {
-        for (var i=0;i<Object.keys(this.state.objectMapping).length;i++)
-        {
-            var first_sheet_name = Object.keys(this.state.objectMapping)[i];
-            var address_of_cell = 'A1';
-            /* Get worksheet */
-            var worksheet = XLSX.utils.sheet_to_json(this.state.workbook.Sheets[first_sheet_name]);
-            this.state.objectMapping[Object.keys(this.state.objectMapping)[i]].sheetHeaders=Object.keys(worksheet[0]);
-        }
+      for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
+        var first_sheet_name = Object.keys(this.state.objectMapping)[i];
+        var address_of_cell = "A1";
+        /* Get worksheet */
+        var worksheet = XLSX.utils.sheet_to_json(
+          this.state.workbook.Sheets[first_sheet_name]
+        );
+        this.state.objectMapping[
+          Object.keys(this.state.objectMapping)[i]
+        ].sheetHeaders = Object.keys(worksheet[0]);
+      }
     }
   }
-  getObjectDescribe(objName)
-  {
-      if (this.state && this.state.ObjectDesb!=undefined)
-      {
-          if (this.state.ObjectDesb[objName].fields!=undefined)
-          {
-              return this.state.ObjectDesb[objName].fields; 
-          }
-          else{
-           axios
-            .post("/api/objectDescribe", {
+  getObjectDescribe(objName) {
+    console.log("Called With obj", objName);
+    if (this.state && this.state.ObjectDesb != undefined) {
+      if (this.state.ObjectDesb[objName].fields != undefined) {
+        return this.state.ObjectDesb[objName].fields;
+      } else {
+        axios
+          .post("/api/objectDescribe", {
             sessiontok: this.state.sessiontok,
             oUrl: this.state.instanceUrl,
-            objName : objName
-            })
-            .then(response => {
-            console.log('The Response',response);
-            if (this.state.ObjectDesb==undefined)
-            {
-                this.state.ObjectDesb={};
+            objName: objName
+          })
+          .then(response => {
+            console.log("The Response", response);
+            if (this.state.ObjectDesb == undefined) {
+              this.state.ObjectDesb = {};
             }
-            this.state.ObjectDesb[response.data.name]=response.data;
+            this.state.ObjectDesb[response.data.name] = response.data;
             ContentReviewerActions.stateupdates(this.state);
-            })
-            .catch(error => {
+          })
+          .catch(error => {
             alert(error);
-            });
-            return [];
-        } 
+          });
+        return [];
       }
-    
+    }
+    return [];
   }
   render() {
     var rowsdv = [];
     this.columnnOptions();
-    
+
     if (this.state && this.state.objectMapping != undefined) {
       rowsdv = Object.keys(this.state.objectMapping);
     }
@@ -94,32 +92,27 @@ export default class ObjectMapping extends Reflux.Component {
                 <label className="slds-text-body_small">{value}</label>
               </td>
               <td>
-                  <select className="slds-select">
+                <select className="slds-select">
                   <option value="none">Please Select</option>
-              {this.state.objectList.map(valob => (
-                  <option value={valob.name}>{valob.label}</option>
-              ))}
-              </select>
-              </td>
-              <td>
-              <select className="slds-select">
-              <option value="none">Please Select</option>
-                {this.state.objectMapping[value].sheetHeaders.map(val => (
-                <option value={val}>
-                     {val}   
-                </option>    
-                ))}
+                  {this.state.objectList.map(valob => (
+                    <option value={valob.name}>{valob.label}</option>
+                  ))}
                 </select>
-                
               </td>
               <td>
-                  <select className="slds-select" >
+                <select className="slds-select">
+                  <option value="none">Please Select</option>
+                  {this.state.objectMapping[value].sheetHeaders.map(val => (
+                    <option value={val}>{val}</option>
+                  ))}
+                </select>
+              </td>
+              <td>
+                <select className="slds-select">
                   {this.getObjectDescribe("Account").map(valfld => (
-                <option value={valfld.name}>
-                     {valfld.label}   
-                </option>    
-                ))}
-                  </select>
+                    <option value={valfld.name}>{valfld.label}</option>
+                  ))}
+                </select>
               </td>
             </tr>
           ))}
@@ -128,4 +121,3 @@ export default class ObjectMapping extends Reflux.Component {
     );
   }
 }
-
