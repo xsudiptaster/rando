@@ -57,7 +57,7 @@ app.post("/api/objectList", function(req, res) {
       return console.error(err);
     }
     var listObjects=[]
-    var listallObjects=JSON.parse(jsobj.sobjects);
+    var listallObjects=parse(jsobj.sobjects);
     for (var i=0;i<listallObjects.length;i++)
     {
       if(listallObjects[i].createable){
