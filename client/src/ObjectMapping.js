@@ -56,9 +56,13 @@ export default class ObjectMapping extends Reflux.Component {
   }
   render() {
     var rowsdv = [];
+    var objdesb={};
     this.columnnOptions();
     if (this.state && this.state.objectMapping != undefined) {
       rowsdv = Object.keys(this.state.objectMapping);
+    }
+    if (this.state && this.state.ObjectDesb!=undefined){
+        objdesb=this.state.ObjectDesb
     }
     return (
       <div className="slds-card">
@@ -107,7 +111,7 @@ export default class ObjectMapping extends Reflux.Component {
               </td>
               <td>
                 <select className="slds-select">
-                  {this.state.ObjectDesb["Account"].fields.map(valfld => (
+                  {objdesb["Account"].fields.map(valfld => (
                     <option value={valfld.name}>{valfld.label}</option>
                   ))}
                 </select>
