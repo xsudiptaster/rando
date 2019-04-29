@@ -95,7 +95,11 @@ export default class ObjectMapping extends Reflux.Component {
               </td>
               <td>
                   <select className="slds-select" >
-                  
+                  {this.getObjectDescribe("Account").map(valfld => (
+                <option value={valfld.name}>
+                     {valfld.label}   
+                </option>    
+                ))}
                   </select>
               </td>
             </tr>
