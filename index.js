@@ -52,12 +52,12 @@ app.post("/api/objectList", function(req, res) {
   console.log('The datatoken',req.body);
   jsobj.instanceUrl = req.body.oUrl;
   jsobj.accessToken = req.body.sessiontok;
-  jsobj.describeGlobal(function(err, userinfo) {
+  jsobj.describeGlobal(function(err, response) {
     if (err) {
       return console.error(err);
     }
     console.log('Resoponse is ',jsobj);
-    res.send((stringfy(jsobj)));
+    res.send((stringfy(response)));
   });
   // Return them as json
 });
