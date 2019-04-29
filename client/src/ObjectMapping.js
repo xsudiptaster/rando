@@ -39,7 +39,7 @@ export default class ObjectMapping extends Reflux.Component {
           .then(response => {
             var ListObjects=[]
             var objectsList=response.data.sobjects;
-            for (i=0;i<objectsList.length;i++)
+            for (var i=0;i<objectsList.length;i++)
             {
                 var obj={}
                 if (objectsList[i].createable){
