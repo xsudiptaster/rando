@@ -56,8 +56,8 @@ app.post("/api/objectList", function(req, res) {
     if (err) {
       return console.error(err);
     }
-    console.log("List object", stringify(jsobj));
-    res.send(stringify(jsobj));
+    console.log("List object", stringify(jsobj.sobjects));
+    res.send(stringify(jsobj.sobjects));
   });
   // Return them as json
 });
