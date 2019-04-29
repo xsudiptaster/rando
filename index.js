@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const jsforce = require("jsforce");
 const generatePassword = require("password-generator");
-const CircularJSON =require("circular-json");
+const {parse, stringify} = require('flatted/cjs')
 
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -56,8 +56,8 @@ app.post("/api/objectList", function(req, res) {
     if (err) {
       return console.error(err);
     }
-    console.log("List object", CircularJSON.stringify(jsobj));
-    res.send(CircularJSON.stringify(jsobj));
+    console.log("List object", stringify(jsobj));
+    res.send(stringify(jsobj));
   });
   // Return them as json
 });

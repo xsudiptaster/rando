@@ -9,6 +9,7 @@
     "axios": "^0.18.0",
     "circular-json": "^0.5.9",
     "express": "^4.15.3",
+    "flatted": "^2.0.0",
     "jsforce": "^1.9.1",
     "npm": "^6.9.0",
     "password-generator": "^2.1.0",
