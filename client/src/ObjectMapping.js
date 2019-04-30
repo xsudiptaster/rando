@@ -15,7 +15,7 @@ export default class ObjectMapping extends Reflux.Component {
         this.store = ContentReviewStore;
     }
 
-    componentDidMount() {
+    updateOptions() {
         console.log('Methids mounting happened');
         if (this.state && this.state.objectList != undefined) {
             console.log('State is here ', this.state);
@@ -75,6 +75,7 @@ export default class ObjectMapping extends Reflux.Component {
         var rowsdv = [];
         var objdesb = {};
         this.columnnOptions();
+        this.updateOptions();
         if (this.state && this.state.objectMapping != undefined) {
             rowsdv = Object.keys(this.state.objectMapping);
         }
