@@ -3,6 +3,7 @@ import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import axios from "axios";
 import XLSX  from "xlsx";
+import $     from "jquery";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -14,6 +15,16 @@ export default class ObjectMapping extends Reflux.Component {
         this.store = ContentReviewStore;
     }
 
+    componentDidMount() {
+        if (this.state && this.state.objectList != undefined) {
+            $('[name="objectSelection"]').each(function (ele) {
+                for (var i = 0; i < this.state.objectList.length; i++) {
+                    console.log('This inside for each', this.state.objectList.length);
+                }
+                ele.append('<option value="Hello">Hello</option>');
+            });
+        }
+    }
     columnnOptions() {
         if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
@@ -94,6 +105,7 @@ export default class ObjectMapping extends Reflux.Component {
                             </td>
                             <td>
                                 <select
+
                                     className="slds-select"
                                     headername={value}
                                     onchange={this.onchangeObjectSelection.bind(this)}
@@ -102,6 +114,9 @@ export default class ObjectMapping extends Reflux.Component {
                                     {this.state.objectList.map(valob => (
                                         <option value={valob.name}>{valob.label}</option>
                                     ))}
+                                </select>
+                                <select name="objectSelection">
+
                                 </select>
                             </td>
                             <td>
