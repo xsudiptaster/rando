@@ -30,8 +30,8 @@ export default class ObjectMapping extends Reflux.Component {
         }
     }
 
-    onchangeObjectSelection(event) {
-        console.log("This is ", this);
+    onchangeObjectSelection(event, val) {
+        console.log("This is ", val);
         console.log('This is event', event.target.value);
         //if (this.state.ObjectDesb[val] == undefined) {
         //this.getObjectDescribe(val);
@@ -94,10 +94,8 @@ export default class ObjectMapping extends Reflux.Component {
                             </td>
                             <td>
                                 <select
-
                                     className="slds-select"
-                                    headername={value}
-                                    onChange={this.onchangeObjectSelection.bind(this)}
+                                    onChange={this.onchangeObjectSelection.bind(this, value)}
                                 >
                                     <option value="none">Please Select</option>
                                     {this.state.objectList.map(valob => (
