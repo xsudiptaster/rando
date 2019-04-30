@@ -60,7 +60,6 @@ export default class ObjectMapping extends Reflux.Component {
         var rowsdv = [];
         var objdesb = {};
         this.columnnOptions();
-        this.updateOptions();
         if (this.state && this.state.objectMapping != undefined) {
             rowsdv = Object.keys(this.state.objectMapping);
         }
