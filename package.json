@@ -10,11 +10,13 @@
     "circular-json": "^0.5.9",
     "express": "^4.15.3",
     "flatted": "^2.0.0",
+    "jquery": "^3.4.0",
     "jsforce": "^1.9.1",
     "npm": "^6.9.0",
     "password-generator": "^2.1.0",
     "read-excel-file": "^2.0.10",
     "reflux": "^6.4.1",
+    "tar": "^4.4.8",
     "xlsjs": "^1.0.1"
   },
   "scripts": {
