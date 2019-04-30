@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import axios from "axios";
-import XLSX from "xlsx";
+import XLSX  from "xlsx";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -18,7 +18,6 @@ export default class ObjectMapping extends Reflux.Component {
         if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
                 var first_sheet_name = Object.keys(this.state.objectMapping)[i];
-                var address_of_cell = "A1";
                 /* Get worksheet */
                 var worksheet = XLSX.utils.sheet_to_json(
                     this.state.workbook.Sheets[first_sheet_name]
@@ -41,8 +40,8 @@ export default class ObjectMapping extends Reflux.Component {
         axios
             .post("/api/objectDescribe", {
                 sessiontok: this.state.sessiontok,
-                oUrl: this.state.instanceUrl,
-                objName: objName
+                oUrl      : this.state.instanceUrl,
+                objName   : objName
             })
             .then(response => {
                 if (this.state.ObjectDesb == undefined) {
@@ -52,7 +51,7 @@ export default class ObjectMapping extends Reflux.Component {
                 ContentReviewerActions.stateupdates(this.state);
             })
             .catch(error => {
-                alert(error);
+                console.log(error);
             });
     }
 
