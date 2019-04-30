@@ -18,6 +18,7 @@ export default class ObjectMapping extends Reflux.Component {
     componentDidMount() {
         if (this.state && this.state.objectList != undefined) {
             $('[name="objectSelection"]').each(function (ele) {
+                console.log('Mounted and called ', ele);
                 for (var i = 0; i < this.state.objectList.length; i++) {
                     console.log('This inside for each', this.state.objectList.length);
                 }
@@ -108,7 +109,7 @@ export default class ObjectMapping extends Reflux.Component {
 
                                     className="slds-select"
                                     headername={value}
-                                    onchange={this.onchangeObjectSelection.bind(this)}
+                                    onChange={this.onchangeObjectSelection.bind(this)}
                                 >
                                     <option value="none">Please Select</option>
                                     {this.state.objectList.map(valob => (
