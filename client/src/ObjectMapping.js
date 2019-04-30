@@ -28,6 +28,7 @@ export default class ObjectMapping extends Reflux.Component {
             });
         }
     }
+
     columnnOptions() {
         if (this.state && this.state.objectMapping != undefined) {
             for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
@@ -135,8 +136,8 @@ export default class ObjectMapping extends Reflux.Component {
 
                                     {objdesb["Account"] != undefined && objdesb["Account"].fields != undefined
                                      ? objdesb["Account"].fields.map(valfld => (
-                                        <option value={valfld.name}>{valfld.label}</option>
-                                    )) : <option>None</option>}
+                                            <option value={valfld.name}>{valfld.label}</option>
+                                        )) : <option>None</option>}
                                 </select>
                             </td>
                         </tr>
