@@ -3,7 +3,6 @@ import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import axios from "axios";
 import XLSX  from "xlsx";
-import $     from "jquery";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -15,19 +14,6 @@ export default class ObjectMapping extends Reflux.Component {
         this.store = ContentReviewStore;
     }
 
-    updateOptions() {
-        console.log('Methids mounting happened');
-        if (this.state && this.state.objectList != undefined) {
-            console.log('State is here ', this.state);
-            $('[name="objectSelection"]').each(function (ele) {
-                console.log('Mounted and called ', ele);
-                for (var i = 0; i < this.state.objectList.length; i++) {
-                    console.log('This inside for each', this.state.objectList.length);
-                }
-                ele.append('<option value="Hello">Hello</option>');
-            });
-        }
-    }
 
     columnnOptions() {
         if (this.state && this.state.objectMapping != undefined) {
@@ -45,13 +31,12 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeObjectSelection(event) {
-
         console.log("This is ", this);
+        console.log('This is event', event);
         //if (this.state.ObjectDesb[val] == undefined) {
         //this.getObjectDescribe(val);
         //}
     }
-
     getObjectDescribe(objName) {
         axios
             .post("/api/objectDescribe", {
@@ -120,9 +105,6 @@ export default class ObjectMapping extends Reflux.Component {
                                         <option value={valob.name}>{valob.label}</option>
                                     ))}
                                 </select>
-                                <select name="objectSelection">
-
-                                </select>
                             </td>
                             <td>
                                 <select className="slds-select">
@@ -140,6 +122,7 @@ export default class ObjectMapping extends Reflux.Component {
                                             <option value={valfld.name}>{valfld.label}</option>
                                         )) : <option>None</option>}
                                 </select>
+                                <select className={value}></select>
                             </td>
                         </tr>
                     ))}
