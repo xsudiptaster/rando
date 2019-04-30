@@ -16,7 +16,9 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     componentDidMount() {
+        console.log('Methids mounting happened');
         if (this.state && this.state.objectList != undefined) {
+            console.log('State is here ', this.state);
             $('[name="objectSelection"]').each(function (ele) {
                 console.log('Mounted and called ', ele);
                 for (var i = 0; i < this.state.objectList.length; i++) {
@@ -42,7 +44,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeObjectSelection(event) {
-        alert('Hello');
+
         console.log("This is ", this);
         //if (this.state.ObjectDesb[val] == undefined) {
         //this.getObjectDescribe(val);
