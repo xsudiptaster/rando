@@ -114,7 +114,7 @@ export default class ObjectMapping extends Reflux.Component {
                             <td>
                                 <select className="slds-select">
 
-                                    {objdesb["Account"] != undefined && objdesb["Account"].fields != undefined
+                                    {( objdesb["Account"] != undefined && objdesb["Account"].fields != undefined )
                                      ? objdesb["Account"].fields.map(valfld => (
                                             <option value={valfld.name}>{valfld.label}</option>
                                         )) : <option>None</option>}
