@@ -33,9 +33,7 @@ export default class ObjectMapping extends Reflux.Component {
     onchangeObjectSelection(val, event) {
         console.log("This is ", val);
         console.log('This is event', event.target.value);
-        //if (this.state.ObjectDesb[val] == undefined) {
-        //this.getObjectDescribe(val);
-        //}
+        this.getObjectDescribe(event.target.value);
     }
     getObjectDescribe(objName) {
         axios
