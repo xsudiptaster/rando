@@ -30,8 +30,6 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeObjectSelection(val, event) {
-        console.log("This is ", val);
-        console.log('This is event', event.target.value);
         this.state.objectMapping[val].ObjectName = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
@@ -41,6 +39,15 @@ export default class ObjectMapping extends Reflux.Component {
         }
     }
 
+    onchangeGetExterIdFromSheet(val, event) {
+        this.state.objectMapping[val].ExtFromSheet = event.target.value;
+        ContentReviewerActions.stateupdates(this.state);
+    }
+
+    onchangeGetExterIdFromObj(val, event) {
+        this.state.objectMapping[val].ExtFromObject = event.target.value;
+        ContentReviewerActions.stateupdates(this.state);
+    }
     getObjectDescribe(objName) {
         axios
             .post("/api/objectDescribe", {
@@ -108,7 +115,8 @@ export default class ObjectMapping extends Reflux.Component {
                                 </select>
                             </td>
                             <td>
-                                <select className="slds-select">
+                                <select className="slds-select"
+                                        onChange={this.onchangeGetExterIdFromSheet.bind(this, value)}>
                                     <option value="none">Please Select</option>
                                     {this.state.objectMapping[value].sheetHeaders.map(val => (
                                         <option value={val}>{val}</option>
@@ -116,7 +124,8 @@ export default class ObjectMapping extends Reflux.Component {
                                 </select>
                             </td>
                             <td>
-                                <select className="slds-select">
+                                <select className="slds-select"
+                                        onChange={this.onchangeGetExterIdFromObj.bind(this, value)}>
 
                                     {( objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
                                         objdesb[this.state.objectMapping[value].ObjectName].fields != undefined )
