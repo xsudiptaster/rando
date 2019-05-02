@@ -33,6 +33,7 @@ export default class ObjectMapping extends Reflux.Component {
         console.log("This is ", val);
         console.log('This is event', event.target.value);
         this.state.objectMapping[val].ObjectName = event.target.value;
+        ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
             this.state.ObjectDesb[event.target.value] ==
             undefined) {
@@ -117,8 +118,9 @@ export default class ObjectMapping extends Reflux.Component {
                             <td>
                                 <select className="slds-select">
 
-                                    {( objdesb["Account"] != undefined && objdesb["Account"].fields != undefined )
-                                     ? objdesb["Account"].fields.map(valfld => (
+                                    {( objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
+                                        objdesb[this.state.objectMapping[value].ObjectName].fields != undefined )
+                                     ? objdesb[this.state.objectMapping[value].ObjectName].fields.map(valfld => (
                                             <option value={valfld.name}>{valfld.label}</option>
                                         )) : <option>None</option>}
                                 </select>
