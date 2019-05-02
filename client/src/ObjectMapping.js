@@ -78,7 +78,7 @@ export default class ObjectMapping extends Reflux.Component {
             objdesb = this.state.ObjectDesb
         }
         return (
-            <div className="slds-card" style="min-width: 70%">
+            <div className="slds-card">
                 <table>
                     <tr>
                         <th>
