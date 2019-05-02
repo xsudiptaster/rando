@@ -79,7 +79,7 @@ export default class ObjectMapping extends Reflux.Component {
         }
         return (
             <div className="slds-card">
-                <table>
+                <table className="slds-table">
                     <tr>
                         <th>
                             <label className="slds-text-body_large">SheetName</label>
@@ -136,7 +136,13 @@ export default class ObjectMapping extends Reflux.Component {
 
                             </td>
                         </tr>
+
                     ))}
+                    <tr>
+                        <td>
+                            <input type="button" className="slds-button--brand"/>
+                        </td>
+                    </tr>
                 </table>
             </div>
         );
