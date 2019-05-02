@@ -85,18 +85,18 @@ export default class ObjectMapping extends Reflux.Component {
                 <table className="slds-table">
                     <tr>
                         <th>
-                            <label className="slds-text-body_large">SheetName</label>
+                            <label className="slds-text-heading_medium">SheetName</label>
                         </th>
                         <th>
-                            <label className="slds-text-body_large">Object Name</label>
+                            <label className="slds-text-heading_medium">Object Name</label>
                         </th>
                         <th>
-                            <label className="slds-text-body_large">
+                            <label className="slds-text-heading_medium">
                                 External Id From Sheet
                             </label>
                         </th>
                         <th>
-                            <label className="slds-text-body_large">
+                            <label className="slds-text-heading_medium">
                                 External Id in Object
                             </label>
                         </th>
