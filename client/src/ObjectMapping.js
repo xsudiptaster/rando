@@ -67,6 +67,9 @@ export default class ObjectMapping extends Reflux.Component {
             });
     }
 
+    afterSelectionDoneClick() {
+        console.log('This Sate Now', this.state);
+    }
     render() {
         var rowsdv = [];
         var objdesb = {};
@@ -140,7 +143,8 @@ export default class ObjectMapping extends Reflux.Component {
                     ))}
                     <tr>
                         <td>
-                            <input type="button" className="slds-button--brand"/>
+                            <input type="button" className="slds-button slds-button_neutral" value="Map Fields"
+                                   onClick={() => this.afterSelectionDoneClick()}/>
                         </td>
                     </tr>
                 </table>
