@@ -48,6 +48,7 @@ export default class ObjectMapping extends Reflux.Component {
         this.state.objectMapping[val].ExtFromObject = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
     }
+
     getObjectDescribe(objName) {
         axios
             .post("/api/objectDescribe", {
@@ -70,6 +71,7 @@ export default class ObjectMapping extends Reflux.Component {
     afterSelectionDoneClick() {
         console.log('This Sate Now', this.state);
     }
+
     render() {
         var rowsdv = [];
         var objdesb = {};
