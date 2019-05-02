@@ -33,7 +33,8 @@ export default class ObjectMapping extends Reflux.Component {
         console.log("This is ", val);
         console.log('This is event', event.target.value);
         this.state.objectMapping[val].ObjectName = event.target.value;
-        if (this.state && this.state.ObjectDesb[event.target.value] == undefined) {
+        if (this.state || this.state.ObjectDesb == undefined || this.state.ObjectDesb[event.target.value] ==
+            undefined) {
             this.getObjectDescribe(event.target.value);
         }
     }
