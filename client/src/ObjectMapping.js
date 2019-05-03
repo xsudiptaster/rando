@@ -116,7 +116,7 @@ export default class ObjectMapping extends Reflux.Component {
                                         onChange={this.onchangeObjectSelection.bind(this, value)}>
                                     <option value="none">Please Select</option>
                                     {this.state.objectList.map(val => (
-                                        <option value={val}>{val}</option>
+                                        <option value={val.value}>{val.label}</option>
                                     ))}
                                 </select>
                             </td>
