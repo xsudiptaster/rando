@@ -1,8 +1,9 @@
-import React from "react";
+import React    from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import axios from "axios";
-import XLSX  from "xlsx";
+import axios    from "axios";
+import XLSX     from "xlsx";
+import MenuItem from '@material-ui/core/MenuItem';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -118,6 +119,7 @@ export default class ObjectMapping extends Reflux.Component {
                                         <option value={valob.name}>{valob.label}</option>
                                     ))}
                                 </select>
+                                <MenuItem></MenuItem>
                             </td>
                             <td>
                                 <select className="slds-select"
@@ -127,6 +129,7 @@ export default class ObjectMapping extends Reflux.Component {
                                         <option value={val}>{val}</option>
                                     ))}
                                 </select>
+
                             </td>
                             <td>
                                 <select className="slds-select"
