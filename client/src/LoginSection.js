@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -74,7 +75,7 @@ export default class LoginSection extends Reflux.Component {
           for (var i = 0; i < objectsList.length; i++) {
             if (objectsList[i].createable) {
               var obj = {};
-              obj.name = objectsList[i].name;
+                obj.value = objectsList[i].name;
               obj.label = objectsList[i].label;
               ListObjects.push(obj);
             }
