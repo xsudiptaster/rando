@@ -13,9 +13,6 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
-        this.state = {
-            hello: null
-        }
     }
 
     columnnOptions() {
@@ -117,7 +114,6 @@ export default class ObjectMapping extends Reflux.Component {
                             <td>
                                 <Select
                                     className="slds-select"
-                                    value={this.state.hello}
                                     onChange={this.onchangeObjectSelection.bind(value, value)}
                                     options={this.state.objectList}/>
 
