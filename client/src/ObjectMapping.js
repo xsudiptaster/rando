@@ -118,7 +118,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 <Select
                                     className="slds-select"
                                     value={this.state.hello}
-                                    onChange={this.onchangeObjectSelection.bind(value, this)}
+                                    onChange={this.onchangeObjectSelection.bind(this, value)}
                                     options={this.state.objectList}/>
 
                             </td>
