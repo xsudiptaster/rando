@@ -121,7 +121,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 </datalist>
                             </td>
                             <td>
-                                <input list="mylist2" style={{width: "100px"}}
+                                <input list="mylist2" style={{width: "100px"}} className="slds-input"
                                        onChange={this.onchangeGetExterIdFromSheet.bind(this, value)}/>
                                 <datalist id="mylist2">
                                     <option value="none">Please Select</option>
@@ -132,15 +132,15 @@ export default class ObjectMapping extends Reflux.Component {
 
                             </td>
                             <td>
-                                <select className="slds-select"
-                                        onChange={this.onchangeGetExterIdFromObj.bind(this, value)}>
-
+                                <input list="mylist2" style={{width: "200px!"}} className="slds-input"
+                                       onChange={this.onchangeGetExterIdFromObj.bind(this, value)}/>
+                                <datalist className="slds-select">
                                     {( objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
                                         objdesb[this.state.objectMapping[value].ObjectName].fields != undefined )
                                      ? objdesb[this.state.objectMapping[value].ObjectName].fields.map(valfld => (
                                             <option value={valfld.name}>{valfld.label}</option>
                                         )) : <option>None</option>}
-                                </select>
+                                </datalist>
 
                             </td>
                         </tr>
