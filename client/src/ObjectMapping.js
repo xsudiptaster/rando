@@ -1,9 +1,8 @@
-import React    from "react";
+import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import axios    from "axios";
-import XLSX     from "xlsx";
-import MenuItem from '@material-ui/core/MenuItem';
+import axios from "axios";
+import XLSX  from "xlsx";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -13,6 +12,9 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
+        this.state = {
+            hello: ""
+        }
     }
 
     columnnOptions() {
@@ -118,8 +120,13 @@ export default class ObjectMapping extends Reflux.Component {
                                     {this.state.objectList.map(valob => (
                                         <option value={valob.name}>{valob.label}</option>
                                     ))}
+
                                 </select>
-                                <MenuItem></MenuItem>
+                                <Select
+                                    value={this.state.hello}
+                                    onChange={this.onchangeObjectSelection.bind(this, value)}
+                                    options={this.state.objectList}/>
+
                             </td>
                             <td>
                                 <select className="slds-select"
