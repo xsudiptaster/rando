@@ -14,7 +14,7 @@ export default class ObjectMapping extends Reflux.Component {
         super(props);
         this.store = ContentReviewStore;
         this.state = {
-            hello: ""
+            hello: null
         }
     }
 
@@ -33,8 +33,8 @@ export default class ObjectMapping extends Reflux.Component {
         }
     }
 
-    onchangeObjectSelection(val, event) {
-        this.state.objectMapping[val].ObjectName = event.target.value;
+    onchangeObjectSelection(val) {
+        this.state.objectMapping[val].ObjectName = this.state.hello;
         ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
             this.state.ObjectDesb[event.target.value] ==
@@ -115,7 +115,7 @@ export default class ObjectMapping extends Reflux.Component {
                             <td>
                                 <Select
                                     value={this.state.hello}
-                                    onChange={this.onchangeObjectSelection.bind(this, value)}
+                                    onChange={this.onchangeObjectSelection.bind(value)}
                                     options={this.state.objectList}/>
 
                             </td>
