@@ -36,13 +36,12 @@ export default class ObjectMapping extends Reflux.Component {
     onchangeObjectSelection(val, aval) {
         console.log('the value received', aval);
         console.log('The other vaj', val);
-        console.log('The this state', this.state.hello);
-        this.state.objectMapping[val].ObjectName = this.state.hello;
+        this.state.objectMapping[val].ObjectName = aval.value;
         ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
-            this.state.ObjectDesb[this.state.hello] ==
+            this.state.ObjectDesb[aval.value] ==
             undefined) {
-            this.getObjectDescribe(this.state.hello);
+            this.getObjectDescribe(aval.value);
         }
     }
 
@@ -119,7 +118,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 <Select
                                     className="slds-select"
                                     value={this.state.hello}
-                                    onChange={this.onchangeObjectSelection.bind(value, value)}
+                                    onChange={this.onchangeObjectSelection.bind(value, this)}
                                     options={this.state.objectList}/>
 
                             </td>
