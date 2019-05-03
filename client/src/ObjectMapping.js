@@ -1,9 +1,8 @@
-import React  from "react";
+import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import axios  from "axios";
-import XLSX   from "xlsx";
-import Select from 'react-select';
+import axios from "axios";
+import XLSX  from "xlsx";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -13,6 +12,9 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
+        this.state = {
+            hello: ""
+        }
     }
 
     columnnOptions() {
@@ -30,16 +32,13 @@ export default class ObjectMapping extends Reflux.Component {
         }
     }
 
-    onchangeObjectSelection(val, aval) {
-        console.log('the value received', aval);
-        console.log('The other vaj', val);
-        console.log('The State Value', this.state);
-        this.state.objectMapping[val].ObjectName = aval.value;
+    onchangeObjectSelection(val, event) {
+        this.state.objectMapping[val].ObjectName = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
-            this.state.ObjectDesb[aval.value] ==
+            this.state.ObjectDesb[event.target.value] ==
             undefined) {
-            this.getObjectDescribe(aval.value);
+            this.getObjectDescribe(event.target.value);
         }
     }
 
@@ -113,11 +112,13 @@ export default class ObjectMapping extends Reflux.Component {
                                 <label className="slds-text-body_small">{value}</label>
                             </td>
                             <td>
-                                <Select
-                                    className="slds-select"
-                                    onChange={this.onchangeObjectSelection.bind(value, value)}
-                                    options={this.state.objectList}/>
-
+                                <select className="slds-select"
+                                        onChange={this.onchangeObjectSelection.bind(this, value)}>
+                                    <option value="none">Please Select</option>
+                                    {this.state.objectList.map(val => (
+                                        <option value={val}>{val}</option>
+                                    ))}
+                                </select>
                             </td>
                             <td>
                                 <select className="slds-select"
