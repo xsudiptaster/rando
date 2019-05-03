@@ -15,7 +15,6 @@
     "jsforce": "^1.9.1",
     "npm": "^6.9.0",
     "password-generator": "^2.1.0",
-    "react-select": "^2.4.3",
     "read-excel-file": "^2.0.10",
     "reflux": "^6.4.1",
     "tar": "^4.4.8",
