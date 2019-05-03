@@ -112,9 +112,9 @@ export default class ObjectMapping extends Reflux.Component {
                                 <label className="slds-text-body_small">{value}</label>
                             </td>
                             <td>
-                                <input className="awesomplete" list="mylist"
+                                <input className="slds-input" list="mylist"
                                        onChange={this.onchangeObjectSelection.bind(this, value)}/>
-                                <datalist className="slds-select" id="mylist"
+                                <datalist className="slds-list_horizontal" id="mylist"
                                 >
 
                                     {this.state.objectList.map(val => (
