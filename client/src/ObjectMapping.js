@@ -33,6 +33,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeObjectSelection(val, event) {
+        console.log('Methods Called');
         this.state.objectMapping[val].ObjectName = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
@@ -43,6 +44,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeGetExterIdFromSheet(val, event) {
+        console.log('Methods Calleds');
         this.state.objectMapping[val].ExtFromSheet = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
     }
