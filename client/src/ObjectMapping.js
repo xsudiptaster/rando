@@ -121,7 +121,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 </datalist>
                             </td>
                             <td>
-                                <input list="mylist2" style={{width: "100px"}} className="slds-input"
+                                <input list="mylist2" style={{width: "200px!"}} className="slds-input"
                                        onChange={this.onchangeGetExterIdFromSheet.bind(this, value)}/>
                                 <datalist id="mylist2">
                                     <option value="none">Please Select</option>
