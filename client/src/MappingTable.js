@@ -53,7 +53,7 @@ export default class MappingTable extends Reflux.Component {
                                                 <td>
                                                     <input list="mylist3" style={{width: "200px!"}}
                                                            className="slds-input"
-                                                           onChange={this.onchangeGetExterIdFromObj.bind(this, value)}/>
+                                                    />
                                                     <datalist id="mylist3">
                                                         {( objdesb[this.state.objectMapping[value].ObjectName] !=
                                                             undefined &&
