@@ -24,10 +24,13 @@ export default class MappingTable extends Reflux.Component {
 
     render() {
         var panls = [];
+        var objdesb = {};
         if (this.state && this.state.objectMapping) {
             panls = Object.keys(this.state.objectMapping);
         }
-
+        if (this.state && this.state.ObjectDesb != undefined) {
+            objdesb = this.state.ObjectDesb
+        }
         return (
             <div>
                 {panls.map(value => (
