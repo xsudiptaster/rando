@@ -1,7 +1,7 @@
 import React          from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import Accordion      from "@salesforce/design-system-react";
+import Accordion      from "@salesforce/design-system-react/components/accordion/index";
 import AccordionPanel from "@salesforce/design-system-react/components/accordion/panel";
 
 var Reflux = require("reflux");
