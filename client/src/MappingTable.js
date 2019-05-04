@@ -1,7 +1,7 @@
-import React                         from "react";
+import React                from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import { Accordion, AccordionPanel } from "@salesforce/design-system-react";
+import { Accordion, Panel } from "@salesforce/design-system-react";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -17,9 +17,9 @@ export default class MappingTable extends Reflux.Component {
         return (
             <div>
                 <Accordion>
-                    <AccordionPanel>
+                    <Panel>
                         Hello
-                    </AccordionPanel>
+                    </Panel>
                 </Accordion>
             </div> );
     }
