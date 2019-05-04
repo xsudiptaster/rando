@@ -11,17 +11,12 @@ var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
-
-
 export default class MappingTable extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
 
     }
-
-
-
     render() {
         var panls = [];
         var objdesb = {};
