@@ -36,8 +36,28 @@ export default class MappingTable extends Reflux.Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                                sit amet blandit leo lobortis eget.
+                                <table>
+                                    <tr>
+                                        <th>
+                                            Column Name
+                                        </th>
+                                        <th>
+                                            Field Name
+                                        </th>
+                                    </tr>
+                                    {( this.state && this.state.objectMapping )
+                                     ? this.state.objectMapping[value].sheetHeaders.map(val => (
+                                            <tr>
+                                                <td>
+                                                    {val}
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+
+                                        )) : <div></div>}
+                                </table>
                             </Typography>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
