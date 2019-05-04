@@ -55,7 +55,7 @@ export default class MappingTable extends Reflux.Component {
                         } ));
                     }
                     else if (console) {
-                        console.log('onSelect', event, option);
+                        console.log('onSelect', option);
                     }
                 }}
                 options={[
