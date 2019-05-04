@@ -25,8 +25,8 @@ export default class MappingTable extends Reflux.Component {
                                         <svg
                                             className="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left"
                                             aria-hidden="true">
-                                            <use href="http://www.w3.org/1999/xlink"
-                                                 href="/assets/icons/utility-sprite/svg/symbols.svg#switch"/>
+                                            <use xlinkHref="http://www.w3.org/1999/xlink"
+                                                 xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#switch"/>
                                         </svg>
                                         <span className="slds-truncate"
                                               title="Accordion summary">Accordion summary</span>
@@ -37,8 +37,8 @@ export default class MappingTable extends Reflux.Component {
                                         className="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
                                         aria-haspopup="true" title="Show More">
                                         <svg className="slds-button__icon" aria-hidden="true">
-                                            <use href="http://www.w3.org/1999/xlink"
-                                                 href="/assets/icons/utility-sprite/svg/symbols.svg#down"/>
+                                            <use xlinkHref="http://www.w3.org/1999/xlink"
+                                                 xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#down"/>
                                         </svg>
                                         <span className="slds-assistive-text">Show More</span>
                                     </button>
@@ -79,8 +79,8 @@ export default class MappingTable extends Reflux.Component {
                                         <svg
                                             className="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left"
                                             aria-hidden="true">
-                                            <use href="http://www.w3.org/1999/xlink"
-                                                 href="/assets/icons/utility-sprite/svg/symbols.svg#switch"/>
+                                            <use xlinkHref="http://www.w3.org/1999/xlink"
+                                                 xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#switch"/>
                                         </svg>
                                         <span className="slds-truncate"
                                               title="Accordion summary">Accordion summary</span>
@@ -91,8 +91,8 @@ export default class MappingTable extends Reflux.Component {
                                         className="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small"
                                         aria-haspopup="true" title="Show More">
                                         <svg className="slds-button__icon" aria-hidden="true">
-                                            <use href="http://www.w3.org/1999/xlink"
-                                                 href="/assets/icons/utility-sprite/svg/symbols.svg#down"/>
+                                            <use xlinkHref="http://www.w3.org/1999/xlink"
+                                                 xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#down"/>
                                         </svg>
                                         <span className="slds-assistive-text">Show More</span>
                                     </button>
