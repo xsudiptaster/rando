@@ -44,7 +44,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeGetExterIdFromSheet(val, event) {
-        console.log('Methods Calleds');
+        console.log('Methods Calleds', this.state);
         this.state.objectMapping[val].ExtFromSheet = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
     }
