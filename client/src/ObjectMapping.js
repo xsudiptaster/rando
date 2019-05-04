@@ -71,7 +71,6 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     afterSelectionDoneClick() {
-        console.log('This Sate Now', this.state);
         this.setState({
                           objectmappingdisplay: {
                               display: "none"
@@ -82,6 +81,7 @@ export default class ObjectMapping extends Reflux.Component {
                               display: "block"
                           }
                       });
+        console.log('This Sate Now', this.state);
         ContentReviewerActions.stateupdates(this.state);
     }
 
