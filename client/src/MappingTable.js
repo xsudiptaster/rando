@@ -13,6 +13,6 @@ export default class MappingTable extends Reflux.Component {
     }
 
     render() {
-        return ( <div></div> );
+        return ( <div>Hello Thue uasdasd</div> );
     }
 }
