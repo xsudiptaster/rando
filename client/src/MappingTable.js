@@ -13,7 +13,9 @@ export default class MappingTable extends Reflux.Component {
     }
 
     render() {
-        return ( <ul className="slds-accordion">
+        return (
+            <div>
+                <ul className="slds-accordion">
             <li className="slds-accordion__list-item">
                 <section className="slds-accordion__section slds-is-open">
                     <div className="slds-accordion__summary">
@@ -167,6 +169,7 @@ export default class MappingTable extends Reflux.Component {
                     </div>
                 </section>
             </li>
-        </ul> );
+                </ul>
+            </div> );
     }
 }
