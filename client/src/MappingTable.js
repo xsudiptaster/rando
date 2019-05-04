@@ -1,7 +1,6 @@
 import React              from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import "./lightning-design/styles/";
 import SLDSAccordion      from '@salesforce/design-system-react/components/button';
 import SLDSAccordionpanel from '@salesforce/design-system-react/components/button';
 
