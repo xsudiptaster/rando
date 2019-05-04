@@ -5,6 +5,7 @@ import ExpansionPanel        from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography            from '@material-ui/core/Typography';
+import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -31,7 +32,7 @@ export default class MappingTable extends Reflux.Component {
             <div>
                 {panls.map(value => (
                     <ExpansionPanel>
-                        <ExpansionPanelSummary>
+                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
                             <Typography>{value}</Typography>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
