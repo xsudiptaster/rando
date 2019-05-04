@@ -82,6 +82,7 @@ export default class ObjectMapping extends Reflux.Component {
                               display: "block"
                           }
                       });
+        ContentReviewerActions.stateupdates(this.state);
     }
 
     render() {
