@@ -10,15 +10,7 @@ var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
-const styles = theme => ( {
-    root   : {
-        width: '100%',
-    },
-    heading: {
-        fontSize  : theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
-    },
-} );
+
 
 export default class MappingTable extends Reflux.Component {
     constructor(props) {
@@ -30,19 +22,23 @@ export default class MappingTable extends Reflux.Component {
 
 
     render() {
+        var panls = Object.keys(this.state.objectMapping);
         return (
             <div>
-                <ExpansionPanel>
-                    <ExpansionPanelSummary>
-                        <Typography>Expansion Panel 1</Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                            sit amet blandit leo lobortis eget.
-                        </Typography>
-                    </ExpansionPanelDetails>
-                </ExpansionPanel>
+                {panls.map(value => (
+                    <ExpansionPanel>
+                        <ExpansionPanelSummary>
+                            <Typography>{value}</Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <Typography>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                                sit amet blandit leo lobortis eget.
+                            </Typography>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
+                ))}
+
             </div>
         );
     }
