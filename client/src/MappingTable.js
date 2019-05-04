@@ -37,12 +37,12 @@ export default class MappingTable extends Reflux.Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <Typography>
-                                <table>
+                                <table className="slds-table slds-table_bordered">
                                     <tr>
-                                        <th>
+                                        <th className="slds-line-height_reset slds-truncate">
                                             Column Name
                                         </th>
-                                        <th>
+                                        <th className="slds-line-height_reset slds-truncate">
                                             Field Name
                                         </th>
                                     </tr>
@@ -53,7 +53,19 @@ export default class MappingTable extends Reflux.Component {
                                                     {val}
                                                 </td>
                                                 <td>
-
+                                                    <input list="mylist3" style={{width: "200px!"}}
+                                                           className="slds-input"
+                                                           onChange={this.onchangeGetExterIdFromObj.bind(this, value)}/>
+                                                    <datalist id="mylist3">
+                                                        {( objdesb[this.state.objectMapping[value].ObjectName] !=
+                                                            undefined &&
+                                                            objdesb[this.state.objectMapping[value].ObjectName].fields !=
+                                                            undefined )
+                                                         ? objdesb[this.state.objectMapping[value].ObjectName].fields.map(
+                                                                valfld => (
+                                                                    <option value={valfld.name}>{valfld.label}</option>
+                                                                )) : <option>None</option>}
+                                                    </datalist>
                                                 </td>
                                             </tr>
 
