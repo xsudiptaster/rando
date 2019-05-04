@@ -12,9 +12,6 @@ export default class ObjectMapping extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
-        this.state = {
-            hello: ""
-        }
     }
 
     columnnOptions() {
@@ -126,7 +123,6 @@ export default class ObjectMapping extends Reflux.Component {
                                 <input list="mylist2" style={{width: "200px!"}} className="slds-input"
                                        onChange={this.onchangeGetExterIdFromSheet.bind(this, value)}/>
                                 <datalist id="mylist2">
-                                    <option value="none">Please Select</option>
                                     {this.state.objectMapping[value].sheetHeaders.map(val => (
                                         <option value={val}>{val}</option>
                                     ))}

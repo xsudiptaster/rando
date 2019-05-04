@@ -1,11 +1,11 @@
-import React from "react";
+import React                 from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import Headerdisplay from "./Headerdisplay.js";
-import LoginSection from "./LoginSection.js";
-import FileuploadSection from "./FileuploadSection.js";
+import Headerdisplay         from "./Headerdisplay.js";
+import LoginSection          from "./LoginSection.js";
+import FileuploadSection     from "./FileuploadSection.js";
 import QuestionsForOperation from "./QuestionsForOperation";
-import ObjectMapping from "./ObjectMapping";
+import ObjectMapping         from "./ObjectMapping";
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -26,7 +26,11 @@ class App extends Reflux.Component {
             },
             objectmappingdisplay: {
                 display: "none"
-            }
+            },
+            objectmappingtable: {
+                display: "none"
+            },
+
         });
         this.store = ContentReviewerStore;
     }
@@ -61,6 +65,9 @@ class App extends Reflux.Component {
                     </div>
                     <div style={this.state.objectmappingdisplay}>
                         <ObjectMapping/>
+                    </div>
+                    <div style={this.state.objectmappingtable}>
+                        <MappingTable/>
                     </div>
                 </div>
                 <div className="slds-col slds-size_1-of-5">
