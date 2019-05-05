@@ -42,10 +42,6 @@ class App extends Reflux.Component {
         this.setState({errorModal: {height: '14rem', display: 'none'}});
     };
 
-    // Fetch passwords after first mount
-    componentDidMount() {
-    }
-
     render() {
         return (
             <div>
@@ -77,7 +73,7 @@ class App extends Reflux.Component {
                                 </div>
                                 <footer className="slds-modal__footer slds-theme_default">
                                     <button className="slds-button slds-button_neutral"
-                                            onClick={this.handleClose()}>Close
+                                            onClick={() => this.handleClose()}>Close
                                     </button>
                                 </footer>
                             </div>
@@ -87,7 +83,6 @@ class App extends Reflux.Component {
                 </div>
 
                 <div className="slds-grid slds-wrap">
-
                     <div className="slds-col slds-size_12-of-12">
                         <Headerdisplay/>
                     </div>
