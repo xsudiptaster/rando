@@ -34,7 +34,7 @@ export default class LoginSection extends Reflux.Component {
   }
   handlelogin() {
       console.log("StateURl", this.state.loginurl);
-    if (this.state.loginurl == "") {
+      if (this.state == undefined || this.state.loginurl == "") {
       this.state.errorMessage = "Please Select the Org";
       this.state.errorModal = true;
         ContentReviewerActions.stateupdates(this.state);
