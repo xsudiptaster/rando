@@ -32,7 +32,11 @@ export default class MappingTable extends Reflux.Component {
             objdesb = this.state.ObjectDesb
         }
         return (
+
             <div>
+                <div>
+                    <input value="Upsert" type="button" className="slds-button--neutral"/>
+                </div>
                 {panls.map(value => (
                     <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
