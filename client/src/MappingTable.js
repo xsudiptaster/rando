@@ -17,6 +17,10 @@ export default class MappingTable extends Reflux.Component {
         this.store = ContentReviewStore;
 
     }
+
+    mapfieldAsSelected(ev, value, val) {
+        console.log('Received this', ev, 'Value', value, 'Val', val);
+    }
     render() {
         var panls = [];
         var objdesb = {};
@@ -53,6 +57,7 @@ export default class MappingTable extends Reflux.Component {
                                                 <td>
                                                     <input list="mylist3" style={{width: "200px!"}}
                                                            className="slds-input"
+                                                           onChange={this.mapfieldAsSelected.bind(this, value, val)}
                                                     />
                                                     <datalist id="mylist3">
                                                         {( objdesb[this.state.objectMapping[value].ObjectName] !=
