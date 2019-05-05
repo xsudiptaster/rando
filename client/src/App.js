@@ -8,7 +8,6 @@ import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
 import Modal                 from '@material-ui/core/Modal';
-import Typography            from '@material-ui/core/Modal';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -55,12 +54,7 @@ class App extends Reflux.Component {
                         open="false"
                         onClose={this.handleClose}
                     >
-                        <Typography>
-                            ERROR
-                        </Typography>
-                        <Typography>
-                            Hello this is it
-                        </Typography>
+                        Helllo
 
                     </Modal>
                     <Headerdisplay/>
