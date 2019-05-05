@@ -52,15 +52,13 @@ class App extends Reflux.Component {
             <div className="slds-grid slds-wrap">
                 <div className="slds-col slds-size_12-of-12">
                     <Modal
-                        aria-labelledby="simple-modal-title"
-                        aria-describedby="simple-modal-description"
                         open={this.state.errorModal != undefined ? this.state.errorModal : false}
                         onClose={this.handleClose}
                     >
-                        <Typography variant="h6" id="modal-title">
+                        <Typography>
                             ERROR
                         </Typography>
-                        <Typography variant="subtitle1" id="simple-modal-description">
+                        <Typography>
                             {this.state && this.state.errorMessage ? this.state.errorMessage : ''}
                         </Typography>
 
