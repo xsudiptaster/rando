@@ -17,6 +17,7 @@ export default class LoginSection extends Reflux.Component {
       sessiontok: "",
       loginurl: ""
     };
+      ContentReviewerActions.stateupdates(this.state);
   }
 
   // Fetch passwords after first mount
@@ -37,8 +38,8 @@ export default class LoginSection extends Reflux.Component {
       if (this.state == undefined || this.state.loginurl == "") {
       this.state.errorMessage = "Please Select the Org";
       this.state.errorModal = true;
-        ContentReviewerActions.stateupdates(this.state);
-        return;
+          ContentReviewerActions.stateupdates(this.state);
+          return;
     }
     // Get the session and store them in state
     axios
