@@ -7,8 +7,6 @@ import FileuploadSection     from "./FileuploadSection.js";
 import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
-import Snackbar              from '@material-ui/core/Snackbar';
-import SnackbarContent       from '@material-ui/core/SnackbarContent';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -18,26 +16,31 @@ class App extends Reflux.Component {
     constructor(props) {
         super();
         (this.state = {
-            logindisplay: {
+            logindisplay        : {
                 display: "block"
             },
-            uploadfiledisplay: {
+            uploadfiledisplay   : {
                 display: "none"
             },
-            questionfordisplay: {
+            questionfordisplay  : {
                 display: "none"
             },
             objectmappingdisplay: {
                 display: "none"
             },
-            objectmappingtable: {
+            objectmappingtable  : {
                 display: "none"
             },
+            errorModal          : false,
+            errorMessage        : "",
 
         });
         this.store = ContentReviewerStore;
     }
 
+    handleClose = () => {
+        this.setState({open: false});
+    };
     // Fetch passwords after first mount
     componentDidMount() {
     }
@@ -46,11 +49,14 @@ class App extends Reflux.Component {
         return (
             <div className="slds-grid slds-wrap">
                 <div className="slds-col slds-size_12-of-12">
-                    <Snackbar>
-                        <SnackbarContent>
-                            Hello
-                        </SnackbarContent>
-                    </Snackbar>
+                    <Modal
+                        aria-labelledby="simple-modal-title"
+                        aria-describedby="simple-modal-description"
+                        open={this.state.errorModal}
+                        onClose={this.handleClose}
+                    >
+                        {this.state.errorMessage}
+                    </Modal>
                     <Headerdisplay/>
                 </div>
                 <br/>

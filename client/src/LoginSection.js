@@ -33,6 +33,10 @@ export default class LoginSection extends Reflux.Component {
     this.setState({ loginurl: event.target.value });
   }
   handlelogin() {
+    if (this.state.loginurl == "") {
+      this.state.errorMessage = "Please Select the Org";
+      this.state.errorModal = true;
+    }
     // Get the session and store them in state
     axios
       .post("/api/logintosalesforce", {
