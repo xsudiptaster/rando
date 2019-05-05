@@ -6,7 +6,7 @@ import FileuploadSection     from "./FileuploadSection.js";
 import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
-import { Chip }              from '@material-ui';
+import { Chip }              from '@material-ui/core';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
