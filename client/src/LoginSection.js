@@ -92,7 +92,7 @@ export default class LoginSection extends Reflux.Component {
           ContentReviewerActions.stateupdates(this.state);
         })
         .catch(error => {
-          alert(error);
+            console.log(error);
         });
     }
   }
