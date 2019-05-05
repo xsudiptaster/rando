@@ -8,6 +8,7 @@ import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
 import Modal                 from '@material-ui/core/Modal';
+import Typography            from '@material-ui/core/Modal';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -56,7 +57,13 @@ class App extends Reflux.Component {
                         open={this.state.errorModal}
                         onClose={this.handleClose}
                     >
-                        {this.state.errorMessage}
+                        <Typography variant="h6" id="modal-title">
+                            ERROR
+                        </Typography>
+                        <Typography variant="subtitle1" id="simple-modal-description">
+                            {this.state && this.state.errorMessage ? this.state.errorMessage : ''}
+                        </Typography>
+
                     </Modal>
                     <Headerdisplay/>
                 </div>
