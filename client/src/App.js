@@ -46,7 +46,7 @@ class App extends Reflux.Component {
         return (
             <div>
                 <div>
-                    <div className="demo-only" style={this.state.errorModal}>
+                    <div className="demo-only">
                         <section role="alertdialog" tabIndex={-1} aria-labelledby="prompt-heading-id"
                                  aria-describedby="prompt-message-wrapper"
                                  className="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
