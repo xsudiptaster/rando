@@ -7,6 +7,8 @@ import FileuploadSection     from "./FileuploadSection.js";
 import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
+import Snackbar              from '@material-ui/core/Snackbar';
+import SnackbarContent       from '@material-ui/core/SnackbarContent';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -43,6 +45,11 @@ class App extends Reflux.Component {
     render() {
         return (
             <div className="slds-grid slds-wrap">
+                <Snackbar>
+                    <SnackbarContent>
+                        Hello
+                    </SnackbarContent>
+                </Snackbar>
                 <div className="slds-col slds-size_12-of-12">
                     <Headerdisplay/>
                 </div>
