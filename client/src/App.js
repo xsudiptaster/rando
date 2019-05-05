@@ -45,43 +45,6 @@ class App extends Reflux.Component {
     render() {
         return (
             <div>
-                <div>
-                    <div className="demo-only">
-                        <section role="alertdialog" tabIndex={-1} aria-labelledby="prompt-heading-id"
-                                 aria-describedby="prompt-message-wrapper"
-                                 className="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
-                            <div className="slds-modal__container">
-                                <header className="slds-modal__header slds-theme_error slds-theme_alert-texture">
-                                    <button
-                                        className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
-                                        title="Close">
-                                        <svg className="slds-button__icon slds-button__icon_large" aria-hidden="true">
-                                            <use xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                 xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"/>
-                                        </svg>
-                                        <span className="slds-assistive-text">Close</span>
-                                    </button>
-                                    <h2 className="slds-text-heading_medium" id="prompt-heading-id">ERROR</h2>
-                                </header>
-                                <div className="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
-                                    <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
-                                        aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia
-                                        cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad
-                                        dolore
-                                        quis aute consequat ipsum magna exercitation reprehenderit magna. Tempor
-                                        cupidatat consequat elit dolor adipisicing.</p>
-                                </div>
-                                <footer className="slds-modal__footer slds-theme_default">
-                                    <button className="slds-button slds-button_neutral"
-                                            onClick={() => this.handleClose()}>Close
-                                    </button>
-                                </footer>
-                            </div>
-                        </section>
-                        <div className="slds-backdrop slds-backdrop_open"/>
-                    </div>
-                </div>
-
                 <div className="slds-grid slds-wrap">
                     <div className="slds-col slds-size_12-of-12">
                         <Headerdisplay/>
@@ -113,6 +76,52 @@ class App extends Reflux.Component {
                     </div>
                     <div className="slds-col slds-size_1-of-5">
                         <span></span>
+                    </div>
+                    <div>
+                        <div className="slds-col slds-size_12-of-12">
+                            <div className="demo-only" style={this.state.errorModal}>
+                                <section role="alertdialog" tabIndex={-1} aria-labelledby="prompt-heading-id"
+                                         aria-describedby="prompt-message-wrapper"
+                                         className="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+                                    <div className="slds-modal__container">
+                                        <header
+                                            className="slds-modal__header slds-theme_error slds-theme_alert-texture">
+                                            <button
+                                                className="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                                title="Close">
+                                                <svg className="slds-button__icon slds-button__icon_large"
+                                                     aria-hidden="true">
+                                                    <use xmlnsXlink="http://www.w3.org/1999/xlink"
+                                                         xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"/>
+                                                </svg>
+                                                <span className="slds-assistive-text">Close</span>
+                                            </button>
+                                            <h2 className="slds-text-heading_medium" id="prompt-heading-id">ERROR</h2>
+                                        </header>
+                                        <div className="slds-modal__content slds-p-around_medium"
+                                             id="prompt-message-wrapper">
+                                            <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
+                                                deserunt
+                                                aute id consequat veniam incididunt duis in sint irure nisi. Mollit
+                                                officia
+                                                cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum
+                                                sunt ad
+                                                dolore
+                                                quis aute consequat ipsum magna exercitation reprehenderit magna. Tempor
+                                                cupidatat consequat elit dolor adipisicing.</p>
+                                        </div>
+                                        <footer className="slds-modal__footer slds-theme_default">
+                                            <button className="slds-button slds-button_neutral"
+                                                    onClick={() => this.handleClose()}>Close
+                                            </button>
+                                        </footer>
+                                    </div>
+                                </section>
+                                <div className="slds-backdrop slds-backdrop_open"/>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
