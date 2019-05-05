@@ -63,8 +63,7 @@ class App extends Reflux.Component {
                                     </svg>
                                     <span className="slds-assistive-text">Close</span>
                                 </button>
-                                <h2 className="slds-text-heading_medium" id="prompt-heading-id">Service
-                                    Unavailable</h2>
+                                <h2 className="slds-text-heading_medium" id="prompt-heading-id">ERROR</h2>
                             </header>
                             <div className="slds-modal__content slds-p-around_medium" id="prompt-message-wrapper">
                                 <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt
