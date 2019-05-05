@@ -34,8 +34,8 @@ export default class MappingTable extends Reflux.Component {
         return (
 
             <div>
-                <div>
-                    <input value="Upsert" type="button" className="slds-button--neutral"/>
+                <div style={{align: "center"}}>
+                    <input value="Upsert" type="button" className="slds-button slds-button--neutral"/>
                 </div>
                 {panls.map(value => (
                     <ExpansionPanel>
@@ -46,10 +46,10 @@ export default class MappingTable extends Reflux.Component {
                             <Typography>
                                 <table className="slds-table slds-table_bordered">
                                     <tr>
-                                        <th className="slds-line-height_reset slds-truncate">
+                                        <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
                                             Column Name
                                         </th>
-                                        <th className="slds-line-height_reset slds-truncate">
+                                        <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
                                             Field Name
                                         </th>
                                     </tr>
