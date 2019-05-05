@@ -59,7 +59,7 @@ class App extends Reflux.Component {
                             ERROR
                         </Typography>
                         <Typography>
-                            {this.state && this.state.errorMessage ? this.state.errorMessage : ''}
+                            Hello this is it
                         </Typography>
 
                     </Modal>
