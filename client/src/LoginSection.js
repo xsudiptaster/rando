@@ -36,6 +36,8 @@ export default class LoginSection extends Reflux.Component {
     if (this.state.loginurl == "") {
       this.state.errorMessage = "Please Select the Org";
       this.state.errorModal = true;
+        ContentReviewerActions.stateupdates(this.state);
+        return;
     }
     // Get the session and store them in state
     axios
@@ -63,7 +65,7 @@ export default class LoginSection extends Reflux.Component {
         ContentReviewerActions.stateupdates(this.state);
       })
       .catch(error => {
-        alert(error);
+          console.log(error);
       });
   }
   getobjectlist() {
