@@ -22,7 +22,7 @@ export default class LoginSection extends Reflux.Component {
 
     // Fetch passwords after first mount
     componentDidMount() {
-        this.state.loginurl = "";
+
     }
 
     handleUsernameChange(event) {
