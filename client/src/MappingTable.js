@@ -19,7 +19,9 @@ export default class MappingTable extends Reflux.Component {
     }
 
     mapfieldAsSelected(ev, value, val) {
-        console.log('Received this', ev, 'Value', value, 'Val', val);
+        console.log('Received this', ev);
+        console.log('Value', value);
+        console.log('Val', val);
     }
     render() {
         var panls = [];
