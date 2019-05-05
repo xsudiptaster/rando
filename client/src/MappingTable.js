@@ -18,10 +18,9 @@ export default class MappingTable extends Reflux.Component {
 
     }
 
-    mapfieldAsSelected(ev, value, val) {
-        console.log('Received this', ev);
-        console.log('Value', value);
-        console.log('Val', val);
+    mapfieldAsSelected(value, val, ev) {
+        this.state.objectMapping[value].sheetObjectFields[val] = ev.target.value;
+        console.log('The State', this.state);
     }
     render() {
         var panls = [];
