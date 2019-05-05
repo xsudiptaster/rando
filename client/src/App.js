@@ -45,12 +45,12 @@ class App extends Reflux.Component {
     render() {
         return (
             <div className="slds-grid slds-wrap">
-                <Snackbar>
-                    <SnackbarContent>
-                        Hello
-                    </SnackbarContent>
-                </Snackbar>
                 <div className="slds-col slds-size_12-of-12">
+                    <Snackbar>
+                        <SnackbarContent>
+                            Hello
+                        </SnackbarContent>
+                    </Snackbar>
                     <Headerdisplay/>
                 </div>
                 <br/>
