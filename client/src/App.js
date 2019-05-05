@@ -40,7 +40,7 @@ class App extends Reflux.Component {
     }
 
     handleClose = () => {
-        this.setState({open: false});
+        this.setState({errorModal: false});
     };
     // Fetch passwords after first mount
     componentDidMount() {
@@ -51,7 +51,7 @@ class App extends Reflux.Component {
             <div className="slds-grid slds-wrap">
                 <div className="slds-col slds-size_12-of-12">
                     <Modal
-                        open="false"
+                        open={this.state.errorModal}
                         onClose={this.handleClose}
                     >
                         Helllo
