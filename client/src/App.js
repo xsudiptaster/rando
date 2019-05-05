@@ -1,13 +1,12 @@
 import React                 from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import Headerdisplay         from "./Headerdisplay.js";
 import LoginSection          from "./LoginSection.js";
 import FileuploadSection     from "./FileuploadSection.js";
 import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
-import Modal                 from '@material-ui/core/Modal';
+import { Chip }              from '@material-ui';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -39,7 +38,7 @@ class App extends Reflux.Component {
         this.store = ContentReviewerStore;
     }
 
-    handleClose = () => {
+    handleDelete = () => {
         this.setState({errorModal: false});
     };
     // Fetch passwords after first mount
@@ -50,14 +49,7 @@ class App extends Reflux.Component {
         return (
             <div className="slds-grid slds-wrap">
                 <div className="slds-col slds-size_12-of-12">
-                    <Modal
-                        open={this.state.errorModal}
-                        onClose={this.handleClose}
-                    >
-                        Helllo
-
-                    </Modal>
-                    <Headerdisplay/>
+                    <Chip color="secondary" onDelete={this.handleDelete()}/>
                 </div>
                 <br/>
                 <br/>
