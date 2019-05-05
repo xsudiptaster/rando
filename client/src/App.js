@@ -100,15 +100,7 @@ class App extends Reflux.Component {
                                         </header>
                                         <div className="slds-modal__content slds-p-around_medium"
                                              id="prompt-message-wrapper">
-                                            <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco
-                                                deserunt
-                                                aute id consequat veniam incididunt duis in sint irure nisi. Mollit
-                                                officia
-                                                cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum
-                                                sunt ad
-                                                dolore
-                                                quis aute consequat ipsum magna exercitation reprehenderit magna. Tempor
-                                                cupidatat consequat elit dolor adipisicing.</p>
+                                            <p>{this.state.errorMessage}</p>
                                         </div>
                                         <footer className="slds-modal__footer slds-theme_default">
                                             <button className="slds-button slds-button_neutral"
