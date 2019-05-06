@@ -7,6 +7,7 @@ import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
 import Headerdisplay         from "./Headerdisplay";
+import CircularProgress      from '@material-ui/core/CircularProgress';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
