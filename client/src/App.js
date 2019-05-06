@@ -35,7 +35,7 @@ class App extends Reflux.Component {
             errorMessage        : "",
 
         } );
-        this.store = ContentReviewerStore;
+        ContentReviewerActions.stateupdates(this.state);
     }
 
     handleClose() {

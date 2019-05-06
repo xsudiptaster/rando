@@ -19,12 +19,6 @@ export default class LoginSection extends Reflux.Component {
         };
         ContentReviewerActions.stateupdates(this.state);
     }
-
-    // Fetch passwords after first mount
-    componentDidMount() {
-
-    }
-
     handleUsernameChange(event) {
         this.setState({username: event.target.value});
     }
@@ -38,7 +32,7 @@ export default class LoginSection extends Reflux.Component {
     }
 
     handlelogin() {
-        console.log('Method Called', this.state);
+        this.state.errorModal = {height: '14rem', display: 'none'};
         if (this.state.loginurl == "") {
             console.log('This State', this.state);
             console.log("StateURl", this.state.loginurl);
