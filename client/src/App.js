@@ -38,7 +38,7 @@ class App extends Reflux.Component {
         this.store = ContentReviewerStore;
     }
 
-    handleClose = () => {
+    handleClose() {
         this.setState({errorModal: {height: '14rem', display: 'none'}});
         ContentReviewerActions.stateupdates(this.state);
         console.log('this', this.state.errorModal);
