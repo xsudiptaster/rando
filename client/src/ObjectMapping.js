@@ -30,7 +30,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeObjectSelection(val, event) {
-        console.log('Methods Called');
+
         this.state.objectMapping[val].ObjectName = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
@@ -52,6 +52,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     getObjectDescribe(objName) {
+        ContentReviewerActions.setvalparam('showProgress', true);
         axios
             .post("/api/objectDescribe", {
                 sessiontok: this.state.sessiontok,
@@ -64,9 +65,11 @@ export default class ObjectMapping extends Reflux.Component {
                 }
                 this.state.ObjectDesb[response.data.name] = response.data;
                 ContentReviewerActions.stateupdates(this.state);
+                ContentReviewerActions.setvalparam('showProgress', false);
             })
             .catch(error => {
                 console.log(error);
+                ContentReviewerActions.setvalparam('showProgress', false);
             });
     }
 
