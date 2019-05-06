@@ -33,12 +33,14 @@ export default class LoginSection extends Reflux.Component {
     }
 
     handlelogin() {
+
         if (this.state.loginurl == "") {
             this.state.errorMessage = "Please Select the Org";
             this.state.errorModal = {height: '14rem', display: 'block'};
             ContentReviewerActions.stateupdates(this.state);
         }
         else {
+            ContentReviewerActions.setvalparam('showProgress', true);
             // Get the session and store them in state
             axios
                 .post("/api/logintosalesforce", {
@@ -62,11 +64,13 @@ export default class LoginSection extends Reflux.Component {
                                           display: "block"
                                       }
                                   });
+                    ContentReviewerActions.setvalparam('showProgress', false);
                     this.getobjectlist();
                 })
                 .catch(error => {
                     this.state.errorMessage = error;
                     this.state.errorModal = {height: '14rem', display: 'block'};
+                    ContentReviewerActions.setvalparam('showProgress', false);
                     ContentReviewerActions.stateupdates(this.state);
                 });
         }
@@ -75,6 +79,7 @@ export default class LoginSection extends Reflux.Component {
 
     getobjectlist() {
         if (this.state) {
+            ContentReviewerActions.setvalparam('showProgress', true);
             axios
                 .post("/api/objectList", {
                     sessiontok: this.state.sessiontok,
@@ -92,11 +97,13 @@ export default class LoginSection extends Reflux.Component {
                         }
                     }
                     this.setState({objectList: ListObjects});
+                    ContentReviewerActions.setvalparam('showProgress', false);
                     ContentReviewerActions.stateupdates(this.state);
                 })
                 .catch(error => {
                     this.state.errorMessage = error;
                     this.state.errorModal = {height: '14rem', display: 'block'};
+                    ContentReviewerActions.setvalparam('showProgress', false);
                     ContentReviewerActions.stateupdates(this.state);
                 });
         }

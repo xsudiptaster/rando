@@ -36,7 +36,7 @@ class App extends Reflux.Component {
             },
             errorModal          : {height: '14rem', display: 'none'},
             errorMessage        : "",
-            showProgress        : true
+            showProgress        : false
         } );
         ContentReviewerActions.stateupdates(this.state);
     }
