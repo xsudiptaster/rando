@@ -60,11 +60,11 @@ export default class MappingTable extends Reflux.Component {
                                                     {val}
                                                 </td>
                                                 <td>
-                                                    <input list="mylist3" style={{width: "200px!"}}
+                                                    <input list={"mylist3-" + value} style={{width: "200px!"}}
                                                            className="slds-input"
                                                            onChange={this.mapfieldAsSelected.bind(this, value, val)}
                                                     />
-                                                    <datalist id="mylist3">
+                                                    <datalist id={"mylist3-" + value}>
                                                         {( objdesb[this.state.objectMapping[value].ObjectName] !=
                                                             undefined &&
                                                             objdesb[this.state.objectMapping[value].ObjectName].fields !=
