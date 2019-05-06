@@ -92,7 +92,7 @@ export default class ObjectMapping extends Reflux.Component {
             rowsdv = Object.keys(this.state.objectMapping);
         }
         if (this.state && this.state.ObjectDesb != undefined) {
-            for (var i = 0; i < Object.keys(this.state.ObjectDesb); i++) {
+            for (var i = 0; i < Object.keys(this.state.ObjectDesb).length; i++) {
                 console.log('The Key is', Object.keys(this.state.ObjectDesb)[i]);
                 objdesb[Object.keys(this.state.ObjectDesb)[i]] = [];
                 for (var j = 0; j < this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields.length; j++) {
