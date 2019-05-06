@@ -38,7 +38,7 @@ export default class LoginSection extends Reflux.Component {
     }
 
     handlelogin() {
-
+        console.log('Method Called', this.state);
         if (this.state.loginurl == "") {
             console.log('This State', this.state);
             console.log("StateURl", this.state.loginurl);
