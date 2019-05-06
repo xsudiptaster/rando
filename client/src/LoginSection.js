@@ -22,14 +22,17 @@ export default class LoginSection extends Reflux.Component {
     }
     handleUsernameChange(event) {
         this.setState({username: event.target.value});
+        ContentReviewerActions.setvalparam('username', event.target.value);
     }
 
     handlePasswordChange(event) {
         this.setState({password: event.target.value});
+        ContentReviewerActions.setvalparam('password', event.target.value);
     }
 
     handleSelectChange(event) {
         this.setState({loginurl: event.target.value});
+        ContentReviewerActions.setvalparam('loginurl', event.target.value);
     }
 
     handlelogin() {
