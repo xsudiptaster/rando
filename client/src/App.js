@@ -116,7 +116,10 @@ class App extends Reflux.Component {
                             </div>
                         </div>
                         <div style={this.state.showProgress}>
-                            <div style={{height: "100%", width: "100%", zIndex: 5, backgroundColor: "rgba(0,0,0,0.3)"}}>
+                            <div style={{
+                                height: "100%", width: "100%", zIndex: 5, backgroundColor: "rgba(0,0,0,0.3)", top: 0,
+                                left  : 0
+                            }}>
                                 <CircularProgress style={{
                                     position       : "absolute", top: "30%", left: "50%", width: "10%", height: "10%",
                                     zIndex         : "10",
