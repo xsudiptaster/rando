@@ -121,9 +121,9 @@ class App extends Reflux.Component {
                                 left  : 0
                             }}>
                                 <CircularProgress style={{
-                                    position       : "absolute", top: "30%", left: "50%", width: "10%", height: "10%",
-                                    zIndex         : "10",
-                                    backgroundColor: "rgba(0,0,0,0)"
+                                    position: "absolute", top: "30%", left: "50%", width: "10%", height: "10%",
+                                    zIndex  : "10"
+
                                 }}/>
                             </div>
                         </div>
