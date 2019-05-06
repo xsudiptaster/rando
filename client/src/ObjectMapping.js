@@ -92,7 +92,17 @@ export default class ObjectMapping extends Reflux.Component {
             rowsdv = Object.keys(this.state.objectMapping);
         }
         if (this.state && this.state.ObjectDesb != undefined) {
-            objdesb = this.state.ObjectDesb
+            for (var i = 0; i < Object.keys(this.state.ObjectDesb); i++) {
+                objdesb[Object.keys(this.state.ObjectDesb)[i]] = [];
+                for (var j = 0; j < this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields.length; j++) {
+                    if (this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].externalId == true) {
+                        objdesb[Object.keys(this.state.ObjectDesb)[i]].push(
+                            this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j]);
+                    }
+                }
+
+            }
+
         }
         return (
             <div className="slds-card">
@@ -145,7 +155,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 <datalist id="mylist3">
                                     {( objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
                                         objdesb[this.state.objectMapping[value].ObjectName].fields != undefined &&
-                                        objdesb[this.state.objectMapping[value].ObjectName].fields.externalId != true )
+                                        objdesb[this.state.objectMapping[value].ObjectName].fields )
                                      ? objdesb[this.state.objectMapping[value].ObjectName].fields.map(valfld => (
                                             <option value={valfld.name}>{valfld.label}</option>
                                         )) : <option value="None">None</option>}
