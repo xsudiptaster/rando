@@ -94,7 +94,7 @@ class App extends Reflux.Component {
                                                 <svg className="slds-button__icon slds-button__icon_large"
                                                      aria-hidden="true">
                                                     <use xmlnsXlink="http://www.w3.org/1999/xlink"
-                                                         xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#close"/>
+                                                         xlinkHref="./lightning-design/icons/utility-sprite/svg/symbols.svg#close"/>
                                                 </svg>
                                                 <span className="slds-assistive-text">Close</span>
                                             </button>
@@ -114,7 +114,13 @@ class App extends Reflux.Component {
                                 <div className="slds-backdrop slds-backdrop_open"/>
                             </div>
                         </div>
-
+                        <div>
+                            <CircularProgress style={{
+                                position       : "absolute", top: 0, left: 0, width: "100%", height: "100%",
+                                zIndex         : "10",
+                                backgroundColor: "rgba(0,0,0,0.5)"
+                            }}/>
+                        </div>
 
                     </div>
                 </div>
