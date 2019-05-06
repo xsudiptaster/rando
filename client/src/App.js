@@ -15,6 +15,7 @@ var ContentReviewerStore = require("./ContentReviewStore.jsx");
 class App extends Reflux.Component {
     constructor(props) {
         super();
+        this.store = ContentReviewStore;
         ( this.state = {
             logindisplay        : {
                 display: "block"

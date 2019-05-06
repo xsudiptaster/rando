@@ -10,6 +10,7 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 export default class LoginSection extends Reflux.Component {
     constructor(props) {
         super(props);
+        this.store = ContentReviewStore;
         // Initialize state
         this.state = {
             username  : "sudiptalb@gmail.com",
@@ -32,7 +33,6 @@ export default class LoginSection extends Reflux.Component {
     }
 
     handlelogin() {
-        this.state.errorModal = {height: '14rem', display: 'none'};
         if (this.state.loginurl == "") {
             console.log('This State', this.state);
             console.log("StateURl", this.state.loginurl);
