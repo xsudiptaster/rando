@@ -8,7 +8,7 @@ import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
 import Headerdisplay         from "./Headerdisplay";
 import CircularProgress      from '@material-ui/core/CircularProgress';
-import $                     from "Jquery"
+import Modal                 from '@material-ui/core/Modal'
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -36,7 +36,7 @@ class App extends Reflux.Component {
             },
             errorModal          : {height: '14rem', display: 'none'},
             errorMessage        : "",
-            showProgress        : {display: "block"}
+            showProgress        : true
         } );
         ContentReviewerActions.stateupdates(this.state);
     }
@@ -47,7 +47,7 @@ class App extends Reflux.Component {
     };
 
     render() {
-        $('#pleaseWaitDialog').modal();
+
         return (
             <div>
                 <div className="slds-grid slds-wrap">
@@ -117,7 +117,8 @@ class App extends Reflux.Component {
                                 <div className="slds-backdrop slds-backdrop_open"/>
                             </div>
                         </div>
-                        <div style={this.state.showProgress} id="modalLoader">
+                        <Modal open={this.state.showProgress}>
+                            <div id="modalLoader">
                             <div style={{
                                 height: "100%", width: "100%", zIndex: "10", backgroundColor: "rgba(0,0,0,0.3)", top: 0,
                                 left  : 0
@@ -129,6 +130,7 @@ class App extends Reflux.Component {
                                 }}/>
                             </div>
                         </div>
+                        </Modal>
 
                     </div>
                 </div>
