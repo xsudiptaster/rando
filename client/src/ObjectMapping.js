@@ -144,7 +144,8 @@ export default class ObjectMapping extends Reflux.Component {
                                        onChange={this.onchangeGetExterIdFromObj.bind(this, value)} required=""/>
                                 <datalist id="mylist3">
                                     {( objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
-                                        objdesb[this.state.objectMapping[value].ObjectName].fields != undefined )
+                                        objdesb[this.state.objectMapping[value].ObjectName].fields != undefined &&
+                                        objdesb[this.state.objectMapping[value].ObjectName].fields.externalId != true )
                                      ? objdesb[this.state.objectMapping[value].ObjectName].fields.map(valfld => (
                                             <option value={valfld.name}>{valfld.label}</option>
                                         )) : <option value="None">None</option>}
