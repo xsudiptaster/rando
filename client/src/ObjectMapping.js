@@ -104,6 +104,7 @@ export default class ObjectMapping extends Reflux.Component {
             }
 
         }
+        console.log('The Object extIds', objdesb);
         return (
             <div className="slds-card">
                 <table className="slds-table">
