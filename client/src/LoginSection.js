@@ -34,8 +34,6 @@ export default class LoginSection extends Reflux.Component {
 
     handlelogin() {
         if (this.state.loginurl == "") {
-            console.log('This State', this.state);
-            console.log("StateURl", this.state.loginurl);
             this.state.errorMessage = "Please Select the Org";
             this.state.errorModal = {height: '14rem', display: 'block'};
             ContentReviewerActions.stateupdates(this.state);
@@ -70,7 +68,6 @@ export default class LoginSection extends Reflux.Component {
                     this.state.errorMessage = error;
                     this.state.errorModal = {height: '14rem', display: 'block'};
                     ContentReviewerActions.stateupdates(this.state);
-                    console.log(error);
                 });
         }
 
@@ -98,7 +95,9 @@ export default class LoginSection extends Reflux.Component {
                     ContentReviewerActions.stateupdates(this.state);
                 })
                 .catch(error => {
-                    console.log(error);
+                    this.state.errorMessage = error;
+                    this.state.errorModal = {height: '14rem', display: 'block'};
+                    ContentReviewerActions.stateupdates(this.state);
                 });
         }
     }
