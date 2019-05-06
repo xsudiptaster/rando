@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
-import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import readXlsxFile from "read-excel-file";
-import XLSX from 'xlsx';
+import XLSX  from 'xlsx';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -34,7 +32,13 @@ export default class FileuploadSection extends Reflux.Component {
   }
   startProcessing(event)
   {
-     this.state.uploadfiledisplay={
+      if (this.state.fileName == undefined || this.state.fileName == "") {
+          this.state.errorMessage = "Select a File";
+          this.state.errorModal = {height: '14rem', display: 'block'};
+          ContentReviewerActions.stateupdates(this.state);
+          return;
+      }
+      this.state.uploadfiledisplay = {
        display: "none"
     };
     this.state.questionfordisplay={
