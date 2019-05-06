@@ -52,7 +52,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     getObjectDescribe(objName) {
-        ContentReviewerActions.setvalparam('showProgress', true);
+
         axios
             .post("/api/objectDescribe", {
                 sessiontok: this.state.sessiontok,
@@ -65,11 +65,11 @@ export default class ObjectMapping extends Reflux.Component {
                 }
                 this.state.ObjectDesb[response.data.name] = response.data;
                 ContentReviewerActions.stateupdates(this.state);
-                ContentReviewerActions.setvalparam('showProgress', false);
+
             })
             .catch(error => {
                 console.log(error);
-                ContentReviewerActions.setvalparam('showProgress', false);
+
             });
     }
 
@@ -141,7 +141,7 @@ export default class ObjectMapping extends Reflux.Component {
                             </td>
                             <td>
                                 <input list="mylist3" style={{width: "200px!"}} className="slds-input"
-                                       onChange={this.onchangeGetExterIdFromObj.bind(this, value)}/>
+                                       onChange={this.onchangeGetExterIdFromObj.bind(this, value)} disabled="false"/>
                                 <datalist id="mylist3">
                                     {( objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
                                         objdesb[this.state.objectMapping[value].ObjectName].fields != undefined )
