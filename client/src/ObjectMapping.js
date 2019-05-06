@@ -135,9 +135,9 @@ export default class ObjectMapping extends Reflux.Component {
                                 <label className="slds-text-body_small">{value}</label>
                             </td>
                             <td>
-                                <input list="mylist" className="slds-input" style={{width: "200px!"}}
+                                <input list="mylist-"{value} className="slds-input" style={{width: "200px!"}}
                                        onChange={this.onchangeObjectSelection.bind(this, value)}/>
-                                <datalist id="mylist">
+                                <datalist id="mylist-"{value} >
                                     {this.state.objectList.map(val => (
                                         <option value={val.value}>{val.label}</option>
                                     ))}
@@ -157,7 +157,7 @@ export default class ObjectMapping extends Reflux.Component {
                                 <input list="mylist3" style={{width: "200px!"}} className="slds-input"
                                        onChange={this.onchangeGetExterIdFromObj.bind(this, value)} required=""/>
                                 <datalist id="mylist3">
-                                    {( objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
+                                    {(
                                         objdesb[this.state.objectMapping[value].ObjectName] != undefined )
                                      ? objdesb[this.state.objectMapping[value].ObjectName].map(valfld => (
                                             <option value={valfld.name}>{valfld.label}</option>
