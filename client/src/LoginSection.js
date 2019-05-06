@@ -67,7 +67,6 @@ export default class LoginSection extends Reflux.Component {
                                           display: "block"
                                       }
                                   });
-                    ContentReviewerActions.setvalparam('showProgress', false);
                     this.getobjectlist();
                 })
                 .catch(error => {
@@ -82,7 +81,6 @@ export default class LoginSection extends Reflux.Component {
 
     getobjectlist() {
         if (this.state) {
-            ContentReviewerActions.setvalparam('showProgress', true);
             axios
                 .post("/api/objectList", {
                     sessiontok: this.state.sessiontok,
@@ -100,8 +98,9 @@ export default class LoginSection extends Reflux.Component {
                         }
                     }
                     this.setState({objectList: ListObjects});
-                    ContentReviewerActions.setvalparam('showProgress', false);
                     ContentReviewerActions.stateupdates(this.state);
+                    ContentReviewerActions.setvalparam('showProgress', false);
+
                 })
                 .catch(error => {
                     this.state.errorMessage = error;
