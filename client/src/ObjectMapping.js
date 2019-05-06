@@ -95,7 +95,8 @@ export default class ObjectMapping extends Reflux.Component {
             for (var i = 0; i < Object.keys(this.state.ObjectDesb); i++) {
                 objdesb[Object.keys(this.state.ObjectDesb)[i]] = [];
                 for (var j = 0; j < this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields.length; j++) {
-                    if (this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].externalId == true) {
+                    if (this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].externalId == true &&
+                        this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].name == 'Id') {
                         objdesb[Object.keys(this.state.ObjectDesb)[i]].push(
                             this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j]);
                     }
