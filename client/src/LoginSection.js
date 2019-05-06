@@ -45,39 +45,41 @@ export default class LoginSection extends Reflux.Component {
             this.state.errorMessage = "Please Select the Org";
             this.state.errorModal = {height: '14rem', display: 'block'};
             ContentReviewerActions.stateupdates(this.state);
-            return;
         }
-        // Get the session and store them in state
-        axios
-            .post("/api/logintosalesforce", {
-                username: this.state.username,
-                password: this.state.password,
-                loginUrl: this.state.loginurl
-            })
-            .then(response => {
-                this.setState({
-                                  sessiontok : response.data.sesionTkn,
-                                  instanceUrl: response.data.loginUrl
-                              });
+        else {
+            // Get the session and store them in state
+            axios
+                .post("/api/logintosalesforce", {
+                    username: this.state.username,
+                    password: this.state.password,
+                    loginUrl: this.state.loginurl
+                })
+                .then(response => {
+                    this.setState({
+                                      sessiontok : response.data.sesionTkn,
+                                      instanceUrl: response.data.loginUrl
+                                  });
 
-                this.setState({
-                                  logindisplay: {
-                                      display: "none"
-                                  }
-                              });
-                this.setState({
-                                  uploadfiledisplay: {
-                                      display: "block"
-                                  }
-                              });
-                this.getobjectlist();
-            })
-            .catch(error => {
-                this.state.errorMessage = error;
-                this.state.errorModal = {height: '14rem', display: 'block'};
-                ContentReviewerActions.stateupdates(this.state);
-                console.log(error);
-            });
+                    this.setState({
+                                      logindisplay: {
+                                          display: "none"
+                                      }
+                                  });
+                    this.setState({
+                                      uploadfiledisplay: {
+                                          display: "block"
+                                      }
+                                  });
+                    this.getobjectlist();
+                })
+                .catch(error => {
+                    this.state.errorMessage = error;
+                    this.state.errorModal = {height: '14rem', display: 'block'};
+                    ContentReviewerActions.stateupdates(this.state);
+                    console.log(error);
+                });
+        }
+
     }
 
     getobjectlist() {
