@@ -13,8 +13,8 @@ export default class LoginSection extends Reflux.Component {
         this.store = ContentReviewStore;
         // Initialize state
         this.state = {
-            username  : "sudiptalb@gmail.com",
-            password  : "rockcity1234",
+            username  : "sudipta@tsystemtest.com",
+            password  : "rockcity_1234567",
             sessiontok: "",
             loginurl  : ""
         };
