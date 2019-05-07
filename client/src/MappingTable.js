@@ -39,7 +39,7 @@ export default class MappingTable extends Reflux.Component {
                 }
             }
         }
-        console.log('The State', this.state);
+        console.log('The State', this.state.ObjectDesb);
     }
     render() {
         var panls = [];
