@@ -19,6 +19,9 @@ export default class MappingTable extends Reflux.Component {
     }
 
     mapfieldAsSelected(value, val, ev) {
+        if (this.state.objectMapping[value].sheetObjectFields[val] != undefined) {
+            this.state.objectMapping[value].sheetObjectFields[val] = {};
+        }
         this.state.objectMapping[value].sheetObjectFields[val].FieldName = ev.target.value;
         for (var i = 0; i < this.state.ObjectDesb[val].fields.length; i++) {
             if (this.state.ObjectDesb[val].fields[i].name == ev.target.value &&
