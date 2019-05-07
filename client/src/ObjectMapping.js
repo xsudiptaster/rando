@@ -134,12 +134,13 @@ export default class ObjectMapping extends Reflux.Component {
                             </td>
                             <td>
                                 <div style={{
-                                    display: objdesb[this.state.objectMapping[value].ObjectName] != undefined
+                                    display: objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
+                                             this.state.objectMapping[value].ObjectName == undefined
                                              ? "none"
                                              : "block"
                                 }}>
                                     <CircularProgress style={{
-                                        position: "absolute", top: "30%", left: "50%", width: "51px", height: "51px",
+                                        position: "absolute", top: "30%", left: "30%", width: "10px", height: "10px",
                                         zIndex  : "10"
 
                                     }}/>
