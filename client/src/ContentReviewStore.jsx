@@ -28,7 +28,10 @@ var ContentReviewerStore = Reflux.createStore({
 
 // Clear out the current review and any errors while we load the next review
                                                   describeObject: function (objName, state) {
-
+                                                      if (!this.firstdata) {
+                                                          this.firstdata = {};
+                                                      }
+                                                      this.firstdata = state;
 
                                                   },
                                                   fireUpdate    : function () {
