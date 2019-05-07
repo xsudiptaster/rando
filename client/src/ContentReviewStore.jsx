@@ -1,7 +1,6 @@
-import axios from "axios";
-
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
+var axios = require('axios');
 
 var ContentReviewerStore = Reflux.createStore({
 // Shorthand for listening to all ContentReviewerActions
