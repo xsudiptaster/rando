@@ -110,7 +110,9 @@ export default class MappingTable extends Reflux.Component {
                                                     </datalist>
                                                 </td>
                                                 <td style={{
-                                                    display: ( this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
+                                                    display: ( this.state.objectMapping[value].sheetObjectFields !=
+                                                        undefined &&
+                                                        this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
                                                         undefined &&
                                                         extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
                                                         undefined ) ? "block" : "none"
