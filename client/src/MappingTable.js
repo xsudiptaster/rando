@@ -24,12 +24,12 @@ export default class MappingTable extends Reflux.Component {
     }
     render() {
         var panls = [];
-        var objdesb = {};
+        var objdesbs = {};
         if (this.state && this.state.objectMapping) {
             panls = Object.keys(this.state.objectMapping);
         }
         if (this.state && this.state.ObjectDesb != undefined) {
-            objdesb = this.state.ObjectDesb
+            objdesbs = this.state.ObjectDesb
         }
         return (
 
@@ -60,16 +60,16 @@ export default class MappingTable extends Reflux.Component {
                                                     {val}
                                                 </td>
                                                 <td>
-                                                    <input list={"mylist3-" + value} style={{width: "200px!"}}
+                                                    <input list={"List3-" + value} style={{width: "200px!"}}
                                                            className="slds-input"
                                                            onChange={this.mapfieldAsSelected.bind(this, value, val)}
                                                     />
-                                                    <datalist id={"mylist3-" + value}>
-                                                        {( objdesb[this.state.objectMapping[value].ObjectName] !=
+                                                    <datalist id={"List3-" + value}>
+                                                        {( objdesbs[this.state.objectMapping[value].ObjectName] !=
                                                             undefined &&
-                                                            objdesb[this.state.objectMapping[value].ObjectName].fields !=
+                                                            objdesbs[this.state.objectMapping[value].ObjectName].fields !=
                                                             undefined )
-                                                         ? objdesb[this.state.objectMapping[value].ObjectName].fields.map(
+                                                         ? objdesbs[this.state.objectMapping[value].ObjectName].fields.map(
                                                                 valfld => (
                                                                     <option value={valfld.name}>{valfld.label}</option>
                                                                 )) : <option>None</option>}
