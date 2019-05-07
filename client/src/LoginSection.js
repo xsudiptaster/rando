@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import links from "./lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -188,7 +187,7 @@ export default class LoginSection extends Reflux.Component {
                 <span className="slds-icon_container slds-icon-utility-announcement"
                       title="Description of icon when needed">
                   <svg className="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
-                    <use xlinkHref={links}/>
+                    <use xlinkHref="/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
                   </svg>
                   <span className="slds-assistive-text">Description of icon when needed</span>
                 </span>
