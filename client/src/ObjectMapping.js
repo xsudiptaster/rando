@@ -132,7 +132,11 @@ export default class ObjectMapping extends Reflux.Component {
 
                             </td>
                             <td>
-                                <input list={"mylist3-" + value} style={{width: "200px!"}} className="slds-input"
+                                <input list={"mylist3-" + value} style={{
+                                    width: "200px!",
+                                    display: objdesb[this.state.objectMapping[value].ObjectName] != undefined ? "block"
+                                                                                                              : "none"
+                                }} className="slds-input"
                                        onChange={this.onchangeGetExterIdFromObj.bind(this, value)} required=""/>
                                 <datalist id={"mylist3-" + value}>
                                     {(
