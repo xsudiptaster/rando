@@ -64,6 +64,7 @@ export default class MappingTable extends Reflux.Component {
                     }
                 }
             }
+            console.log('The ExternalId', extrDesbs);
         }
         return (
 
@@ -115,11 +116,9 @@ export default class MappingTable extends Reflux.Component {
                                                            onChange={this.mapfieldAsSelected.bind(this, value, val)}
                                                     />
                                                     <datalist id={"List4-" + value + '-' + val}>
-                                                        {( extrDesbs[this.state.objectMapping[value].ObjectName] !=
-                                                            undefined &&
-                                                            extrDesbs[this.state.objectMapping[value].ObjectName].fields !=
+                                                        {( extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
                                                             undefined )
-                                                         ? extrDesbs[this.state.objectMapping[value].ObjectName].fields.map(
+                                                         ? extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName].map(
                                                                 valfld => (
                                                                     <option value={valfld.name}>{valfld.label}</option>
                                                                 )) : <option>None</option>}
