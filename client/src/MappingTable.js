@@ -136,15 +136,6 @@ export default class MappingTable extends Reflux.Component {
                                                                     <option value={valfld.name}>{valfld.label}</option>
                                                                 )) : <option>None</option>}
                                                     </datalist>
-
-                                                    <span className="slds-icon_container slds-icon-utility-announcement"
-                                                          title="Description of icon when needed">
-  <svg className="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
-    <use xlinkHref="../lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
-  </svg>
-  <span className="slds-assistive-text">Description of icon when needed</span>
-</span>
-
                                                 </td>
                                             </tr>
 
