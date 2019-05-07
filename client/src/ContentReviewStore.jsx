@@ -31,7 +31,8 @@ var ContentReviewerStore = Reflux.createStore({
 // Clear out the current review and any errors while we load the next review
                                                   describeObject: function (objName, state) {
                                                       this.firstdata = state;
-                                                      if (this.firstdata != undefined && this.firstdata.sessiontok !=
+                                                      if (state != '' && this.firstdata != undefined &&
+                                                          this.firstdata.sessiontok !=
                                                           undefined) {
                                                           axios
                                                               .post("/api/objectDescribe", {
@@ -46,7 +47,7 @@ var ContentReviewerStore = Reflux.createStore({
                                                                   this.firstdata.ObjectDesb[response.data.name] =
                                                                       response.data;
                                                                   console.log('The Return Val', response.data);
-                                                                  this.fireUpdate();
+                                                                  //this.fireUpdate();
 
                                                               })
                                                               .catch(error => {
