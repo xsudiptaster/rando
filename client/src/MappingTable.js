@@ -22,14 +22,14 @@ export default class MappingTable extends Reflux.Component {
         if (this.state.objectMapping[value].sheetObjectFields[val] != undefined) {
             this.state.objectMapping[value].sheetObjectFields[val] = {};
         }
-        this.state.objectMapping[value].sheetObjectFields[val].FieldName = ev.target.value;
+        this.state.objectMapping[value].sheetObjectFields[val]["FieldName"] = ev.target.value;
         for (var i = 0; i < this.state.ObjectDesb[val].fields.length; i++) {
             if (this.state.ObjectDesb[val].fields[i].name == ev.target.value &&
                 this.state.ObjectDesb[val].fields[i].type == 'reference') {
-                this.state.objectMapping[value].sheetObjectFields[val].ExterId = "";
-                this.state.objectMapping[value].sheetObjectFields[val].ObjectName =
+                this.state.objectMapping[value].sheetObjectFields[val]["ExterId"] = "";
+                this.state.objectMapping[value].sheetObjectFields[val]["ObjectName"] =
                     this.state.ObjectDesb[val].fields[i].referenceTo[0];
-                this.state.objectMapping[value].sheetObjectFields[val].RelationName =
+                this.state.objectMapping[value].sheetObjectFields[val]["RelationName"] =
                     this.state.ObjectDesb[val].fields[i].relationshipName;
                 if (this.state == undefined || this.state.ObjectDesb == undefined ||
                     this.state.ObjectDesb[this.state.ObjectDesb[val].fields[i].referenceTo[0]] ==
