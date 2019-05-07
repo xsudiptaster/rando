@@ -19,7 +19,23 @@ export default class MappingTable extends Reflux.Component {
     }
 
     mapfieldAsSelected(value, val, ev) {
-        this.state.objectMapping[value].sheetObjectFields[val] = ev.target.value;
+        this.state.objectMapping[value].sheetObjectFields[val].FieldName = ev.target.value;
+        for (var i = 0; i < this.state.ObjectDesb[val].fields.length; i++) {
+            if (this.state.ObjectDesb[val].fields[i].name == ev.target.value &&
+                this.state.ObjectDesb[val].fields[i].type == 'reference') {
+                this.state.objectMapping[value].sheetObjectFields[val].ExterId = "";
+                this.state.objectMapping[value].sheetObjectFields[val].ObjectName =
+                    this.state.ObjectDesb[val].fields[i].referenceTo[0];
+                this.state.objectMapping[value].sheetObjectFields[val].RelationName =
+                    this.state.ObjectDesb[val].fields[i].relationshipName;
+                if (this.state == undefined || this.state.ObjectDesb == undefined ||
+                    this.state.ObjectDesb[this.state.ObjectDesb[val].fields[i].referenceTo[0]] ==
+                    undefined) {
+                    ContentReviewerActions.describeObject(this.state.ObjectDesb[val].fields[i].referenceTo[0],
+                                                          this.state);
+                }
+            }
+        }
         console.log('The State', this.state);
     }
     render() {
@@ -30,6 +46,7 @@ export default class MappingTable extends Reflux.Component {
         }
         if (this.state && this.state.ObjectDesb != undefined) {
             objdesbs = this.state.ObjectDesb
+
         }
         return (
 
@@ -74,6 +91,9 @@ export default class MappingTable extends Reflux.Component {
                                                                     <option value={valfld.name}>{valfld.label}</option>
                                                                 )) : <option>None</option>}
                                                     </datalist>
+                                                </td>
+                                                <td>
+
                                                 </td>
                                             </tr>
 

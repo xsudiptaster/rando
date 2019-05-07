@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import axios from "axios";
 import XLSX  from "xlsx";
 
 var Reflux = require("reflux");
@@ -51,26 +50,7 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     getObjectDescribe(objName) {
-
-        axios
-            .post("/api/objectDescribe", {
-                sessiontok: this.state.sessiontok,
-                oUrl      : this.state.instanceUrl,
-                objName   : objName
-            })
-            .then(response => {
-                if (this.state.ObjectDesb == undefined) {
-                    this.state.ObjectDesb = {};
-                }
-                this.state.ObjectDesb[response.data.name] = response.data;
-                console.log('The Return Val', response.data);
-                ContentReviewerActions.stateupdates(this.state);
-
-            })
-            .catch(error => {
-                console.log(error);
-
-            });
+        ContentReviewerActions.describeObject(objName, this.state);
     }
 
     afterSelectionDoneClick() {
