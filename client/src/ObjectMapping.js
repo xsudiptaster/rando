@@ -36,7 +36,16 @@ export default class ObjectMapping extends Reflux.Component {
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
             this.state.ObjectDesb[event.target.value] ==
             undefined) {
-            this.getObjectDescribe(event.target.value);
+            var call = false;
+            for (var i = 0; i < this.state.objectList.length; i++) {
+                if (this.state.objectList[i].value == event.target.value) {
+                    call = true;
+                }
+            }
+            if (call) {
+                this.getObjectDescribe(event.target.value);
+            }
+
         }
     }
 
