@@ -110,8 +110,10 @@ export default class MappingTable extends Reflux.Component {
                                                     </datalist>
                                                 </td>
                                                 <td style={{
-                                                    display: extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
-                                                             undefined ? "block" : "none"
+                                                    display: ( this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
+                                                        undefined &&
+                                                        extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
+                                                        undefined ) ? "block" : "none"
                                                 }}>
                                                     <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
                                                            className="slds-input"
