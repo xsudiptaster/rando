@@ -1,7 +1,8 @@
-import React from "react";
+import React            from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import XLSX  from "xlsx";
+import XLSX             from "xlsx";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -132,6 +133,16 @@ export default class ObjectMapping extends Reflux.Component {
 
                             </td>
                             <td>
+                                <div>
+                                    <CircularProgress style={{
+                                        position: "absolute", top: "30%", left: "50%", width: "51px", height: "51px",
+                                        zIndex  : "10",
+                                        display : objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
+                                                  this.state.objectMapping[value].ObjectName == undefined ? "block"
+                                                                                                          : "none"
+
+                                    }}/>
+                                </div>
                                 <input list={"mylist3-" + value} style={{
                                     width: "200px!",
                                     display: objdesb[this.state.objectMapping[value].ObjectName] != undefined ? "block"
