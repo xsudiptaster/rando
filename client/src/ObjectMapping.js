@@ -140,7 +140,7 @@ export default class ObjectMapping extends Reflux.Component {
                                              : "none"
                                 }}>
                                     <CircularProgress style={{
-                                        position: "absolute", top: "30%", left: "30%", width: "15px", height: "10px",
+                                        position: "absolute", top: "30%", left: "30%", width: "17px", height: "17px",
                                         zIndex  : "10"
 
                                     }}/>
