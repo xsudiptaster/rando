@@ -36,22 +36,22 @@ var ContentReviewerStore = Reflux.createStore({
                                                       if (this.firstdata != undefined && this.firstdata.sessiontok !=
                                                           undefined) {
                                                           axios.post("/api/objectDescribe", {
-                                                              //  sessiontok: this.firstdata.sessiontok,
-                                                              // oUrl      : this.firstdata.instanceUrl,
-                                                              // objName   : objName
+                                                              sessiontok: this.firstdata.sessiontok,
+                                                              oUrl      : this.firstdata.instanceUrl,
+                                                              objName   : objName
                                                           })
                                                                .then(response => {
-                                                                   /*   if (this.firstdata.ObjectDesb == undefined) {
+                                                                   if (this.firstdata.ObjectDesb == undefined) {
                                                                     this.firstdata.ObjectDesb = {};
                                                                     }
                                                                     this.firstdata.ObjectDesb[response.data.name] =
                                                                     response.data;
                                                                     console.log('The Return Val', response.data);
-                                                                    this.fireUpdate();*/
+                                                                   this.fireUpdate();
 
                                                                })
                                                                .catch(error => {
-                                                                   //console.log(error);
+                                                                   console.log(error);
 
                                                                });
 
