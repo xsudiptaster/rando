@@ -187,7 +187,7 @@ export default class LoginSection extends Reflux.Component {
                 <span className="slds-icon_container slds-icon-utility-announcement"
                       title="Description of icon when needed">
                   <svg className="slds-icon slds-icon-text-default slds-icon_x-small" aria-hidden="true">
-                    <use xlinkHref="/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
+                    <use xlinkHref="src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
                   </svg>
                   <span className="slds-assistive-text">Description of icon when needed</span>
                 </span>
