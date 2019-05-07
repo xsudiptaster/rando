@@ -117,7 +117,7 @@ export default class MappingTable extends Reflux.Component {
                                                     <datalist id={"List4-" + value + '-' + val}>
                                                         {( extrDesbs[this.state.objectMapping[value].ObjectName] !=
                                                             undefined &&
-                                                            objdesbs[this.state.objectMapping[value].ObjectName].fields !=
+                                                            extrDesbs[this.state.objectMapping[value].ObjectName].fields !=
                                                             undefined )
                                                          ? extrDesbs[this.state.objectMapping[value].ObjectName].fields.map(
                                                                 valfld => (
