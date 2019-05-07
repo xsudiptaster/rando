@@ -116,7 +116,9 @@ export default class MappingTable extends Reflux.Component {
                                                            onChange={this.mapfieldAsSelected.bind(this, value, val)}
                                                     />
                                                     <datalist id={"List4-" + value + '-' + val}>
-                                                        {( extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
+                                                        {( this.state.objectMapping[value].sheetObjectFields !=
+                                                            undefined &&
+                                                            extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
                                                             undefined )
                                                          ? extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName].map(
                                                                 valfld => (
