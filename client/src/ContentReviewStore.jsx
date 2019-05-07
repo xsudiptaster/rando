@@ -1,5 +1,3 @@
-import axios from "axios";
-
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
@@ -30,35 +28,12 @@ var ContentReviewerStore = Reflux.createStore({
 
 // Clear out the current review and any errors while we load the next review
                                                   describeObject: function (objName, state) {
-                                                      this.firstdata = state;
-                                                      if (this.firstdata != undefined && this.firstdata.sessiontok !=
-                                                          undefined) {
-                                                          axios
-                                                              .post("/api/objectDescribe", {
-                                                                  sessiontok: this.firstdata.sessiontok,
-                                                                  oUrl      : this.firstdata.instanceUrl,
-                                                                  objName   : objName
-                                                              })
-                                                              .then(response => {
-                                                                  if (this.firstdata.ObjectDesb == undefined) {
-                                                                      this.firstdata.ObjectDesb = {};
-                                                                  }
-                                                                  this.firstdata.ObjectDesb[response.data.name] =
-                                                                      response.data;
-                                                                  console.log('The Return Val', response.data);
-                                                                  this.fireUpdate();
 
-                                                              })
-                                                              .catch(error => {
-                                                                  console.log(error);
-
-                                                              });
-                                                      }
 
                                                   },
                                                   fireUpdate    : function () {
                                                       this.trigger(this.firstdata);
-                                                  }
+                                                  },
 
                                               });
 
