@@ -82,9 +82,7 @@ export default class ObjectMapping extends Reflux.Component {
                             this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j]);
                     }
                 }
-
             }
-
         }
 
         return (

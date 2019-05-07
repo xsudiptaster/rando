@@ -45,12 +45,25 @@ export default class MappingTable extends Reflux.Component {
     render() {
         var panls = [];
         var objdesbs = {};
+        var extrDesbs = {};
         if (this.state && this.state.objectMapping) {
             panls = Object.keys(this.state.objectMapping);
         }
         if (this.state && this.state.ObjectDesb != undefined) {
             objdesbs = this.state.ObjectDesb
 
+        }
+        if (this.state && this.state.ObjectDesb != undefined) {
+            for (var i = 0; i < Object.keys(this.state.ObjectDesb).length; i++) {
+                extrDesbs[Object.keys(this.state.ObjectDesb)[i]] = [];
+                for (var j = 0; j < this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields.length; j++) {
+                    if (this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].externalId == true ||
+                        this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].name == 'Id') {
+                        extrDesbs[Object.keys(this.state.ObjectDesb)[i]].push(
+                            this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j]);
+                    }
+                }
+            }
         }
         return (
 
@@ -96,8 +109,24 @@ export default class MappingTable extends Reflux.Component {
                                                                 )) : <option>None</option>}
                                                     </datalist>
                                                 </td>
-                                                <td>
-
+                                                <td style={{
+                                                    display: extrDesbs[this.state.objectMapping[value].sheetObjectFields[val]].ObjectName !=
+                                                             undefined ? "block" : "none"
+                                                }}>
+                                                    <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
+                                                           className="slds-input"
+                                                           onChange={this.mapfieldAsSelected.bind(this, value, val)}
+                                                    />
+                                                    <datalist id={"List4-" + value + '-' + val}>
+                                                        {( extrDesbs[this.state.objectMapping[value].ObjectName] !=
+                                                            undefined &&
+                                                            objdesbs[this.state.objectMapping[value].ObjectName].fields !=
+                                                            undefined )
+                                                         ? extrDesbs[this.state.objectMapping[value].ObjectName].fields.map(
+                                                                valfld => (
+                                                                    <option value={valfld.name}>{valfld.label}</option>
+                                                                )) : <option>None</option>}
+                                                    </datalist>
                                                 </td>
                                             </tr>
 
