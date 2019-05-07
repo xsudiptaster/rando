@@ -191,6 +191,7 @@ export default class LoginSection extends Reflux.Component {
                   </svg>
                   <span className="slds-assistive-text">Description of icon when needed</span>
                 </span>
+                <img src="src/lightning-design/icons/utility/activity.svg"></img>
             </div>
         );
     }
