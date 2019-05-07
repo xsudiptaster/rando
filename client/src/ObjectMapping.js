@@ -135,7 +135,7 @@ export default class ObjectMapping extends Reflux.Component {
                             <td>
                                 <div style={{
                                     display: objdesb[this.state.objectMapping[value].ObjectName] == undefined &&
-                                             this.state.objectMapping[value].ObjectName != undefined
+                                             this.state.objectMapping[value].ObjectName != ""
                                              ? "block"
                                              : "none"
                                 }}>
