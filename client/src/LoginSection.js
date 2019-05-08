@@ -184,7 +184,7 @@ export default class LoginSection extends Reflux.Component {
                         </td>
                     </tr>
                 </table>
-
+                <img src="/client/src/logo.svg"/>
             </div>
         );
     }
