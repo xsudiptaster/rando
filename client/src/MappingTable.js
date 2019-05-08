@@ -8,6 +8,7 @@ import Typography            from '@material-ui/core/Typography';
 import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import SvgIcon               from '@material-ui/core/SvgIcon';
 import CircularProgress      from "@material-ui/core/CircularProgress";
+import Popper                from '@material-ui/core/Popper';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
