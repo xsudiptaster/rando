@@ -43,6 +43,11 @@ export default class MappingTable extends Reflux.Component {
         }
         console.log('The State', this.state);
     }
+
+    mapfieldWhenExternalId(value, val, ev) {
+        this.state.objectMapping[value].sheetObjectFields[val]["ExterId"] = ev.target.value;
+        ContentReviewerActions.stateupdates(this.state);
+    }
     render() {
         var panls = [];
         var objdesbs = {};
@@ -129,8 +134,8 @@ export default class MappingTable extends Reflux.Component {
                                                                    undefined &&
                                                                    this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
                                                                    undefined &&
-                                                                   extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] ==
-                                                                   undefined ? "block" : "none" )
+                                                                   extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName].length ==
+                                                                   0 ? "block" : "none" )
                                                     }}>
                                                         <CircularProgress style={{
                                                             position: "absolute", top: "30%", left: "30%",
@@ -140,10 +145,11 @@ export default class MappingTable extends Reflux.Component {
                                                         }}/>
 
                                                     </div>
-                                                    <div className="slds-form-element">
+
                                                         <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
                                                                className="slds-input"
-                                                               onChange={this.mapfieldAsSelected.bind(this, value, val)}
+                                                               onChange={this.mapfieldWhenExternalId.bind(this, value,
+                                                                                                          val)}
                                                         />
                                                         <datalist id={"List4-" + value + '-' + val}>
                                                             {( this.state.objectMapping[value].sheetObjectFields !=
@@ -159,7 +165,7 @@ export default class MappingTable extends Reflux.Component {
                                                                         <option value={valfld.name}>{valfld.label}</option>
                                                                     )) : <option>None</option>}
                                                         </datalist>
-                                                    </div>
+
                                                 </td>
                                             </tr>
 
