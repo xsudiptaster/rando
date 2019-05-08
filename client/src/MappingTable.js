@@ -6,9 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography            from '@material-ui/core/Typography';
 import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
-import SvgIcon               from '@material-ui/core/SvgIcon';
 import CircularProgress      from "@material-ui/core/CircularProgress";
-import Popper                from '@material-ui/core/Popper';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -139,55 +137,29 @@ export default class MappingTable extends Reflux.Component {
                                                         }}/>
 
                                                     </div>
-                                                    <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
-                                                           className="slds-input"
-                                                           onChange={this.mapfieldAsSelected.bind(this, value, val)}
-                                                    />
-                                                    <datalist id={"List4-" + value + '-' + val}>
-                                                        {( this.state.objectMapping[value].sheetObjectFields !=
-                                                            undefined &&
-                                                            this.state.objectMapping[value].sheetObjectFields[val] !=
-                                                            undefined &&
-                                                            this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
-                                                            undefined &&
-                                                            extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
-                                                            undefined )
-                                                         ? extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName].map(
-                                                                valfld => (
-                                                                    <option value={valfld.name}>{valfld.label}</option>
-                                                                )) : <option>None</option>}
-                                                    </datalist>
-                                                    <div style={{
-                                                        width   : "10px",
-                                                        height  : "10px",
-                                                        position: "absolute", /* to align it to right and positon it over the input */
-                                                        top     : 0,
-                                                        right   : 0
-                                                    }}></div>
-                                                    <SvgIcon fontSize="5px" color="primary">
-                                                        <path
-                                                            d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
-                                                    </SvgIcon>
-                                                    <Popper
-                                                        open=true
-                                                        placement="right-end"
-                                                        disablePortal={false}
-                                                        modifiers={{
-                                                            flip           : {
-                                                                enabled: true,
-                                                            },
-                                                            preventOverflow: {
-                                                                enabled          : true,
-                                                                boundariesElement: 'scrollParent',
-                                                            },
-                                                            arrow          : {
-                                                                enabled: false,
-                                                                element: "Hello COntent."
-                                                            },
-                                                        }}
-                                                    >
-
-                                                    </Popper>
+                                                    <div className="slds-form-element">
+                                                        <label className="slds-form-element__label" htmlFor="select-01">
+                                                            Use External Id if Required (Default is ID)
+                                                        </label>
+                                                        <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
+                                                               className="slds-input"
+                                                               onChange={this.mapfieldAsSelected.bind(this, value, val)}
+                                                        />
+                                                        <datalist id={"List4-" + value + '-' + val}>
+                                                            {( this.state.objectMapping[value].sheetObjectFields !=
+                                                                undefined &&
+                                                                this.state.objectMapping[value].sheetObjectFields[val] !=
+                                                                undefined &&
+                                                                this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
+                                                                undefined &&
+                                                                extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] !=
+                                                                undefined )
+                                                             ? extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName].map(
+                                                                    valfld => (
+                                                                        <option value={valfld.name}>{valfld.label}</option>
+                                                                    )) : <option>None</option>}
+                                                        </datalist>
+                                                    </div>
                                                 </td>
                                             </tr>
 
