@@ -82,6 +82,12 @@ export default class FileuploadSection extends Reflux.Component {
     }
     return (
       <div>
+          <input
+              type="button"
+              value="Proceed to Object Mapping"
+              className="slds-button slds-button_neutral"
+              onClick={() => this.gotoObjectMapping()}
+          />
         <ExpansionPanel>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
             <Typography>Questions</Typography>
@@ -147,18 +153,50 @@ export default class FileuploadSection extends Reflux.Component {
                     ))}
                   </table>
                 </div>
-                <input
-                    type="button"
-                    value="Proceed to Object Mapping"
-                    className="slds-button slds-button_neutral"
-                    onClick={() => this.gotoObjectMapping()}
-                />
+
               </article>
 
             </Typography>
 
           </ExpansionPanelDetails>
         </ExpansionPanel>
+          <ExpansionPanel>
+              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                  <Typography>Sequence the Upsert</Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                  <Typography>
+                      <div className="slds-media__body">
+                          <h2 className="slds-card__header-title">
+                              <a
+                                  href="javascript:void(0);"
+                                  className="slds-card__header-link slds-truncate"
+                                  title="Accounts"
+                              >
+                                  <span>Insert Sheets Parallel ?</span>
+                              </a>
+                          </h2>
+                      </div>
+                      <div>
+                          <input
+                              type="checkbox"
+                              className="slds-checkbox"
+                              onChange={this.isRealtedCheck.bind(this)}
+                          />
+                      </div>
+                  </Typography>
+                  <Typography>
+                      <ul>
+                          {rowsdv.map(value => (
+                              <li>
+                                  {value}
+                              </li>
+                          ))}
+
+                      </ul>
+                  </Typography>
+              </ExpansionPanelDetails>
+          </ExpansionPanel>
         <div>
         </div>
       </div>
