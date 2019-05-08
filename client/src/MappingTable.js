@@ -19,24 +19,25 @@ export default class MappingTable extends Reflux.Component {
 
     }
 
-    mapfieldAsSelected(value, val, ev) {
-        if (this.state.objectMapping[value].sheetObjectFields[val] == undefined) {
-            this.state.objectMapping[value].sheetObjectFields[val] = {};
+    mapfieldAsSelected(SheetName, SheetHeader, ev) {
+        if (this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] == undefined) {
+            this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] = {};
         }
-        this.state.objectMapping[value].sheetObjectFields[val]["FieldName"] = ev.target.value;
-        for (var i = 0; i < this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields.length; i++) {
-            if (this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields[i].name == ev.target.value &&
-                this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields[i].type == 'reference') {
-                this.state.objectMapping[value].sheetObjectFields[val]["ExterId"] = "";
-                this.state.objectMapping[value].sheetObjectFields[val]["ObjectName"] =
-                    this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields[i].referenceTo[0];
-                this.state.objectMapping[value].sheetObjectFields[val]["RelationName"] =
-                    this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields[i].relationshipName;
+        this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["FieldName"] = ev.target.value;
+        for (var i = 0; i < this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields.length; i++) {
+            if (this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].name ==
+                ev.target.value &&
+                this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].type == 'reference') {
+                this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ExterId"] = "";
+                this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ObjectName"] =
+                    this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].referenceTo[0];
+                this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["RelationName"] =
+                    this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].relationshipName;
                 if (this.state == undefined || this.state.ObjectDesb == undefined ||
                     this.state.ObjectDesb[this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields[i].referenceTo[0]] ==
                     undefined) {
                     ContentReviewerActions.describeObject(
-                        this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields[i].referenceTo[0],
+                        this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].referenceTo[0],
                         this.state);
                 }
             }
@@ -44,8 +45,8 @@ export default class MappingTable extends Reflux.Component {
         console.log('The State', this.state);
     }
 
-    mapfieldWhenExternalId(value, val, ev) {
-        this.state.objectMapping[value].sheetObjectFields[val]["ExterId"] = ev.target.value;
+    mapfieldWhenExternalId(SheetName, SheetHeader, ev) {
+        this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ExterId"] = ev.target.value;
         ContentReviewerActions.stateupdates(this.state);
     }
     render() {

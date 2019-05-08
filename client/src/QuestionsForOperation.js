@@ -1,6 +1,11 @@
-import React from "react";
+import React                 from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpandMoreIcon        from "@material-ui/core/SvgIcon/SvgIcon";
+import Typography            from "@material-ui/core/Typography";
+import ExpansionPanel        from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -77,73 +82,84 @@ export default class FileuploadSection extends Reflux.Component {
     }
     return (
       <div>
-        <div>
-          <article className="slds-card">
-            <div className="slds-card__header slds-grid">
-              <table>
-                <tr>
-                  <td>
-                    <div className="slds-media__body">
-                      <h2 className="slds-card__header-title">
-                        <a
-                          href="javascript:void(0);"
-                          className="slds-card__header-link slds-truncate"
-                          title="Accounts"
-                        >
-                          <span>Are the Sheets Related ?</span>
-                        </a>
-                      </h2>
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <input
-                        type="checkbox"
-                        className="slds-checkbox"
-                        onChange={this.isRealtedCheck.bind(this)}
-                      />
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div className="slds-media__body">
-                      <h2 className="slds-card__header-title">
-                        <a
-                          href="javascript:void(0);"
-                          className="slds-card__header-link slds-truncate"
-                          title="Accounts"
-                        >
-                          <span>Sheets to Insert ?</span>
-                        </a>
-                      </h2>
-                    </div>
-                  </td>
-                </tr>
+        <ExpansionPanel>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+            <Typography>Questions</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography>
+              <article className="slds-card">
+                <div className="slds-card__header slds-grid">
+                  <table>
+                    <tr>
+                      <td>
+                        <div className="slds-media__body">
+                          <h2 className="slds-card__header-title">
+                            <a
+                                href="javascript:void(0);"
+                                className="slds-card__header-link slds-truncate"
+                                title="Accounts"
+                            >
+                              <span>Are the Sheets Related ?</span>
+                            </a>
+                          </h2>
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <input
+                              type="checkbox"
+                              className="slds-checkbox"
+                              onChange={this.isRealtedCheck.bind(this)}
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div className="slds-media__body">
+                          <h2 className="slds-card__header-title">
+                            <a
+                                href="javascript:void(0);"
+                                className="slds-card__header-link slds-truncate"
+                                title="Accounts"
+                            >
+                              <span>Sheets to Insert ?</span>
+                            </a>
+                          </h2>
+                        </div>
+                      </td>
+                    </tr>
 
-                {rowsdv.map(value => (
-                  <tr>
-                    <td>
-                      <label className="slds-text-body_small">{value}</label>
-                    </td>
-                    <td>
-                      <input
-                        type="checkbox"
-                        value={value}
-                        onChange={this.sheetsToInsertfn.bind(this)}
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </table>
-            </div>
-            <input
-              type="button"
-              value="Proceed to Object Mapping"
-              className="slds-button slds-button_neutral"
-              onClick={() => this.gotoObjectMapping()}
-            />
-          </article>
+                    {rowsdv.map(value => (
+                        <tr>
+                          <td>
+                            <label className="slds-text-body_small">{value}</label>
+                          </td>
+                          <td>
+                            <input
+                                type="checkbox"
+                                value={value}
+                                onChange={this.sheetsToInsertfn.bind(this)}
+                            />
+                          </td>
+                        </tr>
+                    ))}
+                  </table>
+                </div>
+                <input
+                    type="button"
+                    value="Proceed to Object Mapping"
+                    className="slds-button slds-button_neutral"
+                    onClick={() => this.gotoObjectMapping()}
+                />
+              </article>
+
+            </Typography>
+
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+        <div>
         </div>
       </div>
     );
