@@ -19,7 +19,7 @@ export default class Headerdisplay extends Component {
                 title="account"
               >
                 <svg className="slds-icon slds-icon_small" aria-hidden="true">
-                  <use xlinkHref={iconlink}/>
+                  <img src={iconlink}/>
                 </svg>
                 <span className="slds-assistive-text">First Heroku App</span>
               </span>
