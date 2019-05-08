@@ -197,7 +197,19 @@ export default class FileuploadSection extends Reflux.Component {
                               <li>
                                   <article className="slds-card">
                                       <div className="slds-card__header slds-grid">
+                                          <div>
+                                              <svg className="slds-icon" aria-hidden="true">
+                                                  <use
+                                                      xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
+                                              </svg>
+                                          </div>
                                           {value}
+                                          <div>
+                                              <svg className="slds-icon" aria-hidden="true">
+                                                  <use
+                                                      xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
+                                              </svg>
+                                          </div>
                                       </div>
                                   </article>
 
