@@ -139,7 +139,7 @@ export default class MappingTable extends Reflux.Component {
                                                     </div>
                                                     <div className="slds-form-element">
                                                         <label className="slds-form-element__label" htmlFor="select-01">
-                                                            Use External Id if Required (Default is ID)
+                                                            Use External Id if Required (Default is Id)
                                                         </label>
                                                         <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
                                                                className="slds-input"
