@@ -182,7 +182,7 @@ export default class MappingTable extends Reflux.Component {
                                                             },
                                                             arrow          : {
                                                                 enabled: false,
-                                                                element: "Hello COntent"
+                                                                element: "Hello COntent."
                                                             },
                                                         }}
                                                     >
