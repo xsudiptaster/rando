@@ -82,6 +82,7 @@ export default class FileuploadSection extends Reflux.Component {
         rowsdv=this.state.sheetNames;
     }
       if (this.state && this.state.sheetsToInsert != undefined) {
+          console.log('Selected Sheets', this.state.sheetsToInsert);
           shhetstoInsert = this.state.sheetsToInsert;
       }
     return (
