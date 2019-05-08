@@ -170,54 +170,66 @@ export default class FileuploadSection extends Reflux.Component {
                   <Typography>Sequence the Upsert</Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
-                  <Typography>
-                      <div className="slds-media__body">
-                          <h2 className="slds-card__header-title">
-                              <a
-                                  href="javascript:void(0);"
-                                  className="slds-card__header-link slds-truncate"
-                                  title="Accounts"
-                              >
-                                  <span>Insert Sheets Parallel ?</span>
-                              </a>
-                          </h2>
-                      </div>
-                      <div>
-                          <input
-                              type="checkbox"
-                              className="slds-checkbox"
-                              onChange={this.isRealtedCheck.bind(this)}
-                          />
-                      </div>
-                  </Typography>
-                  <br/>
-                  <Typography>
-                      <ul>
-                          {shhetstoInsert.map(value => (
-                              <li>
-                                  <article className="slds-card">
-                                      <div className="slds-card__header slds-grid">
-                                          <div>
-                                              <svg className="slds-icon" aria-hidden="true">
-                                                  <use
-                                                      xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
-                                              </svg>
-                                          </div>
-                                          {value}
-                                          <div>
-                                              <svg className="slds-icon" aria-hidden="true">
-                                                  <use
-                                                      xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
-                                              </svg>
-                                          </div>
-                                      </div>
-                                  </article>
+                  <table>
+                      <tr>
+                          <td>
+                              <Typography>
+                                  <div className="slds-media__body">
+                                      <h2 className="slds-card__header-title">
+                                          <a
+                                              href="javascript:void(0);"
+                                              className="slds-card__header-link slds-truncate"
+                                              title="Accounts"
+                                          >
+                                              <span>Insert Sheets Parallel ?</span>
+                                          </a>
+                                      </h2>
+                                  </div>
+                                  <div>
+                                      <input
+                                          type="checkbox"
+                                          className="slds-checkbox"
+                                          onChange={this.isRealtedCheck.bind(this)}
+                                      />
+                                  </div>
+                              </Typography>
 
-                              </li>
-                          ))}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <Typography>
+                                  <ul>
+                                      {shhetstoInsert.map(value => (
+                                          <li>
+                                              <article className="slds-card">
+                                                  <div className="slds-card__header slds-grid">
+                                                      <div>
+                                                          <svg className="slds-icon" aria-hidden="true">
+                                                              <use
+                                                                  xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
+                                                          </svg>
+                                                      </div>
+                                                      {value}
+                                                      <div>
+                                                          <svg className="slds-icon" aria-hidden="true">
+                                                              <use
+                                                                  xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
+                                                          </svg>
+                                                      </div>
+                                                  </div>
+                                              </article>
 
-                      </ul>
-                  </Typography>
+                                          </li>
+                                      ))}
+
+                                  </ul>
+                              </Typography>
+                          </td>
+                      </tr>
+                  </table>
+
+
               </ExpansionPanelDetails>
           </ExpansionPanel>
         <div>
