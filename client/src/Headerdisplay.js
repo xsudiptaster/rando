@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import iconlink             from "./lightning-design/icons/standard-sprite/svg/symbols.svg#account"
+import iconlink             from "./lightning-design/icons/standard/account.svg"
 
 export default class Headerdisplay extends Component {
   constructor(props) {
