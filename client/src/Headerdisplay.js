@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import iconlink             from "./lightning-design/icons/standard-sprite/svg/symbols.svg#account"
 
 export default class Headerdisplay extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export default class Headerdisplay extends Component {
                 title="account"
               >
                 <svg className="slds-icon slds-icon_small" aria-hidden="true">
-                  <use xlinkHref="/assets/icons/standard-sprite/svg/symbols.svg#account" />
+                  <use xlinkHref={iconlink}/>
                 </svg>
                 <span className="slds-assistive-text">First Heroku App</span>
               </span>
