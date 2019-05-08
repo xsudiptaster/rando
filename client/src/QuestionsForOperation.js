@@ -6,6 +6,8 @@ import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import Typography            from "@material-ui/core/Typography";
 import ExpansionPanel        from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import arrow_up              from "./lightning-design/icons/utility/arrowup_60.png"
+import arrow_down            from "./lightning-design/icons/utility/arrowdown_60.png"
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -204,23 +206,13 @@ export default class FileuploadSection extends Reflux.Component {
                                               <article className="slds-card">
                                                   <div className="slds-card__header slds-grid">
                                                       <div>
-                                                          <svg className="slds-icon" aria-hidden="true">
-                                                              <path
-                                                                  d="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
-                                                              <use
-                                                                  xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
-                                                          </svg>
-                                                          <img
-                                                              src={"/client/src/lightning-design/icons/utility/arrowup.svg"}/>
+                                                          <img src={arrow_up}
+                                                               className="slds-icon slds-icon--right slds-icon_x-small "/>
                                                       </div>
                                                       {value}
                                                       <div>
-                                                          <svgel
-                                                              ourl="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
-                                                          <svg className="slds-icon" aria-hidden="true">
-                                                              <use
-                                                                  xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
-                                                          </svg>
+                                                          <img src={arrow_down}
+                                                               className="slds-icon slds-icon--right slds-icon_x-small"/>
                                                       </div>
                                                   </div>
                                               </article>
