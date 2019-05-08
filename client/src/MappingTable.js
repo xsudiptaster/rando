@@ -88,6 +88,11 @@ export default class MappingTable extends Reflux.Component {
                                         <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
                                             Field Name
                                         </th>
+                                        <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
+
+                                            Use External Id if Required (Default is Id)
+
+                                        </th>
                                     </tr>
                                     {( this.state && this.state.objectMapping )
                                      ? this.state.objectMapping[value].sheetHeaders.map(val => (
@@ -138,9 +143,7 @@ export default class MappingTable extends Reflux.Component {
 
                                                     </div>
                                                     <div className="slds-form-element">
-                                                        <label className="slds-form-element__label" htmlFor="select-01">
-                                                            Use External Id if Required (Default is Id)
-                                                        </label>
+
                                                         <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
                                                                className="slds-input"
                                                                onChange={this.mapfieldAsSelected.bind(this, value, val)}
