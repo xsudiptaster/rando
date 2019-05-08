@@ -182,15 +182,13 @@ export default class FileuploadSection extends Reflux.Component {
                                               title="Accounts"
                                           >
                                               <span>Insert Sheets Parallel ?</span>
+                                              <input
+                                                  type="checkbox"
+                                                  className="slds-checkbox"
+                                                  onChange={this.isRealtedCheck.bind(this)}
+                                              />
                                           </a>
                                       </h2>
-                                  </div>
-                                  <div>
-                                      <input
-                                          type="checkbox"
-                                          className="slds-checkbox"
-                                          onChange={this.isRealtedCheck.bind(this)}
-                                      />
                                   </div>
                               </Typography>
 
