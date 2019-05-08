@@ -181,11 +181,12 @@ export default class MappingTable extends Reflux.Component {
                                                                 boundariesElement: 'scrollParent',
                                                             },
                                                             arrow          : {
-                                                                enabled: false
+                                                                enabled: false,
+                                                                element: "Hello COntent"
                                                             },
                                                         }}
                                                     >
-                                                        Hello COntent
+
                                                     </Popper>
                                                 </td>
                                             </tr>
