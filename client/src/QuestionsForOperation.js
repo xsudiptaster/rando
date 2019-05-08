@@ -236,14 +236,3 @@ export default class FileuploadSection extends Reflux.Component {
   }
 }
 
-class svgel extends Reflux.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const mouse = this.props.ourl;
-        var useTag = '<use xlink:href=' + {mouse} + ' />';
-        return <svg dangerouslySetInnerHTML={{__html: useTag}}/>;
-    }
-}
