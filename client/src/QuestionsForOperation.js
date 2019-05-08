@@ -46,6 +46,7 @@ export default class FileuploadSection extends Reflux.Component {
         );
       }
     }
+      ContentReviewerActions.stateupdates(this.state);
   }
 
   gotoObjectMapping() {
