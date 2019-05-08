@@ -76,10 +76,13 @@ export default class FileuploadSection extends Reflux.Component {
 
   render() {
     var rowsdv = [];
-
+      var shhetstoInsert = [];
     if (this.state && this.state.sheetNames != undefined) {
         rowsdv=this.state.sheetNames;
     }
+      if (this.state && this.state.sheetsToInsert != undefined) {
+          shhetstoInsert = this.state.sheetsToInsert;
+      }
     return (
       <div>
           <input
@@ -187,7 +190,7 @@ export default class FileuploadSection extends Reflux.Component {
                   </Typography>
                   <Typography>
                       <ul>
-                          {rowsdv.map(value => (
+                          {shhetstoInsert.map(value => (
                               <li>
                                   {value}
                               </li>
