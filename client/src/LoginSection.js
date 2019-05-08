@@ -1,7 +1,8 @@
-import React from "react";
+import React    from "react";
 import "./App.css";
-import axios from "axios";
+import axios    from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import mainLogo from './lightning-design/images/carousel/carousel-01.jpg';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -184,7 +185,7 @@ export default class LoginSection extends Reflux.Component {
                         </td>
                     </tr>
                 </table>
-                <img src="/client/src/lightning-design/images/carousel/carousel-01.jpg"/>
+                <img src={mainLogo}/>
             </div>
         );
     }
