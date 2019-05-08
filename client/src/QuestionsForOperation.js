@@ -205,14 +205,14 @@ export default class FileuploadSection extends Reflux.Component {
                                           <li>
                                               <article className="slds-card">
                                                   <div className="slds-card__header slds-grid">
-                                                      <div>
+                                                      <div style={{textAlign: "right"}}>
                                                           <img src={arrow_up}
                                                                className="slds-icon slds-icon--right slds-icon_x-small "/>
                                                       </div>
                                                       <div>
                                                           {value}
                                                       </div>
-                                                      <div>
+                                                      <div style={{textAlign: "right"}}>
                                                           <img src={arrow_down}
                                                                className="slds-icon slds-icon--right slds-icon_x-small"/>
                                                       </div>
