@@ -34,7 +34,7 @@ export default class MappingTable extends Reflux.Component {
                 this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["RelationName"] =
                     this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].relationshipName;
                 if (this.state == undefined || this.state.ObjectDesb == undefined ||
-                    this.state.ObjectDesb[this.state.ObjectDesb[this.state.objectMapping[value].ObjectName].fields[i].referenceTo[0]] ==
+                    this.state.ObjectDesb[this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].referenceTo[0]] ==
                     undefined) {
                     ContentReviewerActions.describeObject(
                         this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].referenceTo[0],
