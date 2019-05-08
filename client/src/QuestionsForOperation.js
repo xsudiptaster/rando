@@ -209,7 +209,9 @@ export default class FileuploadSection extends Reflux.Component {
                                                           <img src={arrow_up}
                                                                className="slds-icon slds-icon--right slds-icon_x-small "/>
                                                       </div>
-                                                      {value}
+                                                      <div>
+                                                          {value}
+                                                      </div>
                                                       <div>
                                                           <img src={arrow_down}
                                                                className="slds-icon slds-icon--right slds-icon_x-small"/>
