@@ -190,6 +190,7 @@ export default class FileuploadSection extends Reflux.Component {
                                           </a>
                                       </h2>
                                   </div>
+
                               </Typography>
 
                           </td>
@@ -205,13 +206,15 @@ export default class FileuploadSection extends Reflux.Component {
                                                       <div>
                                                           <svg className="slds-icon" aria-hidden="true">
                                                               <use
-                                                                  xlinkHref=""/>
+                                                                  xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
                                                           </svg>
                                                           <img
                                                               src="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
                                                       </div>
                                                       {value}
                                                       <div>
+                                                          <svgel
+                                                              ourl="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
                                                           <svg className="slds-icon" aria-hidden="true">
                                                               <use
                                                                   xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
@@ -237,4 +240,16 @@ export default class FileuploadSection extends Reflux.Component {
       </div>
     );
   }
+}
+
+class svgel extends Reflux.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const mouse = this.props.ourl;
+        var useTag = '<use xlink:href=' + {mouse} + ' />';
+        return <svg dangerouslySetInnerHTML={{__html: useTag}}/>;
+    }
 }
