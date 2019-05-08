@@ -180,8 +180,7 @@ export default class MappingTable extends Reflux.Component {
                                                                 boundariesElement: 'scrollParent',
                                                             },
                                                             arrow          : {
-                                                                enabled: false,
-                                                                element: arrowRef,
+                                                                enabled: false
                                                             },
                                                         }}
                                                     >
