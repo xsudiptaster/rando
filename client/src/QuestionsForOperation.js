@@ -2,7 +2,7 @@ import React                 from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpandMoreIcon        from "@material-ui/core/SvgIcon/SvgIcon";
+import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import Typography            from "@material-ui/core/Typography";
 import ExpansionPanel        from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -190,11 +190,17 @@ export default class FileuploadSection extends Reflux.Component {
                           />
                       </div>
                   </Typography>
+                  <br/>
                   <Typography>
                       <ul>
                           {shhetstoInsert.map(value => (
                               <li>
-                                  {value}
+                                  <article className="slds-card">
+                                      <div className="slds-card__header slds-grid">
+                                          {value}
+                                      </div>
+                                  </article>
+
                               </li>
                           ))}
 
