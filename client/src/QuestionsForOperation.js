@@ -207,8 +207,10 @@ export default class FileuploadSection extends Reflux.Component {
                                                       <div>
                                                           <svg className="slds-icon" aria-hidden="true">
                                                               <use
-                                                                  xlinkHref="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
+                                                                  xlinkHref=""/>
                                                           </svg>
+                                                          <img
+                                                              src="/client/src/lightning-design/icons/utility-sprite/svg/symbols.svg#announcement"/>
                                                       </div>
                                                       {value}
                                                       <div>
