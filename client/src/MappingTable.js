@@ -7,6 +7,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography            from '@material-ui/core/Typography';
 import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import SvgIcon               from '@material-ui/core/SvgIcon';
+import CircularProgress      from "@material-ui/core/CircularProgress";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -119,6 +120,24 @@ export default class MappingTable extends Reflux.Component {
                                                                this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
                                                                undefined ? "block" : "none" )
                                                 }}>
+                                                    <div style={{
+                                                        display: ( this.state.objectMapping[value].sheetObjectFields !=
+                                                                   undefined &&
+                                                                   this.state.objectMapping[value].sheetObjectFields[val] !=
+                                                                   undefined &&
+                                                                   this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
+                                                                   undefined &&
+                                                                   extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] ==
+                                                                   undefined ? "block" : "none" )
+                                                    }}>
+                                                        <CircularProgress style={{
+                                                            position: "absolute", top: "30%", left: "30%",
+                                                            width: "17px", height: "17px",
+                                                            zIndex                                : "10"
+
+                                                        }}/>
+
+                                                    </div>
                                                     <input list={"List4-" + value + '-' + val} style={{width: "200px!"}}
                                                            className="slds-input"
                                                            onChange={this.mapfieldAsSelected.bind(this, value, val)}
