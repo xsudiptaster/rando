@@ -54,7 +54,19 @@ export default class MappingTable extends Reflux.Component {
     }
 
     onClickUpsert() {
-
+        var sheetNames = Object.keys(this.state.objectMapping);
+        for (var i = 0; i < sheetNames; i++) {
+            for (var j = 0; j < this.state.objectMapping[sheetNames[i]]; j++) {
+                var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
+                for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
+                    var field = this.state.ObjectDesb[objName].fields[k];
+                    if (sheetNames[i].indexOf(field.label) > -1 || sheetNames[i].indexOf(field.name) > -1) {
+                        console.log('The Matching', sheetNames[i]);
+                        console.log('The fieldname', field.name)
+                    }
+                }
+            }
+        }
     }
 
     createTheRequestJson(SheetName) {
