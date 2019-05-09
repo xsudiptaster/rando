@@ -85,8 +85,9 @@ export default class FileuploadSection extends Reflux.Component {
     componentDidMount() {
         this.$node = $(this.refs.Sortable);
         this.$node.sortable({
-                                opacity: 1,
+                                opacity: "1",
                                 stop   : function (event, ui) {
+                                    console.log('Metho Called');
                                     console.log('The event', event);
                                     console.log('The UI', ui);
                                     var listElements = this.$node.children();
@@ -219,7 +220,7 @@ export default class FileuploadSection extends Reflux.Component {
                             <tr>
                                 <td>
                                     <Typography>
-                                        <ul ref='Sortable' opacity={0.8}>
+                                        <ul ref='Sortable' opacity={"0.8"}>
                                             {shhetstoInsert.map(value => (
                                                 <li>
                                                     <article className="slds-card">
