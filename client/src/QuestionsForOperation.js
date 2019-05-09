@@ -8,6 +8,8 @@ import ExpansionPanel        from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import arrow_up              from "./lightning-design/icons/utility/arrowup_60.png"
 import arrow_down            from "./lightning-design/icons/utility/arrowdown_60.png"
+import $                     from 'jquery'
+import 'jquery-ui'
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -76,6 +78,10 @@ export default class FileuploadSection extends Reflux.Component {
     this.state.objectmappingdisplay = { display: "block" };
     ContentReviewerActions.stateupdates(this.state);
   }
+
+    componentDidMount() {
+        $("#Sortable").sortable();
+    }
 
   render() {
     var rowsdv = [];
@@ -200,7 +206,7 @@ export default class FileuploadSection extends Reflux.Component {
                       <tr>
                           <td>
                               <Typography>
-                                  <ul>
+                                  <ul id='Sortable'>
                                       {shhetstoInsert.map(value => (
                                           <li>
                                               <article className="slds-card">
