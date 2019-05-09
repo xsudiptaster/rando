@@ -93,14 +93,24 @@ export default class MappingTable extends Reflux.Component {
         return (
 
             <div>
-                <div>
-                    <input value="Upsert" type="button" className="slds-button slds-button--neutral"
-                           onClick={() => this.onClickUpsert()}/>
-                </div>
-                <div>
-                    <input value="Auto Match" type="button" className="slds-button slds-button--neutral"
-                           onClick={() => this.autoMatch()}/>
-                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <div>
+                                <input value="Upsert" type="button" className="slds-button slds-button--neutral"
+                                       onClick={() => this.onClickUpsert()}/>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <input value="Auto Match" type="button" className="slds-button slds-button--neutral"
+                                       onClick={() => this.autoMatch()}/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
                 {panls.map(value => (
                     <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
@@ -148,7 +158,7 @@ export default class MappingTable extends Reflux.Component {
                                                                this.state.objectMapping[value].sheetObjectFields[val] !=
                                                                undefined &&
                                                                this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
-                                                               undefined ? "block" : "none" )
+                                                               "" ? "block" : "none" )
                                                 }}>
                                                     <div style={{
                                                         display: ( this.state.objectMapping[value].sheetObjectFields !=
@@ -157,8 +167,8 @@ export default class MappingTable extends Reflux.Component {
                                                                    undefined &&
                                                                    this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
                                                                    undefined &&
-                                                                   extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName].length ==
-                                                                   0 ? "block" : "none" )
+                                                                   extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] ==
+                                                                   "" ? "block" : "none" )
                                                     }}>
                                                         <CircularProgress style={{
                                                             position: "absolute", top: "30%", left: "30%",
