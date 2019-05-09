@@ -53,24 +53,7 @@ export default class MappingTable extends Reflux.Component {
 
     onClickUpsert() {
 
-        var sheetNames = Object.keys(this.state.objectMapping);
-        console.log('The method called', sheetNames);
-        for (var i = 0; i < sheetNames.length; i++) {
-            var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
-            console.log('The Object Name', objName);
-            for (var j = 0; j < this.state.objectMapping[sheetNames[i]].sheetHeaders.length; j++) {
-                var sheetHeader = this.state.objectMapping[sheetNames[i]].sheetHeaders[j];
-                console.log('SheetHeader', sheetHeader);
-                for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
-                    var field = this.state.ObjectDesb[objName].fields[k];
-                    console.log('Fields received', field);
-                    if (sheetHeader.indexOf(field.label) > -1 || sheetHeader.indexOf(field.name) > -1) {
-                        console.log('The Matching', sheetHeader);
-                        console.log('The fieldname', field.name)
-                    }
-                }
-            }
-        }
+
     }
 
     createTheRequestJson(SheetName) {
@@ -80,7 +63,20 @@ export default class MappingTable extends Reflux.Component {
     }
 
     autoMatch() {
-
+        var sheetNames = Object.keys(this.state.objectMapping);
+        for (var i = 0; i < sheetNames.length; i++) {
+            var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
+            for (var j = 0; j < this.state.objectMapping[sheetNames[i]].sheetHeaders.length; j++) {
+                var sheetHeader = this.state.objectMapping[sheetNames[i]].sheetHeaders[j];
+                for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
+                    var field = this.state.ObjectDesb[objName].fields[k];
+                    if (sheetHeader.indexOf(field.label) > -1 || sheetHeader.indexOf(field.name) > -1) {
+                        console.log('The Matching', sheetHeader);
+                        console.log('The fieldname', field.name)
+                    }
+                }
+            }
+        }
     }
     render() {
         var panls = [];
