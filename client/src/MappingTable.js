@@ -43,9 +43,10 @@ export default class MappingTable extends Reflux.Component {
                         this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].referenceTo[0],
                         this.state);
                 }
+
             }
         }
-        console.log('The State', this.state);
+        ContentReviewerActions.stateupdates(this.state);
     }
 
     mapfieldWhenExternalId(SheetName, SheetHeader, ev) {
