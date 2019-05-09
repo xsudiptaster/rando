@@ -83,8 +83,11 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     componentDidMount() {
-        var idsInOrder = $("#Sortable").sortable("toArray");
-        console.log('The Logs ids', idsInOrder);
+        if (this.state && this.state.sheetsToInsert != undefined) {
+            var idsInOrder = $("#Sortable").sortable("toArray");
+            console.log('The Logs ids', idsInOrder);
+        }
+
     }
 
     render() {
