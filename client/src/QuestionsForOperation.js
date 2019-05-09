@@ -223,20 +223,17 @@ export default class FileuploadSection extends Reflux.Component {
                                             {shhetstoInsert.map(value => (
                                                 <li>
                                                     <article className="slds-card">
-                                                        <div className="slds-card__header slds-grid">
                                                             <div className="slds-text-align_center"
                                                                  style={{textAlign: "center"}}
                                                                  ref="sortable">
                                                                 {value}
+                                                            </div>
                                                                 <div className="slds-text-align_right">
                                                                     <img src={arrow_up}
                                                                          className="slds-icon slds-icon--right slds-icon_x-small "/>
                                                                     <img src={arrow_down}
                                                                          className="slds-icon slds-icon--right slds-icon_x-small"/>
                                                                 </div>
-
-                                                            </div>
-                                                        </div>
                                                     </article>
 
                                                 </li>
