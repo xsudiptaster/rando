@@ -28,6 +28,10 @@ export default class FileuploadSection extends Reflux.Component {
         this.state.isRelated = event.target.value;
     }
 
+    isParallelCheck(event) {
+        this.state.isParallel = event.target.value;
+    }
+
     sheetsToInsertfn(event) {
         if (event.target.checked) {
             if (
@@ -171,7 +175,7 @@ export default class FileuploadSection extends Reflux.Component {
                                                         type="checkbox"
                                                         className="slds-checkbox"
                                                         defaultChecked={true}
-                                                        onChange={this.isRealtedCheck.bind(this)}
+                                                        onChange={this.isParallelCheck.bind(this)}
                                                     />
                                                 </div>
                                             </td>
@@ -229,16 +233,16 @@ export default class FileuploadSection extends Reflux.Component {
                                             {shhetstoInsert.map(value => (
                                                 <li>
                                                     <article className="slds-card" style={{width: "300px"}}>
-                                                        <div className="slds-text-align_right" style={{height: "2px"}}>
+                                                        <div className="slds-text-align_right">
                                                             <img src={arrow_up}
                                                                  className="slds-icon slds-icon--right slds-icon_x-small "/>
                                                         </div>
                                                         <div className="slds-text-align_center "
-                                                             style={{textAlign: "center", height: "20px"}}
+                                                             style={{textAlign: "center"}}
                                                              ref="sortable">
                                                                 {value}
                                                             </div>
-                                                        <div className="slds-text-align_right" style={{height: "2px"}}>
+                                                        <div className="slds-text-align_right">
                                                                     <img src={arrow_down}
                                                                          className="slds-icon slds-icon--right slds-icon_x-small"/>
                                                                 </div>
