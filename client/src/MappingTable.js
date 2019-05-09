@@ -56,12 +56,18 @@ export default class MappingTable extends Reflux.Component {
     }
 
     onClickUpsert() {
-
+        console.log('The state si', this.state);
 
     }
 
     createTheRequestJson(SheetName) {
         if (this.state.objectMapping != undefined) {
+            var sheetParam = this.state.objectMapping[SheetName];
+            var JsonBuilt = {};
+            var headerMapped = Object.keys(sheetParam.sheetObjectFields);
+            for (var i = 0; i < headerMapped.length; i++) {
+
+            }
 
         }
     }
@@ -74,7 +80,7 @@ export default class MappingTable extends Reflux.Component {
                 var sheetHeader = this.state.objectMapping[sheetNames[i]].sheetHeaders[j];
                 for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
                     var field = this.state.ObjectDesb[objName].fields[k];
-                    if (sheetHeader.indexOf(field.label) > -1 || sheetHeader.indexOf(field.name) > -1) {
+                    if (field.label.indexOf(sheetHeader) > -1 || field.name.indexOf(sheetHeader) > -1) {
                         this.mapFieldsAsSelectedUpdate(sheetNames[i], sheetHeader, field.name);
                         $(this.refs['select-' + sheetNames[i] + '-' + sheetHeader]).val(field.name);
                     }
