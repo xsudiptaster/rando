@@ -191,7 +191,7 @@ export default class FileuploadSection extends Reflux.Component {
                         <Typography className="slds-text-title">Sequence the Upsert</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
-                        <table>
+                        <table className="slds-table">
                             <tr>
                                 <td>
                                     <Typography>
@@ -202,7 +202,7 @@ export default class FileuploadSection extends Reflux.Component {
                                                     className="slds-card__header-link slds-truncate"
                                                     title="Accounts"
                                                 >
-                                                    <span>Insert Sheets Parallel ?</span>&nbsp;&nbsp;&nbsp;
+                                                    <span>Insert the Sheets in Parallel ?   </span>
                                                     <input
                                                         type="checkbox"
                                                         className="slds-checkbox"
@@ -223,7 +223,7 @@ export default class FileuploadSection extends Reflux.Component {
                                             {shhetstoInsert.map(value => (
                                                 <li>
                                                     <article className="slds-card">
-                                                        <div className="slds-text-align_right">
+                                                        <div className="slds-text-align_right" style={{height: "5px"}}>
                                                             <img src={arrow_up}
                                                                  className="slds-icon slds-icon--right slds-icon_xx-small "/>
                                                         </div>
@@ -232,8 +232,7 @@ export default class FileuploadSection extends Reflux.Component {
                                                                  ref="sortable">
                                                                 {value}
                                                             </div>
-                                                                <div className="slds-text-align_right">
-
+                                                        <div className="slds-text-align_right" style={{height: "5px"}}>
                                                                     <img src={arrow_down}
                                                                          className="slds-icon slds-icon--right slds-icon_xx-small"/>
                                                                 </div>
