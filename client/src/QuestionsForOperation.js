@@ -228,7 +228,7 @@ export default class FileuploadSection extends Reflux.Component {
                                         <ul ref='Sortable' opacity={"0.8"}>
                                             {shhetstoInsert.map(value => (
                                                 <li>
-                                                    <article className="slds-card">
+                                                    <article className="slds-card" style={{width: "300px"}}>
                                                         <div className="slds-text-align_right" style={{height: "5px"}}>
                                                             <img src={arrow_up}
                                                                  className="slds-icon slds-icon--right slds-icon_xx-small "/>
