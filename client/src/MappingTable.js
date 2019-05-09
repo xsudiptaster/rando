@@ -20,6 +20,9 @@ export default class MappingTable extends Reflux.Component {
     }
 
     mapfieldAsSelected(SheetName, SheetHeader, ev) {
+        console.log('The SheetName', SheetName);
+        console.log('The SheetHeader', SheetHeader);
+        console.log('The event', ev);
         if (this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] == undefined) {
             this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] = {};
         }
@@ -52,6 +55,12 @@ export default class MappingTable extends Reflux.Component {
 
     onClickUpsert() {
 
+    }
+
+    createTheRequestJson(SheetName) {
+        if (this.state.objectMapping != undefined) {
+
+        }
     }
     render() {
         var panls = [];
