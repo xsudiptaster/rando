@@ -117,7 +117,7 @@ export default class FileuploadSection extends Reflux.Component {
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
                         <Typography>
-                            <div className="slds-text-title">
+                            <div className="slds-text-heading_large">
                                 Questions
                             </div>
                         </Typography>
@@ -126,7 +126,7 @@ export default class FileuploadSection extends Reflux.Component {
                         <Typography>
                             <article className="slds-card">
                                 <div className="slds-card__header slds-grid">
-                                    <table>
+                                    <table className="slds-table">
                                         <tr>
                                             <td>
                                                 <div className="slds-media__body">
@@ -218,7 +218,7 @@ export default class FileuploadSection extends Reflux.Component {
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
                         <Typography>
-                            <div className="slds-text-title">
+                            <div className="slds-text-heading_large">
                                 Sequence the Upsert
                             </div>
                         </Typography>
