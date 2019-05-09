@@ -20,9 +20,6 @@ export default class MappingTable extends Reflux.Component {
     }
 
     mapfieldAsSelected(SheetName, SheetHeader, ev) {
-        console.log('The SheetName', SheetName);
-        console.log('The SheetHeader', SheetHeader);
-        console.log('The event', ev);
         if (this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] == undefined) {
             this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] = {};
         }
@@ -57,12 +54,13 @@ export default class MappingTable extends Reflux.Component {
     onClickUpsert() {
         var sheetNames = Object.keys(this.state.objectMapping);
         for (var i = 0; i < sheetNames; i++) {
-            for (var j = 0; j < this.state.objectMapping[sheetNames[i]]; j++) {
-                var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
+            var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
+            for (var j = 0; j < this.state.objectMapping[sheetNames[i]].sheetHeaders.length; j++) {
+                var sheetHeader = this.state.objectMapping[sheetNames[i]].sheetHeaders[j];
                 for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
                     var field = this.state.ObjectDesb[objName].fields[k];
-                    if (sheetNames[i].indexOf(field.label) > -1 || sheetNames[i].indexOf(field.name) > -1) {
-                        console.log('The Matching', sheetNames[i]);
+                    if (sheetHeader.indexOf(field.label) > -1 || sheetHeader.indexOf(field.name) > -1) {
+                        console.log('The Matching', sheetHeader);
                         console.log('The fieldname', field.name)
                     }
                 }
@@ -181,7 +179,7 @@ export default class MappingTable extends Reflux.Component {
                                                                    this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
                                                                    undefined &&
                                                                    extrDesbs[this.state.objectMapping[value].sheetObjectFields[val].ObjectName] ==
-                                                                   "" ? "block" : "none" )
+                                                                   undefined ? "block" : "none" )
                                                     }}>
                                                         <CircularProgress style={{
                                                             position: "absolute", top: "30%", left: "30%",
