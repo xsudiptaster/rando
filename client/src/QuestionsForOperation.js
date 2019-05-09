@@ -9,7 +9,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import arrow_up              from "./lightning-design/icons/utility/arrowup_60.png"
 import arrow_down            from "./lightning-design/icons/utility/arrowdown_60.png"
 import $                     from 'jquery'
-import "jquery-ui"
+import 'jquery-ui/ui/widgets/sortable'
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
