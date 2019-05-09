@@ -62,6 +62,10 @@ export default class MappingTable extends Reflux.Component {
 
         }
     }
+
+    autoMatch() {
+
+    }
     render() {
         var panls = [];
         var objdesbs = {};
@@ -89,9 +93,13 @@ export default class MappingTable extends Reflux.Component {
         return (
 
             <div>
-                <div style={{align: "center"}}>
+                <div>
                     <input value="Upsert" type="button" className="slds-button slds-button--neutral"
                            onClick={() => this.onClickUpsert()}/>
+                </div>
+                <div>
+                    <input value="Auto Match" type="button" className="slds-button slds-button--neutral"
+                           onClick={() => this.autoMatch()}/>
                 </div>
                 {panls.map(value => (
                     <ExpansionPanel>
@@ -120,7 +128,7 @@ export default class MappingTable extends Reflux.Component {
                                                 </td>
                                                 <td>
                                                     <input list={"List3-" + value} style={{width: "200px!"}}
-                                                           className="slds-input"
+                                                           className="slds-input" id=""
                                                            onChange={this.mapfieldAsSelected.bind(this, value, val)}
                                                     />
                                                     <datalist id={"List3-" + value}>
