@@ -53,7 +53,7 @@ export default class MappingTable extends Reflux.Component {
 
     onClickUpsert() {
         var sheetNames = Object.keys(this.state.objectMapping);
-        for (var i = 0; i < sheetNames; i++) {
+        for (var i = 0; i < sheetNames.length; i++) {
             var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
             console.log('The Object Name', objName);
             for (var j = 0; j < this.state.objectMapping[sheetNames[i]].sheetHeaders.length; j++) {
