@@ -116,7 +116,7 @@ export default class FileuploadSection extends Reflux.Component {
                 />
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                        <Typography>Questions</Typography>
+                        <Typography className="slds-text-title">Questions</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <Typography>
@@ -188,7 +188,7 @@ export default class FileuploadSection extends Reflux.Component {
                 </ExpansionPanel>
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                        <Typography>Sequence the Upsert</Typography>
+                        <Typography className="slds-text-title">Sequence the Upsert</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <table>
@@ -202,7 +202,7 @@ export default class FileuploadSection extends Reflux.Component {
                                                     className="slds-card__header-link slds-truncate"
                                                     title="Accounts"
                                                 >
-                                                    <span>Insert Sheets Parallel ?</span>
+                                                    <span>Insert Sheets Parallel ?</span>&nbsp;&nbsp;&nbsp;
                                                     <input
                                                         type="checkbox"
                                                         className="slds-checkbox"
@@ -223,16 +223,19 @@ export default class FileuploadSection extends Reflux.Component {
                                             {shhetstoInsert.map(value => (
                                                 <li>
                                                     <article className="slds-card">
+                                                        <div className="slds-text-align_right">
+                                                            <img src={arrow_up}
+                                                                 className="slds-icon slds-icon--right slds-icon_xx-small "/>
+                                                        </div>
                                                             <div className="slds-text-align_center"
                                                                  style={{textAlign: "center"}}
                                                                  ref="sortable">
                                                                 {value}
                                                             </div>
                                                                 <div className="slds-text-align_right">
-                                                                    <img src={arrow_up}
-                                                                         className="slds-icon slds-icon--right slds-icon_x-small "/>
+
                                                                     <img src={arrow_down}
-                                                                         className="slds-icon slds-icon--right slds-icon_x-small"/>
+                                                                         className="slds-icon slds-icon--right slds-icon_xx-small"/>
                                                                 </div>
                                                     </article>
 
