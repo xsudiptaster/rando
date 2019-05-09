@@ -231,7 +231,7 @@ export default class FileuploadSection extends Reflux.Component {
                                                     <article className="slds-card" style={{width: "300px"}}>
                                                         <div className="slds-text-align_right" style={{height: "2px"}}>
                                                             <img src={arrow_up}
-                                                                 className="slds-icon slds-icon--right slds-icon_xxx-small "/>
+                                                                 className="slds-icon slds-icon--right slds-icon_x-small "/>
                                                         </div>
                                                             <div className="slds-text-align_center"
                                                                  style={{textAlign: "center"}}
@@ -240,7 +240,7 @@ export default class FileuploadSection extends Reflux.Component {
                                                             </div>
                                                         <div className="slds-text-align_right" style={{height: "2px"}}>
                                                                     <img src={arrow_down}
-                                                                         className="slds-icon slds-icon--right slds-icon_xxx-small"/>
+                                                                         className="slds-icon slds-icon--right slds-icon_x-small"/>
                                                                 </div>
                                                     </article>
 
