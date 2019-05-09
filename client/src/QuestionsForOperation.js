@@ -229,18 +229,18 @@ export default class FileuploadSection extends Reflux.Component {
                                             {shhetstoInsert.map(value => (
                                                 <li>
                                                     <article className="slds-card" style={{width: "300px"}}>
-                                                        <div className="slds-text-align_right" style={{height: "5px"}}>
+                                                        <div className="slds-text-align_right" style={{height: "2px"}}>
                                                             <img src={arrow_up}
-                                                                 className="slds-icon slds-icon--right slds-icon_xx-small "/>
+                                                                 className="slds-icon slds-icon--right slds-icon_xxx-small "/>
                                                         </div>
                                                             <div className="slds-text-align_center"
                                                                  style={{textAlign: "center"}}
                                                                  ref="sortable">
                                                                 {value}
                                                             </div>
-                                                        <div className="slds-text-align_right" style={{height: "5px"}}>
+                                                        <div className="slds-text-align_right" style={{height: "2px"}}>
                                                                     <img src={arrow_down}
-                                                                         className="slds-icon slds-icon--right slds-icon_xx-small"/>
+                                                                         className="slds-icon slds-icon--right slds-icon_xxx-small"/>
                                                                 </div>
                                                     </article>
 
