@@ -171,7 +171,7 @@ export default class MappingTable extends Reflux.Component {
                                                                this.state.objectMapping[value].sheetObjectFields[val] !=
                                                                undefined &&
                                                                this.state.objectMapping[value].sheetObjectFields[val].ObjectName !=
-                                                               "" ? "block" : "none" )
+                                                               undefined ? "block" : "none" )
                                                 }}>
                                                     <div style={{
                                                         display: ( this.state.objectMapping[value].sheetObjectFields !=
