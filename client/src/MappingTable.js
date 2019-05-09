@@ -20,13 +20,17 @@ export default class MappingTable extends Reflux.Component {
     }
 
     mapfieldAsSelected(SheetName, SheetHeader, ev) {
+        this.mapFieldsAsSelectedUpdate(SheetName, SheetHeader, ev.target.value);
+    }
+
+    mapFieldsAsSelectedUpdate(SheetName, SheetHeader, FieldApi) {
         if (this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] == undefined) {
             this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] = {};
         }
-        this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["FieldName"] = ev.target.value;
+        this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["FieldName"] = FieldApi;
         for (var i = 0; i < this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields.length; i++) {
             if (this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].name ==
-                ev.target.value &&
+                FieldApi &&
                 this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].type == 'reference') {
                 this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ExterId"] = "";
                 this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ObjectName"] =
@@ -45,7 +49,6 @@ export default class MappingTable extends Reflux.Component {
         }
         ContentReviewerActions.stateupdates(this.state);
     }
-
     mapfieldWhenExternalId(SheetName, SheetHeader, ev) {
         this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ExterId"] = ev.target.value;
         ContentReviewerActions.stateupdates(this.state);
@@ -71,8 +74,8 @@ export default class MappingTable extends Reflux.Component {
                 for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
                     var field = this.state.ObjectDesb[objName].fields[k];
                     if (sheetHeader.indexOf(field.label) > -1 || sheetHeader.indexOf(field.name) > -1) {
-                        console.log('The Matching', sheetHeader);
-                        console.log('The fieldname', field.name)
+                        this.mapFieldsAsSelectedUpdate(sheetNames[i], sheetHeader, field.name);
+
                     }
                 }
             }
