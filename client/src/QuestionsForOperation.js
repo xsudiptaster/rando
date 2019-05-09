@@ -59,6 +59,9 @@ export default class FileuploadSection extends Reflux.Component {
         this.$node = $(this.refs.Sortable);
         var listElements = this.$node.children();
         console.log('List', listElements);
+        for (var i = 0; i < listElements.length; i++) {
+            console.log('The Error', listElements[i].innerText);
+        }
         if (this.state.sheetsToInsert != undefined) {
             this.state.objectMapping = {};
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
@@ -224,7 +227,7 @@ export default class FileuploadSection extends Reflux.Component {
                                     <Typography>
                                         <ul ref='Sortable' opacity={"0.8"}>
                                             {shhetstoInsert.map(value => (
-                                                <li>
+                                                <li value={value}>
                                                     <article className="slds-card">
                                                         <div className="slds-card__header slds-grid">
                                                             <div style={{textAlign: "center"}}
