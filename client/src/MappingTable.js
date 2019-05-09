@@ -49,6 +49,10 @@ export default class MappingTable extends Reflux.Component {
         this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ExterId"] = ev.target.value;
         ContentReviewerActions.stateupdates(this.state);
     }
+
+    onClickUpsert() {
+
+    }
     render() {
         var panls = [];
         var objdesbs = {};
@@ -77,7 +81,8 @@ export default class MappingTable extends Reflux.Component {
 
             <div>
                 <div style={{align: "center"}}>
-                    <input value="Upsert" type="button" className="slds-button slds-button--neutral"/>
+                    <input value="Upsert" type="button" className="slds-button slds-button--neutral"
+                           onClick={() => this.onClickUpsert()}/>
                 </div>
                 {panls.map(value => (
                     <ExpansionPanel>
