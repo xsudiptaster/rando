@@ -58,9 +58,9 @@ export default class FileuploadSection extends Reflux.Component {
     gotoObjectMapping() {
         this.$node = $(this.refs.Sortable);
         var listElements = this.$node.children();
-        console.log('List', listElements);
+        this.state.sheetsToInsert = [];
         for (var i = 0; i < listElements.length; i++) {
-            console.log('The Error', listElements[i].innerText);
+            this.state.sheetsToInsert.push(listElements[i].innerText);
         }
         if (this.state.sheetsToInsert != undefined) {
             this.state.objectMapping = {};
@@ -91,13 +91,7 @@ export default class FileuploadSection extends Reflux.Component {
     componentDidMount() {
         this.$node = $(this.refs.Sortable);
         this.$node.sortable({
-                                opacity: "1",
-                                stop   : function (event, ui) {
-                                    console.log('Metho Called');
-                                    console.log('The event', event);
-                                    console.log('The UI', ui);
-
-                                }
+                                opacity: "1"
                             });
 
     }
