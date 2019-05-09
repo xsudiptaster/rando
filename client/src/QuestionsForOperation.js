@@ -116,7 +116,11 @@ export default class FileuploadSection extends Reflux.Component {
                 />
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                        <Typography className="slds-text-title">Questions</Typography>
+                        <Typography>
+                            <div className="slds-text-title">
+                                Questions
+                            </div>
+                        </Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <Typography>
@@ -142,6 +146,31 @@ export default class FileuploadSection extends Reflux.Component {
                                                     <input
                                                         type="checkbox"
                                                         className="slds-checkbox"
+                                                        onChange={this.isRealtedCheck.bind(this)}
+                                                    />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div className="slds-media__body">
+                                                    <h2 className="slds-card__header-title">
+                                                        <a
+                                                            href="javascript:void(0);"
+                                                            className="slds-card__header-link slds-truncate"
+                                                            title="Accounts"
+                                                        >
+                                                            <span>Insert Sheets in parallel ?</span>
+                                                        </a>
+                                                    </h2>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    <input
+                                                        type="checkbox"
+                                                        className="slds-checkbox"
+                                                        defaultChecked={true}
                                                         onChange={this.isRealtedCheck.bind(this)}
                                                     />
                                                 </div>
@@ -188,36 +217,13 @@ export default class FileuploadSection extends Reflux.Component {
                 </ExpansionPanel>
                 <ExpansionPanel>
                     <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                        <Typography className="slds-text-title">Sequence the Upsert</Typography>
+                        <Typography>
+                            <div className="slds-text-title">
+                                Sequence the Upsert
+                            </div>
+                        </Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
-                        <table className="slds-table">
-                            <tr>
-                                <td>
-                                    <Typography>
-                                        <div className="slds-media__body">
-                                            <h2 className="slds-card__header-title">
-                                                <a
-                                                    href="javascript:void(0);"
-                                                    className="slds-card__header-link slds-truncate"
-                                                    title="Accounts"
-                                                >
-                                                    <span>Insert the Sheets in Parallel ?   </span>
-                                                    <input
-                                                        type="checkbox"
-                                                        className="slds-checkbox"
-                                                        onChange={this.isRealtedCheck.bind(this)}
-                                                    />
-                                                </a>
-                                            </h2>
-                                        </div>
-
-                                    </Typography>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
                                     <Typography>
                                         <ul ref='Sortable' opacity={"0.8"}>
                                             {shhetstoInsert.map(value => (
@@ -243,9 +249,6 @@ export default class FileuploadSection extends Reflux.Component {
 
                                         </ul>
                                     </Typography>
-                                </td>
-                            </tr>
-                        </table>
 
 
                     </ExpansionPanelDetails>
