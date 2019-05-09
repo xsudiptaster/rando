@@ -83,7 +83,8 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     componentDidMount() {
-        $("#Sortable").sortable();
+        var idsInOrder = $("#Sortable").sortable("toArray");
+        console.log('The Logs ids', idsInOrder);
     }
 
     render() {
@@ -211,7 +212,7 @@ export default class FileuploadSection extends Reflux.Component {
                                     <Typography>
                                         <ul id='Sortable'>
                                             {shhetstoInsert.map(value => (
-                                                <li>
+                                                <li id={value}>
                                                     <article className="slds-card">
                                                         <div className="slds-card__header slds-grid">
                                                             <div style={{textAlign: "center"}}
