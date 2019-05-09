@@ -83,7 +83,7 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     componentDidMount() {
-        this.$node = $(this.refs.sortable);
+        this.$node = $(this.refs.Sortable);
         this.$node.sortable({
                                 opacity: 1
                             });
