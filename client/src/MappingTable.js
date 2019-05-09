@@ -75,7 +75,7 @@ export default class MappingTable extends Reflux.Component {
                     var field = this.state.ObjectDesb[objName].fields[k];
                     if (sheetHeader.indexOf(field.label) > -1 || sheetHeader.indexOf(field.name) > -1) {
                         this.mapFieldsAsSelectedUpdate(sheetNames[i], sheetHeader, field.name);
-
+                        $(this.refs['select-' + sheetNames[i] + '-' + sheetHeader]).val(field.name);
                     }
                 }
             }
@@ -100,6 +100,7 @@ export default class MappingTable extends Reflux.Component {
                         this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].name == 'Id') {
                         extrDesbs[Object.keys(this.state.ObjectDesb)[i]].push(
                             this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j]);
+
                     }
                 }
             }
@@ -152,7 +153,8 @@ export default class MappingTable extends Reflux.Component {
                                                 </td>
                                                 <td>
                                                     <input list={"List3-" + value} style={{width: "200px!"}}
-                                                           className="slds-input" id=""
+                                                           className="slds-input"
+                                                           ref={'select' + '-' + value + '-' + val}
                                                            onChange={this.mapfieldAsSelected.bind(this, value, val)}
                                                     />
                                                     <datalist id={"List3-" + value}>
