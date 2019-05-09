@@ -56,6 +56,9 @@ export default class FileuploadSection extends Reflux.Component {
     }
 
     gotoObjectMapping() {
+        this.$node = $(this.refs.Sortable);
+        var listElements = this.$node.children();
+        console.log('List', listElements);
         if (this.state.sheetsToInsert != undefined) {
             this.state.objectMapping = {};
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
@@ -90,8 +93,7 @@ export default class FileuploadSection extends Reflux.Component {
                                     console.log('Metho Called');
                                     console.log('The event', event);
                                     console.log('The UI', ui);
-                                    var listElements = this.$node.children();
-                                    console.log('List', listElements);
+
                                 }
                             });
 
