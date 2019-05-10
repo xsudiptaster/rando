@@ -19,12 +19,6 @@ export default class FileuploadSection extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
-        this.setState({
-                          isRelated: false
-                      });
-        this.setState({
-                          isParallel: true
-                      });
     }
 
     isRealtedCheck(event) {
@@ -176,7 +170,7 @@ export default class FileuploadSection extends Reflux.Component {
                                                     <input
                                                         type="checkbox"
                                                         className="slds-checkbox"
-                                                        defaultChecked={true}
+                                                        ref="parallel"
                                                         onChange={this.isParallelCheck.bind(this)}
                                                     />
                                                 </div>
