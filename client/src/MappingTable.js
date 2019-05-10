@@ -75,16 +75,22 @@ export default class MappingTable extends Reflux.Component {
                     if (stateHeaderObject.FieldName != undefined &&
                         stateHeaderObject.FieldName != "") {
                         if (stateHeaderObject.RelationName != undefined && stateHeaderObject.RelationName != "") {
-
+                            var InnerObj = {};
+                            InnerObj[obj[sheetParam.sheetObjectFields[headerMapped[i]].ExterId]] =
+                                JsonSheet[k][headerMapped[i]];
+                            obj[sheetParam.sheetObjectFields[headerMapped[i]].RelationName] = InnerObj;
                         }
-                        obj[sheetParam.sheetObjectFields[headerMapped[i]].FieldName] = JsonSheet[k][headerMapped[i]];
+                        else {
+                            obj[sheetParam.sheetObjectFields[headerMapped[i]].FieldName] =
+                                JsonSheet[k][headerMapped[i]];
+                        }
+
                     }
                 }
                 listData.push(obj);
             }
-            console.log('The Data Packet Built', listData);
-
-
+            console.log('The Data Packet not String', listData);
+            console.log('The Data Packet Built', JSON.stringify(listData));
         }
     }
 
