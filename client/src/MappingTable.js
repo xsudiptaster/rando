@@ -120,14 +120,16 @@ export default class MappingTable extends Reflux.Component {
         var objdesbs = {};
         var extrDesbs = {};
         var Headers = {};
-        if (this.state && this.state.objectMapping != undefined && ( this.state.objectMapping[panls[l]].ExtFromSheet !=
-            "" && this.state.objectMapping[panls[l]].ExtFromSheet != undefined )) {
+        if (this.state && this.state.objectMapping != undefined) {
             panls = Object.keys(this.state.objectMapping);
             for (var l = 0; l < panls.length; l++) {
-                Headers[panls[l]] = this.state.objectMapping[panls[l]].sheetHeaders;
-                console.log('The avlue Just Ahead is', this.state.objectMapping[panls[l]].ExtFromSheet);
-                Headers[panls[l]].splice(
-                    Headers[panls[l]].indexOf(this.state.objectMapping[panls[l]].ExtFromSheet), 1);
+                if (( this.state.objectMapping[panls[l]].ExtFromSheet !=
+                    "" && this.state.objectMapping[panls[l]].ExtFromSheet != undefined )) {
+                    Headers[panls[l]] = this.state.objectMapping[panls[l]].sheetHeaders;
+                    console.log('The avlue Just Ahead is', this.state.objectMapping[panls[l]].ExtFromSheet);
+                    Headers[panls[l]].splice(
+                        Headers[panls[l]].indexOf(this.state.objectMapping[panls[l]].ExtFromSheet), 1);
+                }
             }
 
         }
