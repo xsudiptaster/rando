@@ -26,9 +26,7 @@ export default class MappingTable extends Reflux.Component {
     }
 
     mapFieldsAsSelectedUpdate(SheetName, SheetHeader, FieldApi) {
-        if (this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] == undefined) {
-            this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] = {};
-        }
+        this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader] = {};
         this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["FieldName"] = FieldApi;
         for (var i = 0; i < this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields.length; i++) {
             if (this.state.ObjectDesb[this.state.objectMapping[SheetName].ObjectName].fields[i].name ==
@@ -78,8 +76,6 @@ export default class MappingTable extends Reflux.Component {
                         sheetParam.sheetObjectFields[headerMapped[i]].FieldName != "") {
                         obj[sheetParam.sheetObjectFields[headerMapped[i]].FieldName] = JsonSheet[k][headerMapped[i]];
                     }
-
-
                 }
                 listData.push(obj);
             }
