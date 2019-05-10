@@ -56,10 +56,12 @@ export default class MappingTable extends Reflux.Component {
 
     onClickUpsert() {
         console.log('The state si', this.state);
-        if (this.state.para) {
-
+        if (this.state.isParallel) {
+            for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
+                var jsonstr = this.createTheRequestJson(this.state.sheetsToInsert[i]);
+                console.log('The Console Jason', jsonstr);
+            }
         }
-        this.createTheRequestJson('Accounts');
 
     }
 
