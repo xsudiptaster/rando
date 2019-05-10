@@ -71,9 +71,12 @@ export default class MappingTable extends Reflux.Component {
             for (var k = 0; k < JsonSheet.length; k++) {
                 var obj = {};
                 for (var i = 0; i < headerMapped.length; i++) {
-                    console.log('The FielName', sheetParam.sheetObjectFields[headerMapped[i]]);
-                    if (sheetParam.sheetObjectFields[headerMapped[i]].FieldName != undefined &&
-                        sheetParam.sheetObjectFields[headerMapped[i]].FieldName != "") {
+                    var stateHeaderObject = sheetParam.sheetObjectFields[headerMapped[i]];
+                    if (stateHeaderObject.FieldName != undefined &&
+                        stateHeaderObject.FieldName != "") {
+                        if (stateHeaderObject.RelationName != undefined && stateHeaderObject.RelationName != "") {
+
+                        }
                         obj[sheetParam.sheetObjectFields[headerMapped[i]].FieldName] = JsonSheet[k][headerMapped[i]];
                     }
                 }
@@ -120,7 +123,6 @@ export default class MappingTable extends Reflux.Component {
                         this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].name == 'Id') {
                         extrDesbs[Object.keys(this.state.ObjectDesb)[i]].push(
                             this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j]);
-
                     }
                 }
             }
