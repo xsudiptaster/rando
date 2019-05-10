@@ -67,7 +67,7 @@ export default class MappingTable extends Reflux.Component {
             var sheetParam = this.state.objectMapping[SheetName];
             var JsonBuilt = {};
             var headerMapped = Object.keys(sheetParam.sheetObjectFields);
-            var JsonSheet = XLSX.utils.sheet_to_json(this.state.workbook[SheetName]);
+            var JsonSheet = XLSX.utils.sheet_to_json(this.state.workbook.Sheets[SheetName]);
             console.log('The JsonSheet', JsonSheet);
             for (var i = 0; i < headerMapped.length; i++) {
 
