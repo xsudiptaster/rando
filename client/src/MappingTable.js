@@ -77,7 +77,7 @@ export default class MappingTable extends Reflux.Component {
                         if (stateHeaderObject.RelationName != undefined && stateHeaderObject.RelationName != "" &&
                             stateHeaderObject.ExterId != undefined && stateHeaderObject.ExterId != "") {
                             var InnerObj = {};
-                            InnerObj[obj[sheetParam.sheetObjectFields[headerMapped[i]].ExterId]] =
+                            InnerObj[sheetParam.sheetObjectFields[headerMapped[i]].ExterId] =
                                 JsonSheet[k][headerMapped[i]];
                             obj[sheetParam.sheetObjectFields[headerMapped[i]].RelationName] = InnerObj;
                         }
