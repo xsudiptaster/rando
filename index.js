@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const jsforce = require("jsforce");
 const generatePassword = require("password-generator");
-const {parse, stringify} = require('flatted/cjs')
+const {parse, stringify} = require('flatted/cjs');
 
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -37,9 +37,9 @@ app.post("/api/logintosalesforce", function(req, res) {
     if (err) {
       return console.error(err);
     }
-    var respt={}
+    var respt = {};
     respt.sesionTkn=jsobj.accessToken;
-    respt.loginUrl=jsobj.instanceUrl
+    respt.loginUrl = jsobj.instanceUrl;
     res.send(respt);
   });
   // Return them as json
@@ -70,6 +70,24 @@ app.post("/api/objectDescribe", function(req, res) {
       return console.error(err);
     }
     res.send((JSON.stringify(response)));
+  });
+  // Return them as json
+});
+
+//Put all API endpoints under '/api'
+app.post("/api/objectUpsert", function (req, res) {
+  var jsobj = new jsforce.Connection();
+  jsobj.instanceUrl = req.body.oUrl;
+  jsobj.accessToken = req.body.sessiontok;
+  var objectName = req.body.objectName;
+  var externalId = req.body.ExternalName;
+  var dataToUpsert = req.body.dataToUpsert;
+  console.log('The ObjectName', req.body.objName);
+  jsobj.sobject(objectName).upsert(dataToUpsert, externalId, function (err, response) {
+    if (err) {
+      return console.error(err);
+    }
+    res.send(( JSON.stringify(response) ));
   });
   // Return them as json
 });

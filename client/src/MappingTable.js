@@ -56,6 +56,9 @@ export default class MappingTable extends Reflux.Component {
 
     onClickUpsert() {
         console.log('The state si', this.state);
+        if (this.state.para) {
+
+        }
         this.createTheRequestJson('Accounts');
 
     }
@@ -90,8 +93,7 @@ export default class MappingTable extends Reflux.Component {
                 }
                 listData.push(obj);
             }
-            console.log('The Data Packet not String', listData);
-            console.log('The Data Packet Built', JSON.stringify(listData));
+            return JSON.stringify(listData);
         }
     }
 
