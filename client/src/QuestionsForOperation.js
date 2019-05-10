@@ -115,7 +115,7 @@ export default class FileuploadSection extends Reflux.Component {
                             Questions
                         </div>
                     </article>
-                    <table>
+                    <table className="slds-table--bordered slds-table">
                         <tr>
                             <td>
                                 <article className="slds-card">
@@ -192,7 +192,7 @@ export default class FileuploadSection extends Reflux.Component {
 
                                 <ul ref='Sortable' opacity={"0.8"}>
                                     {shhetstoInsert.map(value => (
-                                        <li className="slds-border">
+                                        <li className="slds-box_border">
                                             <article className="slds-card" style={{width: "200px"}}>
                                                 <div className="slds-text-align_right">
                                                     <img src={arrow_up}
