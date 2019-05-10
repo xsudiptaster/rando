@@ -8,6 +8,7 @@ import Typography            from '@material-ui/core/Typography';
 import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import CircularProgress      from "@material-ui/core/CircularProgress";
 import $                     from 'jquery'
+import XLSX                  from 'xlsx';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -57,6 +58,7 @@ export default class MappingTable extends Reflux.Component {
 
     onClickUpsert() {
         console.log('The state si', this.state);
+        this.createTheRequestJson('Accounts');
 
     }
 
@@ -65,6 +67,8 @@ export default class MappingTable extends Reflux.Component {
             var sheetParam = this.state.objectMapping[SheetName];
             var JsonBuilt = {};
             var headerMapped = Object.keys(sheetParam.sheetObjectFields);
+            var JsonSheet = XLSX.utils.sheet_to_json(this.state.workbook[SheetName]);
+            console.log('The JsonSheet', JsonSheet);
             for (var i = 0; i < headerMapped.length; i++) {
 
             }
