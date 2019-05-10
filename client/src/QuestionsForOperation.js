@@ -114,13 +114,13 @@ export default class FileuploadSection extends Reflux.Component {
                     className="slds-button slds-button_neutral"
                     onClick={() => this.gotoObjectMapping()}
                 />
-
-                <article className="slds-card slds-card__header slds-grid">
-                    <div className="slds-text-heading_large">
-                        Questions
-                    </div>
-                </article>
-                            <article className="slds-card">
+                <article className="slds-card">
+                    <article className="slds-card">
+                        <article className="slds-card slds-card__header slds-grid">
+                            <div className="slds-text-heading_large">
+                                Questions
+                            </div>
+                        </article>
                                 <div className="slds-card__header slds-grid">
                                     <table className="slds-table">
                                         <tr>
@@ -204,7 +204,6 @@ export default class FileuploadSection extends Reflux.Component {
                                         ))}
                                     </table>
                                 </div>
-
                             </article>
 
 
@@ -248,6 +247,7 @@ export default class FileuploadSection extends Reflux.Component {
                 </ExpansionPanel>
                 <div>
                 </div>
+                </article>
             </div>
         );
     }
