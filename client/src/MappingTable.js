@@ -180,7 +180,13 @@ export default class MappingTable extends Reflux.Component {
                                     </tr>
                                     {( this.state && this.state.objectMapping )
                                      ? this.state.objectMapping[value].sheetHeaders.map(val => (
-                                            <tr>
+                                            <div style={{
+                                                display: this.state.objectMapping[value].ExtFromSheet == val ? "none"
+                                                                                                             : "block"
+                                            }}>
+
+
+                                                <tr>
                                                 <td>
                                                     {val}
                                                 </td>
@@ -250,7 +256,7 @@ export default class MappingTable extends Reflux.Component {
 
                                                 </td>
                                             </tr>
-
+                                            </div>
                                         )) : <div></div>}
                                 </table>
                             </Typography>
