@@ -22,7 +22,9 @@ export default class FileuploadSection extends Reflux.Component {
         this.setState({
                           isRelated: false
                       });
-        this.state.isParallel = true;
+        this.setState({
+                          isParallel: true
+                      });
     }
 
     isRealtedCheck(event) {
