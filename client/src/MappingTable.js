@@ -124,8 +124,9 @@ export default class MappingTable extends Reflux.Component {
             panls = Object.keys(this.state.objectMapping);
             for (var l = 0; l < panls.length; l++) {
                 Headers[panls[l]] = this.state.objectMapping[panls[l]].sheetHeaders;
+                console.log('The avlue Just Ahead', this.state.objectMapping[panls[l]].ExtFromSheet);
                 Headers[panls[l]].splice(
-                    Headers[panls[l]].indexOf(this.this.state.objectMapping[panls[l]].ExtFromSheet), 1);
+                    Headers[panls[l]].indexOf(this.state.objectMapping[panls[l]].ExtFromSheet), 1);
             }
 
         }
