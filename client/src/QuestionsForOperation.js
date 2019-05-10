@@ -181,39 +181,39 @@ export default class FileuploadSection extends Reflux.Component {
                                     </div>
                                 </article>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <article className="slds-card slds-card__header slds-grid">
                                     <div className="slds-text-heading_large">
                                         Sequence the Upserts
                                     </div>
                                 </article>
-                                <article className="slds-card slds-card__header slds-grid">
-                                    <div className="slds-text-heading_large">
-                                        <ul ref='Sortable' opacity={"0.8"}>
-                                            {shhetstoInsert.map(value => (
-                                                <li>
-                                                    <article className="slds-card" style={{width: "300px"}}>
-                                                        <div className="slds-text-align_right">
-                                                            <img src={arrow_up}
-                                                                 className="slds-icon slds-icon--right slds-icon_x-small "/>
-                                                        </div>
-                                                        <div className="slds-text-align_center "
-                                                             style={{textAlign: "center"}}
-                                                             ref="sortable">
-                                                            {value}
-                                                        </div>
-                                                        <div className="slds-text-align_right">
-                                                            <img src={arrow_down}
-                                                                 className="slds-icon slds-icon--right slds-icon_x-small"/>
-                                                        </div>
-                                                    </article>
 
-                                                </li>
-                                            ))}
+                                <ul ref='Sortable' opacity={"0.8"}>
+                                    {shhetstoInsert.map(value => (
+                                        <li style="slds-border">
+                                            <article className="slds-card" style={{width: "200px"}}>
+                                                <div className="slds-text-align_right">
+                                                    <img src={arrow_up}
+                                                         className="slds-icon slds-icon--right slds-icon_x-small "/>
+                                                </div>
+                                                <div className="slds-text-align_center slds-text-heading_small "
+                                                     style={{textAlign: "center"}}
+                                                     ref="sortable">
+                                                    {value}
+                                                </div>
+                                                <div className="slds-text-align_right">
+                                                    <img src={arrow_down}
+                                                         className="slds-icon slds-icon--right slds-icon_x-small"/>
+                                                </div>
+                                            </article>
 
-                                        </ul>
-                                    </div>
-                                </article>
+                                        </li>
+                                    ))}
+
+                                </ul>
+
                             </td>
                         </tr>
                     </table>
