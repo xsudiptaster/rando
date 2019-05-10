@@ -74,7 +74,11 @@ export default class MappingTable extends Reflux.Component {
                 var obj = {};
                 for (var i = 0; i < headerMapped.length; i++) {
                     console.log('The FielName', sheetParam.sheetObjectFields[headerMapped[i]]);
-                    obj[sheetParam.sheetObjectFields[headerMapped[i].FieldName]] = JsonSheet[k][headerMapped[i]];
+                    if (sheetParam.sheetObjectFields[headerMapped[i]].FieldName != undefined &&
+                        sheetParam.sheetObjectFields[headerMapped[i]].FieldName != "") {
+                        obj[sheetParam.sheetObjectFields[headerMapped[i]].FieldName] = JsonSheet[k][headerMapped[i]];
+                    }
+
 
                 }
                 listData.push(obj);
