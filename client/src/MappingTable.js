@@ -176,7 +176,10 @@ export default class MappingTable extends Reflux.Component {
                                     </tr>
                                     {( this.state && this.state.objectMapping )
                                      ? this.state.objectMapping[value].sheetHeaders.map(val => (
-                                            <tr>
+                                            <tr style={{
+                                                display: this.state.objectMapping[value].ExtFromSheet == val ? "none"
+                                                                                                             : "block"
+                                            }}>
                                                 <td>
                                                     {val}
                                                 </td>
