@@ -119,8 +119,15 @@ export default class MappingTable extends Reflux.Component {
         var panls = [];
         var objdesbs = {};
         var extrDesbs = {};
+        var Headers = {};
         if (this.state && this.state.objectMapping) {
             panls = Object.keys(this.state.objectMapping);
+            for (var l = 0; l < panls.length; l++) {
+                Headers[panls[l]] = this.state.objectMapping[panls[l]].sheetHeaders;
+                Headers[panls[l]].splice(
+                    Headers[panls[l]].indexOf(this.this.state.objectMapping[panls[l]].ExtFromSheet), 1);
+            }
+
         }
         if (this.state && this.state.ObjectDesb != undefined) {
             objdesbs = this.state.ObjectDesb
@@ -138,6 +145,7 @@ export default class MappingTable extends Reflux.Component {
                 }
             }
         }
+
         return (
 
             <div>
@@ -179,13 +187,7 @@ export default class MappingTable extends Reflux.Component {
                                         </th>
                                     </tr>
                                     {( this.state && this.state.objectMapping )
-                                     ? this.state.objectMapping[value].sheetHeaders.map(val => (
-                                            <div style={{
-                                                display: this.state.objectMapping[value].ExtFromSheet == val ? "none"
-                                                                                                             : "block"
-                                            }}>
-
-
+                                     ? Headers.map(val => (
                                                 <tr>
                                                 <td>
                                                     {val}
@@ -256,7 +258,6 @@ export default class MappingTable extends Reflux.Component {
 
                                                 </td>
                                             </tr>
-                                            </div>
                                         )) : <div></div>}
                                 </table>
                             </Typography>
