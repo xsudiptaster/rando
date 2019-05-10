@@ -1,14 +1,9 @@
-import React                 from "react";
+import React      from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
-import Typography            from "@material-ui/core/Typography";
-import ExpansionPanel        from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import arrow_up              from "./lightning-design/icons/utility/arrowup_60.png"
-import arrow_down            from "./lightning-design/icons/utility/arrowdown_60.png"
-import $                     from 'jquery'
+import arrow_up   from "./lightning-design/icons/utility/arrowup_60.png"
+import arrow_down from "./lightning-design/icons/utility/arrowdown_60.png"
+import $          from 'jquery'
 import 'jquery-ui/ui/widgets/sortable'
 
 var Reflux = require("reflux");
@@ -115,108 +110,85 @@ export default class FileuploadSection extends Reflux.Component {
                     onClick={() => this.gotoObjectMapping()}
                 />
                 <article className="slds-card">
-                    <article className="slds-card">
-                        <article className="slds-card slds-card__header slds-grid">
-                            <div className="slds-text-heading_large">
-                                Questions
-                            </div>
-                        </article>
-                                <div className="slds-card__header slds-grid">
-                                    <table className="slds-table">
-                                        <tr>
-                                            <td>
-                                                <div className="slds-media__body">
-                                                    <h2 className="slds-card__header-title">
-                                                        <a
-                                                            href="javascript:void(0);"
-                                                            className="slds-card__header-link slds-truncate"
-                                                            title="Accounts"
-                                                        >
-                                                            <span>Are the Sheets Related ?</span>
-                                                        </a>
-                                                    </h2>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input
-                                                        type="checkbox"
-                                                        className="slds-checkbox"
-                                                        onChange={this.isRealtedCheck.bind(this)}
-                                                    />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="slds-media__body">
-                                                    <h2 className="slds-card__header-title">
-                                                        <a
-                                                            href="javascript:void(0);"
-                                                            className="slds-card__header-link slds-truncate"
-                                                            title="Accounts"
-                                                        >
-                                                            <span>Insert Sheets in parallel ?</span>
-                                                        </a>
-                                                    </h2>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input
-                                                        type="checkbox"
-                                                        className="slds-checkbox"
-                                                        ref="parallel"
-                                                        onChange={this.isParallelCheck.bind(this)}
-                                                    />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div className="slds-media__body">
-                                                    <h2 className="slds-card__header-title">
-                                                        <a
-                                                            href="javascript:void(0);"
-                                                            className="slds-card__header-link slds-truncate"
-                                                            title="Accounts"
-                                                        >
-                                                            <span>Sheets to Insert ?</span>
-                                                        </a>
-                                                    </h2>
-                                                </div>
-                                            </td>
-                                        </tr>
+                    <article className="slds-card slds-card__header slds-grid">
+                        <div className="slds-text-heading_large">
+                            Questions
+                        </div>
+                    </article>
+                    <table>
+                        <tr>
+                            <td>
+                                <article className="slds-card">
 
-                                        {rowsdv.map(value => (
+                                    <div className="slds-card__header slds-grid">
+                                        <table className="slds-table">
                                             <tr>
                                                 <td>
-                                                    <label className="slds-text-body_small">{value}</label>
+                                                    <div className="slds-media__body">
+                                                        <h2 className="slds-card__header-title">
+                                                            <a
+                                                                href="javascript:void(0);"
+                                                                className="slds-card__header-link slds-truncate"
+                                                                title="Accounts"
+                                                            >
+                                                                <span>Insert Sheets in parallel ?</span>
+                                                            </a>
+                                                        </h2>
+                                                    </div>
                                                 </td>
                                                 <td>
-                                                    <input
-                                                        type="checkbox"
-                                                        value={value}
-                                                        onChange={this.sheetsToInsertfn.bind(this)}
-                                                    />
+                                                    <div>
+                                                        <input
+                                                            type="checkbox"
+                                                            className="slds-checkbox"
+                                                            ref="parallel"
+                                                            onChange={this.isParallelCheck.bind(this)}
+                                                        />
+                                                    </div>
                                                 </td>
                                             </tr>
-                                        ))}
-                                    </table>
-                                </div>
-                            </article>
+                                            <tr>
+                                                <td>
+                                                    <div className="slds-media__body">
+                                                        <h2 className="slds-card__header-title">
+                                                            <a
+                                                                href="javascript:void(0);"
+                                                                className="slds-card__header-link slds-truncate"
+                                                                title="Accounts"
+                                                            >
+                                                                <span>Sheets to Insert ?</span>
+                                                            </a>
+                                                        </h2>
+                                                    </div>
+                                                </td>
+                                            </tr>
 
-
-                <ExpansionPanel>
-                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                        <Typography>
-                            <div className="slds-text-heading_large">
-                                Sequence the Upsert
-                            </div>
-                        </Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                                    <Typography>
+                                            {rowsdv.map(value => (
+                                                <tr>
+                                                    <td>
+                                                        <label className="slds-text-body_small">{value}</label>
+                                                    </td>
+                                                    <td>
+                                                        <input
+                                                            type="checkbox"
+                                                            value={value}
+                                                            onChange={this.sheetsToInsertfn.bind(this)}
+                                                        />
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </table>
+                                    </div>
+                                </article>
+                            </td>
+                            <td>
+                                <article className="slds-card slds-card__header slds-grid">
+                                    <div className="slds-text-heading_large">
+                                        Sequence the Upserts
+                                    </div>
+                                </article>
+                                <article className="slds-card slds-card__header slds-grid">
+                                    <div className="slds-text-heading_large">
                                         <ul ref='Sortable' opacity={"0.8"}>
                                             {shhetstoInsert.map(value => (
                                                 <li>
@@ -228,25 +200,23 @@ export default class FileuploadSection extends Reflux.Component {
                                                         <div className="slds-text-align_center "
                                                              style={{textAlign: "center"}}
                                                              ref="sortable">
-                                                                {value}
-                                                            </div>
+                                                            {value}
+                                                        </div>
                                                         <div className="slds-text-align_right">
-                                                                    <img src={arrow_down}
-                                                                         className="slds-icon slds-icon--right slds-icon_x-small"/>
-                                                                </div>
+                                                            <img src={arrow_down}
+                                                                 className="slds-icon slds-icon--right slds-icon_x-small"/>
+                                                        </div>
                                                     </article>
 
                                                 </li>
                                             ))}
 
                                         </ul>
-                                    </Typography>
-
-
-                    </ExpansionPanelDetails>
-                </ExpansionPanel>
-                <div>
-                </div>
+                                    </div>
+                                </article>
+                            </td>
+                        </tr>
+                    </table>
                 </article>
             </div>
         );
