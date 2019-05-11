@@ -191,7 +191,7 @@ export default class MappingTable extends Reflux.Component {
                                             External Id(Default is Id)
                                         </th>
                                     </tr>
-                                    {( this.state && this.state.objectMapping && Headers != undefined )
+                                    {( this.state && this.state.objectMapping && Headers[value] != undefined )
                                      ? Headers[value].map(val => (
                                                 <tr>
                                                 <td>
