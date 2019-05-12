@@ -103,6 +103,8 @@ export default class FileuploadSection extends Reflux.Component {
         }
         return (
             <div>
+
+
                 <input
                     type="button"
                     value="Proceed to Object Mapping"
