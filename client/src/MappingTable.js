@@ -67,7 +67,7 @@ export default class MappingTable extends Reflux.Component {
     }
 
     callupsertAccordingly(objectName, ExternalId, JsonString) {
-
+        console.log('The data to be upserted', JsonString);
         axios
             .post("/api/objectUpsert", {
                 sessiontok  : this.state.sessiontok,
