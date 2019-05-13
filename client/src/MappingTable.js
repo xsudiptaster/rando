@@ -75,7 +75,7 @@ export default class MappingTable extends Reflux.Component {
                 objectName  : objectName,
                 ExternalName: ExternalId,
                 dataToUpsert: JsonString
-            })
+            }, {timeout: 50000})
             .then(response => {
                 console.log('The upsert is successfull');
             })
