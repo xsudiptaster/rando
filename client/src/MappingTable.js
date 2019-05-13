@@ -9,6 +9,7 @@ import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import CircularProgress      from "@material-ui/core/CircularProgress";
 import $                     from 'jquery'
 import XLSX                  from 'xlsx';
+import axios                 from 'axios'
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -57,11 +58,33 @@ export default class MappingTable extends Reflux.Component {
     onClickUpsert() {
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
-                var jsonstr = this.createTheRequestJson(this.state.sheetsToInsert[i]);
-                console.log('The JSon Create', jsonstr);
+                var sheetName = this.state.sheetsToInsert[i];
+                var jsonstr = this.createTheRequestJson(sheetName);
+                this.callupsertAccordingly(this.state.objectMapping[sheetName].ObjectName,
+                                           this.state.objectMapping[sheetName].ExtFromObject, jsonstr);
             }
         }
+    }
 
+    callupsertAccordingly(objectName, ExternalId, JsonString) {
+
+        axios
+            .post("/api/objectUpsert", {
+                sessiontok  : this.state.sessiontok,
+                oUrl        : this.state.instanceUrl,
+                objectName  : objectName,
+                ExternalName: ExternalId,
+                dataToUpsert: JsonString
+            })
+            .then(response => {
+                console.log('The upsert is successfull');
+            })
+            .catch(error => {
+                this.state.errorMessage = error;
+                this.state.errorModal = {height: '14rem', display: 'block'};
+                ContentReviewerActions.setvalparam('showProgress', false);
+                ContentReviewerActions.stateupdates(this.state);
+            });
     }
 
     createTheRequestJson(SheetName) {
