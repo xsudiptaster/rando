@@ -55,11 +55,10 @@ export default class MappingTable extends Reflux.Component {
     }
 
     onClickUpsert() {
-        console.log('The state si', this.state);
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var jsonstr = this.createTheRequestJson(this.state.sheetsToInsert[i]);
-                console.log('The Console Jason', jsonstr);
+                console.log('The JSon Create', jsonstr);
             }
         }
 
@@ -72,7 +71,6 @@ export default class MappingTable extends Reflux.Component {
             var listData = [];
             var headerMapped = Object.keys(sheetParam.sheetObjectFields);
             var JsonSheet = XLSX.utils.sheet_to_json(this.state.workbook.Sheets[SheetName]);
-            console.log('The JsonSheet', JsonSheet);
             for (var k = 0; k < JsonSheet.length; k++) {
                 var obj = {};
                 for (var i = 0; i < headerMapped.length; i++) {
@@ -125,7 +123,6 @@ export default class MappingTable extends Reflux.Component {
             for (var l = 0; l < panls.length; l++) {
                 if (( this.state.objectMapping[panls[l]].ExtFromSheet !=
                     "" && this.state.objectMapping[panls[l]].ExtFromSheet != undefined )) {
-                    console.log('The avlue Just Ahead is', this.state.objectMapping[panls[l]].ExtFromSheet);
                     Headers[panls[l]] = this.state.objectMapping[panls[l]].sheetHeaders;
 
                     Headers[panls[l]].splice(
