@@ -12,7 +12,7 @@
     "flatted": "^2.0.0",
     "jquery": "^3.4.0",
     "jquery-ui": "^1.12.1",
-    "jsforce": "^1.9.1",
+    "jsforce": "git+https://github.com/xsudiptaster/jsforce.git",
     "npm": "^6.9.0",
     "password-generator": "^2.1.0",
     "read-excel-file": "^2.0.10",

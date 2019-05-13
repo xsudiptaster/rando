@@ -67,7 +67,6 @@ export default class MappingTable extends Reflux.Component {
     }
 
     callupsertAccordingly(objectName, ExternalId, JsonString) {
-        console.log('The data to be upserted', JsonString);
         axios
             .post("/api/objectUpsert", {
                 sessiontok  : this.state.sessiontok,
@@ -86,7 +85,6 @@ export default class MappingTable extends Reflux.Component {
                 ContentReviewerActions.stateupdates(this.state);
             });
     }
-
     createTheRequestJson(SheetName) {
         if (this.state.objectMapping != undefined) {
             var sheetParam = this.state.objectMapping[SheetName];
@@ -113,6 +111,7 @@ export default class MappingTable extends Reflux.Component {
                         }
 
                     }
+
                 }
                 obj[sheetParam.ExtFromObject] = JsonSheet[k][sheetParam.ExtFromSheet];
                 listData.push(obj);
