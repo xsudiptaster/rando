@@ -85,7 +85,7 @@ app.post("/api/objectUpsert", function (req, res) {
     console.log('The ObjectName', req.body.objectName);
     jsobj.sobject(objectName).upsert(dataToUpsert, externalId, {allowRecursive: true}, function (err, response) {
     if (err) {
-        console.log('The Error is ', err);
+        console.log('The Error is this ', err);
         req.send('Error');
     }
     res.send(( JSON.stringify(response) ));
