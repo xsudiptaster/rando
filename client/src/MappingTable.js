@@ -67,6 +67,7 @@ export default class MappingTable extends Reflux.Component {
     }
 
     callupsertAccordingly(objectName, ExternalId, JsonString) {
+        console.log('The Json String', JsonString);
         axios
             .post("/api/objectUpsert", {
                 sessiontok  : this.state.sessiontok,
@@ -116,6 +117,7 @@ export default class MappingTable extends Reflux.Component {
                 obj[sheetParam.ExtFromObject] = JsonSheet[k][sheetParam.ExtFromSheet];
                 listData.push(obj);
             }
+            console.log('The Hson Created', listData);
             return JSON.stringify(listData);
         }
     }
