@@ -114,6 +114,7 @@ export default class MappingTable extends Reflux.Component {
 
                     }
                 }
+                obj[sheetParam.ExtFromObject] = JsonSheet[k][sheetParam.ExtFromSheet];
                 listData.push(obj);
             }
             return JSON.stringify(listData);
