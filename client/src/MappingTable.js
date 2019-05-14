@@ -58,18 +58,20 @@ export default class MappingTable extends Reflux.Component {
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var sheetName = this.state.sheetsToInsert[i];
-                this.callforSingleRecordUpsert(0, sheetName);
+                this.callforSingleRecordUpsert(this.state.objectMapping[sheetName].sheetUpsertCalled, sheetName);
             }
+        }
+        else {
+
         }
     }
 
     callforSingleRecordUpsert(recordIndex, SheetName) {
-        if (recordIndex < this.state.objectMapping[SheetName]) {
+        if (recordIndex < this.state.objectMapping[SheetName].sheetDataJsonList.length) {
             var JsonString = this.createTheRequestJson(recordIndex, SheetName);
+            this.state.objectMapping[sheetName].sheetUpsertCalled++;
             console.log('The JsonString', JsonString);
         }
-
-
     }
 
     callupsertAccordingly(SheetName, JsonString) {
