@@ -23,7 +23,7 @@ export default class ObjectMapping extends Reflux.Component {
                     this.state.workbook.Sheets[first_sheet_name]
                 );
                 console.log('The WOrksheet is ',
-                            XLSX.utils.sheet_to_row_object_array(workbook.Sheets[first_sheet_name]));
+                            XLSX.utils.sheet_to_row_object_array(this.state.workbook.Sheets[first_sheet_name]));
 
                 this.state.objectMapping[
                     Object.keys(this.state.objectMapping)[i]
