@@ -78,6 +78,12 @@ export default class FileuploadSection extends Reflux.Component {
                     this.state.sheetsToInsert[i]
                     ].sheetDataJsonList =
                     XLSX.utils.sheet_to_json(this.state.workbook.Sheets[this.state.sheetsToInsert[i]]);
+                this.state.objectMapping[
+                    this.state.sheetsToInsert[i]
+                    ].sheetUpsertCalled = 0;
+                this.state.objectMapping[
+                    this.state.sheetsToInsert[i]
+                    ].sheetUpsertCompleted = 0;
             }
         }
         else {

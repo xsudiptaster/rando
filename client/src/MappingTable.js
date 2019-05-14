@@ -8,7 +8,6 @@ import Typography            from '@material-ui/core/Typography';
 import ExpandMoreIcon        from '@material-ui/icons/ExpandMore';
 import CircularProgress      from "@material-ui/core/CircularProgress";
 import $                     from 'jquery'
-import XLSX                  from 'xlsx';
 import axios                 from 'axios'
 
 var Reflux = require("reflux");
@@ -59,66 +58,66 @@ export default class MappingTable extends Reflux.Component {
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var sheetName = this.state.sheetsToInsert[i];
-                var jsonstr = this.createTheRequestJson(sheetName);
-                this.callupsertAccordingly(this.state.objectMapping[sheetName].ObjectName,
-                                           this.state.objectMapping[sheetName].ExtFromObject, jsonstr);
+                this.callforSingleRecordUpsert(0, sheetName);
             }
         }
     }
 
-    callforSingleRecord(recordIndex, objectName, ExternalId) {
+    callforSingleRecordUpsert(recordIndex, SheetName) {
+        if (recordIndex < this.state.objectMapping[SheetName]) {
+            var JsonString = this.createTheRequestJson(recordIndex, SheetName);
+            console.log('The JsonString', JsonString);
+        }
+
 
     }
-    callupsertAccordingly(objectName, ExternalId, JsonString) {
+
+    callupsertAccordingly(SheetName, JsonString) {
         axios
             .post("/api/objectUpsert", {
                 sessiontok  : this.state.sessiontok,
                 oUrl        : this.state.instanceUrl,
-                objectName  : objectName,
-                ExternalName: ExternalId,
+                objectName  : this.state.objectMapping[SheetName].ObjectName,
+                ExternalName: this.state.objectMapping[SheetName].ExtFromObject,
                 dataToUpsert: JsonString
             }, {timeout: 50000})
             .then(response => {
-                console.log('The upsert is ', response);
+
             })
             .catch(error => {
-                /*    this.state.errorMessage = error;
-                this.state.errorModal = {height: '14rem', display: 'block'};
-                ContentReviewerActions.setvalparam('showProgress', false);
-                 ContentReviewerActions.stateupdates(this.state);*/
+
             });
     }
-    createTheRequestJson(SheetName) {
+
+    createTheRequestJson(indexRecord, SheetName) {
         if (this.state.objectMapping != undefined) {
             var sheetParam = this.state.objectMapping[SheetName];
             var JsonBuilt = {};
             var listData = [];
             var headerMapped = Object.keys(sheetParam.sheetObjectFields);
-            var JsonSheet = XLSX.utils.sheet_to_json(this.state.workbook.Sheets[SheetName]);
-            for (var k = 0; k < JsonSheet.length; k++) {
-                var obj = {};
-                for (var i = 0; i < headerMapped.length; i++) {
-                    var stateHeaderObject = sheetParam.sheetObjectFields[headerMapped[i]];
-                    if (stateHeaderObject.FieldName != undefined &&
-                        stateHeaderObject.FieldName != "") {
-                        if (stateHeaderObject.RelationName != undefined && stateHeaderObject.RelationName != "" &&
-                            stateHeaderObject.ExterId != undefined && stateHeaderObject.ExterId != "") {
-                            var InnerObj = {};
-                            InnerObj[sheetParam.sheetObjectFields[headerMapped[i]].ExterId] =
-                                JsonSheet[k][headerMapped[i]];
-                            obj[sheetParam.sheetObjectFields[headerMapped[i]].RelationName] = InnerObj;
-                        }
-                        else {
-                            obj[sheetParam.sheetObjectFields[headerMapped[i]].FieldName] =
-                                JsonSheet[k][headerMapped[i]];
-                        }
-
+            var JsonSheet = sheetParam.sheetDataJsonList[indexRecord];
+            var obj = {};
+            for (var i = 0; i < headerMapped.length; i++) {
+                var stateHeaderObject = sheetParam.sheetObjectFields[headerMapped[i]];
+                if (stateHeaderObject.FieldName != undefined &&
+                    stateHeaderObject.FieldName != "") {
+                    if (stateHeaderObject.RelationName != undefined && stateHeaderObject.RelationName != "" &&
+                        stateHeaderObject.ExterId != undefined && stateHeaderObject.ExterId != "") {
+                        var InnerObj = {};
+                        InnerObj[sheetParam.sheetObjectFields[headerMapped[i]].ExterId] =
+                            JsonSheet[headerMapped[i]];
+                        obj[sheetParam.sheetObjectFields[headerMapped[i]].RelationName] = InnerObj;
+                    }
+                    else {
+                        obj[sheetParam.sheetObjectFields[headerMapped[i]].FieldName] =
+                            JsonSheet[headerMapped[i]];
                     }
 
                 }
-                obj[sheetParam.ExtFromObject] = JsonSheet[k][sheetParam.ExtFromSheet];
-                listData.push(obj);
+
             }
+            obj[sheetParam.ExtFromObject] = JsonSheet[k][sheetParam.ExtFromSheet];
+            listData.push(obj);
             console.log('The Hson Created', listData);
             return JSON.stringify(listData);
         }
