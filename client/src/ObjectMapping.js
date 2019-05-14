@@ -26,7 +26,7 @@ export default class ObjectMapping extends Reflux.Component {
                 });
                 this.state.objectMapping[
                     Object.keys(this.state.objectMapping)[i]
-                    ].sheetHeaders = Object.keys(sheetData[0]);
+                    ].sheetHeaders = ( sheetData[0] );
             }
         }
     }
