@@ -28,12 +28,9 @@ export default class ObjectMapping extends Reflux.Component {
                     defval   : '',
                     blankrows: true
                 });
-                console.log('The WOrksheet is ',
-                            sheetData);
-
                 this.state.objectMapping[
                     Object.keys(this.state.objectMapping)[i]
-                    ].sheetHeaders = Object.keys(worksheet[0]);
+                    ].sheetHeaders = Object.keys(sheetData[0]);
             }
         }
     }
