@@ -81,7 +81,7 @@ app.post("/api/objectUpsert", function (req, res) {
   jsobj.accessToken = req.body.sessiontok;
   var objectName = req.body.objectName;
   var externalId = req.body.ExternalName;
-  var dataToUpsert = req.body.dataToUpsert;
+    var dataToUpsert = JSON.parse(req.body.dataToUpsert);
   console.log('The data To Insert', dataToUpsert);
     jsobj.sobject(objectName).upsert(dataToUpsert, externalId, {allowRecursive: true}, function (err, response) {
     if (err) {
