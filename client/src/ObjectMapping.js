@@ -32,7 +32,6 @@ export default class ObjectMapping extends Reflux.Component {
     }
 
     onchangeObjectSelection(val, event) {
-
         this.state.objectMapping[val].ObjectName = event.target.value;
         ContentReviewerActions.stateupdates(this.state);
         if (this.state == undefined || this.state.ObjectDesb == undefined ||
