@@ -23,7 +23,7 @@ export default class ObjectMapping extends Reflux.Component {
                     this.state.workbook.Sheets[first_sheet_name]
                 );
 
-                let sheetData = xlsx.utils.sheet_to_json(this.state.workbook.Sheets[first_sheet_name], {
+                var sheetData = xlsx.utils.sheet_to_json(this.state.workbook.Sheets[first_sheet_name], {
                     header   : 1,
                     defval   : '',
                     blankrows: true
