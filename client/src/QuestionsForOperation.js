@@ -5,6 +5,7 @@ import arrow_up   from "./lightning-design/icons/utility/arrowup_60.png"
 import arrow_down from "./lightning-design/icons/utility/arrowdown_60.png"
 import $          from 'jquery'
 import 'jquery-ui/ui/widgets/sortable'
+import XLSX       from 'xlsx';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -73,6 +74,10 @@ export default class FileuploadSection extends Reflux.Component {
                 this.state.objectMapping[
                     this.state.sheetsToInsert[i]
                     ].sheetObjectFields = [];
+                this.state.objectMapping[
+                    this.state.sheetsToInsert[i]
+                    ].sheetDataJsonList =
+                    XLSX.utils.sheet_to_json(this.state.workbook.Sheets[this.state.sheetsToInsert[i]]);
             }
         }
         else {

@@ -66,8 +66,10 @@ export default class MappingTable extends Reflux.Component {
         }
     }
 
+    callforSingleRecord(recordIndex, objectName, ExternalId) {
+
+    }
     callupsertAccordingly(objectName, ExternalId, JsonString) {
-        console.log('The Json String', JsonString);
         axios
             .post("/api/objectUpsert", {
                 sessiontok  : this.state.sessiontok,
@@ -80,10 +82,10 @@ export default class MappingTable extends Reflux.Component {
                 console.log('The upsert is ', response);
             })
             .catch(error => {
-                this.state.errorMessage = error;
+                /*    this.state.errorMessage = error;
                 this.state.errorModal = {height: '14rem', display: 'block'};
                 ContentReviewerActions.setvalparam('showProgress', false);
-                ContentReviewerActions.stateupdates(this.state);
+                 ContentReviewerActions.stateupdates(this.state);*/
             });
     }
     createTheRequestJson(SheetName) {
