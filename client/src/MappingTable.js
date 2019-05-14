@@ -54,17 +54,6 @@ export default class MappingTable extends Reflux.Component {
         ContentReviewerActions.stateupdates(this.state);
     }
 
-    callforSingleRecordUpsert(SheetName) {
-        if (this.state.objectMapping[SheetName].sheetUpsertCalled <
-            this.state.objectMapping[SheetName].sheetDataJsonList.length) {
-            var JsonString = this.createTheRequestJson(this.state.objectMapping[SheetName].sheetUpsertCalled,
-                                                       SheetName);
-            this.callupsertAccordingly(SheetName, JsonString);
-            this.state.objectMapping[SheetName].sheetUpsertCalled++;
-            console.log('The JsonString', JsonString);
-        }
-    }
-
     onClickUpsert() {
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
@@ -76,6 +65,19 @@ export default class MappingTable extends Reflux.Component {
 
         }
     }
+
+    callforSingleRecordUpsert(SheetName) {
+        if (this.state.objectMapping[SheetName].sheetUpsertCalled <
+            this.state.objectMapping[SheetName].sheetDataJsonList.length) {
+            var JsonString = this.createTheRequestJson(this.state.objectMapping[SheetName].sheetUpsertCalled,
+                                                       SheetName);
+            this.callupsertAccordingly(SheetName, JsonString);
+            this.state.objectMapping[SheetName].sheetUpsertCalled++;
+            console.log('The JsonString', JsonString);
+        }
+    }
+
+
     callupsertAccordingly(SheetName, JsonString) {
         axios
             .post("/api/objectUpsert", {
