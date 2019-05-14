@@ -49,6 +49,7 @@ export default class MappingTable extends Reflux.Component {
         }
         ContentReviewerActions.stateupdates(this.state);
     }
+
     mapfieldWhenExternalId(SheetName, SheetHeader, ev) {
         this.state.objectMapping[SheetName].sheetObjectFields[SheetHeader]["ExterId"] = ev.target.value;
         ContentReviewerActions.stateupdates(this.state);
@@ -57,8 +58,8 @@ export default class MappingTable extends Reflux.Component {
     onClickUpsert() {
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
-                var sheetName = this.state.sheetsToInsert[i];
-                this.callforSingleRecordUpsert(this.state.objectMapping[sheetName].sheetUpsertCalled, sheetName);
+                var SheetName = this.state.sheetsToInsert[i];
+                this.callforSingleRecordUpsert(SheetName);
             }
         }
         else {
