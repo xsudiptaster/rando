@@ -69,6 +69,7 @@ export default class MappingTable extends Reflux.Component {
     callforSingleRecordUpsert(recordIndex, SheetName) {
         if (recordIndex < this.state.objectMapping[SheetName].sheetDataJsonList.length) {
             var JsonString = this.createTheRequestJson(recordIndex, SheetName);
+            this.callupsertAccordingly(SheetName, JsonString);
             this.state.objectMapping[SheetName].sheetUpsertCalled++;
             console.log('The JsonString', JsonString);
         }
@@ -84,7 +85,7 @@ export default class MappingTable extends Reflux.Component {
                 dataToUpsert: JsonString
             }, {timeout: 50000})
             .then(response => {
-
+                callforSingleRecordUpsert(this.state.objectMapping[SheetName].sheetUpsertCalled, SheetName);
             })
             .catch(error => {
 
