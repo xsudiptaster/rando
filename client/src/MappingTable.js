@@ -116,7 +116,7 @@ export default class MappingTable extends Reflux.Component {
                 }
 
             }
-            obj[sheetParam.ExtFromObject] = JsonSheet[k][sheetParam.ExtFromSheet];
+            obj[sheetParam.ExtFromObject] = JsonSheet[sheetParam.ExtFromSheet];
             listData.push(obj);
             console.log('The Hson Created', listData);
             return JSON.stringify(listData);
