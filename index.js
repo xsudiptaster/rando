@@ -88,7 +88,7 @@ app.post("/api/objectUpsert", function (req, res) {
         console.log('The Error is this ', err);
       res.send('Error');
     }
-    res.send(( JSON.stringify(response) ));
+      console.res.send(( JSON.stringify(response) ));
   });
   // Return them as json
 });
