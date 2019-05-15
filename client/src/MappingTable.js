@@ -59,7 +59,7 @@ export default class MappingTable extends Reflux.Component {
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var SheetName = this.state.sheetsToInsert[i];
-                this.callforSingleRecordUpsert(SheetName);
+                this.callforSingleRecordUpsert(this.state.objectMapping[SheetName].sheetUpsertCalled, SheetName);
             }
         }
         else {
@@ -67,8 +67,8 @@ export default class MappingTable extends Reflux.Component {
         }
     }
 
-    callforSingleRecordUpsert(SheetName) {
-        if (this.state.objectMapping[SheetName].sheetUpsertCalled <
+    callforSingleRecordUpsert(recordNumber, SheetName) {
+        if (recordNumber <
             this.state.objectMapping[SheetName].sheetDataJsonList.length) {
             var JsonString = this.createTheRequestJson(this.state.objectMapping[SheetName].sheetUpsertCalled,
                                                        SheetName);
