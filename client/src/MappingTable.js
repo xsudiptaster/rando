@@ -93,9 +93,10 @@ export default class MappingTable extends Reflux.Component {
             .then(response => {
                 if (!response.data[0].success) {
                     this.state.ErrorLog[SheetName].push(response.data[0].errors[0].message);
+
                 }
-                console.log('The Response', this.state.ErrorLog);
-                //this.callforSingleRecordUpsert(SheetName);
+                this.state.objectMapping[SheetName].sheetUpsertCompleted++;
+                this.callforSingleRecordUpsert(SheetName);
             })
             .catch(error => {
                 console.log('The Error', error);
