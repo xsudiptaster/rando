@@ -90,7 +90,9 @@ export default class MappingTable extends Reflux.Component {
                 dataToUpsert: JsonString
             }, {timeout: 50000})
             .then(response => {
-                this.state.ErrorLog.push(response.success);
+                if (!response.data[0].success) {
+                    this.state.ErrorLog.push(response.data[0].error[0].message);
+                }
                 console.log('The Response', this.state.ErrorLog);
                 //this.callforSingleRecordUpsert(SheetName);
             })
