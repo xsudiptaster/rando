@@ -56,6 +56,7 @@ export default class MappingTable extends Reflux.Component {
     }
 
     onClickUpsert() {
+        this.state.ErrorLog = [];
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var SheetName = this.state.sheetsToInsert[i];
@@ -89,7 +90,8 @@ export default class MappingTable extends Reflux.Component {
                 dataToUpsert: JsonString
             }, {timeout: 50000})
             .then(response => {
-                console.log('The Response', response);
+                this.state.ErrorLog.push(response.success);
+                console.log('The Response', this.state.ErrorLog);
                 //this.callforSingleRecordUpsert(SheetName);
             })
             .catch(error => {
@@ -166,8 +168,7 @@ export default class MappingTable extends Reflux.Component {
 
         }
         if (this.state && this.state.ObjectDesb != undefined) {
-            objdesbs = this.state.ObjectDesb
-
+            objdesbs = this.state.ObjectDesb;
         }
         if (this.state && this.state.ObjectDesb != undefined) {
             for (var i = 0; i < Object.keys(this.state.ObjectDesb).length; i++) {
