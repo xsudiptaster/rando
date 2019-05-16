@@ -56,10 +56,11 @@ export default class MappingTable extends Reflux.Component {
     }
 
     onClickUpsert() {
-        this.state.ErrorLog = [];
+        this.state.ErrorLog = {};
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var SheetName = this.state.sheetsToInsert[i];
+                this.state.ErrorLog[SheetName] = [];
                 this.callforSingleRecordUpsert(this.state.objectMapping[SheetName].sheetUpsertCalled, SheetName);
             }
         }
@@ -91,7 +92,7 @@ export default class MappingTable extends Reflux.Component {
             }, {timeout: 50000})
             .then(response => {
                 if (!response.data[0].success) {
-                    this.state.ErrorLog.push(response.data[0].errors[0].message);
+                    this.state.ErrorLog[SheetName].push(response.data[0].errors[0].message);
                 }
                 console.log('The Response', this.state.ErrorLog);
                 //this.callforSingleRecordUpsert(SheetName);
