@@ -61,7 +61,7 @@ export default class MappingTable extends Reflux.Component {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var SheetName = this.state.sheetsToInsert[i];
                 this.state.ErrorLog[SheetName] = [];
-                this.callforSingleRecordUpsert(this.state.objectMapping[SheetName].sheetUpsertCalled, SheetName);
+                this.callforSingleRecordUpsert(SheetName);
             }
         }
         else {
