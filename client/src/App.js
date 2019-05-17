@@ -81,6 +81,9 @@ class App extends Reflux.Component {
                         <div style={this.state.objectmappingtable}>
                             <MappingTable/>
                         </div>
+                        <div style={this.state.finalupsertresult}>
+                            <MappingTable/>
+                        </div>
                     </div>
                     <div className="slds-col slds-size_1-of-5">
                         <span></span>
