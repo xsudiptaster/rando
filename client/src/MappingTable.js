@@ -70,7 +70,7 @@ export default class MappingTable extends Reflux.Component {
     }
 
     callforSingleRecordUpsert(recordNumber, SheetName) {
-        if (recordNumber <
+        if (this.state.objectMapping[SheetName] != undefined && recordNumber <
             this.state.objectMapping[SheetName].sheetDataJsonList.length) {
             var JsonString = this.createTheRequestJson(this.state.objectMapping[SheetName].sheetUpsertCalled,
                                                        SheetName);
