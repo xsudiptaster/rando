@@ -119,6 +119,7 @@ export default class MappingTable extends Reflux.Component {
                 }
                 this.state.objectMapping[SheetName].sheetUpsertCompleted++;
                 this.state.objectMapping[SheetName].sheetUpsertCalled++;
+                ContentReviewerActions.stateupdates(this.state);
                 this.callforSingleRecordUpsert(SheetName);
 
             })
