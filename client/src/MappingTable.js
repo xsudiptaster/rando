@@ -69,13 +69,12 @@ export default class MappingTable extends Reflux.Component {
         }
     }
 
-    callforSingleRecordUpsert(recordNumber, SheetName) {
-        if (this.state.objectMapping[SheetName] != undefined && recordNumber <
+    callforSingleRecordUpsert(SheetName) {
+        if (this.state.objectMapping[SheetName].sheetUpsertCalled <
             this.state.objectMapping[SheetName].sheetDataJsonList.length) {
             var JsonString = this.createTheRequestJson(this.state.objectMapping[SheetName].sheetUpsertCalled,
                                                        SheetName);
             this.callupsertAccordingly(SheetName, JsonString);
-            this.state.objectMapping[SheetName].sheetUpsertCalled++;
             console.log('The JsonString', JsonString);
         }
     }
@@ -93,9 +92,10 @@ export default class MappingTable extends Reflux.Component {
             .then(response => {
                 if (!response.data[0].success) {
                     this.state.ErrorLog[SheetName].push(response.data[0].errors[0].message);
-
                 }
+                console.log();
                 this.state.objectMapping[SheetName].sheetUpsertCompleted++;
+                this.state.objectMapping[SheetName].sheetUpsertCalled++;
                 this.callforSingleRecordUpsert(SheetName);
             })
             .catch(error => {
