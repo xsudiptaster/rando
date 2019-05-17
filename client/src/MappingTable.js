@@ -83,7 +83,6 @@ export default class MappingTable extends Reflux.Component {
             this.state.SheetInsertIndex++;
             if (this.state.sheetsToInsert[this.state.SheetInsertIndex] != undefined) {
                 var SheetName = this.state.sheetsToInsert[this.state.SheetInsertIndex];
-                console.log('Sheet Insert Called For', SheetName);
                 this.callforSingleRecordUpsert(SheetName);
             }
         }
@@ -103,6 +102,7 @@ export default class MappingTable extends Reflux.Component {
 
 
     callupsertAccordingly(SheetName, JsonString) {
+        console.log('Sheet Call Sequence', SheetName);
         axios
             .post("/api/objectUpsert", {
                 sessiontok  : this.state.sessiontok,
