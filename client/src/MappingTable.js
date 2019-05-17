@@ -62,13 +62,15 @@ export default class MappingTable extends Reflux.Component {
                 var SheetName = this.state.sheetsToInsert[i];
                 this.state.ErrorLog[SheetName] = [];
                 this.callforSingleRecordUpsert(SheetName);
+                console.log('The SheetCalled', SheetName);
 
             }
         }
         else {
+            var sheetindexCalled = 0;
 
         }
-        console.log('The Error Log', this.state);
+
     }
 
     callforSingleRecordUpsert(SheetName) {
@@ -132,7 +134,6 @@ export default class MappingTable extends Reflux.Component {
             }
             obj[sheetParam.ExtFromObject] = JsonSheet[sheetParam.ExtFromSheet];
             listData.push(obj);
-            console.log('The Hson Created', listData);
             return JSON.stringify(listData);
         }
     }
