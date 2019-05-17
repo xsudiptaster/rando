@@ -71,7 +71,6 @@ export default class ObjectMapping extends Reflux.Component {
         this.state.objectmappingtable = {
             display: "block"
         };
-        console.log('This Sate Now', this.state);
         ContentReviewerActions.stateupdates(this.state);
     }
 

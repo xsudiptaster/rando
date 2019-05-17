@@ -80,6 +80,9 @@ export default class MappingTable extends Reflux.Component {
                                                        SheetName);
             this.callupsertAccordingly(SheetName, JsonString);
         }
+        else {
+            console.log('This State', this.state);
+        }
     }
 
 
