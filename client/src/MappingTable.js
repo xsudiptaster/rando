@@ -70,6 +70,7 @@ export default class MappingTable extends Reflux.Component {
             this.state.SheetInsertIndex = 0;
             if (this.state.sheetsToInsert[this.state.SheetInsertIndex] != undefined) {
                 var SheetName = this.state.sheetsToInsert[this.state.SheetInsertIndex];
+                this.state.ErrorLog[SheetName] = [];
                 this.callforSingleRecordUpsert(SheetName);
             }
 
@@ -83,6 +84,7 @@ export default class MappingTable extends Reflux.Component {
             this.state.SheetInsertIndex++;
             if (this.state.sheetsToInsert[this.state.SheetInsertIndex] != undefined) {
                 var SheetName = this.state.sheetsToInsert[this.state.SheetInsertIndex];
+                this.state.ErrorLog[SheetName] = [];
                 this.callforSingleRecordUpsert(SheetName);
             }
         }
