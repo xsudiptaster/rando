@@ -93,7 +93,7 @@ export default class MappingTable extends Reflux.Component {
                 if (!response.data[0].success) {
                     this.state.ErrorLog[SheetName].push(response.data[0].errors[0].message);
                 }
-                console.log();
+                console.log('The Respopnse data', response);
                 this.state.objectMapping[SheetName].sheetUpsertCompleted++;
                 this.state.objectMapping[SheetName].sheetUpsertCalled++;
                 this.callforSingleRecordUpsert(SheetName);
