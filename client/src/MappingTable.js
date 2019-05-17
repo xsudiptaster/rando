@@ -67,12 +67,28 @@ export default class MappingTable extends Reflux.Component {
             }
         }
         else {
-            var sheetindexCalled = 0;
+            this.state.SheetInsertIndex = 0;
+            if (this.state.sheetsToInsert[this.state.SheetInsertIndex] != undefined) {
+                var SheetName = this.state.sheetsToInsert[this.state.SheetInsertIndex];
+                this.callforSingleRecordUpsert(SheetName);
+            }
 
         }
 
     }
 
+    callNextSheetInsert(SheetName) {
+        if (this.state.objectMapping[SheetName].sheetUpsertCalled =
+            this.state.objectMapping[SheetName].sheetDataJsonList.length) {
+            this.state.SheetInsertIndex++;
+            if (this.state.sheetsToInsert[this.state.SheetInsertIndex] != undefined) {
+                var SheetName = this.state.sheetsToInsert[this.state.SheetInsertIndex];
+                console.log('Sheet Insert Called For', SheetName);
+                this.callforSingleRecordUpsert(SheetName);
+            }
+        }
+
+    }
     callforSingleRecordUpsert(SheetName) {
         if (this.state.objectMapping[SheetName].sheetUpsertCalled <
             this.state.objectMapping[SheetName].sheetDataJsonList.length) {
@@ -80,8 +96,8 @@ export default class MappingTable extends Reflux.Component {
                                                        SheetName);
             this.callupsertAccordingly(SheetName, JsonString);
         }
-        else {
-            console.log('This State', this.state);
+        else if (!this.state.isParallel) {
+            this.callNextSheetInsert(SheetName);
         }
     }
 
@@ -102,6 +118,7 @@ export default class MappingTable extends Reflux.Component {
                 this.state.objectMapping[SheetName].sheetUpsertCompleted++;
                 this.state.objectMapping[SheetName].sheetUpsertCalled++;
                 this.callforSingleRecordUpsert(SheetName);
+
             })
             .catch(error => {
                 console.log('The Error', error);
