@@ -57,7 +57,7 @@ export default class MappingTable extends Reflux.Component {
 
     onClickUpsert() {
         this.state.ErrorLog = {};
-        this.state.objectmappingdisplay = {display: "none"};
+        this.state.objectmappingtable = {display: "none"};
         this.state.finalupsertresult = {display: "block"};
         ContentReviewerActions.stateupdates(this.state);
         console.log('The Upsert called', this.state);
