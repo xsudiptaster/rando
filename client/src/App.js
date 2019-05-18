@@ -7,7 +7,7 @@ import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
 import Headerdisplay         from "./Headerdisplay";
-import statusResult          from "./statusResult";
+import StatusResult          from "./StatusResult";
 import CircularProgress      from '@material-ui/core/CircularProgress';
 import Modal                 from '@material-ui/core/Modal'
 
@@ -84,7 +84,7 @@ class App extends Reflux.Component {
                         </div>
                         <div style={this.state.finalupsertresult}>
                             hello
-                            <statusResult/>
+                            <StatusResult/>
                         </div>
                     </div>
                     <div className="slds-col slds-size_1-of-5">
