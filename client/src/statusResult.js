@@ -19,18 +19,25 @@ export default class statusResult extends Reflux.Component {
     }
 
     render() {
+        var SheetNames = [];
+        if (this.state.sheetsToInsert != undefined) {
+            SheetNames = this.state.sheetsToInsert
+        }
         return (
             <div>
-                <ExpansionPanel>
-                    <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                        <Typography>
-                            Status Update
-                        </Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
+                {SheetNames.map(value => (
+                    <ExpansionPanel>
+                        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+                            <Typography>
+                                {value}
+                            </Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
 
-                    </ExpansionPanelDetails>
-                </ExpansionPanel>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
+                ))}
+
             </div>
         );
     }
