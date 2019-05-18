@@ -59,6 +59,7 @@ export default class MappingTable extends Reflux.Component {
         this.state.ErrorLog = {};
         this.state.objectmappingdisplay = {display: "none"};
         this.state.finalupsertresult = {display: "block"};
+        console.log('The Upsert called', this.state);
         if (this.state.isParallel) {
             for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
                 var SheetName = this.state.sheetsToInsert[i];
