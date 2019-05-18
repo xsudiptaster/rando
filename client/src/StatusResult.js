@@ -20,7 +20,7 @@ export default class StatusResult extends Reflux.Component {
 
     render() {
         var SheetNames = [];
-        if (this.state.sheetsToInsert != undefined) {
+        if (this.state != undefined && this.state.sheetsToInsert != undefined) {
             SheetNames = this.state.sheetsToInsert
         }
         return (
