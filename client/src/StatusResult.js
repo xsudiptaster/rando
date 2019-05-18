@@ -43,7 +43,8 @@ export default class StatusResult extends Reflux.Component {
                                 {value}
                             </Typography>
                             <LinearProgress variant="buffer" value={this.getValueCalculated(value)}
-                                            valueBuffer={this.getValueCalculated(value)}/>
+                                            valueBuffer={this.getValueCalculated(value)}
+                                            style={{width: "1000px !important"}}/>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
 
