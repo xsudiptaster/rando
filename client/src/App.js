@@ -7,6 +7,7 @@ import QuestionsForOperation from "./QuestionsForOperation";
 import ObjectMapping         from "./ObjectMapping";
 import MappingTable          from "./MappingTable";
 import Headerdisplay         from "./Headerdisplay";
+import statusResult          from "./statusResult";
 import CircularProgress      from '@material-ui/core/CircularProgress';
 import Modal                 from '@material-ui/core/Modal'
 
