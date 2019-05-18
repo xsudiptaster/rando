@@ -82,7 +82,7 @@ class App extends Reflux.Component {
                             <MappingTable/>
                         </div>
                         <div style={this.state.finalupsertresult}>
-                            <MappingTable/>
+                            <statusResult/>
                         </div>
                     </div>
                     <div className="slds-col slds-size_1-of-5">
