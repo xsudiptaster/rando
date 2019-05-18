@@ -21,7 +21,7 @@ export default class StatusResult extends Reflux.Component {
 
     getValueCalculated(Sheetname) {
         var cal;
-        if (this.state) {
+        if (this.state != undefined && this.state.objectMapping != undefined) {
             cal = ( this.state.objectMapping[Sheetname].sheetUpsertCalled /
                 this.state.objectMapping[Sheetname].sheetDataJsonList.length );
         }
