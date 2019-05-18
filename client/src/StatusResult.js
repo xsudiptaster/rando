@@ -6,6 +6,7 @@ import ExpandMoreIcon        from "@material-ui/core/SvgIcon/SvgIcon";
 import Typography            from "@material-ui/core/Typography";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel        from "@material-ui/core/ExpansionPanel";
+import LinearProgress        from '@material-ui/core/LinearProgress';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -18,6 +19,12 @@ export default class StatusResult extends Reflux.Component {
 
     }
 
+    getValueCalculated(Sheetname) {
+        var cal = ( this.objectMapping[Sheetname].sheetUpsertCalled /
+            this.objectMapping[Sheetname].sheetDataJsonList.length );
+        return cal;
+    }
+
     render() {
         var SheetNames = [];
         if (this.state != undefined && this.state.sheetsToInsert != undefined) {
@@ -25,13 +32,14 @@ export default class StatusResult extends Reflux.Component {
         }
         return (
             <div>
-                Hello The
                 {SheetNames.map(value => (
                     <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
                             <Typography>
                                 {value}
                             </Typography>
+                            <LinearProgress variant="buffer" value={this.getValueCalculated(Sheetname)}
+                                            valueBuffer={this.getValueCalculated(Sheetname)}/>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
 

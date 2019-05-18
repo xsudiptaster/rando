@@ -83,7 +83,6 @@ class App extends Reflux.Component {
                             <MappingTable/>
                         </div>
                         <div style={this.state.finalupsertresult}>
-                            hello
                             <StatusResult/>
                         </div>
                     </div>
