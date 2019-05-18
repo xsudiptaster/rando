@@ -20,8 +20,11 @@ export default class StatusResult extends Reflux.Component {
     }
 
     getValueCalculated(Sheetname) {
-        var cal = ( this.objectMapping[Sheetname].sheetUpsertCalled /
-            this.objectMapping[Sheetname].sheetDataJsonList.length );
+        var cal;
+        if (this.state) {
+            cal = ( this.state.objectMapping[Sheetname].sheetUpsertCalled /
+                this.state.objectMapping[Sheetname].sheetDataJsonList.length );
+        }
         return cal;
     }
 
