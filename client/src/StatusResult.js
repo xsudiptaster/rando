@@ -25,6 +25,7 @@ export default class StatusResult extends Reflux.Component {
             cal = ( this.state.objectMapping[Sheetname].sheetUpsertCalled /
                 this.state.objectMapping[Sheetname].sheetDataJsonList.length );
         }
+        console.log('The CAl', cal);
         return cal;
     }
 
