@@ -20,11 +20,15 @@ export default class StatusResult extends Reflux.Component {
     render() {
         var SheetNames = [];
         var ObjMapping = {};
+        var ErrorLog = {};
         if (this.state != undefined && this.state.sheetsToInsert != undefined) {
             SheetNames = this.state.sheetsToInsert
         }
         if (this.state && this.state.objectMapping) {
             ObjMapping = this.state.objectMapping;
+        }
+        if (this.state && this.state.ErrorLog) {
+            ErrorLog = this.state.ErrorLog;
         }
 
         return (
@@ -35,14 +39,22 @@ export default class StatusResult extends Reflux.Component {
                             <Typography>
                                 {value}
                             </Typography>
-                            <progress className="slds-progress-bar"
+                            <progress className="slds-progress-bar" style={{width: "100%"}}
                                       value={ObjMapping[value] != undefined ? ObjMapping[value].sheetUpsertCalled : 0}
                                       max={ObjMapping[value] != undefined ? ObjMapping[value].sheetDataJsonList.length
                                                                           : 0}></progress>
 
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-
+                            <table>
+                                {ErrorLog[value].map(val => (
+                                    <tr>
+                                        <td>
+                                            {val}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </table>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 ))}
