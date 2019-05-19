@@ -31,9 +31,14 @@ export default class StatusResult extends Reflux.Component {
 
     render() {
         var SheetNames = [];
+        var ObjMapping = {};
         if (this.state != undefined && this.state.sheetsToInsert != undefined) {
             SheetNames = this.state.sheetsToInsert
         }
+        if (this.state && this.state.objectMapping) {
+            ObjMapping = this.state.objectMapping;
+        }
+
         return (
             <div>
                 {SheetNames.map(value => (
@@ -45,8 +50,8 @@ export default class StatusResult extends Reflux.Component {
 
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <progress value={this.state.objectMapping[value].sheetUpsertCalled}
-                                      max={this.state.objectMapping[value].sheetDataJsonList.length}></progress>
+                            <progress value={ObjMapping[value].sheetUpsertCalled}
+                                      max={ObjMapping[value].sheetDataJsonList.length}></progress>
                             <LinearProgress variant="buffer" value={this.getValueCalculated(value)}
                                             valueBuffer={this.getValueCalculated(value)}/>
                         </ExpansionPanelDetails>
