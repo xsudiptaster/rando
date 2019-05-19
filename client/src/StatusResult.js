@@ -35,19 +35,31 @@ export default class StatusResult extends Reflux.Component {
                 {SheetNames.map(value => (
                     <ExpansionPanel>
                         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
-                            <Typography>
-                                {value}
-                            </Typography>
-                            <progress className="slds-progress-bar" style={{width: "100%"}}
-                                      value={ObjMapping[value] != undefined ? ObjMapping[value].sheetUpsertCalled : 0}
-                                      max={ObjMapping[value] != undefined ? ObjMapping[value].sheetDataJsonList.length
-                                                                          : 0}></progress>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <Typography>
+                                            <label className="slds-text-heading_medium">
+                                                {value}
+                                            </label>
+                                        </Typography>
+                                    </td>
+                                    <td>
+                                        <progress className="slds-progress-bar" style={{width: "100%"}}
+                                                  value={ObjMapping[value] != undefined
+                                                         ? ObjMapping[value].sheetUpsertCalled : 0}
+                                                  max={ObjMapping[value] != undefined
+                                                       ? ObjMapping[value].sheetDataJsonList.length
+                                                       : 0}></progress>
+                                    </td>
+                                </tr>
+                            </table>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <table>
+                            <table className="slds-table slds-table--bordered">
                                 {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map(val => (
                                     <tr>
-                                        <td>
+                                        <td className="slds-text-body_regular">
                                             {val}
                                         </td>
                                     </tr>
