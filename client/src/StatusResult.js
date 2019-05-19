@@ -45,7 +45,7 @@ export default class StatusResult extends Reflux.Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <table>
-                                {( ErrorLog[value] != undefined ? ErrorLog[value] : {} ).map(val => (
+                                {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map(val => (
                                     <tr>
                                         <td>
                                             {val}
