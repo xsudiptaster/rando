@@ -6,7 +6,6 @@ import ExpandMoreIcon        from "@material-ui/core/SvgIcon/SvgIcon";
 import Typography            from "@material-ui/core/Typography";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel        from "@material-ui/core/ExpansionPanel";
-import LinearProgress        from '@material-ui/core/LinearProgress';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -18,17 +17,6 @@ export default class StatusResult extends Reflux.Component {
         this.store = ContentReviewStore;
 
     }
-
-    getValueCalculated(Sheetname) {
-        var cal;
-        if (this.state != undefined && this.state.objectMapping != undefined) {
-            cal = ( this.state.objectMapping[Sheetname].sheetUpsertCalled /
-                this.state.objectMapping[Sheetname].sheetDataJsonList.length );
-        }
-        console.log('The CAl', cal);
-        return cal;
-    }
-
     render() {
         var SheetNames = [];
         var ObjMapping = {};
@@ -47,14 +35,14 @@ export default class StatusResult extends Reflux.Component {
                             <Typography>
                                 {value}
                             </Typography>
+                            <progress className="slds-progress-bar"
+                                      value={ObjMapping[value] != undefined ? ObjMapping[value].sheetUpsertCalled : 0}
+                                      max={ObjMapping[value] != undefined ? ObjMapping[value].sheetDataJsonList.length
+                                                                          : 0}></progress>
 
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <progress value={ObjMapping[value] != undefined ? ObjMapping[value].sheetUpsertCalled : 0}
-                                      max={ObjMapping[value] != undefined ? ObjMapping[value].sheetDataJsonList.length
-                                                                          : 0}></progress>
-                            <LinearProgress variant="buffer" value={this.getValueCalculated(value)}
-                                            valueBuffer={this.getValueCalculated(value)}/>
+
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 ))}
