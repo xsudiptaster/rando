@@ -58,11 +58,11 @@ export default class StatusResult extends Reflux.Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <table
-                                className="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
-                                {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map(val => (
+                                className="slds-table_col-bordered">
+                                {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map((val, key) => (
                                     <tr>
                                         <td>
-                                            {ObjMapping[value].sheetUpsertCalled}
+                                            {key}
                                         </td>
                                         <td className="slds-wrap">
                                             {val}
