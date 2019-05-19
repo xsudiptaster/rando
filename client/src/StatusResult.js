@@ -44,9 +44,10 @@ export default class StatusResult extends Reflux.Component {
                                             </label>
                                         </Typography>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td>
-                                        <progress className="slds-progress-bar" style={{width: "100%"}}
-                                                  value={ObjMapping[value] != undefined
+                                        <progress value={ObjMapping[value] != undefined
                                                          ? ObjMapping[value].sheetUpsertCalled : 0}
                                                   max={ObjMapping[value] != undefined
                                                        ? ObjMapping[value].sheetDataJsonList.length
