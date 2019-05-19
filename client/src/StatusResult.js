@@ -58,10 +58,10 @@ export default class StatusResult extends Reflux.Component {
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <table
-                                className="slds-table_col-bordered">
+                                className="slds-table_col-bordered slds-table--bordered">
                                 {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map((val, key) => (
                                     <tr>
-                                        <td>
+                                        <td className="slds-wrap">
                                             {key}
                                         </td>
                                         <td className="slds-wrap">
