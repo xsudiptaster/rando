@@ -47,7 +47,7 @@ export default class StatusResult extends Reflux.Component {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <progress value={ObjMapping[value] != undefined
+                                        <progress className="slds-progress-bar" value={ObjMapping[value] != undefined
                                                          ? ObjMapping[value].sheetUpsertCalled : 0}
                                                   max={ObjMapping[value] != undefined
                                                        ? ObjMapping[value].sheetDataJsonList.length
@@ -57,10 +57,10 @@ export default class StatusResult extends Reflux.Component {
                             </table>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <table className="slds-table slds-table--bordered">
+                            <table className="slds-table ">
                                 {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map(val => (
                                     <tr>
-                                        <td className="slds-text-body_regular">
+                                        <td className="slds-text-body_regular slds-wrap">
                                             {val}
                                         </td>
                                     </tr>
