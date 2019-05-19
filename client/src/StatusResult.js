@@ -50,8 +50,9 @@ export default class StatusResult extends Reflux.Component {
 
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <progress value={ObjMapping[value].sheetUpsertCalled}
-                                      max={ObjMapping[value].sheetDataJsonList.length}></progress>
+                            <progress value={ObjMapping[value] != undefined ? ObjMapping[value].sheetUpsertCalled : 0}
+                                      max={ObjMapping[value] != undefined ? ObjMapping[value].sheetDataJsonList.length
+                                                                          : 0}></progress>
                             <LinearProgress variant="buffer" value={this.getValueCalculated(value)}
                                             valueBuffer={this.getValueCalculated(value)}/>
                         </ExpansionPanelDetails>
