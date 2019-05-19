@@ -57,19 +57,21 @@ export default class StatusResult extends Reflux.Component {
                             </table>
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
-                            <table
-                                className="slds-table_col-bordered slds-table--bordered">
-                                {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map((val, key) => (
-                                    <tr>
-                                        <td className="slds-wrap">
-                                            {key}
-                                        </td>
-                                        <td className="slds-wrap">
-                                            {val}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </table>
+                            <div style={{maxHeight: "400px", scrollable: "true"}}>
+                                <table
+                                    className="slds-table_col-bordered slds-table--bordered">
+                                    {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map((val, key) => (
+                                        <tr>
+                                            <td className="slds-wrap">
+                                                {key}
+                                            </td>
+                                            <td className="slds-wrap">
+                                                {val}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </table>
+                            </div>
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                 ))}
