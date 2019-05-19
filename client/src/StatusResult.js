@@ -30,7 +30,6 @@ export default class StatusResult extends Reflux.Component {
         if (this.state && this.state.ErrorLog) {
             ErrorLog = this.state.ErrorLog;
         }
-
         return (
             <div>
                 {SheetNames.map(value => (
@@ -43,11 +42,10 @@ export default class StatusResult extends Reflux.Component {
                                       value={ObjMapping[value] != undefined ? ObjMapping[value].sheetUpsertCalled : 0}
                                       max={ObjMapping[value] != undefined ? ObjMapping[value].sheetDataJsonList.length
                                                                           : 0}></progress>
-
                         </ExpansionPanelSummary>
                         <ExpansionPanelDetails>
                             <table>
-                                {ErrorLog[value].map(val => (
+                                {( ErrorLog[value] != undefined ? ErrorLog[value] : {} ).map(val => (
                                     <tr>
                                         <td>
                                             {val}
