@@ -29,3 +29,7 @@ h1 {
 .more:active {
   background-color: #FFEFA9;
 }
+
+.resultTable tr:nth-child(odd) {
+    background: #4a698d;
+}

@@ -59,7 +59,7 @@ export default class StatusResult extends Reflux.Component {
                         <ExpansionPanelDetails>
                             <div style={{maxHeight: "400px", overflow: "scroll"}}>
                                 <table
-                                    className="slds-table_col-bordered slds-table--bordered ">
+                                    className="resultTable slds-table_col-bordered slds-table--bordered ">
                                     {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map((val, key) => (
                                         <tr>
                                             <td className="slds-wrap">
