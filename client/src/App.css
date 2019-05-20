@@ -30,3 +30,15 @@ h1 {
   background-color: #FFEFA9;
 }
 
+table.odd {
+    border-collapse: collapse;
+}
+
+table.odd tr td, th {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+table.odd tr:nth-child(2n+1) {
+    background: #f1f1f1;
+}
