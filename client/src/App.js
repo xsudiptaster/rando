@@ -41,7 +41,8 @@ class App extends Reflux.Component {
             showProgress        : false,
             finalupsertresult   : {
                 display: "none"
-            }
+            },
+            currentApp          : 'Upsert'
         } );
         ContentReviewerActions.stateupdates(this.state);
     }

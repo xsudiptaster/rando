@@ -10,10 +10,11 @@ export default class Headerdisplay extends Reflux.Component {
   constructor(props) {
     super(props);
       this.store = ContentReviewStore;
-      this.state.currentApp = 'Upsert';
+
   }
   componentDidMount() {}
   render() {
+      var CurrentApp = this.state ? this.state.currentApp : '';
     return (
       <article className="slds-card">
         <div className="slds-card__header slds-grid">
@@ -51,7 +52,7 @@ export default class Headerdisplay extends Reflux.Component {
                   title="First Heroku App"
                 >
                     <span>First Heroku App: </span>
-                    <span>{this.state.currentApp}_</span>
+                    <span>{CurrentApp}</span>
                 </a>
               </h2>
             </div>
