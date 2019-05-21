@@ -1,11 +1,13 @@
-import React, { Component }                                 from "react";
+import React                                                from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import { AppLauncher, AppLauncherSection, AppLauncherTile } from '@salesforce/design-system-react';
 
-export default class Headerdisplay extends Component {
+export default class Headerdisplay extends Reflux.Component {
   constructor(props) {
     super(props);
+      this.store = ContentReviewStore;
+      this.state.currentApp = 'Upsert';
   }
   componentDidMount() {}
   render() {
@@ -45,7 +47,8 @@ export default class Headerdisplay extends Component {
                   className="slds-card__header-link slds-truncate"
                   title="First Heroku App"
                 >
-                  <span>First Heroku App</span>
+                    <span>First Heroku App: </span>
+                    <span>{this.state.currentApp}_</span>
                 </a>
               </h2>
             </div>
