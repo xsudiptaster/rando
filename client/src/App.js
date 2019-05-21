@@ -10,7 +10,7 @@ import Headerdisplay         from "./Headerdisplay";
 import StatusResult          from "./StatusResult";
 import CircularProgress      from '@material-ui/core/CircularProgress';
 import Modal                 from '@material-ui/core/Modal'
-import BrandBand             from '@salesforce/babel-preset-design-system-react/components/brand-band';
+import BrandBand             from '@salesforce/design-system-react/components/brand-band';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -100,7 +100,8 @@ class App extends Reflux.Component {
                                 <div className="demo-only" style={this.state.errorModal}>
                                     <section role="alertdialog" tabIndex={-1} aria-labelledby="prompt-heading-id"
                                              aria-describedby="prompt-message-wrapper"
-                                             className="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+                                             className="slds-modal slds-fade-in-open slds-modal_prompt"
+                                             aria-modal="true">
                                         <div className="slds-modal__container">
                                             <header
                                                 className="slds-modal__header slds-theme_error slds-theme_alert-texture">
@@ -114,7 +115,8 @@ class App extends Reflux.Component {
                                                     </svg>
                                                     <span className="slds-assistive-text">Close</span>
                                                 </button>
-                                                <h2 className="slds-text-heading_medium" id="prompt-heading-id">ERROR</h2>
+                                                <h2 className="slds-text-heading_medium"
+                                                    id="prompt-heading-id">ERROR</h2>
                                             </header>
                                             <div className="slds-modal__content slds-p-around_medium"
                                                  id="prompt-message-wrapper">
@@ -133,11 +135,13 @@ class App extends Reflux.Component {
                             <Modal open={this.state.showProgress}>
                                 <div id="modalLoader">
                                     <div style={{
-                                        height: "100%", width: "100%", zIndex: "10", backgroundColor: "rgba(0,0,0,0.3)", top: 0,
+                                        height: "100%", width: "100%", zIndex: "10", backgroundColor: "rgba(0,0,0,0.3)",
+                                        top   : 0,
                                         left  : 0
                                     }}>
                                         <CircularProgress style={{
-                                            position: "absolute", top: "30%", left: "50%", width: "51px", height: "51px",
+                                            position: "absolute", top: "30%", left: "50%", width: "51px",
+                                            height  : "51px",
                                             zIndex  : "10"
 
                                         }}/>
