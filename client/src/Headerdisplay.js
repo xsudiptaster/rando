@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import iconlink             from "./lightning-design/icons/standard/account.svg"
+import AppLauncher          from '@salesforce/design-system-react/components/app-launcher';
+import AppLauncherTile      from '@salesforce/design-system-react/components/app-launcher/tile';
+import AppLauncherSection   from '@salesforce/design-system-react/components/app-launcher/section';
 
 export default class Headerdisplay extends Component {
   constructor(props) {
@@ -20,6 +23,35 @@ export default class Headerdisplay extends Component {
               >
 
                   <img className="slds-icon slds-icon_small" src={iconlink}/>
+                  <AppLauncher>
+    <AppLauncherSection title="Tile Section">
+								<AppLauncherTile
+                                    title="Marketing Cloud"
+                                    iconText="MC"
+                                    description="Send emails, track emails, read emails! Emails!"
+                                />
+								<AppLauncherTile
+                                    title="Call Center"
+                                    description="The key to call center and contact center is not to use too many words!"
+                                    descriptionHeading="Call Center"
+                                    iconText="CC"
+                                />
+							</AppLauncherSection>
+							<AppLauncherSection title="Small Tile Section">
+								<AppLauncherTile
+                                    title="Journey Builder"
+                                    iconText="JB"
+                                    size="small"
+                                />
+								<AppLauncherTile
+                                    title="Sales Cloud"
+                                    iconNode={
+                                        <Icon name="campaign" category="standard" size="large"/>
+                                    }
+                                    size="small"
+                                />
+							</AppLauncherSection>
+</AppLauncher>
 
                 <span className="slds-assistive-text">First Heroku App</span>
               </span>
