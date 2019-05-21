@@ -14,7 +14,7 @@ export default class Headerdisplay extends Reflux.Component {
   }
   componentDidMount() {}
   render() {
-      var CurrentApp = this.state ? this.state.currentApp : '';
+      var CurrentApp = this.state != undefined ? this.state.currentApp : '';
     return (
       <article className="slds-card">
         <div className="slds-card__header slds-grid">
