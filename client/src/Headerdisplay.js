@@ -5,6 +5,7 @@ import iconlink             from "./lightning-design/icons/standard/account.svg"
 import AppLauncher          from '@salesforce/design-system-react/components/app-launcher';
 import AppLauncherTile      from '@salesforce/design-system-react/components/app-launcher/tile';
 import AppLauncherSection   from '@salesforce/design-system-react/components/app-launcher/section';
+import Icon                 from '@salesforce/design-system-react/components/icon';
 
 export default class Headerdisplay extends Component {
   constructor(props) {
