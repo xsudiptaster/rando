@@ -51,8 +51,8 @@ export default class Headerdisplay extends Reflux.Component {
                   className="slds-card__header-link slds-truncate"
                   title="First Heroku App"
                 >
-                    <span>First Heroku App: </span>
-                    <span>{CurrentApp}</span>
+                    <span>First Heroku App:{CurrentApp} </span>
+
                 </a>
               </h2>
             </div>
