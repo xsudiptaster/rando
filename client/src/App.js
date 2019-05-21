@@ -10,7 +10,7 @@ import Headerdisplay         from "./Headerdisplay";
 import StatusResult          from "./StatusResult";
 import CircularProgress      from '@material-ui/core/CircularProgress';
 import Modal                 from '@material-ui/core/Modal'
-import BrandBand             from '@salesforce/design-system-react/components/brand-band';
+import BrandBand             from '@salesforce/babel-preset-design-system-react';
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
