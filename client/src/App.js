@@ -58,7 +58,7 @@ class App extends Reflux.Component {
                 id="brand-band-lightning-blue"
                 className="slds-p-around_small"
                 theme="lightning-blue"
-                style={{height: "100%"}}
+                style={{minHeight: "1000px"}}
             >
                 <div>
                     <div className="slds-grid slds-wrap">
