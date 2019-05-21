@@ -20,9 +20,8 @@ export default class Headerdisplay extends Reflux.Component {
           <header className="slds-media slds-media_center slds-has-flexi-truncate">
             <div className="slds-media__figure">
               <span
-                className="slds-icon_container slds-icon-standard-account"
-                title="account"
-              >
+                  className="slds-icon_container slds-icon-standard-account"
+                  title="account">
                   <AppLauncher>
     <AppLauncherSection title="App Selection">
 								<AppLauncherTile
@@ -36,8 +35,6 @@ export default class Headerdisplay extends Reflux.Component {
                                     iconText="SR"
                                 />
 							</AppLauncherSection>
-
-
 </AppLauncher>
 
                 <span className="slds-assistive-text">First Heroku App</span>
@@ -46,10 +43,9 @@ export default class Headerdisplay extends Reflux.Component {
             <div className="slds-media__body">
               <h2 className="slds-card__header-title">
                 <a
-                  href="javascript:void(0);"
-                  className="slds-card__header-link slds-truncate"
-                  title="First Heroku App"
-                >
+                    href="javascript:void(0);"
+                    className="slds-card__header-link slds-truncate"
+                    title="First Heroku App">
                     <span>First Heroku App:{CurrentApp} </span>
 
                 </a>
