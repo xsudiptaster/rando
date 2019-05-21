@@ -3,6 +3,7 @@ import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import { AppLauncher, AppLauncherSection, AppLauncherTile } from '@salesforce/design-system-react';
 
+var Reflux = require("reflux");
 export default class Headerdisplay extends Reflux.Component {
   constructor(props) {
     super(props);
