@@ -23,7 +23,6 @@ export default class FileuploadSection extends Reflux.Component {
     reader.onload = function(e) {
       var data = new Uint8Array(e.target.result);
       var workbook = XLSX.read(data, {type: 'array'});
-      console.log('The workbook os ',workbook);
       ContentReviewerActions.setvalparam('workbook',workbook);
       ContentReviewerActions.setvalparam('sheetNames',workbook.SheetNames);
       
