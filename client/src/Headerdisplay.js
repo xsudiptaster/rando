@@ -10,7 +10,6 @@ export default class Headerdisplay extends Reflux.Component {
   constructor(props) {
     super(props);
       this.store = ContentReviewStore;
-
   }
   componentDidMount() {}
   render() {
