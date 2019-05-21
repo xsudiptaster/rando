@@ -1,8 +1,7 @@
-import React, { Component }                                       from "react";
+import React, { Component }                                 from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import iconlink                                                   from "./lightning-design/icons/standard/account.svg"
-import { AppLauncher, AppLauncherSection, AppLauncherTile, Icon } from '@salesforce/design-system-react';
+import { AppLauncher, AppLauncherSection, AppLauncherTile } from '@salesforce/design-system-react';
 
 export default class Headerdisplay extends Component {
   constructor(props) {
@@ -19,36 +18,21 @@ export default class Headerdisplay extends Component {
                 className="slds-icon_container slds-icon-standard-account"
                 title="account"
               >
-
-                  <img className="slds-icon slds-icon_small" src={iconlink}/>
                   <AppLauncher>
-    <AppLauncherSection title="Tile Section">
+    <AppLauncherSection title="App Selection">
 								<AppLauncherTile
-                                    title="Marketing Cloud"
-                                    iconText="MC"
-                                    description="Send emails, track emails, read emails! Emails!"
+                                    title="Upsert Records"
+                                    iconText="UR"
+                                    description="Upsert Objects serially or parallel and use external Ids to relate them"
                                 />
 								<AppLauncherTile
-                                    title="Call Center"
-                                    description="The key to call center and contact center is not to use too many words!"
-                                    descriptionHeading="Call Center"
-                                    iconText="CC"
-                                />
-							</AppLauncherSection>
-							<AppLauncherSection title="Small Tile Section">
-								<AppLauncherTile
-                                    title="Journey Builder"
-                                    iconText="JB"
-                                    size="small"
-                                />
-								<AppLauncherTile
-                                    title="Sales Cloud"
-                                    iconNode={
-                                        <Icon name="campaign" category="standard" size="large"/>
-                                    }
-                                    size="small"
+                                    title="Sample Data Creator"
+                                    description="This tool lets you create sample data for an Object and its related objects"
+                                    iconText="SR"
                                 />
 							</AppLauncherSection>
+
+
 </AppLauncher>
 
                 <span className="slds-assistive-text">First Heroku App</span>
