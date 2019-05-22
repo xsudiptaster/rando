@@ -169,7 +169,7 @@ export default class LoginSection extends Reflux.Component {
                         </td>
                         <td>
                             <input
-                                type="text"
+                                type="password"
                                 value={this.state.password}
                                 className="slds-input"
                                 onChange={this.handlePasswordChange.bind(this)}
@@ -177,7 +177,9 @@ export default class LoginSection extends Reflux.Component {
                         </td>
                     </tr>
                     <tr>
-                        <td/>
+                        <td>
+                            <input type="checkbox" aria-label="Remember Me"/>
+                        </td>
                         <td>
                             <input
                                 type="button"
