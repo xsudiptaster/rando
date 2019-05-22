@@ -154,7 +154,7 @@ export default class LoginSection extends Reflux.Component {
 
   loginpagerender() {
     var lst = [];
-    if (this.state.listUserNames != undefined) {
+    if (this.state != undefined && this.state.listUserNames != undefined) {
       lst = this.state.listUserNames;
     }
     return (
