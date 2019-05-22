@@ -1,98 +1,100 @@
 import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import XLSX  from 'xlsx';
+import XLSX from 'xlsx';
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class FileuploadSection extends Reflux.Component {
-  constructor(props) {
-    super(props);
-    this.store = ContentReviewStore;
-  }
-  readthefile(event) {
-    this.setState({
-      fileBlob: event.target.files[0],
-      fileName: event.target.files[0].name
-    });
-    
-    var files = event.target.files, f = files[0];
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      var data = new Uint8Array(e.target.result);
-      var workbook = XLSX.read(data, {type: 'array'});
-      ContentReviewerActions.setvalparam('workbook',workbook);
-      ContentReviewerActions.setvalparam('sheetNames',workbook.SheetNames);
-      
-    };
-    reader.readAsArrayBuffer(f);
-  }
-  startProcessing(event)
-  {
-      if (this.state.fileName == undefined || this.state.fileName == "") {
-          this.state.errorMessage = "Select a File";
-          this.state.errorModal = {height: '14rem', display: 'block'};
-          ContentReviewerActions.stateupdates(this.state);
-          return;
-      }
-      this.state.uploadfiledisplay = {
-       display: "none"
-    };
-    this.state.questionfordisplay={
-      display: "block"
-    };
-    ContentReviewerActions.stateupdates(this.state);
-  }
-  render() {
-    return (
-      <div className="slds-form-element">
+    constructor(props) {
+        super(props);
+        this.store = ContentReviewStore;
+    }
+
+    readthefile(event) {
+        this.setState({
+            fileBlob: event.target.files[0],
+            fileName: event.target.files[0].name
+        });
+
+        var files = event.target.files, f = files[0];
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var data = new Uint8Array(e.target.result);
+            var workbook = XLSX.read(data, {type: 'array'});
+            ContentReviewerActions.setvalparam('workbook', workbook);
+            ContentReviewerActions.setvalparam('sheetNames', workbook.SheetNames);
+
+        };
+        reader.readAsArrayBuffer(f);
+    }
+
+    startProcessing(event) {
+        if (this.state.fileName == undefined || this.state.fileName == "") {
+            this.state.errorMessage = "Select a File";
+            this.state.errorModal = {height: '14rem', display: 'block'};
+            ContentReviewerActions.stateupdates(this.state);
+            return;
+        }
+        this.state.uploadfiledisplay = {
+            display: "none"
+        };
+        this.state.questionfordisplay = {
+            display: "block"
+        };
+        ContentReviewerActions.stateupdates(this.state);
+    }
+
+    render() {
+        return (
+            <div className="slds-form-element">
         <span
-          className="slds-form-element__label"
-          id="file-selector-primary-label"
-        >
+            className="slds-form-element__label"
+            id="file-selector-primary-label">
           Attachment
         </span>
-        <div className="slds-form-element__control">
-          <div className="slds-file-selector slds-file-selector_files">
-            <div className="slds-file-selector__dropzone">
-              <input
-                className="slds-file-selector__input slds-assistive-text"
-                accept="xls/xlsx"
-                type="file"
-                id="file-upload-input-01"
-                onChange={this.readthefile.bind(this)}
-                aria-labelledby="file-selector-primary-label file-selector-secondary-label"
-              />
-              <label
-                className="slds-file-selector__body"
-                htmlFor="file-upload-input-01"
-                id="file-selector-secondary-label"
-              >
+                <div className="slds-form-element__control">
+                    <div className="slds-file-selector slds-file-selector_files">
+                        <div className="slds-file-selector__dropzone">
+                            <input
+                                className="slds-file-selector__input slds-assistive-text"
+                                accept="xls/xlsx"
+                                type="file"
+                                id="file-upload-input-01"
+                                onChange={this.readthefile.bind(this)}
+                                aria-labelledby="file-selector-primary-label file-selector-secondary-label"
+                            />
+                            <label
+                                className="slds-file-selector__body"
+                                htmlFor="file-upload-input-01"
+                                id="file-selector-secondary-label"
+                            >
                 <span className="slds-file-selector__button slds-button slds-button_neutral">
                   <svg
-                    className="slds-button__icon slds-button__icon_left"
-                    aria-hidden="true"
+                      className="slds-button__icon slds-button__icon_left"
+                      aria-hidden="true"
                   >
                     <use
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#upload"
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                        xlinkHref="/assets/icons/utility-sprite/svg/symbols.svg#upload"
                     />
                   </svg>
                   Upload Files
                 </span>
-                <span className="slds-file-selector__text slds-medium-show">
+                                <span className="slds-file-selector__text slds-medium-show">
                   <div className="slds-text-align_center">
                     {this.state ? this.state.fileName : ""}
                   </div>
                 </span>
-              </label>
+                            </label>
+                        </div>
+                        <input type="button" value="Upload" className="slds-button slds-button_neutral"
+                               onClick={this.startProcessing.bind(this)}></input>
+                    </div>
+                </div>
             </div>
-            <input type="button" value="Upload" className="slds-button slds-button_neutral" onClick={this.startProcessing.bind(this)} ></input> 
-          </div>
-        </div>
-      </div>
-    );
-  }
+        );
+    }
 }
