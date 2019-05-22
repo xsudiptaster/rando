@@ -12,7 +12,6 @@ export default class LoginSection extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
-        var crypto=SimpleCrypto('xsudiptaster');
         // Initialize state
         this.state = {
             username  : "sudiptalb@gmail.com",
