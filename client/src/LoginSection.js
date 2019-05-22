@@ -179,7 +179,7 @@ export default class LoginSection extends Reflux.Component {
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" value={this.rememberMe} aria-label="Remember Me"/>
+                            <input type="checkbox" value={this.rememberMe} aria-label="Remember Me"/> Remember Me
                         </td>
                         <td>
                             <input
