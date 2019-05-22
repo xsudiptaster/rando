@@ -21,7 +21,6 @@ export default class LoginSection extends Reflux.Component {
       rememberMe: false,
       listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage"))
     };
-
     ContentReviewerActions.stateupdates(this.state);
   }
   handleUsernameChange(event) {
@@ -40,6 +39,7 @@ export default class LoginSection extends Reflux.Component {
   }
 
   handlelogin() {
+    console.log("The Current State", this.state);
     var regEx = new RegExp("\b[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}\b");
     if (this.state.loginurl == "") {
       ContentReviewerActions.showError("Please Select the Org", this.state);
