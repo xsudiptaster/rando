@@ -93,7 +93,6 @@ export default class MappingTable extends Reflux.Component {
         var SheetName = this.state.sheetsToInsert[i];
         this.state.ErrorLog[SheetName] = [];
         this.callforSingleRecordUpsert(SheetName);
-        console.log("The SheetCalled", SheetName);
       }
     } else {
       this.state.SheetInsertIndex = 0;
