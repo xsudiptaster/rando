@@ -113,7 +113,7 @@ export default class LoginSection extends Reflux.Component {
 
     loginpagerender() {
         return (
-            <div className="App">
+            <div className="App slds-grid">
                 <table>
                     <tr>
                         <td>
