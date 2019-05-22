@@ -23,6 +23,7 @@
     "read-excel-file": "^2.0.10",
     "reflux": "^6.4.1",
     "tar": "^4.4.8",
+    "universal-cookie": "^4.0.0",
     "xlsjs": "^1.0.1"
   },
   "scripts": {
