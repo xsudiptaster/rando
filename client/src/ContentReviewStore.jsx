@@ -51,6 +51,15 @@ var ContentReviewerStore = Reflux.createStore({
   },
   fireUpdate: function() {
     this.trigger(this.firstdata);
+  },
+  showError:function(ErrorMessage,state){
+    if (!this.firstdata) {
+      this.firstdata = {};
+    }
+    this.firstdata = state;
+    this.firstdata.errorMessage = "Please Select the Org";
+    this.firstdata.errorModal = {height: '14rem', display: 'block'};
+    this.fireUpdate();
   }
 });
 
