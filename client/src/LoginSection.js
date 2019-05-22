@@ -42,11 +42,13 @@ export default class LoginSection extends Reflux.Component {
     console.log("The Current State", this.state);
     var regEx = new RegExp("\b[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}\b");
     if (this.state.loginurl == "") {
-      alert(this.state.loginurl);
+      console.log('the error 1');
       ContentReviewerActions.showError("Please Select the Org", this.state);
     } else if (this.state.username == "" || !regEx.exec(this.state.username)) {
+        console.log('the error 2');
       ContentReviewerActions.showError("Please Enter UserName", this.state);
     } else if (this.state.password == "") {
+        console.log('the error 3');
       ContentReviewerActions.showError("Please Enter Password", this.state);
     } else {
       ContentReviewerActions.setvalparam("showProgress", true);
