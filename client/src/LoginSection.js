@@ -193,11 +193,9 @@ export default class LoginSection extends Reflux.Component {
                                 type="text"
                                 value={this.state.username}
                                 className="slds-input"
-                                onChange={this.handleUsernameChange.bind(this)}
-                                data-list='usernames'
-                            />
+                                onChange={this.handleUsernameChange.bind(this)}/>
                             <datalist id="usernames">
-
+                            <option>None</option>
                             </datalist>
                         </td>
                     </tr>
