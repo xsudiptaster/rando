@@ -38,6 +38,7 @@ app.post("/api/logintosalesforce", function (req, res) {
             return console.error(err);
         }
         var respt = {};
+        console.log('userinfo', userinfo);
         respt.sesionTkn = jsobj.accessToken;
         respt.loginUrl = jsobj.instanceUrl;
         res.send(respt);
@@ -82,7 +83,6 @@ app.post("/api/objectUpsert", function (req, res) {
     var objectName = req.body.objectName;
     var externalId = req.body.ExternalName;
     var dataToUpsert = JSON.parse(req.body.dataToUpsert);
-    console.log('The data To Insert', dataToUpsert);
     jsobj.sobject(objectName).upsert(dataToUpsert, externalId, function (err, response) {
         if (err) {
             console.log('The Error is this ', err);
