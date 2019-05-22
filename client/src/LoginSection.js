@@ -45,7 +45,7 @@ export default class LoginSection extends Reflux.Component {
       console.log('the error 1');
       ContentReviewerActions.showError("Please Select the Org", this.state);
     } else if (this.state.username == "" || !regEx.exec(this.state.username)) {
-        console.log('the error 2');
+        console.log('the error 2',regEx.exec(this.state.username));
       ContentReviewerActions.showError("Please Enter UserName", this.state);
     } else if (this.state.password == "") {
         console.log('the error 3');
