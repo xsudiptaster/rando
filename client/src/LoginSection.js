@@ -52,6 +52,7 @@ export default class LoginSection extends Reflux.Component {
                     loginUrl: this.state.loginurl
                 })
                 .then(response => {
+                    localStorage.setItem('fullstackreactsession', response.data.sesionTkn);
                     this.setState({
                                       sessiontok : response.data.sesionTkn,
                                       instanceUrl: response.data.loginUrl
