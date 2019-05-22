@@ -46,9 +46,7 @@ export default class LoginSection extends Reflux.Component {
         }
         else if(this.state.username=="")
         {
-            this.state.errorMessage = "Please Enter UserName";
-            this.state.errorModal = {height: '14rem', display: 'block'};
-            ContentReviewerActions.stateupdates(this.state);
+            ContentReviewerActions.showError("Please Enter UserName",this.state);
         }
         else {
             ContentReviewerActions.setvalparam('showProgress', true);
@@ -193,6 +191,7 @@ export default class LoginSection extends Reflux.Component {
                         </td>
                         <td>
                             <input
+                                list="usernames"
                                 type="text"
                                 value={this.state.username}
                                 className="slds-input"
