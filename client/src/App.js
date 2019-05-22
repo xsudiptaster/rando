@@ -20,7 +20,6 @@ class App extends Reflux.Component {
     constructor(props) {
         super();
         this.store = ContentReviewStore;
-        console.log('fullstack Session Storage', localStorage.getItem('fullstackreactsession'));
         ( this.state = {
             logindisplay        : {
                 display: "block"
