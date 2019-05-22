@@ -85,8 +85,12 @@ export default class MappingTable extends Reflux.Component {
 
   onClickUpsert() {
     this.state.ErrorLog = {};
-    this.state.objectmappingtable = { display: "none" };
-    this.state.finalupsertresult = { display: "block" };
+    this.state.objectmappingtable = {
+      display: "none"
+    };
+    this.state.finalupsertresult = {
+      display: "block"
+    };
     ContentReviewerActions.stateupdates(this.state);
     if (this.state.isParallel) {
       for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
@@ -146,7 +150,9 @@ export default class MappingTable extends Reflux.Component {
           ExternalName: this.state.objectMapping[SheetName].ExtFromObject,
           dataToUpsert: JsonString
         },
-        { timeout: 50000 }
+        {
+          timeout: 50000
+        }
       )
       .then(response => {
         if (!response.data[0].success) {
@@ -294,9 +300,9 @@ export default class MappingTable extends Reflux.Component {
                   type="button"
                   className="slds-button slds-button--neutral"
                   onClick={() => this.onClickUpsert()}
-                />
-              </div>
-            </td>
+                />{" "}
+              </div>{" "}
+            </td>{" "}
             <td>
               <div>
                 <input
@@ -304,41 +310,42 @@ export default class MappingTable extends Reflux.Component {
                   type="button"
                   className="slds-button slds-button--neutral"
                   onClick={() => this.autoMatch()}
-                />
-              </div>
-            </td>
-          </tr>
+                />{" "}
+              </div>{" "}
+            </td>{" "}
+          </tr>{" "}
         </table>
-
         {panls.map(value => (
           <ExpansionPanel>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>{value}</Typography>
-            </ExpansionPanelSummary>
+              <Typography> {value} </Typography>{" "}
+            </ExpansionPanelSummary>{" "}
             <ExpansionPanelDetails>
               <Typography>
                 <table className="slds-table slds-table_bordered">
                   <tr>
                     <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
-                      Column Name
-                    </th>
+                      Column Name{" "}
+                    </th>{" "}
                     <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
-                      Field Name
-                    </th>
+                      Field Name{" "}
+                    </th>{" "}
                     <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
-                      External Id(Default is Id)
-                    </th>
-                  </tr>
+                      External Id(Default is Id){" "}
+                    </th>{" "}
+                  </tr>{" "}
                   {this.state &&
                   this.state.objectMapping &&
                   Headers[value] != undefined ? (
                     Headers[value].map(val => (
                       <tr>
-                        <td>{val}</td>
+                        <td> {val} </td>{" "}
                         <td>
                           <input
                             list={"List3-" + value}
-                            style={{ width: "200px!" }}
+                            style={{
+                              width: "200px!"
+                            }}
                             className="slds-input"
                             ref={"select" + "-" + value + "-" + val}
                             onChange={this.mapfieldAsSelected.bind(
@@ -346,8 +353,9 @@ export default class MappingTable extends Reflux.Component {
                               value,
                               val
                             )}
-                          />
+                          />{" "}
                           <datalist id={"List3-" + value}>
+                            {" "}
                             {objdesbs[
                               this.state.objectMapping[value].ObjectName
                             ] != undefined &&
@@ -357,14 +365,15 @@ export default class MappingTable extends Reflux.Component {
                                 this.state.objectMapping[value].ObjectName
                               ].fields.map(valfld => (
                                 <option value={valfld.name}>
-                                  {valfld.label}
+                                  {" "}
+                                  {valfld.label}{" "}
                                 </option>
                               ))
                             ) : (
-                              <option>None</option>
-                            )}
-                          </datalist>
-                        </td>
+                              <option> None </option>
+                            )}{" "}
+                          </datalist>{" "}
+                        </td>{" "}
                         <td
                           style={{
                             display:
@@ -407,20 +416,22 @@ export default class MappingTable extends Reflux.Component {
                                 height: "17px",
                                 zIndex: "10"
                               }}
-                            />
+                            />{" "}
                           </div>
-
                           <input
                             list={"List4-" + value + "-" + val}
-                            style={{ width: "200px!" }}
+                            style={{
+                              width: "200px!"
+                            }}
                             className="slds-input"
                             onChange={this.mapfieldWhenExternalId.bind(
                               this,
                               value,
                               val
                             )}
-                          />
+                          />{" "}
                           <datalist id={"List4-" + value + "-" + val}>
+                            {" "}
                             {this.state.objectMapping[value]
                               .sheetObjectFields != undefined &&
                             this.state.objectMapping[value].sheetObjectFields[
@@ -439,24 +450,25 @@ export default class MappingTable extends Reflux.Component {
                                   .sheetObjectFields[val].ObjectName
                               ].map(valfld => (
                                 <option value={valfld.name}>
-                                  {valfld.label}
+                                  {" "}
+                                  {valfld.label}{" "}
                                 </option>
                               ))
                             ) : (
-                              <option>None</option>
-                            )}
-                          </datalist>
-                        </td>
+                              <option> None </option>
+                            )}{" "}
+                          </datalist>{" "}
+                        </td>{" "}
                       </tr>
                     ))
                   ) : (
                     <div />
-                  )}
-                </table>
-              </Typography>
-            </ExpansionPanelDetails>
+                  )}{" "}
+                </table>{" "}
+              </Typography>{" "}
+            </ExpansionPanelDetails>{" "}
           </ExpansionPanel>
-        ))}
+        ))}{" "}
       </div>
     );
   }
