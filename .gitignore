@@ -14,3 +14,13 @@ node_modules
 .idea/sonarlint/issuestore/d/d/ddf86e7fae3012d48c86cf8092922b71cdf5d66c
 .idea/sonarlint/issuestore/f/6/f6b8a135eb07bb80aa582994bcf1a8ccacd783ee
 .idea/sonarlint/issuestore/f/6/f6d2bcae5f6475672dafb60f06ab7892baa97026
+/client/build/
+.idea/sonarlint/.sonartmp/
+.idea/sonarlint/issuestore/1/2/
+.idea/sonarlint/issuestore/2/a/
+.idea/sonarlint/issuestore/7/0/
+.idea/sonarlint/issuestore/7/4/
+.idea/sonarlint/issuestore/8/f/
+.idea/sonarlint/issuestore/a/7/
+.idea/sonarlint/issuestore/f/a/
+client/package-lock.json
