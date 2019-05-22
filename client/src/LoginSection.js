@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import SimpleCrypto from "simple-crypto-js";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -11,6 +12,7 @@ export default class LoginSection extends Reflux.Component {
     constructor(props) {
         super(props);
         this.store = ContentReviewStore;
+        var crypto=SimpleCrypto('xsudiptaster');
         // Initialize state
         this.state = {
             username  : "sudiptalb@gmail.com",
@@ -18,7 +20,9 @@ export default class LoginSection extends Reflux.Component {
             sessiontok: "",
             loginurl: "",
             rememberMe: false,
+            listUserNames=JSON.parse(localStorage.getItem('fullStackReactStorage'))
         };
+
         ContentReviewerActions.stateupdates(this.state);
     }
     handleUsernameChange(event) {
@@ -57,6 +61,35 @@ export default class LoginSection extends Reflux.Component {
                         loginUrl: response.data.loginUrl,
                         sessionToken: response.data.sesionTkn
                     };
+                    if (this.state.rememberMe){
+                        if (this.state.listUserNames==undefined){
+                            var listUserNames= [];
+                            var objUsername={};
+                            objUsername.username= this.state.username;
+                            objUsername.password=this.state.password;
+                            listUserNames.push(objUsername);
+                            localStorage.setItem('fullStackReactStorage',JSON.stringify(listUserNames));
+                        }
+                        else{
+                            var Usernamefound=false;
+                            for (var i=0;this.state.listUserNames.length;i++){
+                                if(this.state.listUserNames[i].username==this.state.username){
+                                    this.state.listUserNames[i]=this.state.password;
+                                    Usernamefound=true;  
+                                }
+                            }
+                            if (!Usernamefound){
+                                var objUsername={};
+                                objUsername.username= this.state.username;
+                                objUsername.password=this.state.password;
+                                this.state.listUserNames.push(objUsername);    
+                            }
+                            localStorage.setItem('fullStackReactStorage',JSON.stringify(this.state.listUserNames));
+                        }     
+                    }
+                    
+                    
+                    
                     this.setState({
                                       sessiontok : response.data.sesionTkn,
                                       instanceUrl: response.data.loginUrl
@@ -161,7 +194,11 @@ export default class LoginSection extends Reflux.Component {
                                 value={this.state.username}
                                 className="slds-input"
                                 onChange={this.handleUsernameChange.bind(this)}
+                                data-list='usernames'
                             />
+                            <datalist id="usernames">
+
+                            </datalist>
                         </td>
                     </tr>
                     <tr>
