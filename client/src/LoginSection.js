@@ -16,7 +16,8 @@ export default class LoginSection extends Reflux.Component {
             username  : "sudiptalb@gmail.com",
             password  : "rockcity1234",
             sessiontok: "",
-            loginurl  : ""
+            loginurl: "",
+            rememberMe: false,
         };
         ContentReviewerActions.stateupdates(this.state);
     }
@@ -178,7 +179,7 @@ export default class LoginSection extends Reflux.Component {
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" aria-label="Remember Me"/>
+                            <input type="checkbox" value={this.rememberMe} aria-label="Remember Me"/>
                         </td>
                         <td>
                             <input
