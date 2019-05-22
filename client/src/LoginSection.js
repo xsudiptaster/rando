@@ -42,6 +42,7 @@ export default class LoginSection extends Reflux.Component {
     console.log("The Current State", this.state);
     var regEx = new RegExp("\b[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}\b");
     if (this.state.loginurl == "") {
+      alert(this.state.loginurl);
       ContentReviewerActions.showError("Please Select the Org", this.state);
     } else if (this.state.username == "" || !regEx.exec(this.state.username)) {
       ContentReviewerActions.showError("Please Enter UserName", this.state);
