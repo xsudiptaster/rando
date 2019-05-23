@@ -68,54 +68,56 @@ export default class LoginSection extends Reflux.Component {
 					loginUrl: this.state.loginurl,
 				})
 				.then(response => {
-                    console.log('Login Response',response);
-					var dataLocal = {
-						loginUrl: response.data.loginUrl,
-						sessionToken: response.data.sesionTkn,
-					};
-					console.log("The State", this.state);
-					if (this.state.rememberMe) {
-						if (this.state.listUserNames == undefined) {
-							var listUserNames = [];
-							var objUsername = {};
-							objUsername.username = this.state.username;
-							objUsername.password = this.state.password;
-							listUserNames.push(objUsername);
-							localStorage.setItem("fullStackReactStorage", JSON.stringify(listUserNames));
-						} else {
-							var Usernamefound = false;
-							for (var i = 0; this.state.listUserNames.length; i++) {
-								if (this.state.listUserNames[i].username == this.state.username) {
-									this.state.listUserNames[i] = this.state.password;
-									Usernamefound = true;
-								}
-							}
-							if (!Usernamefound) {
+					console.log("Login Response", response);
+					if (response.data.sesionTkn != undefined) {
+						var dataLocal = {
+							loginUrl: response.data.loginUrl,
+							sessionToken: response.data.sesionTkn,
+						};
+						console.log("The State", this.state);
+						if (this.state.rememberMe) {
+							if (this.state.listUserNames == undefined) {
+								var listUserNames = [];
 								var objUsername = {};
 								objUsername.username = this.state.username;
 								objUsername.password = this.state.password;
-								this.state.listUserNames.push(objUsername);
+								listUserNames.push(objUsername);
+								localStorage.setItem("fullStackReactStorage", JSON.stringify(listUserNames));
+							} else {
+								var Usernamefound = false;
+								for (var i = 0; this.state.listUserNames.length; i++) {
+									if (this.state.listUserNames[i].username == this.state.username) {
+										this.state.listUserNames[i] = this.state.password;
+										Usernamefound = true;
+									}
+								}
+								if (!Usernamefound) {
+									var objUsername = {};
+									objUsername.username = this.state.username;
+									objUsername.password = this.state.password;
+									this.state.listUserNames.push(objUsername);
+								}
+								localStorage.setItem("fullStackReactStorage", JSON.stringify(this.state.listUserNames));
 							}
-							localStorage.setItem("fullStackReactStorage", JSON.stringify(this.state.listUserNames));
 						}
+
+						this.setState({
+							sessiontok: response.data.sesionTkn,
+							instanceUrl: response.data.loginUrl,
+						});
+
+						this.setState({
+							logindisplay: {
+								display: "none",
+							},
+						});
+						this.setState({
+							uploadfiledisplay: {
+								display: "block",
+							},
+						});
+						this.getobjectlist();
 					}
-
-					this.setState({
-						sessiontok: response.data.sesionTkn,
-						instanceUrl: response.data.loginUrl,
-					});
-
-					this.setState({
-						logindisplay: {
-							display: "none",
-						},
-					});
-					this.setState({
-						uploadfiledisplay: {
-							display: "block",
-						},
-					});
-					this.getobjectlist();
 				})
 				.catch(error => {
 					this.state.errorMessage = error;
