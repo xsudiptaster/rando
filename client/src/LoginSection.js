@@ -68,8 +68,8 @@ export default class LoginSection extends Reflux.Component {
 					loginUrl: this.state.loginurl,
 				})
 				.then(response => {
-					console.log("Login Response", response.data.length);
-					if (response.data.length == 0) {
+					console.log("Login Response", response);
+					if (response.data.sesionTkn != undefined) {
 						var dataLocal = {
 							loginUrl: response.data.loginUrl,
 							sessionToken: response.data.sesionTkn,
@@ -117,7 +117,10 @@ export default class LoginSection extends Reflux.Component {
 							},
 						});
 						this.getobjectlist();
-					}
+                    }
+                    else{
+                        ContentReviewerActions.setvalparam("showProgress", false);
+                    }
 				})
 				.catch(error => {
 					this.state.errorMessage = error;
