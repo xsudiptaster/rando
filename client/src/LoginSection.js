@@ -14,8 +14,8 @@ export default class LoginSection extends Reflux.Component {
 		this.store = ContentReviewStore;
 		// Initialize state
 		this.state = {
-			username: "sudiptalb@gmail.com",
-			password: "rockcity1234",
+			username: "",
+			password: "",
 			sessiontok: "",
 			loginurl: "",
 			rememberMe: false,
@@ -25,13 +25,11 @@ export default class LoginSection extends Reflux.Component {
 	}
 	handleUsernameChange(event) {
 		this.setState({ username: event.target.value });
-		console.log("Called");
 		if (this.state.listUserNames != undefined) {
 			for (var i = 0; i < this.state.listUserNames.length; i++) {
 				if (this.state.listUserNames[i].username == event.target.value) {
-					console.log("Found");
 					this.state.password = this.state.listUserNames[i].password;
-					$(this.refs("loginpassword")).val(this.state.listUserNames[i].password);
+					
 				}
 			}
 		}
@@ -216,7 +214,6 @@ export default class LoginSection extends Reflux.Component {
 						</td>
 						<td>
 							<input
-								ref="loginpassword"
 								type="password"
 								value={this.state.password}
 								className="slds-input"
