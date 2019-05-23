@@ -38,7 +38,9 @@ export default class LoginSection extends Reflux.Component {
 		ContentReviewerActions.setvalparam("loginurl", event.target.value);
 	}
 	handleChangeRememberme(event) {
-		this.setState({ rememberMe: event.target.value });
+        this.setState({ rememberMe: event.target.value });
+        console.log('Remmeber Me ',this.state);
+        ContentReviewerActions.setvalparam("rememberMe", event.target.value);
 	}
 
 	handlelogin() {
