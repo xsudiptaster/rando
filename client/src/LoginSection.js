@@ -37,6 +37,9 @@ export default class LoginSection extends Reflux.Component {
 		this.setState({ loginurl: event.target.value });
 		ContentReviewerActions.setvalparam("loginurl", event.target.value);
 	}
+	handleChangeRememberme(event) {
+		this.setState({ rememberMe: event.target.value });
+	}
 
 	handlelogin() {
 		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -210,7 +213,13 @@ export default class LoginSection extends Reflux.Component {
 					</tr>
 					<tr>
 						<td>
-							Remember Me: <input type="checkbox" value={this.rememberMe} aria-label="Remember Me" />
+							Remember Me:{" "}
+							<input
+								type="checkbox"
+								value={this.rememberMe}
+								onChange={this.handleChangeRememberme(this)}
+								aria-label="Remember Me"
+							/>
 						</td>
 						<td>
 							<input
