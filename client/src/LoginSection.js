@@ -68,6 +68,7 @@ export default class LoginSection extends Reflux.Component {
 					loginUrl: this.state.loginurl,
 				})
 				.then(response => {
+                    console.log('Login Response',response);
 					var dataLocal = {
 						loginUrl: response.data.loginUrl,
 						sessionToken: response.data.sesionTkn,
