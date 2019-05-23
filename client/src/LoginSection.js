@@ -24,16 +24,19 @@ export default class LoginSection extends Reflux.Component {
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	handleUsernameChange(event) {
-		this.setState({ username: event.target.value });
+		var valUsername = event.target.value;
+		this.setState({ username: valUsername });
+
+		console.log("The Called ");
 		if (this.state.listUserNames != undefined) {
 			for (var i = 0; i < this.state.listUserNames.length; i++) {
-				if (this.state.listUserNames[i].username == event.target.value) {
+				if (this.state.listUserNames[i].username == valUsername) {
 					this.state.password = this.state.listUserNames[i].password;
 					$(this.refs["userpassword"]).val(this.state.listUserNames[i].password);
 				}
 			}
 		}
-		ContentReviewerActions.setvalparam("username", event.target.value);
+		ContentReviewerActions.setvalparam("username", valUsername);
 	}
 
 	handlePasswordChange(event) {
