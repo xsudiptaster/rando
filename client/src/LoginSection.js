@@ -59,7 +59,8 @@ export default class LoginSection extends Reflux.Component {
 					var dataLocal = {
 						loginUrl: response.data.loginUrl,
 						sessionToken: response.data.sesionTkn,
-					};
+                    };
+                    console.log('The State',this.state);
 					if (this.state.rememberMe) {
 						if (this.state.listUserNames == undefined) {
                             console.log('please be here');
