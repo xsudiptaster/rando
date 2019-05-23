@@ -29,7 +29,7 @@ export default class LoginSection extends Reflux.Component {
 			for (var i = 0; i < this.state.listUserNames.length; i++) {
 				if (this.state.listUserNames[i].username == event.target.value) {
 					this.state.password = this.state.listUserNames[i].password;
-					
+					$(this.refs["userpassword"]).val(this.state.listUserNames[i].password);
 				}
 			}
 		}
@@ -213,6 +213,7 @@ export default class LoginSection extends Reflux.Component {
 						</td>
 						<td>
 							<input
+								ref="userpassword"
 								type="password"
 								value={this.state.password}
 								className="slds-input"
