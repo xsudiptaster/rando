@@ -34,7 +34,8 @@ app.post("/api/logintosalesforce", function(req, res) {
 	jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
 		if (err) {
 			console.log("The error Obj", err);
-			return console.error(err);
+			res.send(err);
+			return;
 		}
 		var respt = {};
 		console.log("userinfo", userinfo);
