@@ -39,7 +39,6 @@ export default class LoginSection extends Reflux.Component {
 	}
 
 	handlelogin() {
-		console.log("The Current State", this.state);
 		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 		if (this.state.loginurl == "") {
 			ContentReviewerActions.showError("Please Select the Org", this.state);
@@ -63,6 +62,7 @@ export default class LoginSection extends Reflux.Component {
 					};
 					if (this.state.rememberMe) {
 						if (this.state.listUserNames == undefined) {
+                            console.log('please be here');
 							var listUserNames = [];
 							var objUsername = {};
 							objUsername.username = this.state.username;
