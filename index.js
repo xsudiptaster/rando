@@ -33,6 +33,7 @@ app.post("/api/logintosalesforce", function(req, res) {
 	jsobj.loginUrl = req.body.loginUrl;
 	jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
 		if (err) {
+			console.log("The error Obj", err);
 			return console.error(err);
 		}
 		var respt = {};
