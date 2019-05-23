@@ -25,6 +25,13 @@ export default class LoginSection extends Reflux.Component {
 	}
 	handleUsernameChange(event) {
 		this.setState({ username: event.target.value });
+		if (this.state.listUserNames != undefined) {
+			for (var i = 0; i < this.state.length; i++) {
+				if (this.state.listUserNames[i].username == event.target.value) {
+					this.state.password = this.state.listUserNames[i].password;
+				}
+			}
+		}
 		ContentReviewerActions.setvalparam("username", event.target.value);
 	}
 
@@ -38,9 +45,9 @@ export default class LoginSection extends Reflux.Component {
 		ContentReviewerActions.setvalparam("loginurl", event.target.value);
 	}
 	handleChangeRememberme(event) {
-        this.setState({ rememberMe: event.target.value });
-        console.log('Remmeber Me ',this.state);
-        ContentReviewerActions.setvalparam("rememberMe", event.target.checked);
+		this.setState({ rememberMe: event.target.value });
+		console.log("Remmeber Me ", this.state);
+		ContentReviewerActions.setvalparam("rememberMe", event.target.checked);
 	}
 
 	handlelogin() {
