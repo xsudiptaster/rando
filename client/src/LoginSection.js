@@ -33,7 +33,8 @@ export default class LoginSection extends Reflux.Component {
 				if (this.state.listUserNames[i].username == valUsername) {
 					console.log("Found Found");
 					this.state.password = this.state.listUserNames[i].password;
-					$(this.refs["userpassword"]).val(this.state.listUserNames[i].password);
+					$(this.refs["userpassword"]).val(this.state.password);
+					ContentReviewerActions.setState(this.state);
 				}
 			}
 		}
