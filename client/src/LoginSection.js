@@ -217,7 +217,7 @@ export default class LoginSection extends Reflux.Component {
 							<input
 								type="checkbox"
 								value={this.rememberMe}
-								onChange={this.handleChangeRememberme(this)}
+								onChange={this.handleChangeRememberme.bind(this)}
 								aria-label="Remember Me"
 							/>
 						</td>
