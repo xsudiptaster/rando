@@ -35,13 +35,12 @@ app.post("/api/logintosalesforce", function(req, res) {
 		if (err) {
 			console.log("The error Obj", err);
 			res.send(err);
-			return;
+		} else {
+			var respt = {};
+			respt.sesionTkn = jsobj.accessToken;
+			respt.loginUrl = jsobj.instanceUrl;
+			res.send(respt);
 		}
-		var respt = {};
-		console.log("userinfo", userinfo);
-		respt.sesionTkn = jsobj.accessToken;
-		respt.loginUrl = jsobj.instanceUrl;
-		res.send(respt);
 	});
 	// Return them as json
 });
