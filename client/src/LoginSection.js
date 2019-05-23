@@ -42,7 +42,7 @@ export default class LoginSection extends Reflux.Component {
 		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 		if (this.state.loginurl == "") {
 			ContentReviewerActions.showError("Please Select the Org", this.state);
-		} else if (this.state.username == "" || this.state.username.search(emailRegEx)==-1) {
+		} else if (this.state.username == "" || this.state.username.search(emailRegEx) == -1) {
 			ContentReviewerActions.showError("Please Enter UserName", this.state);
 		} else if (this.state.password == "") {
 			ContentReviewerActions.showError("Please Enter Password", this.state);
@@ -59,11 +59,10 @@ export default class LoginSection extends Reflux.Component {
 					var dataLocal = {
 						loginUrl: response.data.loginUrl,
 						sessionToken: response.data.sesionTkn,
-                    };
-                    console.log('The State',this.state);
+					};
+					console.log("The State", this.state);
 					if (this.state.rememberMe) {
 						if (this.state.listUserNames == undefined) {
-                            console.log('please be here');
 							var listUserNames = [];
 							var objUsername = {};
 							objUsername.username = this.state.username;
