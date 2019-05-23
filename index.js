@@ -34,7 +34,7 @@ app.post("/api/logintosalesforce", function(req, res) {
 	jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
 		if (err) {
 			console.log("The error Obj", err);
-			res.send(err);
+			res.send(err.toString());
 		} else {
 			var respt = {};
 			respt.sesionTkn = jsobj.accessToken;
