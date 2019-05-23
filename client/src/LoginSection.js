@@ -120,13 +120,12 @@ export default class LoginSection extends Reflux.Component {
                     }
                     else{
                         ContentReviewerActions.setvalparam("showProgress", false);
+                        ContentReviewerActions.showError(response.data,this.state);
                     }
 				})
 				.catch(error => {
-					this.state.errorMessage = error;
-					this.state.errorModal = { height: "14rem", display: "block" };
 					ContentReviewerActions.setvalparam("showProgress", false);
-					ContentReviewerActions.stateupdates(this.state);
+					ContentReviewerActions.showError(error.toString(),this.state);
 				});
 		}
 	}
