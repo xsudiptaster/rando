@@ -209,7 +209,6 @@ export default class LoginSection extends Reflux.Component {
 								value={this.state.username}
 								className="slds-input"
 								onChange={this.handleUsernameChange.bind(this)}
-								onClick={this.handleUsernameChange.bind(this)}
 							/>
 							<datalist id="usernames">
 								{lst.map(val => (
@@ -226,7 +225,6 @@ export default class LoginSection extends Reflux.Component {
 							<input
 								ref="userpassword"
 								type="password"
-								value={this.state.password}
 								className="slds-input"
 								onChange={this.handlePasswordChange.bind(this)}
 							/>
