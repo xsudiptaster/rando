@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import SimpleCrypto from "simple-crypto-js";
-
+import $ from "jquery";
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -29,6 +29,7 @@ export default class LoginSection extends Reflux.Component {
 			for (var i = 0; i < this.state.length; i++) {
 				if (this.state.listUserNames[i].username == event.target.value) {
 					this.state.password = this.state.listUserNames[i].password;
+					$(this.refs("loginpassword")).val(this.state.listUserNames[i].password);
 				}
 			}
 		}
@@ -213,6 +214,7 @@ export default class LoginSection extends Reflux.Component {
 						</td>
 						<td>
 							<input
+								ref="loginpassword"
 								type="password"
 								value={this.state.password}
 								className="slds-input"
