@@ -33,9 +33,7 @@ export default class FileuploadSection extends Reflux.Component {
 
     startProcessing(event) {
         if (this.state.fileName == undefined || this.state.fileName == "") {
-            this.state.errorMessage = "Select a File";
-            this.state.errorModal = {height: '14rem', display: 'block'};
-            ContentReviewerActions.stateupdates(this.state);
+            ContentReviewerActions.showError("Please Select a File",this.state);
             return;
         }
         this.state.uploadfiledisplay = {

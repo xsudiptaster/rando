@@ -18,7 +18,6 @@ export default class OptionsHeaderColumnSelector extends Reflux.Component {
         readXlsxFile(this.state.fileBlob, {
           sheet: Object.keys(this.state.objectMapping)[i]
         }).then(data => {
-          console.log("the options are", this.options.sheet);
           var optns = [];
           for (var j = 0; j < data[0].length; j++) {
             optns.push(data[0][i]);
@@ -34,7 +33,6 @@ export default class OptionsHeaderColumnSelector extends Reflux.Component {
     var optns = [];
     if (this.state && this.state.objectMapping != undefined) {
       optns = this.state.objectMapping[this.props.shtname].sheetHeaders;
-      console.log("The Sheets", optns);
     }
     return (
       <select>
