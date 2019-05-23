@@ -117,15 +117,14 @@ export default class LoginSection extends Reflux.Component {
 							},
 						});
 						this.getobjectlist();
-                    }
-                    else{
-                        ContentReviewerActions.setvalparam("showProgress", false);
-                        ContentReviewerActions.showError(response.data,this.state);
-                    }
+					} else {
+						ContentReviewerActions.setvalparam("showProgress", false);
+						ContentReviewerActions.showError(response.data, this.state);
+					}
 				})
 				.catch(error => {
 					ContentReviewerActions.setvalparam("showProgress", false);
-					ContentReviewerActions.showError(error.toString(),this.state);
+					ContentReviewerActions.showError(error.toString(), this.state);
 				});
 		}
 	}
@@ -138,19 +137,21 @@ export default class LoginSection extends Reflux.Component {
 					oUrl: this.state.instanceUrl,
 				})
 				.then(response => {
-					var ListObjects = [];
-					var objectsList = response.data.sobjects;
-					for (var i = 0; i < objectsList.length; i++) {
-						if (objectsList[i].createable) {
-							var obj = {};
-							obj.value = objectsList[i].name;
-							obj.label = objectsList[i].label;
-							ListObjects.push(obj);
+					if (response.data.sobjects != undefined) {
+						var ListObjects = [];
+						var objectsList = response.data.sobjects;
+						for (var i = 0; i < objectsList.length; i++) {
+							if (objectsList[i].createable) {
+								var obj = {};
+								obj.value = objectsList[i].name;
+								obj.label = objectsList[i].label;
+								ListObjects.push(obj);
+							}
 						}
+						this.setState({ objectList: ListObjects });
+						ContentReviewerActions.stateupdates(this.state);
+						ContentReviewerActions.setvalparam("showProgress", false);
 					}
-					this.setState({ objectList: ListObjects });
-					ContentReviewerActions.stateupdates(this.state);
-					ContentReviewerActions.setvalparam("showProgress", false);
 				})
 				.catch(error => {
 					this.state.errorMessage = error;
@@ -203,8 +204,8 @@ export default class LoginSection extends Reflux.Component {
 								type="text"
 								value={this.state.username}
 								className="slds-input"
-                                onChange={this.handleUsernameChange.bind(this)}
-                                onClick={this.handleUsernameChange.bind(this)}
+								onChange={this.handleUsernameChange.bind(this)}
+								onClick={this.handleUsernameChange.bind(this)}
 							/>
 							<datalist id="usernames">
 								{lst.map(val => (
