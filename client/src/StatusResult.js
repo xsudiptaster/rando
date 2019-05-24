@@ -28,6 +28,16 @@ export default class StatusResult extends Reflux.Component {
 			wb.Sheets[sheetName] = ws;
 		}
 		console.log("the WorkBook", wb);
+		var blob = new Blob([this.s2ab(XLSX.write(wb, { bookType: "xlsx", type: "binary" }))], {
+			type: "application/octet-stream",
+		});
+		saveAs(blob, "logs.xlsx");
+	}
+	s2ab(s) {
+		var buf = new ArrayBuffer(s.length);
+		var view = new Uint8Array(buf);
+		for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xff;
+		return buf;
 	}
 	render() {
 		var SheetNames = [];
