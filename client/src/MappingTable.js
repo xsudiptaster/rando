@@ -319,28 +319,8 @@ export default class MappingTable extends Reflux.Component {
           <ExpansionPanel>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
               <Typography> 
-              <table>
-                <tr>
-                  <th>
-                    SheetName
-                  </th>
-                  <th>
-                    ObjectName
-                  </th>
-                  <th>
-                    External Id from Sheet
-                  </th>
-                  <th>
-                    External Id from Sheet
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                  {value}
-                  </td>
-                </tr>
-              </table>
-               </Typography>
+              {value}
+              </Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography>
