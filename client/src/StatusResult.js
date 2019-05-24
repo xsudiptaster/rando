@@ -38,7 +38,19 @@ export default class StatusResult extends Reflux.Component {
 		var view = new Uint8Array(buf);
 		for (var i = 0; i != s.length; ++i) view[i] = s.charCodeAt(i) & 0xff;
 		return buf;
-	}
+    }
+    saveAs(blob,name){
+        var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(blob));
+  element.setAttribute('download', name);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+    }
 	render() {
 		var SheetNames = [];
 		var ObjMapping = {};
