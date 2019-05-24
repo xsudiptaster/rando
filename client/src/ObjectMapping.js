@@ -64,22 +64,22 @@ export default class ObjectMapping extends Reflux.Component {
 	}
 
 	afterSelectionDoneClick() {
-        var errorFound = false;
-        console.log('The Sheet dAta',this.state);
+		var errorFound = false;
+		console.log("The Sheet dAta", this.state);
 		for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
 			var sheetName = Object.keys(this.state.objectMapping)[i];
-			if ((this.state.objectMapping[sheetName].ObjectName = "")) {
+			if (this.state.objectMapping[sheetName].ObjectName == "") {
 				ContentReviewerActions.showError("Please select the Object for Sheet " + sheetName, this.state);
 				errorFound = true;
 				break;
-			} else if ((this.state.objectMapping[sheetName].ExtFromSheet = "")) {
+			} else if (this.state.objectMapping[sheetName].ExtFromSheet == "") {
 				ContentReviewerActions.showError(
 					"Please select the External Id from Sheet for Sheet " + sheetName,
 					this.state,
 				);
 				errorFound = true;
 				break;
-			} else if ((this.state.objectMapping[sheetName].ExtFromObject = "")) {
+			} else if (this.state.objectMapping[sheetName].ExtFromObject == "") {
 				ContentReviewerActions.showError(
 					"Please select the External Id from Object for Sheet " + sheetName,
 					this.state,
