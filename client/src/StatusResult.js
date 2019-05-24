@@ -62,8 +62,8 @@ export default class StatusResult extends Reflux.Component {
                                     className="resultTable slds-table_col-bordered slds-table--bordered ">
                                     {( ErrorLog[value] != undefined ? ErrorLog[value] : [] ).map((val, key) => (
                                         <tr>
-                                            <td className="slds-wrap">
-                                                {key}
+                                            <td className="slds-wrap ">
+                                               <label className="slds-font-weight-bold" >{key}</label> 
                                             </td>
                                             <td className="slds-wrap">
                                                 {val}
