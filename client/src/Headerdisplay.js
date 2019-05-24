@@ -10,7 +10,6 @@ export default class Headerdisplay extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
-		this.setState({showLauncher:false});
 	}
 
 	componentDidMount() {}
@@ -23,7 +22,7 @@ export default class Headerdisplay extends Reflux.Component {
 					<header className="slds-media slds-media_center slds-has-flexi-truncate">
 						<div className="slds-media__figure">
 							<span title="account">
-								<AppLauncher isOpen={this.state.showLauncher}>
+								<AppLauncher isOpen={(this.state!=undefined?this.state.showLauncher:false)}>
 									<AppLauncherSection title="App Selection">
 										<AppLauncherTile
 											title="Upsert Records"
