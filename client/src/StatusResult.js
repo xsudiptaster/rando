@@ -45,9 +45,8 @@ export default class StatusResult extends Reflux.Component {
 		return (
 			<div>
 				<div style={{ float: "right" }}>
-					<input type="button" onClick={this.handleDownload.bind(this)}>
-						Download Log
-					</input>
+					<input type="button" onClick={this.handleDownload.bind(this)}/>
+					
 				</div>
 
 				<div>
