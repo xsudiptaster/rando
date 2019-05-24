@@ -31,7 +31,7 @@ export default class StatusResult extends Reflux.Component {
 		var blob = new Blob([this.s2ab(XLSX.write(wb, { bookType: "xlsx", type: "binary" }))], {
 			type: "application/octet-stream",
 		});
-		saveAs(blob, "logs.xlsx");
+		this.saveAs(blob, "logs.xlsx");
 	}
 	s2ab(s) {
 		var buf = new ArrayBuffer(s.length);
