@@ -45,7 +45,7 @@ export default class StatusResult extends Reflux.Component {
 	}
 	saveAs(blob, name) {
 		var element = document.createElement("a");
-		element.setAttribute("href", "data:text/plain;charset=utf-8," + URL.createObjectURL(blob));
+		element.setAttribute("href", URL.createObjectURL(blob));
 		element.setAttribute("download", name);
 		element.style.display = "none";
 		document.body.appendChild(element);
