@@ -175,8 +175,7 @@ export default class ObjectMapping extends Reflux.Component {
 									style={{
 										display:
 											objdesb[this.state.objectMapping[value].ObjectName] == undefined &&
-											this.state.objectMapping[value].ObjectName != "" &&
-											objdesb[this.state.objectMapping[value].ObjectName].length == 0
+											this.state.objectMapping[value].ObjectName != ""
 												? "block"
 												: "none",
 									}}>
@@ -196,13 +195,13 @@ export default class ObjectMapping extends Reflux.Component {
 									style={{
 										width: "200px!",
 										display:
-											objdesb[this.state.objectMapping[value].ObjectName] != undefined
+											objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
+											objdesb[this.state.objectMapping[value].ObjectName].length != 0
 												? "block"
 												: "none",
 									}}
 									className="slds-input"
 									onChange={this.onchangeGetExterIdFromObj.bind(this, value)}
-									required=""
 								/>
 								<datalist id={"mylist3-" + value}>
 									{objdesb[this.state.objectMapping[value].ObjectName] != undefined ? (
