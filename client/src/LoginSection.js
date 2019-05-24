@@ -122,8 +122,8 @@ export default class LoginSection extends Reflux.Component {
 						});
 						this.getobjectlist();
 					} else {
-                        ContentReviewerActions.setvalparam("showProgress", false);
-                        this.state.showLauncher=true;
+						ContentReviewerActions.setvalparam("showProgress", false);
+						this.setState({ showLauncher: true });
 						ContentReviewerActions.showError(response.data, this.state);
 					}
 				})
