@@ -6,6 +6,7 @@ import ExpandMoreIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import Typography from "@material-ui/core/Typography";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import XLSX from "xlsx";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
