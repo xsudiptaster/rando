@@ -300,9 +300,9 @@ export default class MappingTable extends Reflux.Component {
                   type="button"
                   className="slds-button slds-button--neutral"
                   onClick={() => this.onClickUpsert()}
-                />{" "}
-              </div>{" "}
-            </td>{" "}
+                />
+              </div>
+            </td>
             <td>
               <div>
                 <input
@@ -310,36 +310,58 @@ export default class MappingTable extends Reflux.Component {
                   type="button"
                   className="slds-button slds-button--neutral"
                   onClick={() => this.autoMatch()}
-                />{" "}
-              </div>{" "}
-            </td>{" "}
-          </tr>{" "}
+                />
+              </div>
+            </td>
+          </tr>
         </table>
         {panls.map(value => (
           <ExpansionPanel>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography> {value} </Typography>{" "}
-            </ExpansionPanelSummary>{" "}
+              <Typography> 
+              <table>
+                <tr>
+                  <th>
+                    SheetName
+                  </th>
+                  <th>
+                    ObjectName
+                  </th>
+                  <th>
+                    External Id from Sheet
+                  </th>
+                  <th>
+                    External Id from Sheet
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                  {value}
+                  </td>
+                </tr>
+              </table>
+               </Typography>
+            </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <Typography>
                 <table className="slds-table slds-table_bordered">
                   <tr>
                     <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
-                      Column Name{" "}
-                    </th>{" "}
+                      Column Name
+                    </th>
                     <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
-                      Field Name{" "}
-                    </th>{" "}
+                      Field Name
+                    </th>
                     <th className="slds-line-height_reset slds-truncate slds-text-heading_medium">
-                      External Id(Default is Id){" "}
-                    </th>{" "}
-                  </tr>{" "}
+                      External Id(Default is Id)
+                    </th>
+                  </tr>
                   {this.state &&
                   this.state.objectMapping &&
                   Headers[value] != undefined ? (
                     Headers[value].map(val => (
                       <tr>
-                        <td> {val} </td>{" "}
+                        <td> {val} </td>
                         <td>
                           <input
                             list={"List3-" + value}
@@ -353,9 +375,9 @@ export default class MappingTable extends Reflux.Component {
                               value,
                               val
                             )}
-                          />{" "}
+                          />
                           <datalist id={"List3-" + value}>
-                            {" "}
+                            
                             {objdesbs[
                               this.state.objectMapping[value].ObjectName
                             ] != undefined &&
@@ -365,15 +387,15 @@ export default class MappingTable extends Reflux.Component {
                                 this.state.objectMapping[value].ObjectName
                               ].fields.map(valfld => (
                                 <option value={valfld.name}>
-                                  {" "}
-                                  {valfld.label}{" "}
+                                  
+                                  {valfld.label}
                                 </option>
                               ))
                             ) : (
                               <option> None </option>
-                            )}{" "}
-                          </datalist>{" "}
-                        </td>{" "}
+                            )}
+                          </datalist>
+                        </td>
                         <td
                           style={{
                             display:
@@ -416,7 +438,7 @@ export default class MappingTable extends Reflux.Component {
                                 height: "17px",
                                 zIndex: "10"
                               }}
-                            />{" "}
+                            />
                           </div>
                           <input
                             list={"List4-" + value + "-" + val}
@@ -429,9 +451,9 @@ export default class MappingTable extends Reflux.Component {
                               value,
                               val
                             )}
-                          />{" "}
+                          />
                           <datalist id={"List4-" + value + "-" + val}>
-                            {" "}
+                            
                             {this.state.objectMapping[value]
                               .sheetObjectFields != undefined &&
                             this.state.objectMapping[value].sheetObjectFields[
@@ -450,25 +472,25 @@ export default class MappingTable extends Reflux.Component {
                                   .sheetObjectFields[val].ObjectName
                               ].map(valfld => (
                                 <option value={valfld.name}>
-                                  {" "}
-                                  {valfld.label}{" "}
+                                  
+                                  {valfld.label}
                                 </option>
                               ))
                             ) : (
                               <option> None </option>
-                            )}{" "}
-                          </datalist>{" "}
-                        </td>{" "}
+                            )}
+                          </datalist>
+                        </td>
                       </tr>
                     ))
                   ) : (
                     <div />
-                  )}{" "}
-                </table>{" "}
-              </Typography>{" "}
-            </ExpansionPanelDetails>{" "}
+                  )}
+                </table>
+              </Typography>
+            </ExpansionPanelDetails>
           </ExpansionPanel>
-        ))}{" "}
+        ))}
       </div>
     );
   }
