@@ -18,7 +18,7 @@ export default class StatusResult extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 	}
-	handleDownload(event) {
+	handleDownload() {
 		var wb = { SheetNames: [], Sheets: {} };
 		for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
 			var sheetName = this.state.sheetsToInsert[i];
@@ -33,18 +33,30 @@ export default class StatusResult extends Reflux.Component {
 		var SheetNames = [];
 		var ObjMapping = {};
 		var ErrorLog = {};
+		var logButtonDisplay = "block";
 		if (this.state != undefined && this.state.sheetsToInsert != undefined) {
 			SheetNames = this.state.sheetsToInsert;
 		}
 		if (this.state && this.state.objectMapping) {
 			ObjMapping = this.state.objectMapping;
+
+			for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
+				var sheetName = Object.keys(this.state.objectMapping)[i];
+				if (
+					this.state.objectMapping[sheetName].sheetUpsertCompleted !=
+					this.state.objectMapping[sheetName].sheetDataJsonList.length
+				) {
+					logButtonDisplay = "none";
+				}
+			}
 		}
 		if (this.state && this.state.ErrorLog) {
 			ErrorLog = this.state.ErrorLog;
 		}
+
 		return (
 			<div>
-				<div >
+				<div style={{ display: logButtonDisplay }}>
 					<input
 						type="button"
 						value="Download Logs"
@@ -52,7 +64,7 @@ export default class StatusResult extends Reflux.Component {
 						onClick={() => this.handleDownload()}
 					/>
 				</div>
-                <br/>
+				<br />
 				<div>
 					{SheetNames.map(value => (
 						<ExpansionPanel>
