@@ -98,7 +98,7 @@ export default class StatusResult extends Reflux.Component {
 							</ExpansionPanelSummary>
 							<ExpansionPanelDetails>
 								<div style={{ maxHeight: "400px", overflow: "scroll" }}>
-									<table className="resultTable" ref={"log-" + value}>
+									<table className="resultTable" ref={"log-" + value} id={"log-" + value}>
 										{(ErrorLog[value] != undefined ? ErrorLog[value] : []).map((val, key) => (
 											<tr>
 												<td className="slds-wrap ">
