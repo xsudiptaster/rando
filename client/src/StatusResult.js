@@ -22,7 +22,7 @@ export default class StatusResult extends Reflux.Component {
 		var wb = { SheetNames: [], Sheets: {} };
 		for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
 			var sheetName = this.state.sheetsToInsert[i];
-			var tbl = $(this.refs["log-" + sheetName]);
+			var tbl = this.refs["log-" + sheetName];
 			var ws = XLSX.utils.table_to_sheet(tbl);
 			wb.SheetNames.push(sheetName);
 			wb.Sheets[sheetName] = ws;
