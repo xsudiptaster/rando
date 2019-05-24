@@ -64,32 +64,38 @@ export default class ObjectMapping extends Reflux.Component {
 	}
 
 	afterSelectionDoneClick() {
+		var errorFound = false;
 		for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
 			var sheetName = Object.keys(this.state.objectMapping)[i];
 			if ((this.state.objectMapping[sheetName].ObjectName = "")) {
 				ContentReviewerActions.showError("Please select the Object for Sheet " + sheetName, this.state);
-				return;
+				errorFound = true;
+				break;
 			} else if ((this.state.objectMapping[sheetName].ExtFromSheet = "")) {
 				ContentReviewerActions.showError(
 					"Please select the External Id from Sheet for Sheet " + sheetName,
 					this.state,
 				);
-				return;
+				errorFound = true;
+				break;
 			} else if ((this.state.objectMapping[sheetName].ExtFromObject = "")) {
 				ContentReviewerActions.showError(
 					"Please select the External Id from Object for Sheet " + sheetName,
 					this.state,
 				);
-				return;
+				errorFound = true;
+				break;
 			}
 		}
-		this.state.objectmappingdisplay = {
-			display: "none",
-		};
-		this.state.objectmappingtable = {
-			display: "block",
-		};
-		ContentReviewerActions.stateupdates(this.state);
+		if (!errorFound) {
+			this.state.objectmappingdisplay = {
+				display: "none",
+			};
+			this.state.objectmappingtable = {
+				display: "block",
+			};
+			ContentReviewerActions.stateupdates(this.state);
+		}
 	}
 
 	render() {
