@@ -66,8 +66,8 @@ export default class StatusResult extends Reflux.Component {
 										<tr>
 											<td
 												className="slds-wrap "
-												style={{ borderBottom: "2px", borderRight: "2px" }}>
-												<label className="slds-font-weight-bold">{key}</label>
+												style={{ borderBottom: "5px", borderRight: "5px",borderBlockColor:"black" }}>
+												<label style={{fontWeight:700}}>{key}</label>
 											</td>
 											<td className="slds-wrap">{val}</td>
 										</tr>
