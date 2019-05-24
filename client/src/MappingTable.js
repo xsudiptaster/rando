@@ -361,7 +361,11 @@ export default class MappingTable extends Reflux.Component {
 														extrDesbs[
 															this.state.objectMapping[value].sheetObjectFields[val]
 																.ObjectName
-														] != undefined ? (
+														] != undefined &&
+														extrDesbs[
+															this.state.objectMapping[value].sheetObjectFields[val]
+																.ObjectName
+														].length > 0 ? (
 															extrDesbs[
 																this.state.objectMapping[value].sheetObjectFields[val]
 																	.ObjectName
