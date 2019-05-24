@@ -16,6 +16,12 @@ export default class StatusResult extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 	}
+	handleDownload(sheetName, event) {
+		var tbl = document.getElementById("log-" + sheetName);
+		var wb = XLSX.utils.table_to_book(tbl);
+		console.log("the WorkBook", wb);
+		return XLSX.writeFile(wb, fn || "log" + sheetName + "." + (type || "xlsx"));
+	}
 	render() {
 		var SheetNames = [];
 		var ObjMapping = {};
@@ -58,16 +64,23 @@ export default class StatusResult extends Reflux.Component {
 									</td>
 								</tr>
 							</table>
+							<div style={{ float: "right" }}>
+								<button value="Download Log" onClick={this.handleDownload.bind(this, value)}>
+									Download Log
+								</button>
+							</div>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
 							<div style={{ maxHeight: "400px", overflow: "scroll" }}>
-								<table className="resultTable">
+								<table className="resultTable" id={"log-" + value}>
 									{(ErrorLog[value] != undefined ? ErrorLog[value] : []).map((val, key) => (
 										<tr>
 											<td className="slds-wrap ">
 												<label style={{ fontWeight: 700 }}>{key}</label>
 											</td>
-											<td className="slds-wrap">{val}</td>
+											<td className="slds-wrap" style={{ borderBottom: "3px solid black" }}>
+												{val}
+											</td>
 										</tr>
 									))}
 								</table>
