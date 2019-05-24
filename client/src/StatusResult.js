@@ -45,8 +45,12 @@ export default class StatusResult extends Reflux.Component {
 		return (
 			<div>
 				<div style={{ float: "right" }}>
-					<input type="button" onClick={this.handleDownload.bind(this)}/>
-					
+					<input
+						type="button"
+						value="Download Logs"
+						className="slds-button slds-button_neutral"
+						onClick={() => this.handleDownload()}
+					/>
 				</div>
 
 				<div>
