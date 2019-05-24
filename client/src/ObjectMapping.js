@@ -175,7 +175,8 @@ export default class ObjectMapping extends Reflux.Component {
 									style={{
 										display:
 											objdesb[this.state.objectMapping[value].ObjectName] == undefined &&
-											this.state.objectMapping[value].ObjectName != ""
+											this.state.objectMapping[value].ObjectName != "" &&
+											objdesb[this.state.objectMapping[value].ObjectName].length == 0
 												? "block"
 												: "none",
 									}}>
