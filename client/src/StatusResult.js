@@ -17,11 +17,16 @@ export default class StatusResult extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 	}
-	handleDownload(sheetName, event) {
-		var tbl = document.getElementById("log-" + sheetName);
-		var wb = XLSX.utils.table_to_book(tbl);
+	handleDownload(event) {
+		var wb = { SheetNames: [], Sheets: {} };
+		for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
+			var sheetName = this.state.sheetsToInsert[i];
+			var tbl = document.getElementById("log-" + sheetName);
+			var ws = XLSX.utils.table_to_sheet(tbl);
+			wb.SheetNames.push(sheetName);
+			wb.Sheets[sheetName] = ws;
+		}
 		console.log("the WorkBook", wb);
-		return XLSX.writeFile(wb, fn || "log" + sheetName + "." + (type || "xlsx"));
 	}
 	render() {
 		var SheetNames = [];
@@ -38,6 +43,11 @@ export default class StatusResult extends Reflux.Component {
 		}
 		return (
 			<div>
+				<div style={{ float: "right" }}>
+					<button value="Download Log" onClick={this.handleDownload.bind(this)}>
+						Download Log
+					</button>
+				</div>
 				{SheetNames.map(value => (
 					<ExpansionPanel>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -65,11 +75,6 @@ export default class StatusResult extends Reflux.Component {
 									</td>
 								</tr>
 							</table>
-							<div style={{ float: "right" }}>
-								<button value="Download Log" onClick={this.handleDownload.bind(this, value)}>
-									Download Log
-								</button>
-							</div>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
 							<div style={{ maxHeight: "400px", overflow: "scroll" }}>
