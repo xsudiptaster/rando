@@ -347,12 +347,15 @@ export default class MappingTable extends Reflux.Component {
 														list={"List4-" + value + "-" + val}
 														style={{
 															width: "200px!",
-															display:
+															display:extrDesbs[
+                                this.state.objectMapping[value].sheetObjectFields[
+                                  val
+                                ] != undefined &&
 																extrDesbs[
 																	this.state.objectMapping[value].sheetObjectFields[
 																		val
 																	].ObjectName
-																].length > 0
+																].length != 0
 																	? "block"
 																	: "none",
 														}}
