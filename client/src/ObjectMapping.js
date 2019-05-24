@@ -64,7 +64,8 @@ export default class ObjectMapping extends Reflux.Component {
 	}
 
 	afterSelectionDoneClick() {
-		var errorFound = false;
+        var errorFound = false;
+        console.log('The Sheet dAta',this.state);
 		for (var i = 0; i < Object.keys(this.state.objectMapping).length; i++) {
 			var sheetName = Object.keys(this.state.objectMapping)[i];
 			if ((this.state.objectMapping[sheetName].ObjectName = "")) {
