@@ -44,9 +44,9 @@ export default class StatusResult extends Reflux.Component {
 		return (
 			<div>
 				<div style={{ float: "right" }}>
-					<button value="Download Log" onClick={this.handleDownload.bind(this)}>
+					<input type="button" value="Download Log" onClick={this.handleDownload.bind(this)}>
 						Download Log
-					</button>
+					</input>
 				</div>
 				{SheetNames.map(value => (
 					<ExpansionPanel>
