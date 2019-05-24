@@ -196,7 +196,7 @@ export default class ObjectMapping extends Reflux.Component {
 										width: "200px!",
 										display:
 											(objdesb[this.state.objectMapping[value].ObjectName] != undefined &&
-											(objdesb[this.state.objectMapping[value].ObjectName]).length > 0)
+											(objdesb[this.state.objectMapping[value].ObjectName]).length !=0 )
 												? "block"
 												: "none",
 									}}
