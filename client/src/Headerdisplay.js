@@ -14,7 +14,7 @@ export default class Headerdisplay extends Reflux.Component {
 
     componentDidMount() {
       if (this.state!=undefined && this.state.sessiontok!=undefined){
-        $(this.refs[callClick]).click();
+        $(this.refs["callClick"]).click();
       }
     }
 
