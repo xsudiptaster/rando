@@ -27,10 +27,14 @@ export default class StatusResult extends Reflux.Component {
 			wb.SheetNames.push(sheetName);
 			wb.Sheets[sheetName] = ws;
 		}
-		console.log("the WorkBook", wb);
-		var blob = new Blob([this.s2ab(XLSX.write(wb, { bookType: "xlsx", type: "binary" }))], {
-			type: "application/octet-stream",
-		});
+		var wopts = {
+			bookType: "xlsx",
+			bookSST: false,
+			type: "binary",
+		};
+		var wbout = XLSX.write(wb, wopts);
+		var blob = new Blob([this.s2ab(wbout)], { type: "application/octet-stream" });
+		console.log("the WorkBook", wbout);
 		this.saveAs(blob, "logs.xlsx");
 	}
 	s2ab(s) {
@@ -41,7 +45,7 @@ export default class StatusResult extends Reflux.Component {
 	}
 	saveAs(blob, name) {
 		var element = document.createElement("a");
-		element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(blob));
+		element.setAttribute("href", "data:text/plain;charset=utf-8," + URL.createObjectURL(blob));
 		element.setAttribute("download", name);
 		element.style.display = "none";
 		document.body.appendChild(element);
