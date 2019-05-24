@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import {AppLauncher, AppLauncherSection, AppLauncherTile} from "@salesforce/design-system-react";
-
+import $ from 'jquery'
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -13,6 +13,9 @@ export default class Headerdisplay extends Reflux.Component {
   }
 
     componentDidMount() {
+      if (this.state!=undefined && this.state.sessiontok!=undefined){
+        $(this.refs[callClick]).click();
+      }
     }
 
   render() {
@@ -24,7 +27,7 @@ export default class Headerdisplay extends Reflux.Component {
                     <div className="slds-media__figure">
               <span
                   title="account">
-                <AppLauncher>
+                <AppLauncher ref="callClick">
                   <AppLauncherSection title="App Selection">
                     <AppLauncherTile
                         title="Upsert Records"
