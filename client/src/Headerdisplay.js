@@ -11,11 +11,14 @@ export default class Headerdisplay extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 	}
+	handleClick() {
+		this.state.showLauncher = false;
+		ContentReviewerActions.stateupdates(this.state);
+	}
 
 	componentDidMount() {}
 
 	render() {
-		console.log("State In Header", this.state);
 		var CurrentApp = this.state != undefined ? this.state.currentApp : "";
 		return (
 			<article className="slds-card">
@@ -29,6 +32,7 @@ export default class Headerdisplay extends Reflux.Component {
 											title="Upsert Records"
 											iconText="UR"
 											description="Upsert Objects serially or parallel and use external Ids to relate them"
+											onClick={() => this.handleClick()}
 										/>
 										<AppLauncherTile
 											title="Sample Data Creator"

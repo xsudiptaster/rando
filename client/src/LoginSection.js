@@ -132,7 +132,7 @@ export default class LoginSection extends Reflux.Component {
 						ContentReviewerActions.setvalparam("showProgress", false);
 						ContentReviewerActions.setvalparam("showLauncher", false);
                         ContentReviewerActions.showError(response.data, this.state);
-                        console.log('The Selected App',this.state);
+                        
 					}
 				})
 				.catch(error => {
