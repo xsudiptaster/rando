@@ -15,19 +15,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "client/build")));
 
 // Put all API endpoints under '/api'
-app.get("/api/passwords", (req, res) => {
-	const count = 5;
-
-	// Generate some passwordss
-	const passwords = Array.from(Array(count).keys()).map(i => generatePassword(12, false));
-
-	// Return them as json
-	res.json(passwords);
-
-	console.log(`Sent ${count} passwords`);
-});
-
-// Put all API endpoints under '/api'
 app.post("/api/logintosalesforce", function(req, res) {
 	console.log("Environ Values", process.env.DATABASE_URL);
 	var jsobj = new jsforce.Connection();

@@ -22,7 +22,7 @@ export default class Headerdisplay extends Reflux.Component {
 					<header className="slds-media slds-media_center slds-has-flexi-truncate">
 						<div className="slds-media__figure">
 							<span title="account">
-								<AppLauncher isOpen={(this.state!=undefined?this.state.showLauncher:false)}>
+								<AppLauncher isOpen={this.state != undefined ? this.state.showLauncher : false}>
 									<AppLauncherSection title="App Selection">
 										<AppLauncherTile
 											title="Upsert Records"
@@ -33,6 +33,11 @@ export default class Headerdisplay extends Reflux.Component {
 											title="Sample Data Creator"
 											description="This tool lets you create sample data for an Object and its related objects"
 											iconText="SR"
+										/>
+										<AppLauncherTile
+											title="PostgreSQL Editor"
+											description="This tool lets you maintain a postGreSQL table"
+											iconText="PE"
 										/>
 									</AppLauncherSection>
 								</AppLauncher>
