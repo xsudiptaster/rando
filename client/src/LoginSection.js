@@ -116,7 +116,6 @@ export default class LoginSection extends Reflux.Component {
 							sessiontok: response.data.sesionTkn,
 							instanceUrl: response.data.loginUrl,
 						});
-						this.state.showLauncher=true;
 						this.setState({
 							logindisplay: {
 								display: "none",

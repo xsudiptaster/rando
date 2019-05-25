@@ -11,11 +11,6 @@ export default class Headerdisplay extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 	}
-	handleClick() {
-		this.state.showLauncher = false;
-		ContentReviewerActions.stateupdates(this.state);
-	}
-
 	componentDidMount() {}
 
 	render() {
@@ -26,13 +21,12 @@ export default class Headerdisplay extends Reflux.Component {
 					<header className="slds-media slds-media_center slds-has-flexi-truncate">
 						<div className="slds-media__figure">
 							<span title="account">
-								<AppLauncher isOpen={this.state != undefined ? this.state.showLauncher : false}>
+								<AppLauncher>
 									<AppLauncherSection title="App Selection">
 										<AppLauncherTile
 											title="Upsert Records"
 											iconText="UR"
 											description="Upsert Objects serially or parallel and use external Ids to relate them"
-											onClick={() => this.handleClick()}
 										/>
 										<AppLauncherTile
 											title="Sample Data Creator"
