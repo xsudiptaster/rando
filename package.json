@@ -20,6 +20,7 @@
     "jsforce": "git+https://github.com/xsudiptaster/jsforce.git",
     "npm": "^6.9.0",
     "password-generator": "^2.1.0",
+    "pg": "7.11.0",
     "prettier": "^1.17.1",
     "read-excel-file": "^2.0.10",
     "reflux": "^6.4.1",
