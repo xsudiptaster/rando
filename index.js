@@ -29,7 +29,7 @@ app.get("/api/passwords", (req, res) => {
 
 // Put all API endpoints under '/api'
 app.post("/api/logintosalesforce", function(req, res) {
-	console.log('Environ Values',NODE_ENV);
+	console.log("Environ Values", process.env.DATABASE_URL);
 	var jsobj = new jsforce.Connection();
 	jsobj.loginUrl = req.body.loginUrl;
 	jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
