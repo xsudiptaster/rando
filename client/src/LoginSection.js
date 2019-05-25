@@ -4,9 +4,11 @@ import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import SimpleCrypto from "simple-crypto-js";
 import $ from "jquery";
+import Cookies from 'universal-cookie';
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
+
 
 export default class LoginSection extends Reflux.Component {
 	constructor(props) {
@@ -22,7 +24,10 @@ export default class LoginSection extends Reflux.Component {
 			listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage")),
 		};
 		ContentReviewerActions.stateupdates(this.state);
-	}
+    }
+    componentDidMount(){
+
+    }
 	handleUsernameChange(event) {
 		var valUsername = event.target.value;
 		this.setState({ username: valUsername });
@@ -77,7 +82,9 @@ export default class LoginSection extends Reflux.Component {
 						var dataLocal = {
 							loginUrl: response.data.loginUrl,
 							sessionToken: response.data.sesionTkn,
-						};
+                        };
+                        const cookies = new Cookies();
+                        cookies.set('sessionValue',dataLocal , { maxAge:900,secure: true,domain:"fullstackreactxsud.herokuapp.com"});
 						console.log("The State", this.state);
 						if (this.state.rememberMe) {
 							if (this.state.listUserNames == undefined) {
