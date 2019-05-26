@@ -15,6 +15,24 @@ export default class postGreTableCreator extends Reflux.Component {
 		this.store = ContentReviewStore;
 	}
 	render() {
-		return <div className="slds-grid" />;
+		var listTables = [];
+		return (
+			<div className="slds-grid">
+				<table>
+					<tr>
+						<td>
+							<label className="slds-text-heading_medium">Select Existing Table: </label>
+						</td>
+						<td>
+							<input />
+							<datalist />
+						</td>
+						<td>
+							<input type="button" value="Create a New Table" />
+						</td>
+					</tr>
+				</table>
+			</div>
+		);
 	}
 }

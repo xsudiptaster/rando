@@ -57,7 +57,7 @@ export default class Headerdisplay extends Reflux.Component {
 									title="First Heroku App">
 									<span>First Heroku App</span>
 								</a>
-								<label style={{align:"center"}}>{CurrentApp} </label>
+								<label className="slds-text-align_center" style={{align:"center"}}>{CurrentApp} </label>
 							</h2>
 						</div>
 					</header>
