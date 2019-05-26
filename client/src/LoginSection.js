@@ -13,16 +13,16 @@ export default class LoginSection extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
+		console.log("On Load State", this.state);
 		// Initialize state
-		this.state=  {
+		this.state = {
 			username: "",
 			password: "",
 			sessiontok: "",
 			loginurl: "",
 			rememberMe: false,
-			listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage"))
+			listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage")),
 		};
-		console.log("The state value", this.state);
 	}
 	componentDidMount() {}
 	handleUsernameChange(event) {
