@@ -21,7 +21,7 @@ class App extends Reflux.Component {
 		super();
 		this.store = ContentReviewStore;
 		this.state = {
-			displaySettings={
+			displaySettings:{
 				logindisplay: "block",
 				uploadfiledisplay: "none",
 				questionfordisplay: "none",
