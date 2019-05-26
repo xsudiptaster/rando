@@ -63,12 +63,8 @@ export default class MappingTable extends Reflux.Component {
 
 	onClickUpsert() {
 		this.state.ErrorLog = {};
-		this.state.objectmappingtable = {
-			display: "none",
-		};
-		this.state.finalupsertresult = {
-			display: "block",
-		};
+		this.state.displaySettings.objectmappingtable = "none";
+		this.state.displaySettings.finalupsertresult = "block";
 		ContentReviewerActions.stateupdates(this.state);
 		if (this.state.isParallel) {
 			for (var i = 0; i < this.state.sheetsToInsert.length; i++) {
