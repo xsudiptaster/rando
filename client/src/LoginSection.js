@@ -13,6 +13,7 @@ export default class LoginSection extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
+		this.state=this.store.firstdata;
 		// Initialize state
 		this.state = {
 			username: "",
