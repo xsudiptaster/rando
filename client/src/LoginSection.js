@@ -22,7 +22,6 @@ export default class LoginSection extends Reflux.Component {
 			sessiontok: "",
 			loginurl: "",
 			rememberMe: false,
-			listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage")),
 		});
 		console.log("The state value", this.state);
 	}

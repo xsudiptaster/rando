@@ -18,7 +18,8 @@ var ContentReviewerStore = Reflux.createStore({
 			errorModal: { height: "14rem", display: "none" },
 			errorMessage: "",
 			showProgress: false,
-			currentApp: "Upsert",
+      currentApp: "Upsert",
+      listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage")),
 		};
 		this.fireUpdate();
 	},
