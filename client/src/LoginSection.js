@@ -13,7 +13,6 @@ export default class LoginSection extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
-		console.log('The Store',this.store);
 		// Initialize state
 		this.state = {
 			username: "",
@@ -74,7 +73,7 @@ export default class LoginSection extends Reflux.Component {
 					loginUrl: this.state.loginurl,
 				})
 				.then(response => {
-					console.log("Login Response", response.data);
+					console.log('The Store',this.store);
 					if (response.data.sesionTkn != undefined) {
 						var dataLocal = {
 							loginUrl: response.data.loginUrl,
