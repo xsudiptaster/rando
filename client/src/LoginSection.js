@@ -13,7 +13,6 @@ export default class LoginSection extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
-		console.log("On Load State", this.state);
 		// Initialize state
 		this.state = {
 			username: "",
@@ -56,6 +55,7 @@ export default class LoginSection extends Reflux.Component {
 	}
 
 	handlelogin() {
+		console.log("On Load State", this.state);
 		var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 		if (this.state.loginurl == "") {
 			ContentReviewerActions.showError("Please Select the Org", this.state);
