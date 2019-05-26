@@ -16,14 +16,14 @@ export default class LoginSection extends Reflux.Component {
 		this.state = this.store.firstdata;
 		
 		// Initialize state
-		this.setState = {
+		this.setState ( {
 			username: "",
 			password: "",
 			sessiontok: "",
 			loginurl: "",
 			rememberMe: false,
 			listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage")),
-		};
+		});
 		console.log("The state value", this.state);
 	}
 	componentDidMount() {}
