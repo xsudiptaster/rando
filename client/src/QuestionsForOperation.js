@@ -67,8 +67,8 @@ export default class FileuploadSection extends Reflux.Component {
 			ContentReviewerActions.showError("Please select at least One Sheet", this.state);
 			return;
 		}
-		this.state.questionfordisplay = { display: "none" };
-		this.state.objectmappingdisplay = { display: "block" };
+		this.state.displaySettings.questionfordisplay = "none";
+		this.state.displaySettings.objectmappingdisplay = "block";
 		ContentReviewerActions.stateupdates(this.state);
 	}
 
@@ -171,7 +171,7 @@ export default class FileuploadSection extends Reflux.Component {
 								</article>
 
 								<ul ref="Sortable" opacity={"0.8"}>
-                                    {shhetstoInsert.map(value => (
+									{shhetstoInsert.map(value => (
 										<li className="slds-box_border">
 											<article className="slds-card" style={{ width: "200px" }}>
 												<div className="slds-text-align_right">

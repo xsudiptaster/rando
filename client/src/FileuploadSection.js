@@ -36,12 +36,8 @@ export default class FileuploadSection extends Reflux.Component {
             ContentReviewerActions.showError("Please Select a File",this.state);
             return;
         }
-        this.state.uploadfiledisplay = {
-            display: "none"
-        };
-        this.state.questionfordisplay = {
-            display: "block"
-        };
+        this.state.displaySettings.uploadfiledisplay = "none"
+        this.state.displaySettings.questionfordisplay = "block"
         ContentReviewerActions.stateupdates(this.state);
     }
 

@@ -117,7 +117,7 @@ export default class LoginSection extends Reflux.Component {
 							instanceUrl: response.data.loginUrl,
 						});
 						this.state.displaySettings.logindisplay = "none";
-						this.state.displaySettings.uploadfiledisplay = "none";
+						this.state.displaySettings.uploadfiledisplay = "block";
 						this.getobjectlist();
 					} else {
 						ContentReviewerActions.setvalparam("showProgress", false);

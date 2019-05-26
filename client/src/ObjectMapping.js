@@ -89,12 +89,8 @@ export default class ObjectMapping extends Reflux.Component {
 			}
 		}
 		if (!errorFound) {
-			this.state.objectmappingdisplay = {
-				display: "none",
-			};
-			this.state.objectmappingtable = {
-				display: "block",
-			};
+			this.state.displaySettings.objectmappingdisplay = "none";
+			this.state.displaySettings.objectmappingtable = "block";
 			ContentReviewerActions.stateupdates(this.state);
 		}
 	}
@@ -195,7 +191,7 @@ export default class ObjectMapping extends Reflux.Component {
 									style={{
 										width: "200px!",
 										display:
-											objdesb[this.state.objectMapping[value].ObjectName] != undefined 
+											objdesb[this.state.objectMapping[value].ObjectName] != undefined
 												? "block"
 												: "none",
 									}}
