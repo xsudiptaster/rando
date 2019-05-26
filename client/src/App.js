@@ -21,27 +21,17 @@ class App extends Reflux.Component {
 		super();
 		this.store = ContentReviewStore;
 		this.state = {
-			logindisplay: {
-				display: "block",
-			},
-			uploadfiledisplay: {
-				display: "none",
-			},
-			questionfordisplay: {
-				display: "none",
-			},
-			objectmappingdisplay: {
-				display: "none",
-			},
-			objectmappingtable: {
-				display: "none",
+			displaySettings={
+				logindisplay: "block",
+				uploadfiledisplay: "none",
+				questionfordisplay: "none",
+				objectmappingdisplay: "none",
+				objectmappingtable: "none",
+				finalupsertresult:"none"
 			},
 			errorModal: { height: "14rem", display: "none" },
 			errorMessage: "",
 			showProgress: false,
-			finalupsertresult: {
-				display: "none",
-			},
 			currentApp: "Upsert",
 		};
 		ContentReviewerActions.stateupdates(this.state);
@@ -72,22 +62,22 @@ class App extends Reflux.Component {
 							<span />
 						</div>
 						<div className="slds-col slds-size_3-of-5">
-							<div style={this.state.logindisplay}>
+							<div style={{display:this.state.displaySettings.logindisplay}}>
 								<LoginSection />
 							</div>
-							<div style={this.state.uploadfiledisplay}>
+							<div style={{display: this.state.displaySettings.uploadfiledisplay}}>
 								<FileuploadSection />
 							</div>
-							<div style={this.state.questionfordisplay}>
+							<div style={{display: this.state.displaySettings.questionfordisplay}}>
 								<QuestionsForOperation />
 							</div>
-							<div style={this.state.objectmappingdisplay}>
+							<div style={{display:this.state.displaySettings.objectmappingdisplay}}>
 								<ObjectMapping />
 							</div>
-							<div style={this.state.objectmappingtable}>
+							<div style={{display:this.state.displaySettings.objectmappingtable}}>
 								<MappingTable />
 							</div>
-							<div style={this.state.finalupsertresult}>
+							<div style={{display: this.state.displaySettings.finalupsertresult}}>
 								<StatusResult />
 							</div>
 						</div>

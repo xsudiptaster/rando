@@ -37,7 +37,6 @@ export default class LoginSection extends Reflux.Component {
 				if (this.state.listUserNames[i].username == valUsername) {
 					this.state.password = this.state.listUserNames[i].password;
 					$(this.refs["userpassword"]).val(this.state.password);
-					console.log("Found Found", this.state.password);
 					ContentReviewerActions.stateupdates(this.state);
 				}
 			}
@@ -117,14 +116,10 @@ export default class LoginSection extends Reflux.Component {
 							instanceUrl: response.data.loginUrl,
 						});
 						this.setState({
-							logindisplay: {
-								display: "none",
-							},
-						});
-						this.setState({
-							uploadfiledisplay: {
-								display: "block",
-							},
+							displaySettings:{
+								logindisplay:"none",
+								uploadfiledisplay: "block"
+							}
 						});
 						this.getobjectlist();
 					} else {
