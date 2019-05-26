@@ -5,7 +5,22 @@ var axios = require("axios");
 var ContentReviewerStore = Reflux.createStore({
   // Shorthand for listening to all ContentReviewerActions
   listenables: [ContentReviewerActions],
-  constructor() {},
+  constructor() {
+    this.state = {
+			displaySettings:{
+				logindisplay: "block",
+				uploadfiledisplay: "none",
+				questionfordisplay: "none",
+				objectmappingdisplay: "none",
+				objectmappingtable: "none",
+				finalupsertresult:"none"
+			},
+			errorModal: { height: "14rem", display: "none" },
+			errorMessage: "",
+			showProgress: false,
+			currentApp: "Upsert",
+		};
+  },
   // Load a review when the store is initialized
   init: function() {},
   stateupdates: function(state) {
