@@ -4,11 +4,10 @@ import axios from "axios";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import SimpleCrypto from "simple-crypto-js";
 import $ from "jquery";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
-
 
 export default class LoginSection extends Reflux.Component {
 	constructor(props) {
@@ -24,10 +23,8 @@ export default class LoginSection extends Reflux.Component {
 			listUserNames: JSON.parse(localStorage.getItem("fullStackReactStorage")),
 		};
 		ContentReviewerActions.stateupdates(this.state);
-    }
-    componentDidMount(){
-
-    }
+	}
+	componentDidMount() {}
 	handleUsernameChange(event) {
 		var valUsername = event.target.value;
 		this.setState({ username: valUsername });
@@ -81,9 +78,13 @@ export default class LoginSection extends Reflux.Component {
 						var dataLocal = {
 							loginUrl: response.data.loginUrl,
 							sessionToken: response.data.sesionTkn,
-                        };
-                        const cookies = new Cookies();
-                        cookies.set('sessionValue',dataLocal , { maxAge:900,secure: true,domain:"fullstackreactxsud.herokuapp.com"});
+						};
+						const cookies = new Cookies();
+						cookies.set("sessionValue", dataLocal, {
+							maxAge: 900,
+							secure: true,
+							domain: "fullstackreactxsud.herokuapp.com",
+						});
 						console.log("The State", this.state);
 						if (this.state.rememberMe) {
 							if (this.state.listUserNames == undefined) {
@@ -115,18 +116,13 @@ export default class LoginSection extends Reflux.Component {
 							sessiontok: response.data.sesionTkn,
 							instanceUrl: response.data.loginUrl,
 						});
-						this.setState({
-							displaySettings:{
-								logindisplay:"none",
-								uploadfiledisplay: "block"
-							}
-						});
+						this.state.displaySettings.logindisplay = "none";
+						this.state.displaySettings.uploadfiledisplay = "none";
 						this.getobjectlist();
 					} else {
 						ContentReviewerActions.setvalparam("showProgress", false);
 						ContentReviewerActions.setvalparam("showLauncher", false);
-                        ContentReviewerActions.showError(response.data, this.state);
-                        
+						ContentReviewerActions.showError(response.data, this.state);
 					}
 				})
 				.catch(error => {
