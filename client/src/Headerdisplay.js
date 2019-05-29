@@ -46,10 +46,9 @@ export default class Headerdisplay extends Reflux.Component {
 										/>
 									</AppLauncherSection>
 								</AppLauncher>
-								<span className="slds-assistive-text">First Heroku App</span>
 							</span>
 						</div>
-                        <div className="slds-media__body" style={{float: "right !importatnt"}}>
+                        <div className="slds-media__body">
 							<h2 className="slds-card__header-title">
 								<a
 									href="javascript:void(0);"
@@ -57,9 +56,10 @@ export default class Headerdisplay extends Reflux.Component {
 									title="First Heroku App">
 									<span>First Heroku App</span>
 								</a>
-								<label className="slds-text-align_center" style={{align:"center"}}>{CurrentApp} </label>
+
 							</h2>
 						</div>
+                        <label className="slds-text-align_center" style={{align: "center"}}>{CurrentApp} </label>
 					</header>
 					<br />
 				</div>
