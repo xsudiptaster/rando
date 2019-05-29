@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Router} from 'react-router-dom';
-import routes from './routes';
+import {BrowserRouter} from 'react-router-dom';
+import App from './App';
 
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-ReactDOM.render(<Router history={BrowserRouter} routes={routes}/>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter>
+    <Route path='/' component={App}/>
+</BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
