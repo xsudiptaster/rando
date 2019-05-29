@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import { AppLauncher, AppLauncherSection, AppLauncherTile } from "@salesforce/design-system-react";
-import $ from "jquery";
+import {AppLauncher, AppLauncherSection, AppLauncherTile} from "@salesforce/design-system-react";
+
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -49,7 +49,7 @@ export default class Headerdisplay extends Reflux.Component {
 								<span className="slds-assistive-text">First Heroku App</span>
 							</span>
 						</div>
-						<div className="slds-media__body">
+                        <div className="slds-media__body" style={{float: "right !importatnt"}}>
 							<h2 className="slds-card__header-title">
 								<a
 									href="javascript:void(0);"
