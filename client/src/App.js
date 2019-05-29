@@ -22,13 +22,11 @@ class App extends Reflux.Component {
 		this.store = ContentReviewStore;
 	}
 
-	
-
 	render() {
 		return (
-		<div>
-			<UpsertApp/>
-		</div>
+			<div>
+				<UpsertApp />
+			</div>
 		);
 	}
 }
