@@ -16,7 +16,12 @@ class App extends Reflux.Component {
 	render() {
 		return (
 			<div>
-				<UpsertApp />
+				<AppLauncherTile
+                                            title="Upsert Records"
+                                            iconText="UR"
+                                            description="Upsert Objects serially or parallel and use external Ids to relate them"
+                                            
+                                        />
 			</div>
 		);
 	}
