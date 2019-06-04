@@ -1,8 +1,8 @@
+import { AppLauncherTile, BrandBand } from "@salesforce/design-system-react";
 import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import UpsertApp from "./UpsertApp.js";
-import { AppLauncherTile } from "@salesforce/design-system-react";
+
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
