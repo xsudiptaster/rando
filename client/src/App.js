@@ -46,9 +46,9 @@ class App extends Reflux.Component {
 							</div>
 							<div className="slds-col slds-size_1-of-3">
 								<AppLauncherTile
-									title="{PostgreTable Display}"
+									title="PostgreTable Display"
 									iconText="UR"
-									description="Upsert Objects serially or parallel and use external Ids to relate them"
+									description="Display PostGre Table and use Heroku Connect"
 								/>
 							</div>
 						</div>
