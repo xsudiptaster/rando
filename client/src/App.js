@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import UpsertApp from "./UpsertApp.js";
-import {AppLauncherTile} from "@salesforce/design-system-react";
+import { AppLauncherTile } from "@salesforce/design-system-react";
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -16,12 +16,44 @@ class App extends Reflux.Component {
 	render() {
 		return (
 			<div>
-				<AppLauncherTile
-                                            title="Upsert Records"
-                                            iconText="UR"
-                                            description="Upsert Objects serially or parallel and use external Ids to relate them"
-                                            
-                                        />
+				<BrandBand
+					id="brand-band-lightning-blue"
+					className="slds-p-around_small"
+					theme="lightning-blue"
+					style={{ minHeight: "1000px" }}>
+					<div>
+						<div className="slds-grid slds-wrap">
+							<div className="slds-col slds-size_12-of-12">
+								<Headerdisplay />
+							</div>
+							<br />
+							<br />
+							<br />
+							<br />
+							<div className="slds-col slds-size_1-of-3">
+								<AppLauncherTile
+									title="Upsert Records"
+									iconText="UR"
+									description="Upsert Objects serially or parallel and use external Ids to relate them"
+								/>
+							</div>
+							<div className="slds-col slds-size_1-of-3">
+								<AppLauncherTile
+									title="Sample Records Creator"
+									iconText="UR"
+									description="Upsert Objects serially or parallel and use external Ids to relate them"
+								/>
+							</div>
+							<div className="slds-col slds-size_1-of-3">
+								<AppLauncherTile
+									title="{PostgreTable Display}"
+									iconText="UR"
+									description="Upsert Objects serially or parallel and use external Ids to relate them"
+								/>
+							</div>
+						</div>
+					</div>
+				</BrandBand>
 			</div>
 		);
 	}
