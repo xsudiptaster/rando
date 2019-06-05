@@ -10,6 +10,6 @@ import UpsertApp from "./UpsertApp";
 ReactDOM.render(<BrowserRouter>
     <Route path='/' component={App}/>
     <Route path='/upsert' component={UpsertApp}/>
-    <Route path='/upsert' component={postGreTableCreator}/>
+    <Route path='/postgretable' component={postGreTableCreator}/>
 </BrowserRouter>, document.getElementById('root'));
 registerServiceWorker();
