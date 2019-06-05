@@ -1,4 +1,4 @@
-import BrandBand from "@salesforce-ux/design-system";
+import BrandBand from "@salesforce/design-system-react";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
