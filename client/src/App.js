@@ -24,7 +24,7 @@ class App extends Reflux.Component {
 					<div>
 						<div className="slds-grid slds-wrap">
 							<div className="slds-col slds-size_12-of-12">
-								<Headerdisplay />
+								<Headerdisplay/>
 							</div>
 							<br />
 							<br />
@@ -41,7 +41,7 @@ class App extends Reflux.Component {
 								<AppLauncherTile
 									title="Sample Records Creator"
 									iconText="UR"
-									description="Upsert Objects serially or parallel and use external Ids to relate them"
+									description="Creates Sample records for testing"
 								/>
 							</div>
 							<div className="slds-col slds-size_1-of-3">
