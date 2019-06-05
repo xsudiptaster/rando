@@ -1,6 +1,7 @@
 import { AppLauncherTile, BrandBand } from "@salesforce/design-system-react";
 import React from "react";
 import "./App.css";
+import Headerdisplay from "./Headerdisplay.js";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 
 var Reflux = require("reflux");
