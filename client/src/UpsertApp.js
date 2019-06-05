@@ -1,16 +1,14 @@
-import React from "react";
-import "./App.css";
-import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import LoginSection from "./LoginSection.js";
-import FileuploadSection from "./FileuploadSection.js";
-import QuestionsForOperation from "./QuestionsForOperation";
-import ObjectMapping from "./ObjectMapping";
-import MappingTable from "./MappingTable";
-import Headerdisplay from "./Headerdisplay";
-import StatusResult from "./StatusResult";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Modal from "@material-ui/core/Modal";
-import { BrandBand } from "@salesforce/design-system-react";
+import React from "react";
+import "./App.css";
+import FileuploadSection from "./FileuploadSection.js";
+import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import LoginSection from "./LoginSection.js";
+import MappingTable from "./MappingTable";
+import ObjectMapping from "./ObjectMapping";
+import QuestionsForOperation from "./QuestionsForOperation";
+import StatusResult from "./StatusResult";
 
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -21,13 +19,13 @@ class UpsertApp extends Reflux.Component {
 		super();
 		this.store = ContentReviewStore;
 		this.state = {
-			displaySettings:{
+			displaySettings: {
 				logindisplay: "block",
 				uploadfiledisplay: "none",
 				questionfordisplay: "none",
 				objectmappingdisplay: "none",
 				objectmappingtable: "none",
-				finalupsertresult:"none"
+				finalupsertresult: "none",
 			},
 			errorModal: { height: "14rem", display: "none" },
 			errorMessage: "",
@@ -44,40 +42,26 @@ class UpsertApp extends Reflux.Component {
 
 	render() {
 		return (
-			<BrandBand
-				id="brand-band-lightning-blue"
-				className="slds-p-around_small"
-				theme="lightning-blue"
-				style={{ minHeight: "1000px" }}>
+			<div>
 				<div>
 					<div className="slds-grid slds-wrap">
-						<div className="slds-col slds-size_12-of-12">
-							<Headerdisplay />
-						</div>
-						<br />
-						<br />
-						<br />
-						<br />
-						<div className="slds-col slds-size_1-of-5">
-							<span />
-						</div>
 						<div className="slds-col slds-size_3-of-5">
-							<div style={{display:this.state.displaySettings.logindisplay}}>
+							<div style={{ display: this.state.displaySettings.logindisplay }}>
 								<LoginSection />
 							</div>
-							<div style={{display: this.state.displaySettings.uploadfiledisplay}}>
+							<div style={{ display: this.state.displaySettings.uploadfiledisplay }}>
 								<FileuploadSection />
 							</div>
-							<div style={{display: this.state.displaySettings.questionfordisplay}}>
+							<div style={{ display: this.state.displaySettings.questionfordisplay }}>
 								<QuestionsForOperation />
 							</div>
-							<div style={{display:this.state.displaySettings.objectmappingdisplay}}>
+							<div style={{ display: this.state.displaySettings.objectmappingdisplay }}>
 								<ObjectMapping />
 							</div>
-							<div style={{display:this.state.displaySettings.objectmappingtable}}>
+							<div style={{ display: this.state.displaySettings.objectmappingtable }}>
 								<MappingTable />
 							</div>
-							<div style={{display: this.state.displaySettings.finalupsertresult}}>
+							<div style={{ display: this.state.displaySettings.finalupsertresult }}>
 								<StatusResult />
 							</div>
 						</div>
@@ -157,7 +141,7 @@ class UpsertApp extends Reflux.Component {
 						</div>
 					</div>
 				</div>
-			</BrandBand>
+			</div>
 		);
 	}
 }
