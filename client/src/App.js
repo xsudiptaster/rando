@@ -22,13 +22,6 @@ class App extends Reflux.Component {
 				<div  >
 					<div>
 						<div className="slds-grid slds-wrap">
-							<div className="slds-col slds-size_12-of-12">
-								<Headerdisplay />
-							</div>
-							<br />
-							<br />
-							<br />
-							<br />
 							<div className="slds-col slds-size_1-of-3">
 								<AppLauncherTile
 									title="Upsert Records"
