@@ -14,7 +14,9 @@ class App extends Reflux.Component {
 		super();
 		this.store = ContentReviewStore;
 	}
-
+	movetoUpsert() {
+		window.open("/upsert");
+	}
 	render() {
 		return (
 			<div>
@@ -36,8 +38,10 @@ class App extends Reflux.Component {
 								<AppLauncherTile
 									title="Upsert Records"
 									iconText="UR"
-									description="Upsert Objects serially or parallel and use external Ids to relate them">
-									<Link to="/upsert" />
+									description="Upsert Objects serially or parallel and use external Ids to relate them"
+									onClick={() => this.movetoUpsert()}
+									>
+									
 								</AppLauncherTile>
 							</div>
 							<div className="slds-col slds-size_1-of-3">
