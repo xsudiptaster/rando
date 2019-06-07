@@ -180,7 +180,7 @@ export default class MappingTable extends Reflux.Component {
 				var sheetHeader = this.state.objectMapping[sheetNames[i]].sheetHeaders[j];
 				for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
 					var field = this.state.ObjectDesb[objName].fields[k];
-					if (field.label.toUpper().indexOf(sheetHeader.toUpper()) > -1 || field.name.toUpper().indexOf(sheetHeader.toUpper()) > -1) {
+					if (field.label.toUpperCase().indexOf(sheetHeader.toUpperCase()) > -1 || field.name.toUpperCase().indexOf(sheetHeader.toUpperCase()) > -1) {
 						this.mapFieldsAsSelectedUpdate(sheetNames[i], sheetHeader, field.name);
 						$(this.refs["select-" + sheetNames[i] + "-" + sheetHeader]).val(field.name);
 					}
