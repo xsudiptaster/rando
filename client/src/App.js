@@ -19,7 +19,7 @@ class App extends Reflux.Component {
 	render() {
 		return (
 			<div>
-				<div className="slds-p-around_small" >
+				<div  >
 					<div>
 						<div className="slds-grid slds-wrap">
 							<div className="slds-col slds-size_12-of-12">

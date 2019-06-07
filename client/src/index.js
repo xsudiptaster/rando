@@ -12,9 +12,6 @@ import UpsertApp from "./UpsertApp";
 ReactDOM.render(
 	<BrowserRouter>
 		<div
-			id="brand-band-lightning-blue"
-			className="slds-p-around_small"
-			theme="lightning-blue"
 			style={{ minHeight: "1000px" }}>
 			<div>
 				<div className="slds-grid slds-wrap">
