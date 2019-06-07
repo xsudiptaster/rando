@@ -3,7 +3,6 @@ import React from "react";
 import "./App.css";
 import Headerdisplay from "./Headerdisplay.js";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -25,7 +24,7 @@ class App extends Reflux.Component {
 					<div>
 						<div className="slds-grid slds-wrap">
 							<div className="slds-col slds-size_12-of-12">
-								<Headerdisplay/>
+								<Headerdisplay />
 							</div>
 							<br />
 							<br />
@@ -35,8 +34,9 @@ class App extends Reflux.Component {
 								<AppLauncherTile
 									title="Upsert Records"
 									iconText="UR"
-									description="Upsert Objects serially or parallel and use external Ids to relate them"
-								/>
+									description="Upsert Objects serially or parallel and use external Ids to relate them">
+									<link to="/upsert" />
+								</AppLauncherTile>
 							</div>
 							<div className="slds-col slds-size_1-of-3">
 								<AppLauncherTile
