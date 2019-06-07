@@ -39,7 +39,7 @@ class App extends Reflux.Component {
 									title="Upsert Records"
 									iconText="UR"
 									description="Upsert Objects serially or parallel and use external Ids to relate them"
-									href="/upsert"
+									
 									/>
 									
 								
