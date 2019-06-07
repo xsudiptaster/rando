@@ -3,9 +3,11 @@ import React from "react";
 import "./App.css";
 import Headerdisplay from "./Headerdisplay.js";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import { Link } from "react-router-dom";
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
+
 
 class App extends Reflux.Component {
 	constructor(props) {
@@ -35,7 +37,7 @@ class App extends Reflux.Component {
 									title="Upsert Records"
 									iconText="UR"
 									description="Upsert Objects serially or parallel and use external Ids to relate them">
-									<link to="/upsert" />
+									<Link to="/upsert" />
 								</AppLauncherTile>
 							</div>
 							<div className="slds-col slds-size_1-of-3">
