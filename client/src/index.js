@@ -10,8 +10,7 @@ import UpsertApp from "./UpsertApp";
 
 ReactDOM.render(
 	<BrowserRouter>
-		<div
-			style={{ minHeight: "1000px" }}>
+		<div style={{ minHeight: "1000px" }}>
 			<div>
 				<div className="slds-grid slds-wrap">
 					<div className="slds-col slds-size_12-of-12">
@@ -21,9 +20,11 @@ ReactDOM.render(
 					<br />
 					<br />
 					<br />
-					<Route exact={true} path="/" component={App} />
-					<Route path="/upsert" component={UpsertApp} />
-					<Route path="/postgretable" component={postGreTableCreator} />
+					<div className="slds-col slds-size_12-of-12">
+						<Route exact={true} path="/" component={App} />
+						<Route path="/upsert" component={UpsertApp} />
+						<Route path="/postgretable" component={postGreTableCreator} />
+					</div>
 				</div>
 			</div>
 		</div>
