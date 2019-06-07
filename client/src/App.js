@@ -13,9 +13,6 @@ class App extends Reflux.Component {
 		super();
 		this.store = ContentReviewStore;
 	}
-	movetoUpsert() {
-		window.open("/upsert");
-	}
 	render() {
 		return (
 			<div>
