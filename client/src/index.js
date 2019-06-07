@@ -11,7 +11,7 @@ import UpsertApp from "./UpsertApp";
 
 ReactDOM.render(
 	<BrowserRouter>
-		<BrandBand
+		<div
 			id="brand-band-lightning-blue"
 			className="slds-p-around_small"
 			theme="lightning-blue"
@@ -30,7 +30,7 @@ ReactDOM.render(
 					<Route path="/postgretable" component={postGreTableCreator} />
 				</div>
 			</div>
-		</BrandBand>
+		</div>
 	</BrowserRouter>,
 	document.getElementById("root"),
 );
