@@ -1,14 +1,14 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import axios from "axios";
+import $ from "jquery";
 import React from "react";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import $ from "jquery";
-import axios from "axios";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -172,6 +172,7 @@ export default class MappingTable extends Reflux.Component {
 	}
 
 	autoMatch() {
+		console.log('The State',this.state);
 		var sheetNames = Object.keys(this.state.objectMapping);
 		for (var i = 0; i < sheetNames.length; i++) {
 			var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
