@@ -8,7 +8,6 @@ var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 
-
 class App extends Reflux.Component {
 	constructor(props) {
 		super();
@@ -20,11 +19,7 @@ class App extends Reflux.Component {
 	render() {
 		return (
 			<div>
-				<BrandBand
-					id="brand-band-lightning-blue"
-					className="slds-p-around_small"
-					theme="lightning-blue"
-					style={{ minHeight: "1000px" }}>
+				<BrandBand className="slds-p-around_small" theme="lightning-blue">
 					<div>
 						<div className="slds-grid slds-wrap">
 							<div className="slds-col slds-size_12-of-12">
@@ -39,10 +34,7 @@ class App extends Reflux.Component {
 									title="Upsert Records"
 									iconText="UR"
 									description="Upsert Objects serially or parallel and use external Ids to relate them"
-									
-									/>
-									
-								
+								/>
 							</div>
 							<div className="slds-col slds-size_1-of-3">
 								<AppLauncherTile
