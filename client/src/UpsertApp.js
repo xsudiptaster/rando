@@ -44,7 +44,10 @@ class UpsertApp extends Reflux.Component {
 		return (
 			<div>
 				<div>
-					<div className="slds-col slds-size_12-of-12">
+					<div className="slds-col slds-size_3-of-12">
+						<span />
+					</div>
+					<div className="slds-col slds-size_5-of-12">
 						<div style={{ display: this.state.displaySettings.logindisplay }}>
 							<LoginSection />
 						</div>
@@ -63,6 +66,9 @@ class UpsertApp extends Reflux.Component {
 						<div style={{ display: this.state.displaySettings.finalupsertresult }}>
 							<StatusResult />
 						</div>
+					</div>
+					<div className="slds-col slds-size_3-of-12">
+						<span />
 					</div>
 					<div>
 						<div className="slds-col slds-size_12-of-12">
