@@ -1,5 +1,3 @@
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Modal from "@material-ui/core/Modal";
 import React from "react";
 import "./App.css";
 import FileuploadSection from "./FileuploadSection.js";
@@ -62,6 +60,7 @@ class UpsertApp extends Reflux.Component {
 						</div>
 					</div>
 				</div>
+				<errorAndLoading/>
 			</div>
 		);
 	}
