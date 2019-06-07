@@ -39,10 +39,10 @@ class App extends Reflux.Component {
 									title="Upsert Records"
 									iconText="UR"
 									description="Upsert Objects serially or parallel and use external Ids to relate them"
-									onClick={() => this.movetoUpsert()}
-									>
+									href="/upsert"}
+									/>
 									
-								</AppLauncherTile>
+								
 							</div>
 							<div className="slds-col slds-size_1-of-3">
 								<AppLauncherTile
