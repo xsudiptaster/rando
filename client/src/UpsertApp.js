@@ -39,7 +39,7 @@ class UpsertApp extends Reflux.Component {
 		return (
 			<div>
 				<div>
-					<div >
+					<div style={{paddingLeft:"100px",paddingRight: "100px",}} >
 						<div style={{ display: this.state.displaySettings.logindisplay }}>
 							<LoginSection />
 						</div>
