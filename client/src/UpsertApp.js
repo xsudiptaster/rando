@@ -45,6 +45,9 @@ class UpsertApp extends Reflux.Component {
 			<div>
 				<div>
 					<div className="slds-grid slds-wrap">
+						<div className="slds-col slds-size_1-of-5">
+							<span />
+						</div>
 						<div className="slds-col slds-size_3-of-5">
 							<div style={{ display: this.state.displaySettings.logindisplay }}>
 								<LoginSection />
