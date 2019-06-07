@@ -13,45 +13,10 @@ class App extends Reflux.Component {
 		super();
 		this.store = ContentReviewStore;
 	}
-	movetoUpsert() {
-		window.open("/upsert");
-	}
 	render() {
 		return (
 			<div>
 				<div className="slds-p-around_small" >
-					<div>
-						<div className="slds-grid slds-wrap">
-							<div className="slds-col slds-size_12-of-12">
-								<Headerdisplay />
-							</div>
-							<br />
-							<br />
-							<br />
-							<br />
-							<div className="slds-col slds-size_1-of-3">
-								<AppLauncherTile
-									title="Upsert Records"
-									iconText="UR"
-									description="Upsert Objects serially or parallel and use external Ids to relate them"
-								/>
-							</div>
-							<div className="slds-col slds-size_1-of-3">
-								<AppLauncherTile
-									title="Sample Records Creator"
-									iconText="UR"
-									description="Creates Sample records for testing"
-								/>
-							</div>
-							<div className="slds-col slds-size_1-of-3">
-								<AppLauncherTile
-									title="PostgreTable Display"
-									iconText="UR"
-									description="Display PostGre Table and use Heroku Connect"
-								/>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		);
