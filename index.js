@@ -3,7 +3,7 @@ const path = require("path");
 const jsforce = require("jsforce");
 const generatePassword = require("password-generator");
 const crypto = require("simple-crypto-js");
-var  pg  = require("pg");
+const { Client } = require("pg");
 
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -11,13 +11,20 @@ app.use(express.urlencoded());
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-var pool = new pg.Pool()
-pool.connect(process.env.DATABASE_URL, function(err, client) {
-	client.query("select * from information_schema.tables", function(err, result) {
-		console.log("The PostGreQUery result", result);
-		if (err) return console.error(err);
-		console.log(result.rows);
-	});
+
+const client = new Client({
+	connectionString: process.env.DATABASE_URL,
+	ssl: true,
+});
+
+client.connect();
+
+client.query("SELECT table_schema,table_name FROM information_schema.tables;", (err, res) => {
+	if (err) throw err;
+	for (let row of res.rows) {
+		console.log(JSON.stringify(row));
+	}
+	client.end();
 });
 
 // Serve static files from the React app
