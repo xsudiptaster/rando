@@ -48,12 +48,16 @@ export default class postGreTableCreator extends Reflux.Component {
 	render() {
 		var listTables = [];
 		var headers = [];
+		var valuesToDisplay=[]
 		if (this.state && this.state.allPostGresTables != undefined) {
 			listTables = this.state.allPostGresTables;
 			console.log("The state inside is", this.state.allPostGresTables);
 		}
 		if (this.state && this.state.currentTableHeaders != undefined) {
 			headers = this.state.currentTableHeaders;
+		}
+		if (this.state && this.state.currentTableValues != undefined){
+			valuesToDisplay=this.state.currentTableValues;
 		}
 		return (
 			<div className="slds-grid">
@@ -83,6 +87,13 @@ export default class postGreTableCreator extends Reflux.Component {
 							<th>{headervalue}</th>
 						))}
 					</tr>
+					{valuesToDisplay.map(dataValue=>(
+						<tr>
+							{headers.map(headervalue => (
+							<tr>{dataValue[headervalue]}</tr>
+						))}
+						</tr>
+					))}
 				</table>
 			</div>
 		);
