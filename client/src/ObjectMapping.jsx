@@ -1,8 +1,8 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
 import React from "react";
+import XLSX from "xlsx";
 import "./App.css";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import XLSX from "xlsx";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -23,7 +23,7 @@ export default class ObjectMapping extends Reflux.Component {
 					header: 1,
 					defval: "",
 					blankrows: true,
-					raw:true
+					raw: false,
 				});
 				this.state.objectMapping[Object.keys(this.state.objectMapping)[i]].sheetHeaders = sheetData[0];
 			}
