@@ -59,7 +59,7 @@ export default class postGreTableCreator extends Reflux.Component {
 							<input list="postGresTables" onChange={this.handleTableSelect.bind(this)}/>
 							<datalist id="postGresTables">
 								{listTables.map(value => (
-									<option>{value.table_name}</option>
+									<option  value={value.table_schema+'.'+value.table_name} >{value.table_name}</option>
 								))}
 							</datalist>
 						</td>
