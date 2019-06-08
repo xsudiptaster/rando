@@ -43,13 +43,12 @@ app.post("/api/getTableNames", function(req, res) {
 	client.connect();
 	client.query(
 		"SELECT table_schema,table_name FROM information_schema.tables Where table_schema='salesforce';",
-		(err, res) => {
+		(err,
+		response => {
 			if (err) throw err;
-			for (let row of res.rows) {
-				console.log(JSON.stringify(row));
-			}
+			res.send(JSON.stringify(response.rows));
 			client.end();
-		},
+		}),
 	);
 });
 // Put all API endpoints under '/api'
