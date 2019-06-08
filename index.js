@@ -21,10 +21,10 @@ app.post("/api/logintosalesforce", function(req, res) {
 	jsobj.loginUrl = req.body.loginUrl;
 	jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
 		if (err) {
-			console.log("The error Obj", err);
 			res.send(err.toString());
 		} else {
 			var respt = {};
+			console.log("The UserInfo", userinfo);
 			respt.sesionTkn = jsobj.accessToken;
 			respt.loginUrl = jsobj.instanceUrl;
 			res.send(respt);

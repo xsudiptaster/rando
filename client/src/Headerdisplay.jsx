@@ -29,12 +29,7 @@ export default class Headerdisplay extends Reflux.Component {
                                             title="Upsert Records"
                                             iconText="UR"
                                             description="Upsert Objects serially or parallel and use external Ids to relate them"
-                                            onClick={() =>
-                                                function (event) {
-                                                    this.state.currentApp = "Upsert";
-                                                    ContentReviewerActions.stateupdates(this.state);
-                                                }
-                                            }
+                                            href="/upsert"
                                         />
 										<AppLauncherTile
                                             title="Sample Data Creator"
