@@ -1,7 +1,7 @@
 import { AppLauncherTile } from "@salesforce/design-system-react";
 import React from "react";
 import "./App.css";
-import Headerdisplay from "./Headerdisplay.js";
+import Headerdisplay from "./Headerdisplay";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
 import { Link } from "react-router-dom";
 var Reflux = require("reflux");

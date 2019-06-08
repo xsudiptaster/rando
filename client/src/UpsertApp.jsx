@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import FileuploadSection from "./FileuploadSection.js";
+import FileuploadSection from "./FileuploadSection";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import LoginSection from "./LoginSection.js";
+import LoginSection from "./LoginSection";
 import MappingTable from "./MappingTable";
 import ObjectMapping from "./ObjectMapping";
 import QuestionsForOperation from "./QuestionsForOperation";
