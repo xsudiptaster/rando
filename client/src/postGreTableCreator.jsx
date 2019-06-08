@@ -39,7 +39,7 @@ export default class postGreTableCreator extends Reflux.Component {
 							<label className="slds-text-heading_medium">Select Existing Table: </label>
 						</td>
 						<td>
-							<input data="postGresTables" />
+							<input list="postGresTables" />
 							<datalist id="postGresTables">
 								{listTables.map(value => (
 									<option>{value.table_name}</option>
@@ -47,7 +47,7 @@ export default class postGreTableCreator extends Reflux.Component {
 							</datalist>
 						</td>
 						<td>
-							<input type="button" value="Create a New Table" />
+							<input type="button" value="Show Data" />
 						</td>
 					</tr>
 				</table>
