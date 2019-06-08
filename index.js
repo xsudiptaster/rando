@@ -3,8 +3,7 @@ const path = require("path");
 const jsforce = require("jsforce");
 const generatePassword = require("password-generator");
 const crypto = require("simple-crypto-js");
-const { pg } = require('pg')
-
+const { pg } = require("pg");
 
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -14,12 +13,12 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-	client.query('select * from information_schema.tables', function(err, result) {
-	  console.log('The PostGreQUery result',result)
-	  if(err) return console.error(err);
-	  console.log(result.rows);
+	client.query("select * from information_schema.tables", function(err, result) {
+		console.log("The PostGreQUery result", result);
+		if (err) return console.error(err);
+		console.log(result.rows);
 	});
-  });
+});
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
@@ -37,7 +36,7 @@ app.post("/api/logintosalesforce", function(req, res) {
 			console.log("The UserInfo", userinfo);
 			respt.sesionTkn = jsobj.accessToken;
 			respt.loginUrl = jsobj.instanceUrl;
-			respt.userId=userinfo.id;
+			respt.userId = userinfo.id;
 			res.send(respt);
 		}
 	});
