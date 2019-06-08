@@ -14,7 +14,9 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	getalltables() {
 		axios
-			.post("/api/getTableNames")
+			.post("/api/runQuery",{
+				oquery: "SELECT table_schema,table_name FROM information_schema.tables Where table_schema='salesforce';"
+			})
 			.then(response => {
 				console.log("The response ", response);
 				this.setState({
