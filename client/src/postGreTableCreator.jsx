@@ -27,7 +27,8 @@ export default class postGreTableCreator extends Reflux.Component {
 	render() {
 		var listTables = [];
 		if (this.state && this.allPostGresTables != undefined) {
-			listTables;
+
+			listTables=this.allPostGresTable;
 		}
 		return (
 			<div className="slds-grid">
