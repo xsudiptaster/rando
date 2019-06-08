@@ -39,7 +39,7 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.then(response => {
 				console.log("The response Data ", response);
-				this.state.currentTableHeaders = Object.keys(response.data);
+				this.state.currentTableHeaders = Object.keys(response.data[0]);
 				this.state.currentTableValues = response.data;
 				ContentReviewerActions.stateupdates(this.state);
 			})
