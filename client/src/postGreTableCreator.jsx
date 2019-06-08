@@ -94,7 +94,7 @@ export default class postGreTableCreator extends Reflux.Component {
 							{valuesToDisplay.map(dataValue => (
 								<tr>
 									{headers.map(headervalue => (
-										<td>{dataValue[headervalue]}</td>
+										<td><input value={dataValue[headervalue]}/></td>
 									))}
 								</tr>
 							))}
