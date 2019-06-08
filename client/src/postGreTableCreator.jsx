@@ -48,7 +48,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	render() {
 		var listTables = [];
 		var headers = [];
-		var valuesToDisplay=[]
+		var valuesToDisplay = [];
 		if (this.state && this.state.allPostGresTables != undefined) {
 			listTables = this.state.allPostGresTables;
 			console.log("The state inside is", this.state.allPostGresTables);
@@ -56,44 +56,50 @@ export default class postGreTableCreator extends Reflux.Component {
 		if (this.state && this.state.currentTableHeaders != undefined) {
 			headers = this.state.currentTableHeaders;
 		}
-		if (this.state && this.state.currentTableValues != undefined){
-			valuesToDisplay=this.state.currentTableValues;
+		if (this.state && this.state.currentTableValues != undefined) {
+			valuesToDisplay = this.state.currentTableValues;
 		}
 		return (
 			<div className="slds-grid">
-				<table style={{ maxWidth: "500px" }}>
+				<table>
 					<tr>
-						<td>
-							<label className="slds-text-heading_medium">Select Existing Table: </label>
-						</td>
-						<td>
-							<input list="postGresTables" onChange={this.handleTableSelect.bind(this)} />
-							<datalist id="postGresTables">
-								{listTables.map(value => (
-									<option value={value.table_schema + "." + value.table_name}>
-										{value.table_name}
-									</option>
+						<table style={{ maxWidth: "500px" }}>
+							<tr>
+								<td>
+									<label className="slds-text-heading_medium">Select Existing Table: </label>
+								</td>
+								<td>
+									<input list="postGresTables" onChange={this.handleTableSelect.bind(this)} />
+									<datalist id="postGresTables">
+										{listTables.map(value => (
+											<option value={value.table_schema + "." + value.table_name}>
+												{value.table_name}
+											</option>
+										))}
+									</datalist>
+								</td>
+								<td>
+									<input type="button" value="Show Data" onClick={() => this.showData()} />
+								</td>
+							</tr>
+						</table>
+					</tr>
+					<tr>
+						<table className="slds-table">
+							<tr>
+								{headers.map(headervalue => (
+									<th>{headervalue}</th>
 								))}
-							</datalist>
-						</td>
-						<td>
-							<input type="button" value="Show Data" onClick={() => this.showData()} />
-						</td>
+							</tr>
+							{valuesToDisplay.map(dataValue => (
+								<tr>
+									{headers.map(headervalue => (
+										<td>{dataValue[headervalue]}</td>
+									))}
+								</tr>
+							))}
+						</table>
 					</tr>
-				</table>
-				<table className="slds-table">
-					<tr>
-						{headers.map(headervalue => (
-							<th>{headervalue}</th>
-						))}
-					</tr>
-					{valuesToDisplay.map(dataValue=>(
-						<tr>
-							{headers.map(headervalue => (
-							<tr>{dataValue[headervalue]}</tr>
-						))}
-						</tr>
-					))}
 				</table>
 			</div>
 		);
