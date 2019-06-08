@@ -3,13 +3,29 @@ const path = require("path");
 const jsforce = require("jsforce");
 const generatePassword = require("password-generator");
 const crypto = require("simple-crypto-js");
+const { pg } = require('pg')
 
+const pool = new Pool({
+	user: 'dbuser',
+	host: 'database.server.com',
+	database: 'mydb',
+	password: 'secretpassword',
+	port: 3211,
+  });
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded());
 
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
+
+pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+	client.query('select * from information_schema.tables', function(err, result) {
+	  console.log('The PostGreQUery result',result)
+	  if(err) return console.error(err);
+	  console.log(result.rows);
+	});
+  });
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));

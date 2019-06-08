@@ -110,7 +110,7 @@ export default class MappingTable extends Reflux.Component {
 			this.callNextSheetInsert(SheetName);
 		}
 	}
-
+	
 	callupsertAccordingly(SheetName, JsonString) {
 		axios
 			.post(

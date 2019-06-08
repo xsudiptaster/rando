@@ -13,14 +13,6 @@ export default class Headerdisplay extends Reflux.Component {
 	}
 
 	componentDidMount() {}
-	hancleUpsertClick() {
-		if (this.state && this.state.sessiontok != undefined && this.state.displaySettings != undefined) {
-			this.state.displaySettings.logindisplay = "none";
-			this.state.displaySettings.uploadfiledisplay = "block";
-			ContentReviewerActions.stateupdates(this.state);
-		}
-	}
-
 	render() {
 		var CurrentApp = this.state != undefined ? this.state.currentApp : "";
 		return (
@@ -35,7 +27,6 @@ export default class Headerdisplay extends Reflux.Component {
 											title="Upsert Records"
 											iconText="UR"
 											description="Upsert Objects serially or parallel and use external Ids to relate them"
-											onClick={() => this.hancleUpsertClick()}
 											href="/upsert"
 										/>
 										<AppLauncherTile
