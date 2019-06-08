@@ -86,15 +86,17 @@ export default class postGreTableCreator extends Reflux.Component {
 					</tr>
 					<tr>
 						<table className="slds-table slds-table_cell-buffer slds-table_bordered">
-							<tr>
+							<thead>
+								<tr className="slds-line-height_reset">
 								{headers.map(headervalue => (
 									<th>{headervalue}</th>
 								))}
-							</tr>
+								</tr>
+							</thead>
 							{valuesToDisplay.map(dataValue => (
 								<tr>
 									{headers.map(headervalue => (
-										<td><input value={dataValue[headervalue]}/></td>
+										<td><input className="slds-input" value={dataValue[headervalue]}/></td>
 									))}
 								</tr>
 							))}
