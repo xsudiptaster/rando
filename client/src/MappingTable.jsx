@@ -172,7 +172,7 @@ export default class MappingTable extends Reflux.Component {
 	}
 
 	autoMatch() {
-		console.log('The State',this.state);
+		console.log("The State", this.state);
 		var sheetNames = Object.keys(this.state.objectMapping);
 		for (var i = 0; i < sheetNames.length; i++) {
 			var objName = this.state.objectMapping[sheetNames[i]].ObjectName;
@@ -180,7 +180,10 @@ export default class MappingTable extends Reflux.Component {
 				var sheetHeader = this.state.objectMapping[sheetNames[i]].sheetHeaders[j];
 				for (var k = 0; k < this.state.ObjectDesb[objName].fields.length; k++) {
 					var field = this.state.ObjectDesb[objName].fields[k];
-					if (field.label.toUpperCase().indexOf(sheetHeader.toUpperCase()) > -1 || field.name.toUpperCase().indexOf(sheetHeader.toUpperCase()) > -1) {
+					if (
+						field.label.toUpperCase().indexOf(sheetHeader.toUpperCase()) > -1 ||
+						field.name.toUpperCase().indexOf(sheetHeader.toUpperCase()) > -1
+					) {
 						this.mapFieldsAsSelectedUpdate(sheetNames[i], sheetHeader, field.name);
 						$(this.refs["select-" + sheetNames[i] + "-" + sheetHeader]).val(field.name);
 					}

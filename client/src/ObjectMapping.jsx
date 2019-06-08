@@ -23,6 +23,7 @@ export default class ObjectMapping extends Reflux.Component {
 					header: 1,
 					defval: "",
 					blankrows: true,
+					raw:true
 				});
 				this.state.objectMapping[Object.keys(this.state.objectMapping)[i]].sheetHeaders = sheetData[0];
 			}
