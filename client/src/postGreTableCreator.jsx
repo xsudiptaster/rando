@@ -28,6 +28,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	handleTableSelect(event){
 		this.state.selectTable=event.target.value;
+		console.log('Selected Table',this.state);
 	}
 	showData(){
 		var q= "SELECT * FROM "+this.state.selectTable;
