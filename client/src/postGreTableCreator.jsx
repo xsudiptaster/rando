@@ -28,7 +28,6 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	render() {
 		var listTables = [];
-		console.log("The state is", this.state.allPostGresTables);
 		if (this.state && this.state.allPostGresTables != undefined) {
 			listTables = this.state.allPostGresTables;
 			console.log("The state inside is", this.state.allPostGresTables);
