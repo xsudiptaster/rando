@@ -27,6 +27,7 @@ app.post("/api/logintosalesforce", function(req, res) {
 			console.log("The UserInfo", userinfo);
 			respt.sesionTkn = jsobj.accessToken;
 			respt.loginUrl = jsobj.instanceUrl;
+			respt.userId=userinfo.id;
 			res.send(respt);
 		}
 	});
