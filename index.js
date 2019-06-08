@@ -3,7 +3,7 @@ const path = require("path");
 const jsforce = require("jsforce");
 const generatePassword = require("password-generator");
 const crypto = require("simple-crypto-js");
-const  pg  = require("pg");
+var  pg  = require("pg");
 
 const app = express();
 // Parse URL-encoded bodies (as sent by HTML forms)
