@@ -1,11 +1,11 @@
-import React from "react";
-import "./App.css";
-import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import arrow_up from "./lightning-design/icons/utility/arrowup_60.png";
-import arrow_down from "./lightning-design/icons/utility/arrowdown_60.png";
 import $ from "jquery";
 import "jquery-ui/ui/widgets/sortable";
+import React from "react";
 import XLSX from "xlsx";
+import "./App.css";
+import arrow_down from "./lightning-design/icons/utility/arrowdown_60.png";
+import arrow_up from "./lightning-design/icons/utility/arrowup_60.png";
+import "./lightning-design/styles/salesforce-lightning-design-system.css";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -63,6 +63,7 @@ export default class FileuploadSection extends Reflux.Component {
 				this.state.objectMapping[this.state.sheetsToInsert[i]].sheetUpsertCalled = 0;
 				this.state.objectMapping[this.state.sheetsToInsert[i]].sheetUpsertCompleted = 0;
 			}
+			console.log("The Sheet Val", this.state);
 		} else {
 			ContentReviewerActions.showError("Please select at least One Sheet", this.state);
 			return;
