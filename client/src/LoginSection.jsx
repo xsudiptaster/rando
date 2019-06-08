@@ -1,10 +1,9 @@
-import React from "react";
-import "./App.css";
 import axios from "axios";
-import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import SimpleCrypto from "simple-crypto-js";
 import $ from "jquery";
+import React from "react";
 import Cookies from "universal-cookie";
+import "./App.css";
+import "./lightning-design/styles/salesforce-lightning-design-system.css";
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
@@ -169,6 +168,11 @@ export default class LoginSection extends Reflux.Component {
 		var lst = [];
 		if (this.state != undefined && this.state.listUserNames != undefined) {
 			lst = this.state.listUserNames;
+		}
+		if (this.state && this.state.sessiontok != undefined) {
+			this.state.displaySettings.logindisplay = "none";
+			this.state.displaySettings.uploadfiledisplay = "block";
+			ContentReviewerActions.stateupdates(this.state);
 		}
 		return (
 			<div className="App slds-grid">
