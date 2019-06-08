@@ -14,8 +14,9 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	getalltables() {
 		axios
-			.post("/api/runQuery",{
-				oquery: "SELECT table_schema,table_name FROM information_schema.tables Where table_schema='salesforce';"
+			.post("/api/runQuery", {
+				oquery:
+					"SELECT table_schema,table_name FROM information_schema.tables Where table_schema='salesforce';",
 			})
 			.then(response => {
 				console.log("The response ", response);
@@ -26,27 +27,33 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.catch(error => {});
 	}
-	handleTableSelect(event){
-		this.state.selectTable=event.target.value;
-		console.log('Selected Table',this.state);
+	handleTableSelect(event) {
+		this.state.selectTable = event.target.value;
+		console.log("Selected Table", this.state);
 	}
-	showData(){
-		var q= "SELECT * FROM "+this.state.selectTable;
+	showData() {
+		var q = "SELECT * FROM " + this.state.selectTable;
 		axios
-			.post("/api/runQuery",{
-				oquery: q
+			.post("/api/runQuery", {
+				oquery: q,
 			})
 			.then(response => {
 				console.log("The response Data ", response);
+				this.state.currentTableHeaders = Object.keys(response.data);
+				this.state.currentTableValues = response.data;
 				ContentReviewerActions.stateupdates(this.state);
 			})
 			.catch(error => {});
 	}
 	render() {
 		var listTables = [];
+		var headers = [];
 		if (this.state && this.state.allPostGresTables != undefined) {
 			listTables = this.state.allPostGresTables;
 			console.log("The state inside is", this.state.allPostGresTables);
+		}
+		if (this.state && this.state.currentTableHeaders != undefined) {
+			headers = this.state.currentTableHeaders;
 		}
 		return (
 			<div className="slds-grid">
@@ -56,16 +63,27 @@ export default class postGreTableCreator extends Reflux.Component {
 							<label className="slds-text-heading_medium">Select Existing Table: </label>
 						</td>
 						<td>
-							<input list="postGresTables" onChange={this.handleTableSelect.bind(this)}/>
+							<input list="postGresTables" onChange={this.handleTableSelect.bind(this)} />
 							<datalist id="postGresTables">
 								{listTables.map(value => (
-									<option  value={value.table_schema+'.'+value.table_name} >{value.table_name}</option>
+									<option value={value.table_schema + "." + value.table_name}>
+										{value.table_name}
+									</option>
 								))}
 							</datalist>
 						</td>
 						<td>
-							<input type="button" value="Show Data" onClick={() => this.showData()}/>
+							<input type="button" value="Show Data" onClick={() => this.showData()} />
 						</td>
+					</tr>
+					<tr>
+						<table>
+							<tr>
+								{headers.map(headervalue => (
+									<th>{headervalue}</th>
+								))}
+							</tr>
+						</table>
 					</tr>
 				</table>
 			</div>

@@ -11,7 +11,7 @@ export default class Headerdisplay extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 	}
-
+	
 	componentDidMount() {}
 	render() {
 		var CurrentApp = this.state != undefined ? this.state.currentApp : "";
