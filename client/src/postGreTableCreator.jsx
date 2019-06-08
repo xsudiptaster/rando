@@ -14,15 +14,13 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	getalltables() {
 		axios
-			.post("/api/runQuery",{
-				oquery: "SELECT table_schema,table_name FROM information_schema.tables Where table_schema='salesforce';"
+			.post("/api/runQuery", {
+				oquery:
+					"SELECT table_schema,table_name FROM information_schema.tables Where table_schema='salesforce';",
 			})
 			.then(response => {
 				console.log("The response ", response);
-				this.setState({
-					allPostGresTables: response.data,
-				});
-				ContentReviewerActions.stateupdates(this.state);
+				(this.state.allPostGresTables = response.data), ContentReviewerActions.stateupdates(this.state);
 			})
 			.catch(error => {});
 	}
@@ -31,7 +29,7 @@ export default class postGreTableCreator extends Reflux.Component {
 		console.log("The state is", this.state);
 		if (this.state && this.state.allPostGresTables != undefined) {
 			listTables = this.state.allPostGresTable;
-			console.log("The state inside is", listTables);
+			console.log("The state inside is", this.state.allPostGresTable);
 		}
 		return (
 			<div className="slds-grid">
