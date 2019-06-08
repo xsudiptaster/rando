@@ -69,7 +69,7 @@ export default class postGreTableCreator extends Reflux.Component {
 									<label className="slds-text-heading_medium">Select Existing Table: </label>
 								</td>
 								<td>
-									<input list="postGresTables" onChange={this.handleTableSelect.bind(this)} />
+									<input list="postGresTables" onChange={this.handleTableSelect.bind(this)} className="slds-input" />
 									<datalist id="postGresTables">
 										{listTables.map(value => (
 											<option value={value.table_schema + "." + value.table_name}>
@@ -79,13 +79,13 @@ export default class postGreTableCreator extends Reflux.Component {
 									</datalist>
 								</td>
 								<td>
-									<input type="button" value="Show Data" onClick={() => this.showData()} />
+									<input type="button" value="Show Data" className="slds-button slds-button_neutral" onClick={() => this.showData()} />
 								</td>
 							</tr>
 						</table>
 					</tr>
 					<tr>
-						<table className="slds-table">
+						<table className="slds-table slds-table_cell-buffer slds-table_bordered">
 							<tr>
 								{headers.map(headervalue => (
 									<th>{headervalue}</th>
