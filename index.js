@@ -12,7 +12,7 @@ app.use(express.urlencoded());
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 var pool = new pg.Pool()
-pool.connect(process.env.DATABASE_URL, function(err, client, done) {
+pool.connect(process.env.DATABASE_URL, function(err, client) {
 	client.query("select * from information_schema.tables", function(err, result) {
 		console.log("The PostGreQUery result", result);
 		if (err) return console.error(err);
