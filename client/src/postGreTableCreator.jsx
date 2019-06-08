@@ -21,6 +21,13 @@ export default class postGreTableCreator extends Reflux.Component {
 			.catch(exp => {
 				console.log("The Exception", exp);
 			});
+
+		axios
+			.post("/api/getTableNames")
+			.then(response => {
+				console.log("The response ", response);
+			})
+			.catch(error => {});
 	}
 	render() {
 		var listTables = [];
