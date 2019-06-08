@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import App from "./App";
-import Headerdisplay from "./Headerdisplay";
+import Headerdisplay from "./Headerdisplay.jsx";
 import "./index.css";
-import postGreTableCreator from "./postGreTableCreator";
+import postGreTableCreator from "./postGreTableCreator.jsx";
 import registerServiceWorker from "./registerServiceWorker";
-import UpsertApp from "./UpsertApp";
+import UpsertApp from "./UpsertApp.jsx";
 
 ReactDOM.render(
 	<BrowserRouter>
