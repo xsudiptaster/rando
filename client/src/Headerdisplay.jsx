@@ -38,6 +38,7 @@ export default class Headerdisplay extends Reflux.Component {
 											title="PostgreSQL Editor"
 											description="This tool lets you maintain a postGreSQL table"
 											iconText="PE"
+											href="/postgretable"
 										/>
 									</AppLauncherSection>
 								</AppLauncher>

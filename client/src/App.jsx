@@ -38,7 +38,8 @@ class App extends Reflux.Component {
 								<AppLauncherTile
 									title="PostgreTable Display"
 									iconText="UR"
-									description="Display PostGre Table and use Heroku Connect"
+									description="Display Salesforce Table and use Heroku Connect"
+									href="/postgretable"
 								/>
 							</div>
 						</div>
