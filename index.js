@@ -35,22 +35,20 @@ app.post("/api/logintosalesforce", function(req, res) {
 	// Return them as json
 });
 
-app.post("/api/getTableNames", function(req, res) {
+app.post("/api/getTableNames", function(request, response) {
 	var client = new Client({
 		connectionString: process.env.DATABASE_URL,
 		ssl: true,
 	});
 	client.connect();
-	client.query(
-		"SELECT table_schema,table_name FROM information_schema.tables Where table_schema='salesforce';",
-		(err,
-		response => {
-			if (err) throw err;
-			console.log('The response',JSON.stringify(response.rows));
-			res.send(JSON.stringify(response.rows));
-			client.end();
-		}),
-	);
+	client.query("SELECT table_schema,table_name FROM information_schema.tables;", (err, res) => {
+		if (err) throw err;
+		for (let row of res.rows) {
+			console.log(JSON.stringify(row));
+		}
+		response.send(JSON.stringify(res.rows));
+		client.end();
+	});
 });
 // Put all API endpoints under '/api'
 app.post("/api/objectList", function(req, res) {
