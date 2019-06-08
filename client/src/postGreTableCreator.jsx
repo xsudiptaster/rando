@@ -83,6 +83,9 @@ export default class postGreTableCreator extends Reflux.Component {
 								</td>
 							</tr>
 						</table>
+						<div>
+						<input type="button" value="Save Data" className="slds-button slds-button_neutral" onClick={() => this.showData()} />
+						</div>
 					</tr>
 					<tr>
 						<table className="slds-table slds-table_cell-buffer slds-table_bordered">
