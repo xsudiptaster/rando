@@ -26,6 +26,21 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.catch(error => {});
 	}
+	handleTableSelect(event){
+		this.state.selectTable=event.target.value;
+	}
+	showData(){
+		var q= "SELECT * FROM "+this.state.selectTable;
+		axios
+			.post("/api/runQuery",{
+				oquery: q
+			})
+			.then(response => {
+				console.log("The response Data ", response);
+				ContentReviewerActions.stateupdates(this.state);
+			})
+			.catch(error => {});
+	}
 	render() {
 		var listTables = [];
 		if (this.state && this.state.allPostGresTables != undefined) {
@@ -40,7 +55,7 @@ export default class postGreTableCreator extends Reflux.Component {
 							<label className="slds-text-heading_medium">Select Existing Table: </label>
 						</td>
 						<td>
-							<input list="postGresTables" />
+							<input list="postGresTables" onChange={this.handleTableSelect(this)}/>
 							<datalist id="postGresTables">
 								{listTables.map(value => (
 									<option>{value.table_name}</option>
@@ -48,7 +63,7 @@ export default class postGreTableCreator extends Reflux.Component {
 							</datalist>
 						</td>
 						<td>
-							<input type="button" value="Show Data" />
+							<input type="button" value="Show Data" onClick={() => this.showData()}/>
 						</td>
 					</tr>
 				</table>
