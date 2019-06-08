@@ -18,15 +18,15 @@ export default class postGreTableCreator extends Reflux.Component {
 			.then(response => {
 				console.log("The response ", response);
 				this.setState({
-					allPostGresTables:response.data;
-				})
+					allPostGresTables: response.data,
+				});
 			})
 			.catch(error => {});
 	}
 	render() {
 		var listTables = [];
-		if (this.state && this.allPostGresTables!=undefined){
-			listTables
+		if (this.state && this.allPostGresTables != undefined) {
+			listTables;
 		}
 		return (
 			<div className="slds-grid">
@@ -37,10 +37,10 @@ export default class postGreTableCreator extends Reflux.Component {
 						</td>
 						<td>
 							<input data="postGresTables" />
-							<datalist id="postGresTables" >
-							{listTables.map(value => (
-								<option>{value}</option>
-							))}
+							<datalist id="postGresTables">
+								{listTables.map(value => (
+									<option>{value.table_name}</option>
+								))}
 							</datalist>
 						</td>
 						<td>
