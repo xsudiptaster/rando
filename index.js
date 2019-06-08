@@ -46,6 +46,7 @@ app.post("/api/getTableNames", function(req, res) {
 		(err,
 		response => {
 			if (err) throw err;
+			console.log('The response',JSON.stringify(response.rows));
 			res.send(JSON.stringify(response.rows));
 			client.end();
 		}),
