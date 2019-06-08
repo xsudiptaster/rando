@@ -169,11 +169,7 @@ export default class LoginSection extends Reflux.Component {
 		if (this.state != undefined && this.state.listUserNames != undefined) {
 			lst = this.state.listUserNames;
 		}
-		if (this.state && this.state.sessiontok != undefined && this.state.displaySettings!=undefined) {
-			this.state.displaySettings.logindisplay = "none";
-			this.state.displaySettings.uploadfiledisplay = "block";
-			ContentReviewerActions.stateupdates(this.state);
-		}
+		
 		return (
 			<div className="App slds-grid">
 				<table>
