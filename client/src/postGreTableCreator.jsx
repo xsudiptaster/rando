@@ -57,7 +57,7 @@ export default class postGreTableCreator extends Reflux.Component {
 		}
 		return (
 			<div className="slds-grid">
-				<table>
+				<table style={{ maxWidth: "500px" }}>
 					<tr>
 						<td>
 							<label className="slds-text-heading_medium">Select Existing Table: </label>
@@ -76,14 +76,12 @@ export default class postGreTableCreator extends Reflux.Component {
 							<input type="button" value="Show Data" onClick={() => this.showData()} />
 						</td>
 					</tr>
+				</table>
+				<table className="slds-table">
 					<tr>
-						<table>
-							<tr>
-								{headers.map(headervalue => (
-									<th>{headervalue}</th>
-								))}
-							</tr>
-						</table>
+						{headers.map(headervalue => (
+							<th>{headervalue}</th>
+						))}
 					</tr>
 				</table>
 			</div>
