@@ -20,6 +20,7 @@ export default class postGreTableCreator extends Reflux.Component {
 				this.setState({
 					allPostGresTables: response.data,
 				});
+				ContentReviewerActions.stateupdates(this.state);
 			})
 			.catch(error => {});
 	}
