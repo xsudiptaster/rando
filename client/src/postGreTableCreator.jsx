@@ -58,9 +58,14 @@ export default class postGreTableCreator extends Reflux.Component {
 					dataValue: dat,
 				})
 				.then(response => {
+					ContentReviewerActions.showError(response.toString(), this.state);
 					console.log("The response ", response);
 				})
-				.catch(error => {});
+				.catch(error => {
+					ContentReviewerActions.showError(error.toString(), this.state);
+				});
+		} else {
+			//INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00, '2007-12-13' ), (5, 'David', 27, 'Texas', 85000.00, '2007-12-13');
 		}
 	}
 	addRow() {
