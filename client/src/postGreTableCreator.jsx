@@ -45,13 +45,11 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.catch(error => {});
 	}
-	handleChange(val1,val2,val3,val4){
-	console.log('Value 1',val1);
-	console.log('Value 2',val2);
-	console.log('Value 3',val3);
-	console.log('Value 4',val4);
-	
-
+	handleChange(val1, val2, val3, val4) {
+		console.log("Value 1", val1);
+		console.log("Value 2", val2);
+		console.log("Value 3", val3);
+		console.log("Value 4", val4);
 	}
 	render() {
 		var listTables = [];
@@ -111,25 +109,38 @@ export default class postGreTableCreator extends Reflux.Component {
 					</tr>
 					<tr>
 						<div>
-							<table
-								className="displayTable slds-table "
-								style={{ border: "solid thin" }}>
+							<table className="displayTable slds-table " style={{ border: "solid thin" }}>
 								<thead style={{ paddingBottom: "10px", minHeight: "10px" }}>
 									<tr
 										className="slds-line-height_reset "
 										style={{ fontWeight: "5px", background: "#72e0d1" }}>
-											<th style={{ border: "solid thin" }} >Row No. </th>
+										<th style={{ border: "solid thin", background: "#72e0d1", minWidth: "30px" }}>
+											Row No.{" "}
+										</th>
 										{headers.map(headervalue => (
-											<th style={{ border: "solid thin" }}>{headervalue}</th>
+											<th
+												style={{
+													border: "solid thin",
+													background: "#72e0d1",
+													minWidth: "30px",
+												}}>
+												{headervalue}
+											</th>
 										))}
 									</tr>
 								</thead>
-								{valuesToDisplay.map((dataValue,index) => (
+								{valuesToDisplay.map((dataValue, index) => (
 									<tr>
 										<td> {index}</td>
 										{headers.map(headervalue => (
 											<td style={{ border: "solid thin" }}>
-												<input className="slds-input" value={dataValue[headervalue]} onChange={() => this.handleChange(this,headervalue,dataValue,index) } />
+												<input
+													className="slds-input"
+													value={dataValue[headervalue]}
+													onChange={() =>
+														this.handleChange(this, headervalue, dataValue, index)
+													}
+												/>
 											</td>
 										))}
 									</tr>
