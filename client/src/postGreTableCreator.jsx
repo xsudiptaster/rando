@@ -166,7 +166,7 @@ export default class postGreTableCreator extends Reflux.Component {
 											class="slds-button slds-button_neutral"
 											value="Add New Row"
 											onClick={() => this.addRow()}
-											style={{ display: this.currentTableHeaders.length > 0 ? "block" : "none" }}
+											style={{ display: (this.state!=undefined && this.state.currentTableHeaders!=undefined && this.state.currentTableHeaders.length > 0 )? "block" : "none" }}
 										/>
 									</td>
 								</tr>
