@@ -102,19 +102,19 @@ export default class postGreTableCreator extends Reflux.Component {
 						</div>
 					</tr>
 					<tr>
-						<div style={{ maxWidth: "2000px", overflow: "auto" }}>
+						<div style={{ maxWidth: "2000px", overflowY: "auto" }}>
 							<table className="slds-table slds-table_bordered" style={{border: "solid thin" }}>
 								<thead style={{paddingBottom:"10px",minHeight:"10px"}}>
 									<tr className="slds-line-height_reset " style={{fontWeight:"5px"}}>
 										{headers.map(headervalue => (
-											<th>{headervalue}</th>
+											<th style={{border: "solid thin"}}>{headervalue}</th>
 										))}
 									</tr>
 								</thead>
 								{valuesToDisplay.map(dataValue => (
 									<tr>
 										{headers.map(headervalue => (
-											<td>
+											<td style={{border: "solid thin"}}>
 												<input className="slds-input" value={dataValue[headervalue]} />
 											</td>
 										))}
