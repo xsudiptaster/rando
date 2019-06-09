@@ -46,7 +46,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	handleChange(fieldName,RowData,rowNo,thisVal) {
 		this.state.currentTableValues[rowNo][fieldName]=thisVal.target.value;
-		var oq= 'Update '+this.state.selectTable+' SET '+fieldName+' =$2 Where id= $1',
+		var oq= 'Update '+this.state.selectTable+' SET '+fieldName+' =$2 Where id= $1';
 		var dat=[];
 		dat.push(this.state.currentTableValues[rowNo]['id']);
 		dat.push(this.state.currentTableValues[rowNo][fieldName]); 
