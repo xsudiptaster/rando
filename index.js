@@ -38,7 +38,7 @@ app.post("/api/runQuery", function(request, response) {
 		connectionString: process.env.DATABASE_URL,
 		ssl: true,
 	});
-	var oquery=request.body.oquery;
+	var oquery = request.body.oquery;
 	client.connect();
 	client.query(oquery, (err, res) => {
 		if (err) throw err;
@@ -51,11 +51,13 @@ app.post("/api/runUpdateQuery", function(request, response) {
 		connectionString: process.env.DATABASE_URL,
 		ssl: true,
 	});
-	var oquery=request.body.oquery;
-	var dataValue=request.body.dataValue;
+	var oquery = request.body.oquery;
+	var dataValue = request.body.dataValue;
 	client.connect();
-	client.query(oquery,dataValue, (err, res) => {
-		if (err) throw err;
+	client.query(oquery, dataValue, (err, res) => {
+		if (err) {
+			res.send(JSON.stringify(err));
+		}
 		response.send(JSON.stringify(res.rows));
 		client.end();
 	});
