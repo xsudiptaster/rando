@@ -117,7 +117,7 @@ export default class postGreTableCreator extends Reflux.Component {
 								<thead style={{ paddingBottom: "10px", minHeight: "10px" }}>
 									<tr
 										className="slds-line-height_reset "
-										style={{ fontWeight: "5px", background: "grey" }}>
+										style={{ fontWeight: "5px", background: "#72e0d1" }}>
 											<th style={{ border: "solid thin" }} >Row No. </th>
 										{headers.map(headervalue => (
 											<th style={{ border: "solid thin" }}>{headervalue}</th>
