@@ -129,7 +129,7 @@ export default class postGreTableCreator extends Reflux.Component {
 										<td> {index}</td>
 										{headers.map(headervalue => (
 											<td style={{ border: "solid thin" }}>
-												<input className="slds-input" value={dataValue[headervalue]} onChange={()=>handleChange(this,headervalue,dataValue,index) } />
+												<input className="slds-input" value={dataValue[headervalue]} onChange={()=>this.handleChange(this,headervalue,dataValue,index) } />
 											</td>
 										))}
 									</tr>
