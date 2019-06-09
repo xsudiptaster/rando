@@ -44,7 +44,7 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.catch(error => {});
 	}
-	handleChange(thisVal, fieldName, RowData, rowNo) {
+	handleChange(fieldName,RowData,rowNo,thisVal) {
 		console.log("Selected 1", thisVal);
 		console.log("Selected 2", fieldName);
 		console.log("Selected 3", RowData);
@@ -114,15 +114,15 @@ export default class postGreTableCreator extends Reflux.Component {
 									<tr
 										className="slds-line-height_reset "
 										style={{ fontWeight: "5px", background: "#1798c1" }}>
-										<th style={{ border: "solid thin", background: "#1798c1", minWidth: "200px" }}>
+										<th style={{ border: "solid thin", background: "#1798c1" }}>
 											Row No.{" "}
 										</th>
 										{headers.map(headervalue => (
 											<th
 												style={{
 													border: "solid thin",
-													background: "#72e0d1",
-													minWidth: "30px",
+													background: "#1798c1",
+													minWidth: "200px"
 												}}>
 												{headervalue}
 											</th>
