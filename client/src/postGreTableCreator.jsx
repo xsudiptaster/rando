@@ -45,6 +45,14 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.catch(error => {});
 	}
+	handleChange(val1,val2,val3,val4){
+	console.log('Value 1',val1);
+	console.log('Value 2',val2);
+	console.log('Value 3',val3);
+	console.log('Value 4',val4);
+	
+
+	}
 	render() {
 		var listTables = [];
 		var headers = [];
@@ -109,17 +117,19 @@ export default class postGreTableCreator extends Reflux.Component {
 								<thead style={{ paddingBottom: "10px", minHeight: "10px" }}>
 									<tr
 										className="slds-line-height_reset "
-										style={{ fontWeight: "5px", backgroundColor: "grey" }}>
+										style={{ fontWeight: "5px", background: "grey" }}>
+											<th>Row No. </th>
 										{headers.map(headervalue => (
 											<th style={{ border: "solid thin" }}>{headervalue}</th>
 										))}
 									</tr>
 								</thead>
-								{valuesToDisplay.map(dataValue => (
+								{valuesToDisplay.map(dataValue,index => (
 									<tr>
+										<td> {index}</td>
 										{headers.map(headervalue => (
 											<td style={{ border: "solid thin" }}>
-												<input className="slds-input" value={dataValue[headervalue]} />
+												<input className="slds-input" value={dataValue[headervalue]} onChange={()=>handleChange(this,headervalue,dataValue,index) } />
 											</td>
 										))}
 									</tr>

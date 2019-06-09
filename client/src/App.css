@@ -42,5 +42,5 @@ h1 {
 	border-bottom: 3px solid black;
 }
 .displayTable tr:nth-child(odd){
-	background: lightblue;
+	background:black;
 } 
