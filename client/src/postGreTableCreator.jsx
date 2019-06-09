@@ -69,7 +69,11 @@ export default class postGreTableCreator extends Reflux.Component {
 									<label className="slds-text-heading_medium">Select Existing Table: </label>
 								</td>
 								<td>
-									<input list="postGresTables" onChange={this.handleTableSelect.bind(this)} className="slds-input" />
+									<input
+										list="postGresTables"
+										onChange={this.handleTableSelect.bind(this)}
+										className="slds-input"
+									/>
 									<datalist id="postGresTables">
 										{listTables.map(value => (
 											<option value={value.table_schema + "." + value.table_name}>
@@ -79,31 +83,45 @@ export default class postGreTableCreator extends Reflux.Component {
 									</datalist>
 								</td>
 								<td>
-									<input type="button" value="Show Data" className="slds-button slds-button_neutral" onClick={() => this.showData()} />
+									<input
+										type="button"
+										value="Show Data"
+										className="slds-button slds-button_neutral"
+										onClick={() => this.showData()}
+									/>
 								</td>
 							</tr>
 						</table>
 						<div>
-						<input type="button" value="Save Data" className="slds-button slds-button_neutral" onClick={() => this.showData()} />
+							<input
+								type="button"
+								value="Save Data"
+								className="slds-button slds-button_neutral"
+								onClick={() => this.showData()}
+							/>
 						</div>
 					</tr>
 					<tr>
-						<table className="slds-table slds-table_cell-buffer slds-table_bordered">
-							<thead>
-								<tr className="slds-line-height_reset">
-								{headers.map(headervalue => (
-									<th>{headervalue}</th>
+						<div style={{ maxWidth: "1500px", overflow: "auto" }}>
+							<table className="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols">
+								<thead>
+									<tr className="slds-line-height_reset">
+										{headers.map(headervalue => (
+											<th>{headervalue}</th>
+										))}
+									</tr>
+								</thead>
+								{valuesToDisplay.map(dataValue => (
+									<tr>
+										{headers.map(headervalue => (
+											<td>
+												<input className="slds-input" value={dataValue[headervalue]} />
+											</td>
+										))}
+									</tr>
 								))}
-								</tr>
-							</thead>
-							{valuesToDisplay.map(dataValue => (
-								<tr>
-									{headers.map(headervalue => (
-										<td><input className="slds-input" value={dataValue[headervalue]}/></td>
-									))}
-								</tr>
-							))}
-						</table>
+							</table>
+						</div>
 					</tr>
 				</table>
 			</div>
