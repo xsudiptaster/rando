@@ -46,6 +46,20 @@ app.post("/api/runQuery", function(request, response) {
 		client.end();
 	});
 });
+app.post("/api/runUpdateQuery", function(request, response) {
+	var client = new Client({
+		connectionString: process.env.DATABASE_URL,
+		ssl: true,
+	});
+	var oquery=request.body.oquery;
+	var dataValue=request.body.dataValue;
+	client.connect();
+	client.query(oquery,dataValue, (err, res) => {
+		if (err) throw err;
+		response.send(JSON.stringify(res.rows));
+		client.end();
+	});
+});
 // Put all API endpoints under '/api'
 app.post("/api/objectList", function(req, res) {
 	var jsobj = new jsforce.Connection();

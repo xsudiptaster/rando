@@ -45,9 +45,21 @@ export default class postGreTableCreator extends Reflux.Component {
 			.catch(error => {});
 	}
 	handleChange(fieldName,RowData,rowNo,thisVal) {
-		console.log('The Val Received',this.state.currentTableValues[rowNo]);
 		this.state.currentTableValues[rowNo][fieldName]=thisVal.target.value;
+		var oq= 'Update '+this.state.selectTable+' SET '+fieldName+' =$2 Where id= $1',
+		var dat=[];
+		dat.push(this.state.currentTableValues[rowNo]['id']);
+		dat.push(this.state.currentTableValues[rowNo][fieldName]); 
 		ContentReviewerActions.stateupdates(this.state);
+		axios
+			.post("/api/runQuery", {
+				oquery:oq,
+				dataValue:dat 
+			})
+			.then(response => {
+				console.log("The response ", response);
+			})
+			.catch(error => {});
 
 	}
 	render() {
@@ -97,14 +109,6 @@ export default class postGreTableCreator extends Reflux.Component {
 								</td>
 							</tr>
 						</table>
-						<div>
-							<input
-								type="button"
-								value="Save Data"
-								className="slds-button slds-button_neutral"
-								onClick={() => this.showData()}
-							/>
-						</div>
 					</tr>
 					<tr>
 						<div>
