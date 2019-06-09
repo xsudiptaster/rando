@@ -47,6 +47,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	handleChange(fieldName,RowData,rowNo,thisVal) {
 		console.log('The Val Received',this.state.currentTableValues[rowNo]);
 		this.state.currentTableValues[rowNo][fieldName]=thisVal.target.value;
+		ContentReviewerActions.stateupdates(this.state);
 
 	}
 	render() {
