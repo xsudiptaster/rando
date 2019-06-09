@@ -104,8 +104,8 @@ export default class postGreTableCreator extends Reflux.Component {
 					<tr>
 						<div style={{ maxWidth: "2000px", overflow: "auto" }}>
 							<table className="slds-table slds-table_bordered slds-table_resizable-cols">
-								<thead>
-									<tr className="slds-line-height_reset">
+								<thead style={{paddingBottom:"10px"}}>
+									<tr className="slds-line-height_reset " style={{fontWeight:"5px"}}>
 										{headers.map(headervalue => (
 											<th>{headervalue}</th>
 										))}
