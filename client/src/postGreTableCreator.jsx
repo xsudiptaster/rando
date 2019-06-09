@@ -52,7 +52,7 @@ export default class postGreTableCreator extends Reflux.Component {
 		dat.push(this.state.currentTableValues[rowNo][fieldName]); 
 		ContentReviewerActions.stateupdates(this.state);
 		axios
-			.post("/api/runQuery", {
+			.post("/api/runUpdateQuery", {
 				oquery:oq,
 				dataValue:dat 
 			})
