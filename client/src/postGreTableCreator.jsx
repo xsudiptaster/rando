@@ -29,7 +29,6 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	handleTableSelect(event) {
 		this.state.selectTable = event.target.value;
-		console.log("Selected Table", this.state);
 	}
 	showData() {
 		var q = "SELECT * FROM " + this.state.selectTable;
@@ -45,11 +44,12 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.catch(error => {});
 	}
-	handleChange(val1, val2, val3, val4) {
-		console.log("Value 1", val1);
-		console.log("Value 2", val2);
-		console.log("Value 3", val3);
-		console.log("Value 4", val4);
+	handleChange(thisVal, fieldName, RowData, rowNo) {
+		console.log("Selected 1", thisVal);
+		console.log("Selected 2", fieldName);
+		console.log("Selected 3", RowData);
+		console.log("Selected 4", rowNo);
+		this.state.currentTableValues[rowNo][fieldName]=thisVal.value;
 	}
 	render() {
 		var listTables = [];
@@ -137,8 +137,7 @@ export default class postGreTableCreator extends Reflux.Component {
 												<input
 													className="slds-input"
 													value={dataValue[headervalue]}
-													onChange={() =>
-														this.handleChange(this, headervalue, dataValue, index)
+													onChange={this.handleChange.bind(this, headervalue, dataValue, index)
 													}
 												/>
 											</td>
