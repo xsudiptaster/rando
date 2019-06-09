@@ -42,5 +42,8 @@ h1 {
 	border-bottom: 3px solid black;
 }
 .displayTable tr:nth-child(odd){
-	background:black;
+	background: #b8d1f3;
+} 
+.displayTable tr:nth-child(even){
+	background: #dae5f4;
 } 

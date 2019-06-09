@@ -112,13 +112,13 @@ export default class postGreTableCreator extends Reflux.Component {
 					<tr>
 						<div>
 							<table
-								className="displayTable slds-table slds-table_bordered"
+								className="displayTable slds-table "
 								style={{ border: "solid thin" }}>
 								<thead style={{ paddingBottom: "10px", minHeight: "10px" }}>
 									<tr
 										className="slds-line-height_reset "
 										style={{ fontWeight: "5px", background: "grey" }}>
-											<th>Row No. </th>
+											<th style={{ border: "solid thin" }} >Row No. </th>
 										{headers.map(headervalue => (
 											<th style={{ border: "solid thin" }}>{headervalue}</th>
 										))}
