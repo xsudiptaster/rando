@@ -45,29 +45,33 @@ export default class postGreTableCreator extends Reflux.Component {
 			.catch(error => {});
 	}
 	handleChange(fieldName, RowData, rowNo, thisVal) {
-		this.state.currentTableValues[rowNo][fieldName] = thisVal.target.value;
-		var oq = "Update " + this.state.selectTable + " SET " + fieldName + " =$2 Where id= $1";
-		var dat = [];
-		dat.push(this.state.currentTableValues[rowNo]["id"]);
-		dat.push(this.state.currentTableValues[rowNo][fieldName]);
-		ContentReviewerActions.stateupdates(this.state);
-		axios
-			.post("/api/runUpdateQuery", {
-				oquery: oq,
-				dataValue: dat,
-			})
-			.then(response => {
-				console.log("The response ", response);
-			})
-			.catch(error => {});
+		if (this.state.currentTableValues[rowNo]["id"] != undefined) {
+			this.state.currentTableValues[rowNo][fieldName] = thisVal.target.value;
+			var oq = "Update " + this.state.selectTable + " SET " + fieldName + " =$2 Where id= $1";
+			var dat = [];
+			dat.push(this.state.currentTableValues[rowNo]["id"]);
+			dat.push(this.state.currentTableValues[rowNo][fieldName]);
+			ContentReviewerActions.stateupdates(this.state);
+			axios
+				.post("/api/runUpdateQuery", {
+					oquery: oq,
+					dataValue: dat,
+				})
+				.then(response => {
+					console.log("The response ", response);
+				})
+				.catch(error => {});
+		}
 	}
 	addRow() {
-		var newObj = {};
-		for (var i = 0; i < this.state.currentTableHeaders.length; i++) {
-			newObj[this.state.currentTableHeaders[i]] = "";
+		if (this.state.currentTableHeaders.length > 0) {
+			var newObj = {};
+			for (var i = 0; i < this.state.currentTableHeaders.length; i++) {
+				newObj[this.state.currentTableHeaders[i]] = "";
+			}
+			this.state.currentTableValues.push(newObj);
+			ContentReviewerActions.stateupdates(this.state);
 		}
-		this.state.currentTableValues.push(newObj);
-		ContentReviewerActions.stateupdates(this.state);
 	}
 	render() {
 		var listTables = [];
@@ -162,6 +166,7 @@ export default class postGreTableCreator extends Reflux.Component {
 											class="slds-button slds-button_neutral"
 											value="Add New Row"
 											onClick={() => this.addRow()}
+											style={{ display: this.currentTableHeaders.length > 0 ? "block" : "none" }}
 										/>
 									</td>
 								</tr>
