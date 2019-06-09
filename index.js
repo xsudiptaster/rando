@@ -56,7 +56,7 @@ app.post("/api/runUpdateQuery", function(request, response) {
 	client.connect();
 	client.query(oquery, dataValue, (err, res) => {
 		if (err) {
-			console.log(err);
+			console.log(JSON.stringify(err));
 			response.send(JSON.stringify(err.error));
 		}
 		response.send(JSON.stringify(res.rows));
