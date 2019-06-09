@@ -45,8 +45,9 @@ export default class postGreTableCreator extends Reflux.Component {
 			.catch(error => {});
 	}
 	handleChange(fieldName,RowData,rowNo,thisVal) {
-		console.log('The Val Received',thisVal.target.value);
+		console.log('The Val Received',this.state.currentTableValues[rowNo]);
 		this.state.currentTableValues[rowNo][fieldName]=thisVal.target.value;
+
 	}
 	render() {
 		var listTables = [];
