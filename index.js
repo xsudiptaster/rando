@@ -17,7 +17,6 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // Put all API endpoints under '/api'
 app.post("/api/logintosalesforce", function(req, res) {
-	console.log("Environ Values", process.env.DATABASE_URL);
 	var jsobj = new jsforce.Connection();
 	jsobj.loginUrl = req.body.loginUrl;
 	jsobj.login(req.body.username, req.body.password, function(err, userinfo) {
@@ -25,7 +24,6 @@ app.post("/api/logintosalesforce", function(req, res) {
 			res.send(err.toString());
 		} else {
 			var respt = {};
-			console.log("The UserInfo", userinfo);
 			respt.sesionTkn = jsobj.accessToken;
 			respt.loginUrl = jsobj.instanceUrl;
 			respt.userId = userinfo.id;
@@ -44,9 +42,6 @@ app.post("/api/runQuery", function(request, response) {
 	client.connect();
 	client.query(oquery, (err, res) => {
 		if (err) throw err;
-		for (let row of res.rows) {
-			console.log(JSON.stringify(row));
-		}
 		response.send(JSON.stringify(res.rows));
 		client.end();
 	});
