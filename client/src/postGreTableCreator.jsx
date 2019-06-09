@@ -44,23 +44,30 @@ export default class postGreTableCreator extends Reflux.Component {
 			})
 			.catch(error => {});
 	}
-	handleChange(fieldName,RowData,rowNo,thisVal) {
-		this.state.currentTableValues[rowNo][fieldName]=thisVal.target.value;
-		var oq= 'Update '+this.state.selectTable+' SET '+fieldName+' =$2 Where id= $1';
-		var dat=[];
-		dat.push(this.state.currentTableValues[rowNo]['id']);
-		dat.push(this.state.currentTableValues[rowNo][fieldName]); 
+	handleChange(fieldName, RowData, rowNo, thisVal) {
+		this.state.currentTableValues[rowNo][fieldName] = thisVal.target.value;
+		var oq = "Update " + this.state.selectTable + " SET " + fieldName + " =$2 Where id= $1";
+		var dat = [];
+		dat.push(this.state.currentTableValues[rowNo]["id"]);
+		dat.push(this.state.currentTableValues[rowNo][fieldName]);
 		ContentReviewerActions.stateupdates(this.state);
 		axios
 			.post("/api/runUpdateQuery", {
-				oquery:oq,
-				dataValue:dat 
+				oquery: oq,
+				dataValue: dat,
 			})
 			.then(response => {
 				console.log("The response ", response);
 			})
 			.catch(error => {});
-
+	}
+	addRow() {
+		var newObj = {};
+		for (var i = 0; i < this.state.currentTableHeaders.length; i++) {
+			newObj[this.state.currentTableHeaders[i]] = "";
+		}
+		this.state.currentTableValues.push(newObj);
+		ContentReviewerActions.stateupdates(this.state);
 	}
 	render() {
 		var listTables = [];
@@ -117,15 +124,13 @@ export default class postGreTableCreator extends Reflux.Component {
 									<tr
 										className="slds-line-height_reset "
 										style={{ fontWeight: "5px", background: "#1798c1" }}>
-										<th style={{ border: "solid thin", background: "#1798c1" }}>
-											Row No.{" "}
-										</th>
+										<th style={{ border: "solid thin", background: "#1798c1" }}>Row No. </th>
 										{headers.map(headervalue => (
 											<th
 												style={{
 													border: "solid thin",
 													background: "#1798c1",
-													minWidth: "200px"
+													minWidth: "200px",
 												}}>
 												{headervalue}
 											</th>
@@ -140,13 +145,26 @@ export default class postGreTableCreator extends Reflux.Component {
 												<input
 													className="slds-input"
 													value={dataValue[headervalue]}
-													onChange={this.handleChange.bind(this, headervalue, dataValue, index)
-													}
+													onChange={this.handleChange.bind(
+														this,
+														headervalue,
+														dataValue,
+														index,
+													)}
 												/>
 											</td>
 										))}
 									</tr>
 								))}
+								<tr>
+									<td>
+										<input
+											class="slds-button slds-button_neutral"
+											value="Add New Row"
+											onClick={() => this.addRow()}
+										/>
+									</td>
+								</tr>
 							</table>
 						</div>
 					</tr>
