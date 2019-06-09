@@ -41,3 +41,6 @@ h1 {
 .resultTable tr:last-child {
 	border-bottom: 3px solid black;
 }
+.displayTable tr:nth-child(odd){
+	background: lightblue;
+} 
