@@ -69,7 +69,7 @@ export default class ErrorAndLoading extends Reflux.Component {
 							<div className="slds-backdrop slds-backdrop_open" />
 						</div>
 					</div>
-					<Modal open={(this.state.showProgress!=undefined?this.state.showProgress:false)}>
+					<Modal open={(this.state && this.state.showProgress!=undefined?this.state.showProgress:false)}>
 						<div id="modalLoader">
 							<div
 								style={{
