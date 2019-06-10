@@ -12,9 +12,6 @@ export default class ErrorAndLoading extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
-		this.setState({
-			errorModal:"none"
-		});
 	}
 	handleClose() {
 		this.state.errorModal = "none" ;

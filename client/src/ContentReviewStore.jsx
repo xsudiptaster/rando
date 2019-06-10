@@ -6,6 +6,10 @@ var ContentReviewerStore = Reflux.createStore({
 	// Shorthand for listening to all ContentReviewerActions
 	listenables: [ContentReviewerActions],
 	constructor() {
+		
+	},
+	// Load a review when the store is initialized
+	init: function() {
 		this.firstdata = {
 			displaySettings: {
 				logindisplay: "block",
@@ -22,8 +26,6 @@ var ContentReviewerStore = Reflux.createStore({
 		};
 		this.trigger(this.firstdata);
 	},
-	// Load a review when the store is initialized
-	init: function() {},
 	stateupdates: function(state) {
 		if (!this.firstdata) {
 			this.firstdata = {};
