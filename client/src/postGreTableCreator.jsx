@@ -216,7 +216,7 @@ export default class postGreTableCreator extends Reflux.Component {
 								height: "100%",
 								width: "100%",
 								zIndex: "10",
-								backgroundColor: "rgba(0,0,0,0.3)",
+								backgroundColor: "white",
 								top: 0,
 								left: 0,
 							}}>
