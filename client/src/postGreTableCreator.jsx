@@ -220,7 +220,7 @@ export default class postGreTableCreator extends Reflux.Component {
 								top: 0,
 								left: 0,
 							}}>
-							<table>
+							<table class="slds-table">
 								<tr>
 									<td>
 										<table>
@@ -231,8 +231,6 @@ export default class postGreTableCreator extends Reflux.Component {
 											))}
 										</table>
 									</td>
-								</tr>
-								<tr>
 									<td>
 										<table>
 											{listOddHeader.map(value1 => (
