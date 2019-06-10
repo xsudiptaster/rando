@@ -7,7 +7,7 @@ import MappingTable from "./MappingTable";
 import ObjectMapping from "./ObjectMapping";
 import QuestionsForOperation from "./QuestionsForOperation";
 import StatusResult from "./StatusResult";
-
+import errorAndLoading from "./errorAndLoading"
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -39,6 +39,7 @@ class UpsertApp extends Reflux.Component {
 		return (
 			<div>
 				<div>
+				<errorAndLoading></errorAndLoading>
 					<div style={{paddingLeft:"100px",paddingRight: "100px",}} >
 						<div style={{ display: this.state.displaySettings.logindisplay }}>
 							<LoginSection />
@@ -60,7 +61,7 @@ class UpsertApp extends Reflux.Component {
 						</div>
 					</div>
 				</div>
-				<errorAndLoading/>
+				
 			</div>
 		);
 	}
