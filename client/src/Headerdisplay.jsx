@@ -55,7 +55,7 @@ export default class Headerdisplay extends Reflux.Component {
 							</h2>
 						</div>
 						<label className="slds-text-align_center" style={{ align: "center" }}>
-							{CurrentApp}{" "}
+						@Built by : Sudipta Karmakar
 						</label>
 					</header>
 					<br />
