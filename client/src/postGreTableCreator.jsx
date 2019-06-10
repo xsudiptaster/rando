@@ -75,7 +75,7 @@ export default class postGreTableCreator extends Reflux.Component {
 				});
 		} else {
 			var oq= 'INSERT INTO '+this.state.selectTable+'(';
-			var columns= 
+			var columns= '';
 			//INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00, '2007-12-13' ), (5, 'David', 27, 'Texas', 85000.00, '2007-12-13');
 		}
 	}
