@@ -17,7 +17,7 @@ export default class ErrorAndLoading extends Reflux.Component {
 		});
 	}
 	handleClose() {
-		this.state.errorModal = { height: "14rem", display: "none" };
+		this.state.errorModal = "none" ;
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	render() {
