@@ -1,8 +1,8 @@
 import axios from "axios";
 import React from "react";
 import "./App.css";
+import ErrorAndLoading from "./errorAndLoading";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import errorAndLoading from "./errorAndLoading";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -12,6 +12,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
+		this.state=this.store.firstdata;
 		this.getalltables();
 	}
 	getalltables() {
@@ -191,7 +192,7 @@ export default class postGreTableCreator extends Reflux.Component {
 						</div>
 					</tr>
 				</table>
-				<errorAndLoading />
+				<ErrorAndLoading />
 			</div>
 		);
 	}
