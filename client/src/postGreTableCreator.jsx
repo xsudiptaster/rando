@@ -81,14 +81,6 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	addRow() {
 		this.state.showAddRow=true;
-		if (this.state.currentTableHeaders.length > 0) {
-			var newObj = {};
-			for (var i = 0; i < this.state.currentTableHeaders.length; i++) {
-				newObj[this.state.currentTableHeaders[i]] = "";
-			}
-			this.state.currentTableValues.push(newObj);
-			ContentReviewerActions.stateupdates(this.state);
-		}
 	}
 	render() {
 		var listTables = [];
