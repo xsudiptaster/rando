@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import ErrorAndLoading from "./errorAndLoading";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
+import Modal from "@material-ui/core/Modal";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
