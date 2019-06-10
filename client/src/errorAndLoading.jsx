@@ -55,7 +55,7 @@ export default class ErrorAndLoading extends Reflux.Component {
 									<div
 										className="slds-modal__content slds-p-around_medium"
 										id="prompt-message-wrapper">
-										<p>{this.state.errorMessage}</p>
+										<p>{(this.state && this.state.errorMessage!=undefined)?this.state.errorMessage:""}</p>
 									</div>
 									<footer className="slds-modal__footer slds-theme_default">
 										<button
