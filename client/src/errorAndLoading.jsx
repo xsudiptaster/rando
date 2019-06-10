@@ -12,6 +12,9 @@ export default class ErrorAndLoading extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
+		this.setState({
+			errorModal:"none"
+		});
 	}
 	handleClose() {
 		this.state.errorModal = { height: "14rem", display: "none" };
@@ -22,7 +25,7 @@ export default class ErrorAndLoading extends Reflux.Component {
 			<div>
 				<div>
 					<div className="slds-col slds-size_12-of-12">
-						<div className="demo-only" style={this.state.errorModal}>
+						<div className="demo-only" style={{display: this.state.errorModal}}>
 							<section
 								role="alertdialog"
 								tabIndex={-1}

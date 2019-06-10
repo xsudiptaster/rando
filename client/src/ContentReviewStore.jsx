@@ -6,21 +6,21 @@ var ContentReviewerStore = Reflux.createStore({
 	// Shorthand for listening to all ContentReviewerActions
 	listenables: [ContentReviewerActions],
 	constructor() {
-    this.firstdata = {
-			displaySettings:{
+		this.firstdata = {
+			displaySettings: {
 				logindisplay: "block",
 				uploadfiledisplay: "none",
 				questionfordisplay: "none",
 				objectmappingdisplay: "none",
 				objectmappingtable: "none",
-				finalupsertresult:"none"
+				finalupsertresult: "none",
+				errorModal:"none"
 			},
-			errorModal: { height: "14rem", display: "none" },
 			errorMessage: "",
 			showProgress: false,
 			currentApp: "Upsert",
-    };
-    this.trigger(this.firstdata);
+		};
+		this.trigger(this.firstdata);
 	},
 	// Load a review when the store is initialized
 	init: function() {},
@@ -74,7 +74,7 @@ var ContentReviewerStore = Reflux.createStore({
 		}
 		this.firstdata = state;
 		this.firstdata.errorMessage = ErrorMessage;
-		this.firstdata.errorModal = { height: "14rem", display: "block" };
+		this.firstdata.errorModal = "block";
 		this.fireUpdate();
 	},
 });
