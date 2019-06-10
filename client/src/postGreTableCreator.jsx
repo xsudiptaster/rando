@@ -241,6 +241,14 @@ export default class postGreTableCreator extends Reflux.Component {
 										</table>
 									</td>
 								</tr>
+								<tr>
+									<td>
+										<input type="button" value="Cancel" />
+									</td>
+									<td>
+										<input type="button" value="Save" />
+									</td>
+								</tr>
 							</table>
 						</div>
 					</div>
