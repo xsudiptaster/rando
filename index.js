@@ -61,7 +61,7 @@ app.post("/api/runUpdateQuery", function(request, response) {
 			er.msg=err.message;
 			response.send(JSON.stringify(er));
 		}
-		response.send(JSON.stringify(res.rows));
+		console.log(response);
 		client.end();
 	});
 });
