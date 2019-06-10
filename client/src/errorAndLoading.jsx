@@ -10,7 +10,7 @@ var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class errorAndLoading extends Reflux.Component {
 	constructor(props) {
-		super();
+		super(props);
 		this.store = ContentReviewStore;
 	}
 	handleClose() {

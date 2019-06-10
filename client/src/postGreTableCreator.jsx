@@ -62,8 +62,9 @@ export default class postGreTableCreator extends Reflux.Component {
 				.then(response => {
 					if (!response.data.status) {
 						ContentReviewerActions.showError(response.data.msg.toString(), this.state);
+						console.log("The response ", response);
 					}
-					console.log("The response ", response);
+					
 				})
 				.catch(error => {
 					ContentReviewerActions.showError(error.toString(), this.state);
