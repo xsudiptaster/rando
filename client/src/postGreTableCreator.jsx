@@ -1,9 +1,9 @@
+import Modal from "@material-ui/core/Modal";
 import axios from "axios";
 import React from "react";
 import "./App.css";
 import ErrorAndLoading from "./errorAndLoading";
 import "./lightning-design/styles/salesforce-lightning-design-system.css";
-import Modal from "@material-ui/core/Modal";
 
 var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
@@ -13,8 +13,8 @@ export default class postGreTableCreator extends Reflux.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
-		this.state=this.store.firstdata;
-		this.state.showAddRow=false;
+		this.state = this.store.firstdata;
+		this.state.showAddRow = false;
 		this.getalltables();
 	}
 	getalltables() {
@@ -58,37 +58,41 @@ export default class postGreTableCreator extends Reflux.Component {
 			dat.push(this.state.currentTableValues[rowNo][fieldName]);
 			ContentReviewerActions.stateupdates(this.state);
 			axios
-				.post("/api/runUpdateQuery", {
-					oquery: oq,
-					dataValue: dat,
-				},{
-					timeout: 50000,
-				})
+				.post(
+					"/api/runUpdateQuery",
+					{
+						oquery: oq,
+						dataValue: dat,
+					},
+					{
+						timeout: 50000,
+					},
+				)
 				.then(response => {
 					if (!response.data.status) {
 						ContentReviewerActions.showError(response.data.msg.toString(), this.state);
 						console.log("The response ", response);
 					}
-					
 				})
 				.catch(error => {
 					console.log(error);
 				});
 		} else {
-			var oq= 'INSERT INTO '+this.state.selectTable+'(';
-			var columns= '';
+			var oq = "INSERT INTO " + this.state.selectTable + "(";
+			var columns = "";
 			//INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00, '2007-12-13' ), (5, 'David', 27, 'Texas', 85000.00, '2007-12-13');
 		}
 	}
 	addRow() {
-		this.state.showAddRow=true;
+		this.state.showAddRow = true;
+		ContentReviewerActions.stateupdates(this.state);
 	}
 	render() {
 		var listTables = [];
 		var headers = [];
 		var valuesToDisplay = [];
-		var listEvenHeader= [];
-		var listOddHeader=[];
+		var listEvenHeader = [];
+		var listOddHeader = [];
 		if (this.state && this.state.allPostGresTables != undefined) {
 			listTables = this.state.allPostGresTables;
 			console.log("The state inside is", this.state.allPostGresTables);
@@ -101,10 +105,10 @@ export default class postGreTableCreator extends Reflux.Component {
 		}
 		if (this.state && this.state.currentTableHeaders != undefined) {
 			headers = this.state.currentTableHeaders;
-			for (var i=0;i<this.state.currentTableHeaders.length;i++){
-				if (i%2==0){
-					listEvenHeader.push(this.state.currentTableHeaders[i]);	
-				}else{
+			for (var i = 0; i < this.state.currentTableHeaders.length; i++) {
+				if (i % 2 == 0) {
+					listEvenHeader.push(this.state.currentTableHeaders[i]);
+				} else {
 					listOddHeader.push(this.state.currentTableHeaders[i]);
 				}
 			}
@@ -187,6 +191,7 @@ export default class postGreTableCreator extends Reflux.Component {
 										<input
 											class="slds-button slds-button_neutral"
 											value="Add New Row"
+											type="button"
 											onClick={() => this.addRow()}
 											style={{
 												display:
@@ -205,47 +210,43 @@ export default class postGreTableCreator extends Reflux.Component {
 				</table>
 				<ErrorAndLoading />
 				<Modal open={this.state.showAddRow}>
-						<div >
-							<div
-								style={{
-									height: "100%",
-									width: "100%",
-									zIndex: "10",
-									backgroundColor: "rgba(0,0,0,0.3)",
-									top: 0,
-									left: 0,
-								}}>
-								<table>
-									<tr>
-										<td>
-											<table>
-												{listEvenHeader.map(value1=>(
-													<tr>
-														<td>
-															{value1}
-														</td>
-													</tr>
-												))}
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
+					<div>
+						<div
+							style={{
+								height: "100%",
+								width: "100%",
+								zIndex: "10",
+								backgroundColor: "rgba(0,0,0,0.3)",
+								top: 0,
+								left: 0,
+							}}>
+							<table>
+								<tr>
+									<td>
 										<table>
-												{listOddHeader.map(value1=>(
-													<tr>
-														<td>
-															{value1}
-														</td>
-													</tr>
-												))}
-											</table>
-										</td>
-									</tr>
-								</table>
-							</div>
+											{listEvenHeader.map(value1 => (
+												<tr>
+													<td>{value1}</td>
+												</tr>
+											))}
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<table>
+											{listOddHeader.map(value1 => (
+												<tr>
+													<td>{value1}</td>
+												</tr>
+											))}
+										</table>
+									</td>
+								</tr>
+							</table>
 						</div>
-					</Modal>
+					</div>
+				</Modal>
 			</div>
 		);
 	}
