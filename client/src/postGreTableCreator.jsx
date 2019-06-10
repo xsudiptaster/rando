@@ -13,6 +13,7 @@ export default class postGreTableCreator extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 		this.state=this.store.firstdata;
+		this.state.showAddRow=false;
 		this.getalltables();
 	}
 	getalltables() {
@@ -73,10 +74,13 @@ export default class postGreTableCreator extends Reflux.Component {
 					console.log(error);
 				});
 		} else {
+			var oq= 'INSERT INTO '+this.state.selectTable+'(';
+			var columns= 
 			//INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00, '2007-12-13' ), (5, 'David', 27, 'Texas', 85000.00, '2007-12-13');
 		}
 	}
 	addRow() {
+		this.state.showAddRow=true;
 		if (this.state.currentTableHeaders.length > 0) {
 			var newObj = {};
 			for (var i = 0; i < this.state.currentTableHeaders.length; i++) {
@@ -90,6 +94,8 @@ export default class postGreTableCreator extends Reflux.Component {
 		var listTables = [];
 		var headers = [];
 		var valuesToDisplay = [];
+		var listEvenHeader= [];
+		var listOddHeader=[];
 		if (this.state && this.state.allPostGresTables != undefined) {
 			listTables = this.state.allPostGresTables;
 			console.log("The state inside is", this.state.allPostGresTables);
@@ -99,6 +105,16 @@ export default class postGreTableCreator extends Reflux.Component {
 		}
 		if (this.state && this.state.currentTableValues != undefined) {
 			valuesToDisplay = this.state.currentTableValues;
+		}
+		if (this.state && this.state.currentTableHeaders != undefined) {
+			headers = this.state.currentTableHeaders;
+			for (var i=0;i<this.state.currentTableHeaders.length;i++){
+				if (i%2==0){
+					listEvenHeader.push(this.state.currentTableHeaders[i]);	
+				}else{
+					listOddHeader.push(this.state.currentTableHeaders[i]);
+				}
+			}
 		}
 		return (
 			<div className="slds-grid">
@@ -195,6 +211,48 @@ export default class postGreTableCreator extends Reflux.Component {
 					</tr>
 				</table>
 				<ErrorAndLoading />
+				<Modal open={this.state.showAddRow}>
+						<div >
+							<div
+								style={{
+									height: "100%",
+									width: "100%",
+									zIndex: "10",
+									backgroundColor: "rgba(0,0,0,0.3)",
+									top: 0,
+									left: 0,
+								}}>
+								<table>
+									<tr>
+										<td>
+											<table>
+												{listEvenHeader.map(value1=>(
+													<tr>
+														<td>
+															{value1}
+														</td>
+													</tr>
+												))}
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<table>
+												{listOddHeader.map(value1=>(
+													<tr>
+														<td>
+															{value1}
+														</td>
+													</tr>
+												))}
+											</table>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</Modal>
 			</div>
 		);
 	}
