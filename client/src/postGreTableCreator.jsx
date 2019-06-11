@@ -14,8 +14,8 @@ export default class postGreTableCreator extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 		this.state = this.store.firstdata;
+		this.state.newObj = {};
 		this.state.showAddRow = false;
-		this.state.newObj={};
 		this.getalltables();
 	}
 	getalltables() {
@@ -86,7 +86,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	addRow() {
 		this.state.showAddRow = true;
-		this.state.newObj={};
+		this.state.newObj = {};
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	callSaveOfNew() {
