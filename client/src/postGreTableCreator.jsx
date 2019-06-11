@@ -219,7 +219,10 @@ export default class postGreTableCreator extends Reflux.Component {
 				</table>
 				<ErrorAndLoading />
 				<div className="slds-align_absolute-center">
-					<Modal open={this.state.showAddRow} style={{ height: "100%" }}>
+					<Modal
+						open={this.state.showAddRow}
+						style={{ height: "100%" }}
+						className="slds-align_absolute-center">
 						<div className="slds-align_absolute-center">
 							<div
 								style={{
@@ -237,6 +240,9 @@ export default class postGreTableCreator extends Reflux.Component {
 													{listEvenHeader.map(value1 => (
 														<tr>
 															<td>{value1}</td>
+															<td>
+																<input type="text" />
+															</td>
 														</tr>
 													))}
 												</table>
