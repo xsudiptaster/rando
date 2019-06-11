@@ -16,6 +16,7 @@ export default class postGreTableCreator extends Reflux.Component {
 		this.state = this.store.firstdata;
 		this.state.showAddRow = false;
 		this.getalltables();
+		this.newObj = {};
 	}
 	getalltables() {
 		axios
@@ -119,6 +120,7 @@ export default class postGreTableCreator extends Reflux.Component {
 				} else {
 					listOddHeader.push(this.state.currentTableHeaders[i]);
 				}
+				this.newObj[this.state.currentTableHeaders[i]] = "";
 			}
 		}
 		return (
@@ -197,7 +199,7 @@ export default class postGreTableCreator extends Reflux.Component {
 								<tr>
 									<td>
 										<input
-											class="slds-button slds-button_neutral"
+											className="slds-button slds-button_neutral"
 											value="Add New Row"
 											type="button"
 											onClick={() => this.addRow()}
@@ -222,6 +224,7 @@ export default class postGreTableCreator extends Reflux.Component {
 						open={this.state.showAddRow}
 						style={{ height: "100%" }}
 						className="slds-align_absolute-center">
+						<div style={{ paddingBottom: "100Px" }}>Insert Object Info</div>
 						<div>
 							<div
 								style={{
@@ -232,25 +235,28 @@ export default class postGreTableCreator extends Reflux.Component {
 								}}
 								className="slds-align_absolute-center">
 								<div style={{ alignItems: "center" }}>
-									<table class="slds-table">
+									<table className="slds-table">
 										<tr>
 											<td>
-												<table>
+												<table className="slds-table">
 													{listEvenHeader.map(value1 => (
 														<tr>
 															<td>{value1}</td>
-															<td><input type="text"/></td>
-
+															<td>
+																<input type="text" value={this.newObj[value1]} />
+															</td>
 														</tr>
 													))}
 												</table>
 											</td>
 											<td>
-												<table>
+												<table className="slds-table">
 													{listOddHeader.map(value1 => (
 														<tr>
 															<td>{value1}</td>
-															<td><input type="text"/></td>
+															<td>
+																<input type="text" />
+															</td>
 														</tr>
 													))}
 												</table>
@@ -261,6 +267,7 @@ export default class postGreTableCreator extends Reflux.Component {
 												<input
 													type="button"
 													value="Cancel"
+													className="slds-button slds-button_neutral"
 													onClick={() => this.cancelScreen()}
 												/>
 											</td>
@@ -268,6 +275,7 @@ export default class postGreTableCreator extends Reflux.Component {
 												<input
 													type="button"
 													value="Save"
+													className="slds-button slds-button_neutral"
 													onClick={() => this.callSaveOfNew()}
 												/>
 											</td>
