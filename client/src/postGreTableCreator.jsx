@@ -15,6 +15,7 @@ export default class postGreTableCreator extends Reflux.Component {
 		this.store = ContentReviewStore;
 		this.state = this.store.firstdata;
 		this.state.showAddRow = false;
+		this.state.newObj={};
 		this.getalltables();
 	}
 	getalltables() {
