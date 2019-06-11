@@ -223,8 +223,7 @@ export default class postGreTableCreator extends Reflux.Component {
 				<div className="slds-align_absolute-center">
 					<Modal
 						open={this.state.showAddRow}
-						style={{ height: "100%" }}
-						className="slds-align_absolute-center">
+						>
 						<div style={{ paddingBottom: "100Px" }}>Insert Object Info</div>
 						<div>
 							<div
