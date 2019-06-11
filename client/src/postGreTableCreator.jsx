@@ -10,7 +10,6 @@ var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class postGreTableCreator extends Reflux.Component {
-	newObj={};
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
@@ -86,6 +85,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	addRow() {
 		this.state.showAddRow = true;
+		this.state.newObj={};
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	callSaveOfNew() {
@@ -120,7 +120,7 @@ export default class postGreTableCreator extends Reflux.Component {
 				} else {
 					listOddHeader.push(this.state.currentTableHeaders[i]);
 				}
-				this.newObj[this.state.currentTableHeaders[i]] = "";
+				this.state.newObj[this.state.currentTableHeaders[i]] = "";
 			}
 		}
 		return (
@@ -243,7 +243,7 @@ export default class postGreTableCreator extends Reflux.Component {
 														<tr>
 															<td>{value1}</td>
 															<td>
-																<input type="text" value={this.newObj[value1]} />
+																<input type="text" value={this.state.newObj[value1]} />
 															</td>
 														</tr>
 													))}
