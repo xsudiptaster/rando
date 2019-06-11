@@ -87,6 +87,14 @@ export default class postGreTableCreator extends Reflux.Component {
 		this.state.showAddRow = true;
 		ContentReviewerActions.stateupdates(this.state);
 	}
+	callSaveOfNew() {
+		this.state.showAddRow = false;
+		ContentReviewerActions.stateupdates(this.state);
+	}
+	cancelScreen() {
+		this.state.showAddRow = false;
+		ContentReviewerActions.stateupdates(this.state);
+	}
 	render() {
 		var listTables = [];
 		var headers = [];
@@ -217,39 +225,41 @@ export default class postGreTableCreator extends Reflux.Component {
 								width: "100%",
 								zIndex: "10",
 								backgroundColor: "white",
-								top: 0,
-								left: 0,
+								top: "100px",
+								left: "100px",
 							}}>
-							<table class="slds-table">
-								<tr>
-									<td>
-										<table>
-											{listEvenHeader.map(value1 => (
-												<tr>
-													<td>{value1}</td>
-												</tr>
-											))}
-										</table>
-									</td>
-									<td>
-										<table>
-											{listOddHeader.map(value1 => (
-												<tr>
-													<td>{value1}</td>
-												</tr>
-											))}
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<input type="button" value="Cancel" />
-									</td>
-									<td>
-										<input type="button" value="Save" />
-									</td>
-								</tr>
-							</table>
+							<div style={{ alignItems: "center" }}>
+								<table class="slds-table">
+									<tr>
+										<td>
+											<table>
+												{listEvenHeader.map(value1 => (
+													<tr>
+														<td>{value1}</td>
+													</tr>
+												))}
+											</table>
+										</td>
+										<td>
+											<table>
+												{listOddHeader.map(value1 => (
+													<tr>
+														<td>{value1}</td>
+													</tr>
+												))}
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="button" value="Cancel" />
+										</td>
+										<td>
+											<input type="button" value="Save" />
+										</td>
+									</tr>
+								</table>
+							</div>
 						</div>
 					</div>
 				</Modal>
