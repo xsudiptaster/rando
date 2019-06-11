@@ -239,6 +239,8 @@ export default class postGreTableCreator extends Reflux.Component {
 													{listEvenHeader.map(value1 => (
 														<tr>
 															<td>{value1}</td>
+															<td><input type="text"/></td>
+
 														</tr>
 													))}
 												</table>
@@ -248,6 +250,7 @@ export default class postGreTableCreator extends Reflux.Component {
 													{listOddHeader.map(value1 => (
 														<tr>
 															<td>{value1}</td>
+															<td><input type="text"/></td>
 														</tr>
 													))}
 												</table>
