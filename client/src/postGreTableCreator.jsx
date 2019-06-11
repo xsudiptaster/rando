@@ -218,16 +218,15 @@ export default class postGreTableCreator extends Reflux.Component {
 				</table>
 				<ErrorAndLoading />
 				<Modal open={this.state.showAddRow}>
-					<div>
+					<div style={{ height: "100%" }}>
 						<div
 							style={{
 								height: "100%",
 								width: "100%",
 								zIndex: "10",
 								backgroundColor: "white",
-								top: "100px",
-								left: "100px",
-							}}>
+							}}
+							className="slds-align_absolute-center">
 							<div style={{ alignItems: "center" }}>
 								<table class="slds-table">
 									<tr>
