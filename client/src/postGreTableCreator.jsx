@@ -14,7 +14,6 @@ export default class postGreTableCreator extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 		this.state = this.store.firstdata;
-
 		this.state.showAddRow = false;
 		this.getalltables();
 	}
@@ -86,7 +85,6 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	addRow() {
 		this.state.showAddRow = true;
-
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	callSaveOfNew() {
@@ -199,7 +197,7 @@ export default class postGreTableCreator extends Reflux.Component {
 								<tr>
 									<td>
 										<input
-											className="slds-button slds-button_neutral"
+											class="slds-button slds-button_neutral"
 											value="Add New Row"
 											type="button"
 											onClick={() => this.addRow()}
@@ -219,70 +217,51 @@ export default class postGreTableCreator extends Reflux.Component {
 					</tr>
 				</table>
 				<ErrorAndLoading />
-				<div className="slds-align_absolute-center">
-					<Modal>
-						<div style={{ paddingBottom: "100Px" }}>Insert Object Info</div>
-						<div>
-							<div
-								style={{
-									height: "100%",
-									width: "100%",
-									zIndex: "10",
-									backgroundColor: "white",
-								}}
-								className="slds-align_absolute-center">
-								<div style={{ alignItems: "center" }}>
-									<table className="slds-table">
-										<tr>
-											<td>
-												<table className="slds-table">
-													{listEvenHeader.map(value1 => (
-														<tr>
-															<td>{value1}</td>
-															<td>
-																<input type="text" />
-															</td>
-														</tr>
-													))}
-												</table>
-											</td>
-											<td>
-												<table className="slds-table">
-													{listOddHeader.map(value1 => (
-														<tr>
-															<td>{value1}</td>
-															<td>
-																<input type="text" />
-															</td>
-														</tr>
-													))}
-												</table>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<input
-													type="button"
-													value="Cancel"
-													className="slds-button slds-button_neutral"
-													onClick={() => this.cancelScreen()}
-												/>
-											</td>
-											<td>
-												<input
-													type="button"
-													value="Save"
-													className="slds-button slds-button_neutral"
-													onClick={() => this.callSaveOfNew()}
-												/>
-											</td>
-										</tr>
-									</table>
-								</div>
+				<Modal open={this.state.showAddRow} style={{ height: "100%" }}>
+					<div className="slds-align_absolute-center">
+						<div
+							style={{
+								height: "100%",
+								width: "100%",
+								zIndex: "10",
+								backgroundColor: "white",
+							}}
+							className="slds-align_absolute-center">
+							<div style={{ alignItems: "center" }}>
+								<table class="slds-table">
+									<tr>
+										<td>
+											<table>
+												{listEvenHeader.map(value1 => (
+													<tr>
+														<td>{value1}</td>
+													</tr>
+												))}
+											</table>
+										</td>
+										<td>
+											<table>
+												{listOddHeader.map(value1 => (
+													<tr>
+														<td>{value1}</td>
+													</tr>
+												))}
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="button" value="Cancel" onClick={() => this.cancelScreen()} />
+										</td>
+										<td>
+											<input type="button" value="Save" onClick={() => this.callSaveOfNew()} />
+										</td>
+									</tr>
+								</table>
 							</div>
 						</div>
-					</Modal>
-				</div>
+					</div>
+				</Modal>
 			</div>
 		);
 	}
