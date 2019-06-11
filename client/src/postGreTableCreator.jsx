@@ -14,9 +14,8 @@ export default class postGreTableCreator extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 		this.state = this.store.firstdata;
-		this.state.newObj = {};
+		this.state.newObj={};
 		this.state.showAddRow = false;
-		ContentReviewerActions.stateupdates(this.state);
 		this.getalltables();
 	}
 	getalltables() {
@@ -87,7 +86,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	addRow() {
 		this.state.showAddRow = true;
-		this.state.newObj = {};
+		this.state.newObj={};
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	callSaveOfNew() {
@@ -222,7 +221,10 @@ export default class postGreTableCreator extends Reflux.Component {
 				</table>
 				<ErrorAndLoading />
 				<div className="slds-align_absolute-center">
-					<Modal>
+					<Modal
+						open={this.state.showAddRow}
+						style={{ height: "100%" }}
+						className="slds-align_absolute-center">
 						<div style={{ paddingBottom: "100Px" }}>Insert Object Info</div>
 						<div>
 							<div
@@ -242,7 +244,7 @@ export default class postGreTableCreator extends Reflux.Component {
 														<tr>
 															<td>{value1}</td>
 															<td>
-																<input type="text" value={this.state.newObj[value1]} />
+																<input type="text"  />
 															</td>
 														</tr>
 													))}
