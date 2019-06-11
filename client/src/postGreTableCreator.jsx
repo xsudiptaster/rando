@@ -10,13 +10,13 @@ var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
 export default class postGreTableCreator extends Reflux.Component {
+	newObj={};
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
 		this.state = this.store.firstdata;
 		this.state.showAddRow = false;
 		this.getalltables();
-		this.newObj = {};
 	}
 	getalltables() {
 		axios
