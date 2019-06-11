@@ -217,51 +217,64 @@ export default class postGreTableCreator extends Reflux.Component {
 					</tr>
 				</table>
 				<ErrorAndLoading />
-				<Modal open={this.state.showAddRow} style={{ height: "100%" }}>
-					<div>
-						<div
-							style={{
-								height: "100%",
-								width: "100%",
-								zIndex: "10",
-								backgroundColor: "white",
-							}}
-							className="slds-align_absolute-center">
-							<div style={{ alignItems: "center" }}>
-								<table class="slds-table">
-									<tr>
-										<td>
-											<table>
-												{listEvenHeader.map(value1 => (
-													<tr>
-														<td>{value1}</td>
-													</tr>
-												))}
-											</table>
-										</td>
-										<td>
-											<table>
-												{listOddHeader.map(value1 => (
-													<tr>
-														<td>{value1}</td>
-													</tr>
-												))}
-											</table>
-										</td>
-									</tr>
-									<tr>
-										<td>
-											<input type="button" value="Cancel" onClick={() => this.cancelScreen()} />
-										</td>
-										<td>
-											<input type="button" value="Save" onClick={() => this.callSaveOfNew()} />
-										</td>
-									</tr>
-								</table>
+				<div className="slds-align_absolute-center">
+					<Modal
+						open={this.state.showAddRow}
+						style={{ height: "100%" }}
+						className="slds-align_absolute-center">
+						<div>
+							<div
+								style={{
+									height: "100%",
+									width: "100%",
+									zIndex: "10",
+									backgroundColor: "white",
+								}}
+								className="slds-align_absolute-center">
+								<div style={{ alignItems: "center" }}>
+									<table class="slds-table">
+										<tr>
+											<td>
+												<table>
+													{listEvenHeader.map(value1 => (
+														<tr>
+															<td>{value1}</td>
+														</tr>
+													))}
+												</table>
+											</td>
+											<td>
+												<table>
+													{listOddHeader.map(value1 => (
+														<tr>
+															<td>{value1}</td>
+														</tr>
+													))}
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input
+													type="button"
+													value="Cancel"
+													onClick={() => this.cancelScreen()}
+												/>
+											</td>
+											<td>
+												<input
+													type="button"
+													value="Save"
+													onClick={() => this.callSaveOfNew()}
+												/>
+											</td>
+										</tr>
+									</table>
+								</div>
 							</div>
 						</div>
-					</div>
-				</Modal>
+					</Modal>
+				</div>
 			</div>
 		);
 	}
