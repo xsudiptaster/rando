@@ -217,8 +217,8 @@ export default class postGreTableCreator extends Reflux.Component {
 					</tr>
 				</table>
 				<ErrorAndLoading />
-				<Modal open={this.state.showAddRow}>
-					<div style={{ height: "100%" }}>
+				<Modal open={this.state.showAddRow} style={{ height: "100%" }}>
+					<div>
 						<div
 							style={{
 								height: "100%",
@@ -251,10 +251,10 @@ export default class postGreTableCreator extends Reflux.Component {
 									</tr>
 									<tr>
 										<td>
-											<input type="button" value="Cancel" />
+											<input type="button" value="Cancel" onClick={() => this.cancelScreen()} />
 										</td>
 										<td>
-											<input type="button" value="Save" />
+											<input type="button" value="Save" onClick={() => this.callSaveOfNew()} />
 										</td>
 									</tr>
 								</table>
