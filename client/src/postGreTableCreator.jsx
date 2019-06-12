@@ -86,6 +86,7 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	addRow() {
 		this.state.showAddRow = true;
+		this, (state.newObj = {});
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	callSaveOfNew() {
@@ -95,6 +96,10 @@ export default class postGreTableCreator extends Reflux.Component {
 	cancelScreen() {
 		this.state.showAddRow = false;
 		ContentReviewerActions.stateupdates(this.state);
+	}
+	onChangeNewObject(headerVal, event) {
+		this, (state.newObj[headerVal] = event.target.value);
+		console.log("The Value", event.target.value);
 	}
 	render() {
 		var listTables = [];
@@ -243,7 +248,11 @@ export default class postGreTableCreator extends Reflux.Component {
 																<div className="slds-text-heading_small">{value1}</div>
 															</td>
 															<td>
-																<input className="slds-input" type="text" ref={value1} />
+																<input
+																	className="slds-input"
+																	type="text"
+																	onChange={this.onChangeNewObject.bind(this, value1)}
+																/>
 															</td>
 														</tr>
 													))}
@@ -257,7 +266,11 @@ export default class postGreTableCreator extends Reflux.Component {
 																<div className="slds-text-heading_small">{value2}</div>
 															</td>
 															<td>
-																<input className="slds-input" type="text"  />
+																<input
+																	className="slds-input"
+																	type="text"
+																	onChange={this.onChangeNewObject.bind(this, value2)}
+																/>
 															</td>
 														</tr>
 													))}
