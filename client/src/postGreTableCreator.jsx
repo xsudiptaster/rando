@@ -98,7 +98,7 @@ export default class postGreTableCreator extends Reflux.Component {
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	onChangeNewObject(headerVal, event) {
-		this, (state.newObj[headerVal] = event.target.value);
+		this.state.newObj[headerVal] = event.target.value;
 		console.log("The Value", event.target.value);
 	}
 	render() {
