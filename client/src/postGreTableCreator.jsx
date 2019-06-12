@@ -232,14 +232,16 @@ export default class postGreTableCreator extends Reflux.Component {
 									backgroundColor: "white",
 								}}
 								className="slds-align_absolute-center">
-								<div style={{ alignItems: "center" }} >
+								<div style={{ alignItems: "center" }}>
 									<table className="slds-table">
 										<tr>
 											<td>
 												<table className="slds-table">
 													{listEvenHeader.map(value1 => (
 														<tr>
-															<td>{value1}</td>
+															<td>
+																<div className="slds-text-heading_small">{value1}</div>
+															</td>
 															<td>
 																<input type="text" />
 															</td>
@@ -249,9 +251,11 @@ export default class postGreTableCreator extends Reflux.Component {
 											</td>
 											<td>
 												<table className="slds-table">
-													{listOddHeader.map(value1 => (
+													{listOddHeader.map(value2 => (
 														<tr>
-															<td>{value1}</td>
+															<td>
+																<div className="slds-text-heading_small">{value2}</div>
+															</td>
 															<td>
 																<input type="text" />
 															</td>
