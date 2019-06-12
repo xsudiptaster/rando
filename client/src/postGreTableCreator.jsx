@@ -243,7 +243,7 @@ export default class postGreTableCreator extends Reflux.Component {
 																<div className="slds-text-heading_small">{value1}</div>
 															</td>
 															<td>
-																<input className="slds-input" type="text" />
+																<input className="slds-input" type="text" ref={value1} />
 															</td>
 														</tr>
 													))}
@@ -257,7 +257,7 @@ export default class postGreTableCreator extends Reflux.Component {
 																<div className="slds-text-heading_small">{value2}</div>
 															</td>
 															<td>
-																<input className="slds-input" type="text" />
+																<input className="slds-input" type="text"  />
 															</td>
 														</tr>
 													))}
