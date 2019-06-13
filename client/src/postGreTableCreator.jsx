@@ -79,7 +79,6 @@ export default class postGreTableCreator extends Reflux.Component {
 					console.log(error);
 				});
 		} else {
-			
 			//INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY,JOIN_DATE) VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00, '2007-12-13' ), (5, 'David', 27, 'Texas', 85000.00, '2007-12-13');
 		}
 	}
@@ -90,19 +89,22 @@ export default class postGreTableCreator extends Reflux.Component {
 	}
 	callSaveOfNew() {
 		this.state.showAddRow = false;
-		var oq = "INSERT INTO " + this.state.selectTable + this.state.currentTableHeaders.toString();
-		console.log('The InsertQuery',oq);
-			var columns = "";
+		var oq = "INSERT INTO " + this.state.selectTable + "(" + this.state.currentTableHeaders.toString() + ") VALUES";
+		var values = [];
+		for (var i = 0; i < this.state.currentTableHeaders.length; i++) {
+			values.push(this.state.newObj[this.state.currentTableHeaders[i]]);
+		}
+		oq = oq + "(" + values.toString() + ")";
+		console.log("The InsertQuery", oq);
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	cancelScreen() {
 		this.state.showAddRow = false;
-		this.state.newObj={};
+		this.state.newObj = {};
 		ContentReviewerActions.stateupdates(this.state);
 	}
 	onChangeNewObject(headerVal, event) {
 		this.state.newObj[headerVal] = event.target.value;
-		
 	}
 	render() {
 		var listTables = [];
