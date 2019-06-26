@@ -204,7 +204,6 @@ export default class MappingTable extends Reflux.Component {
 					this.state.objectMapping[panls[l]].ExtFromSheet != undefined
 				) {
 					Headers[panls[l]] = this.state.objectMapping[panls[l]].sheetHeaders;
-
 					Headers[panls[l]].splice(
 						Headers[panls[l]].indexOf(this.state.objectMapping[panls[l]].ExtFromSheet),
 						1,
@@ -325,7 +324,8 @@ export default class MappingTable extends Reflux.Component {
 																	val
 																] != undefined &&
 																this.state.objectMapping[value].sheetObjectFields[val]
-																	.ObjectName != undefined 
+																	.ObjectName != undefined && this.state.ObjectDesb[this.state.objectMapping[value].sheetObjectFields[val]
+																	.ObjectName] == undefined 
 																	? "block"
 																	: "none",
 														}}>
@@ -345,16 +345,8 @@ export default class MappingTable extends Reflux.Component {
 														style={{
 															width: "200px!",
 															display:
-																extrDesbs[
-																	this.state.objectMapping[value].sheetObjectFields[
-																		val
-																	]
-																] != undefined &&
-																extrDesbs[
-																	this.state.objectMapping[value].sheetObjectFields[
-																		val
-																	].ObjectName
-																].length != 0
+															this.state.ObjectDesb[this.state.objectMapping[value].sheetObjectFields[val]
+															.ObjectName] != undefined 
 																	? "block"
 																	: "none",
 														}}
