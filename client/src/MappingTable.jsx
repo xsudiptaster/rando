@@ -110,7 +110,7 @@ export default class MappingTable extends Reflux.Component {
 			this.callNextSheetInsert(SheetName);
 		}
 	}
-	
+
 	callupsertAccordingly(SheetName, JsonString) {
 		axios
 			.post(
@@ -217,14 +217,16 @@ export default class MappingTable extends Reflux.Component {
 		}
 		if (this.state && this.state.ObjectDesb != undefined) {
 			for (var i = 0; i < Object.keys(this.state.ObjectDesb).length; i++) {
-				extrDesbs[Object.keys(this.state.ObjectDesb)[i]] = [];
-				for (var j = 0; j < this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields.length; j++) {
+				extrDesbs[Object.keys(this.state.ObjectDesb)[i]] = this.state.ObjectDesb[
+					Object.keys(this.state.ObjectDesb)[i]
+				].fields;
+				/*	for (var j = 0; j < this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields.length; j++) {
 					if (this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j].externalId == true) {
 						extrDesbs[Object.keys(this.state.ObjectDesb)[i]].push(
 							this.state.ObjectDesb[Object.keys(this.state.ObjectDesb)[i]].fields[j],
 						);
 					}
-				}
+				}*/
 			}
 		}
 
