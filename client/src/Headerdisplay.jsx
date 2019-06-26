@@ -11,7 +11,7 @@ export default class Headerdisplay extends Reflux.Component {
 		super(props);
 		this.store = ContentReviewStore;
 	}
-	
+
 	componentDidMount() {}
 	render() {
 		var CurrentApp = this.state != undefined ? this.state.currentApp : "";
@@ -40,6 +40,13 @@ export default class Headerdisplay extends Reflux.Component {
 											iconText="PE"
 											href="/postgretable"
 										/>
+
+										<AppLauncherTile
+											title="Permission Handler"
+											iconText="PH"
+											description="Display Field Level Permissions of Profile and Permission Sets"
+											href="/permissionhelper"
+										/>
 									</AppLauncherSection>
 								</AppLauncher>
 							</span>
@@ -55,7 +62,7 @@ export default class Headerdisplay extends Reflux.Component {
 							</h2>
 						</div>
 						<label className="slds-text-align_center" style={{ align: "center" }}>
-						@Built by : Sudipta Karmakar
+							@Built by : Sudipta Karmakar
 						</label>
 					</header>
 					<br />

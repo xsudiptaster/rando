@@ -16,7 +16,7 @@ class App extends Reflux.Component {
 	render() {
 		return (
 			<div>
-				<div  >
+				<div>
 					<div>
 						<div className="slds-grid slds-wrap">
 							<div className="slds-col slds-size_1-of-3">
@@ -40,6 +40,14 @@ class App extends Reflux.Component {
 									iconText="UR"
 									description="Display Salesforce Table and use Heroku Connect"
 									href="/postgretable"
+								/>
+							</div>
+							<div className="slds-col slds-size_1-of-3">
+								<AppLauncherTile
+									title="Permission Handler"
+									iconText="PH"
+									description="Display Field Level Permissions of Profile and Permission Sets"
+									href="/permissionhelper"
 								/>
 							</div>
 						</div>
