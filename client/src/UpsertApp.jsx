@@ -12,7 +12,7 @@ var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 
-class UpsertApp extends Reflux.Component {
+class UpsertApp extends React.Component {
 	constructor(props) {
 		super();
 		this.store = ContentReviewStore;

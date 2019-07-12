@@ -9,7 +9,7 @@ var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
-export default class postGreTableCreator extends Reflux.Component {
+export default class postGreTableCreator extends React.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;

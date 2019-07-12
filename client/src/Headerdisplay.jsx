@@ -6,7 +6,7 @@ import { AppLauncher, AppLauncherSection, AppLauncherTile } from "@salesforce/de
 var Reflux = require("reflux");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
-export default class Headerdisplay extends Reflux.Component {
+export default class Headerdisplay extends React.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;

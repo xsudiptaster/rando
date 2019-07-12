@@ -13,7 +13,7 @@ var Reflux = require("reflux");
 var ContentReviewStore = require("./ContentReviewStore.jsx");
 var ContentReviewerActions = require("./ContentReviewerActions.jsx");
 
-export default class StatusResult extends Reflux.Component {
+export default class StatusResult extends React.Component {
 	constructor(props) {
 		super(props);
 		this.store = ContentReviewStore;
