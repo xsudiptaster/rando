@@ -4,10 +4,11 @@ var axios = require("axios");
 
 var ContentReviewerStore = Reflux.createStore({
 	// Shorthand for listening to all ContentReviewerActions
-	listenables: [ContentReviewerActions],
-	constructor() {
-		
-	},
+	constructor()
+    {
+        super();
+        this.listenables = ContentReviewerActions;
+    },
 	// Load a review when the store is initialized
 	init: function() {
 		this.firstdata = {
