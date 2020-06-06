@@ -7,6 +7,7 @@ var jsforce = require("jsforce");
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(bodyParser.json());
+app.use(cors());
 // Put all API endpoints under '/api'
 app.get("/api/passwords", (req, res) => {
   const count = 5;
