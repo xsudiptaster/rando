@@ -3,10 +3,21 @@ const path = require("path");
 const generatePassword = require("password-generator");
 const bodyParser = require("body-parser");
 const app = express();
+var cors = require("cors");
 var jsforce = require("jsforce");
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "client/build")));
 app.use(bodyParser.json());
+var whitelist = ["localhost:3000", "http://localhost:5000"];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 app.use(cors());
 // Put all API endpoints under '/api'
 app.get("/api/passwords", (req, res) => {
